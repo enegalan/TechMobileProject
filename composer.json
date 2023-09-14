@@ -1,0 +1,8 @@
+{
+    "require": {
+        "daneden/animate.css": "3.5.*",
+        "twbs/bootstrap": "5.*",
+        "components/jquery": "3.*",
+        "select2/select2": "4.*"
+    }
+}

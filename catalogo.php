@@ -1,0 +1,125 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>Catálogo | TechMobile | Eneko Galan</title>
+	<script src="https://kit.fontawesome.com/8e4bd12ccb.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
+	<link rel="stylesheet" type="text/css" href="css/scroll.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="https://unpkg.com/scrollreveal"></script>
+</head>
+
+<body style="background-color: #26282a">
+	<!--HEADER-->
+	<header id="nav-wrapper">
+		<div class="menu" id="show-menu">
+			<nav id="nav">
+				<div class="nav left">
+					<span class="gradient skew">
+						<h1 class="logo un-skew"><a href="index.php">TechMobile</a></h1>
+					</span>
+				</div>
+				<div class="nav right">
+					<!--Header Links-->
+					<?php include 'components/header_links.php';?>
+                    <!-- Dropdown Menu -->
+                    <nav class="c-dropdown js-dropdown">
+                        <div class="user-form">
+                            <?php include 'components/header_user_dropdown.php'; ?>
+                        </div>
+                    </nav>
+					<!--Search Icon-->
+					<a id="ctn-icon-search" class="nav-link menu-default menu-exception">
+						<span class="nav-link-span">
+							<span class="u-nav">
+								<i class="fas fa-search" id="icon-search" aria-hidden="true"></i>
+							</span>
+						</span>
+					</a>
+				</div>
+			</nav>
+		</div>
+		<!--Menu Bars (Mobile)-->
+		<div id="icon-menu">
+			<i class="fas fa-bars"></i>
+		</div>
+	</header>
+	<!--Search input-->
+	<div id="ctn-bars-search">
+		<input type="text" id="inputSearch" placeholder="¿Qué deseas buscar?">
+	</div>
+	<!--Search Box Results-->
+	<ul id="box-search">
+		<?php
+		include 'php/list_smartphones.php';
+		?>
+	</ul>
+	<div id="cover-ctn-search"></div>
+    <!--------->
+	<div id="contenidoprincipal producto" class="wpb_row vc_row-fluid vc_row standard_section greyBx">
+		<nav class="page-header-top-nav" id="#categoriasnav">
+			<div class="page-header-top-nav-inside">
+				<ul class="snippet-top-level-nav" id="snippet-top-level-nav">
+					<?php
+					include 'php/list_manufacturers.php';
+					for ($i = 0; $i < count($manufacturers); $i++) {
+						$url = "manufacturer.php?id=" . $manufacturers[$i]['id'];
+						echo "<li><a href='" . $url . "'>" . ucfirst($manufacturers[$i]['name']) . "</a></li>";
+					}
+					$query->close();
+					$conn->close();
+					?>
+				</ul>
+			</div>
+		</nav>
+		<br>
+		<?php
+		for ($i = 0; $i < count($smartphones); $i++) {
+			$defaultColor = explode(",", $smartphones[$i]['colors'])[0];
+			echo '
+			<div class="articulo">
+            	<div class="logoBx ' . $smartphones[$i]["manufacturer_name"] . '">
+               		<img src="productos/' . $smartphones[$i]["manufacturer_name"] . '/logo.png">
+            	</div>
+           	<div class="imgBx">
+                <img class="loading" src="productos/' . $smartphones[$i]["manufacturer_name"] . '/img/catalogo/' . $smartphones[$i]["thumbnail_name"] . '.png">
+                <div class="esqueleto"></div>
+            </div>
+            <div class="contentBx">
+                <h2>' . $smartphones[$i]["title"] . '</h2>
+                <div class="precioBx">' . $smartphones[$i]["price"] . '€</div>
+                <a href="smartphone.php?id=' . $smartphones[$i]["id"] . '&color=' . $defaultColor . '">Comprar ahora</a>
+            </div>
+        </div>
+        ';
+		}
+		?>
+
+	</div>
+	<a href="#" class="cd-top text-replace js-cd-top">Subir</a>
+	</div>
+	<script src="js/browser.js"></script>
+	<script src="js/reveal.js"></script>
+	<script src="js/userModal.js"></script>
+    <?php 
+        if(isset($_SESSION['id'])){
+            echo '<script src="js/cart.js"></script>';
+        }
+    ?>
+	<script src="js/auth.js"></script>
+</body>
+
+</html>
+<!--
+███████╗███╗░░██╗███████╗██╗░░██╗░█████╗░
+██╔════╝████╗░██║██╔════╝██║░██╔╝██╔══██╗
+█████╗░░██╔██╗██║█████╗░░█████═╝░██║░░██║
+██╔══╝░░██║╚████║██╔══╝░░██╔═██╗░██║░░██║
+███████╗██║░╚███║███████╗██║░╚██╗╚█████╔╝
+╚══════╝╚═╝░░╚══╝╚══════╝╚═╝░░╚═╝░╚════╝░
+-->
