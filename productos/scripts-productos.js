@@ -146,7 +146,10 @@ document.addEventListener("DOMContentLoaded", function(){
     }
     
     function slideNext() { 
+        
         var selected = getSelectedMedia();
+        console.log("selected: ",selected);
+        console.log("media length: ", media)
         if (selected === media.length - 1) {
             slideFirst();
         } else {
@@ -214,4 +217,3 @@ document.addEventListener("DOMContentLoaded", function(){
         });
     }
 });
-

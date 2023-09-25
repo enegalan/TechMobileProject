@@ -850,7 +850,9 @@ input.block_quantity__number:focus {
     transition: .5s ease-in;
 }
 
-.media_container > img{
+.opinion_user > img{
+    width: 50px;
+    height: 50px;
 }
 
 .media_container > img{
