@@ -9,3 +9,6 @@ Sistema Dark/Light
 Sistema de Orders
 
 //FIXES
+
+En scripts-productos.js se están obteniendos todas las imagenes de todas las opiniones, hay que diferenciar las imagenes que se captan al hacer el conteo de las imagenes que se van a iterar para indexar en el array
+Falta imprimir datos de la DB en las opiniones IMPORTANTE.

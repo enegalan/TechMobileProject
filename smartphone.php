@@ -1,4 +1,5 @@
 ﻿<?php 
+    //Get Smartphone data via GET ?id and ?color
     if(isset($_GET['id']) && isset($_GET['color'])){
         include 'php/conn.php';
         $id = $_GET['id'];

@@ -4,7 +4,7 @@
 
 if($_GET['id']){
     include 'conn.php';
-    $smartphone_id = $_GET['smartphone_id'];
+    $smartphone_id = $_GET['id'];
     $query = $conn->prepare("SELECT O.id, O.user_id, U.name, U.surname, U.gravatar, O.smartphone_id, O.rating_id, O.quote, O.advantages, O.disadvantages, O.recommended, O.date, O.verified FROM opinions O INNER JOIN users U on O.user_id = U.id WHERE smartphone_id = ?");
     $query->bind_param("i", $smartphone_id);
     $query->execute();
@@ -12,7 +12,7 @@ if($_GET['id']){
     $opinions = array();
     for($i = 0; $i < $result->num_rows; $i++){
         $opinions[] = $result->fetch_assoc();
-        $opinion = '
+        echo '
             <div id="op-' . $opinions[$i]['id'] . '" class="opinion_contenedor" data-id="' . $opinions[$i]['id'] . '">
                 <div class="datos_user">
                     <div class="opinion_user">
@@ -21,9 +21,9 @@ if($_GET['id']){
                     </div>
                     <div class="opinion_media">
                         <div class="media_container">
-                            <img aria-selected="" src="images/opinion_media/thumbnail.jpeg">
-                            <img aria-selected="" src="images/opinion_media/thumbnail.jpeg">
-                            <img aria-selected="" src="images/opinion_media/thumbnail.jpeg">
+                            <img aria-selected="" src="images/thumbnail.jpeg">
+                            <img aria-selected="" src="images/thumbnail.jpeg">
+                            <img aria-selected="" src="images/thumbnail.jpeg">
                         </div>
                         <div class="media_slider_controller">
                             <span id="media_slider_controller_previous">
