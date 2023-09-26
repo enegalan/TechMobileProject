@@ -98,122 +98,131 @@ document.addEventListener("DOMContentLoaded", function(){
     })
 
     
-
-
-    // Opinion Media Slider
-    const left_arrow = document.getElementById('media_slider_controller_previous');
-    const right_arrow = document.querySelector('#media_slider_controller_next i');
-    
-    var media = document.querySelectorAll('.media_container img');
-    left_arrow.addEventListener("click", slidePrevious);
-    right_arrow.addEventListener("click", slideNext);
-
-    var translate_x_base = -174;
-
-    var translate_x_array = [];
-    media.forEach((m, index) =>  {
-        translate_x_array.push(index);
-    });
-
-    translate_x_array.forEach(translate_x => {
-        if(translate_x === 0){
-            translate_x_array[0] = 0;
-        }else if(translate_x === 1){
-            translate_x_base = translate_x_base;
-            translate_x_array[1] = translate_x_base;
-        }else{
-            translate_x_base = translate_x_base * 2
-            translate_x_array[translate_x] = translate_x_base;
-        }
-    });
-
-    function setTranslateX(index){
-        var media_container = document.querySelector('.media_container');
-        media_container.style.transform = `translateX(${translate_x_array[index]}px)`; 
-    }
-
-    //First set the first image as selected
-    media[0].setAttribute('aria-selected', true);
-
-    function slidePrevious() {
-        var selected = getSelectedMedia();
-        if (selected === 0) {
-            slideLast();
-        } else {
-            slideTo(selected - 1);
-            setTranslateX(selected - 1);
-        }
-    }
-    
-    function slideNext() { 
-        
-        var selected = getSelectedMedia();
-        console.log("selected: ",selected);
-        console.log("media length: ", media)
-        if (selected === media.length - 1) {
-            slideFirst();
-        } else {
-            slideTo(selected + 1);
-            setTranslateX(selected + 1);
-        }
-        
-    }
-    
-    function slideTo(n) {
-        removeAllSelectedMedia();
-        setSelectedMedia(media[n]);
-    }
-    
-    function slideFirst() {
-        removeAllSelectedMedia();
-        slideTo(0);
-        setTranslateX(0);
-    }
-    
-    function slideLast() {
-        removeAllSelectedMedia();
-        slideTo(media.length - 1);
-        setTranslateX(media.length - 1);
-    }
-    
-    function setSelectedMedia(mediaElement) {
-        mediaElement.setAttribute('aria-selected', true);
-    }
-    
-    function removeAllSelectedMedia() {
-        media.forEach(m => {
-            m.setAttribute('aria-selected', "");
-        });
-    }
-    
-    function getSelectedMedia() {
-        for (let i = 0; i < media.length; i++) {
-            if (media[i].getAttribute('aria-selected')) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    // Opinion Media Slider Controllers
-    const opinion_media_slider_elements = document.querySelectorAll('.opinion_media_slider span');
-
-    // First set first slider controller active by default
-    opinion_media_slider_elements[0].setAttribute('aria-selected', true);
-
-    opinion_media_slider_elements.forEach(element => {
-        element.addEventListener("click", function() {
-            removeAllSliderControllerActive();
-            element.setAttribute('aria-selected', true);
-            console.log(parseInt(element.getAttribute('value')))
-            slideTo(parseInt(element.getAttribute('value')))
-            setTranslateX(parseInt(element.getAttribute('value')));
-        })
+    const all_opinions = document.querySelectorAll('.opinion_contenedor');
+    all_opinions.forEach(opinion =>{
+        console.log(opinion.getAttribute('data-id'))
+        initializeOpinionMediaSlider(opinion.getAttribute('data-id'))
     })
 
-    function removeAllSliderControllerActive() { 
-        opinion_media_slider_elements.forEach(slider =>{
-            slider.setAttribute('aria-selected', "");
+
+    function initializeOpinionMediaSlider(opinionId) {
+        const opinionContainer = document.querySelector(`#opinion_media_${opinionId}`);
+        const mediaContainer = opinionContainer.querySelector(`#media_container_${opinionId}`);
+        const leftArrow = opinionContainer.querySelector(`#media_slider_controller_${opinionId} #media_slider_controller_previous`);
+        const rightArrow = opinionContainer.querySelector(`#media_slider_controller_${opinionId} #media_slider_controller_next`);
+        const media = mediaContainer.querySelectorAll('img');
+        const sliderElements = opinionContainer.querySelectorAll(`#opinion_media_slider_${opinionId} span`);
+    
+        let translateXBase = -174;
+        let translateXArray = [];
+    
+        media.forEach((m, index) => {
+            translateXArray.push(index);
         });
-    }
+    
+        translateXArray.forEach(translateX => {
+            if (translateX === 0) {
+                translateXArray[0] = 0;
+            } else if (translateX === 1) {
+                translateXBase = translateXBase;
+                translateXArray[1] = translateXBase;
+            } else {
+                translateXBase = translateXBase * 2;
+                translateXArray[translateX] = translateXBase;
+            }
+        });
+    
+        leftArrow.addEventListener("click", slidePrevious);
+        rightArrow.addEventListener("click", slideNext);
+    
+        sliderElements.forEach((element, index) => {
+            element.addEventListener("click", () => {
+                removeAllSliderControllerActive();
+                element.setAttribute('aria-selected', true);
+                slideTo(index);
+                setTranslateX(index);
+            });
+        });
+
+        function setSliderElementActive(n){
+            sliderElements.forEach((element, index) =>{
+                if (n === index + 1){
+                    element.setAttribute('aria-selected', true);
+                }
+            });
+        }
+    
+        function setTranslateX(index) {
+            mediaContainer.style.transform = `translateX(${translateXArray[index]}px)`;
+        }
+    
+        function slidePrevious() {
+            const selected = getSelectedMedia();
+            if (selected === 0) {
+                slideLast();
+            } else {
+                slideTo(selected - 1);
+                setTranslateX(selected - 1);
+            }
+        }
+    
+        function slideNext() {
+            const selected = getSelectedMedia();
+            if (selected === media.length - 1) {
+                slideFirst();
+            } else {
+                slideTo(selected + 1);
+                setTranslateX(selected + 1);
+                setSliderElementActive(selected + 1);
+            }
+        }
+    
+        function slideTo(n) {
+            removeAllSelectedMedia();
+            setSelectedMedia(media[n]);
+            setSliderElementActive(n);
+        }
+    
+        function slideFirst() {
+            removeAllSelectedMedia();
+            slideTo(0);
+            setTranslateX(0);
+            setSliderElementActive(0);
+        }
+    
+        function slideLast() {
+            removeAllSelectedMedia();
+            slideTo(media.length - 1);
+            setTranslateX(media.length - 1);
+            setSliderElementActive(media.length - 1);
+        }
+    
+        function setSelectedMedia(mediaElement) {
+            mediaElement.setAttribute('aria-selected', true);
+        }
+    
+        function removeAllSelectedMedia() {
+            media.forEach(m => {
+                m.setAttribute('aria-selected', "");
+            });
+        }
+    
+        function getSelectedMedia() {
+            for (let i = 0; i < media.length; i++) {
+                if (media[i].getAttribute('aria-selected')) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+    
+        function removeAllSliderControllerActive() {
+            sliderElements.forEach(slider => {
+                slider.setAttribute('aria-selected', "");
+            });
+        }
+    
+        // Inicialmente, establecemos la primera imagen como seleccionada
+        media[0].setAttribute('aria-selected', true);
+    }    
 });

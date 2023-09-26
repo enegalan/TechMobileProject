@@ -826,8 +826,8 @@ input.block_quantity__number:focus {
 
 .datos_user > .opinion_user{
     float: left;
-    width: 85px;
-    min-width: 85px;
+    width: 150px;
+    min-width: 150px;
     align-items: center;
     display: flex;
     gap: 12px;

@@ -17,15 +17,15 @@ if($_GET['id']){
                 <div class="datos_user">
                     <div class="opinion_user">
                         <img src="' . $opinions[$i]['gravatar'] . '" alt="user-gravatar">
-                        <p><b>JuanRa</b></p>
+                        <p><b>' . $opinions[$i]['name'] . ' ' . $opinions[$i]['surname'] . '</b></p>
                     </div>
-                    <div class="opinion_media">
-                        <div class="media_container">
+                    <div class="opinion_media" id="opinion_media_' . $opinions[$i]['id'] . '">
+                        <div class="media_container" id="media_container_' . $opinions[$i]['id'] . '">
                             <img aria-selected="" src="images/thumbnail.jpeg">
                             <img aria-selected="" src="images/thumbnail.jpeg">
                             <img aria-selected="" src="images/thumbnail.jpeg">
                         </div>
-                        <div class="media_slider_controller">
+                        <div class="media_slider_controller" id="media_slider_controller_' . $opinions[$i]['id'] . '">
                             <span id="media_slider_controller_previous">
                                 <i class="fas fa-arrow-left"></i>
                             </span>
@@ -34,7 +34,7 @@ if($_GET['id']){
                             </span>
                         </div>
                     </div>
-                    <div class="opinion_media_slider">
+                    <div class="opinion_media_slider" id="opinion_media_slider_' . $opinions[$i]['id'] . '">
                         <span value="0" aria-selected="" id="media_slider_first"></span>
                         <span value="1" aria-selected=""></span>
                         <span value="2" aria-selected="" id="media_slider_last"></span>
