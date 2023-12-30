@@ -3,7 +3,9 @@
             session_start();
         }
         if (!file_exists('php/conn.php')) {
-            $conn = mysqli_connect("localhost","egalan","egalan","techmobile");
+            include '../conn.php';
+        } else {
+            include 'php/conn.php';
         }
         if(isset($_SESSION['id']) && $_SESSION['is_admin'] === 1){
             

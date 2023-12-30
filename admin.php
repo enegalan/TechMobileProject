@@ -685,7 +685,7 @@ $username = $_SESSION['username'];
                     </div>
                     <div class="commentsList">
                         <!--Opinions Table-->
-                        <div class="comments-table">
+                        <div class="opinions-table">
                             <table>
                                 <thead>
                                     <tr>
@@ -705,24 +705,24 @@ $username = $_SESSION['username'];
                             </table>
                         </div>
                     </div>
-                    <div class="usersFilters">
+                    <div id="opinionsFilters" class="usersFilters">
                         <h2>Filters</h2>
                         <ul>
                             <li>
-                                <label for="comments-filter1">Search</label>
-                                <input class="default_input" type="text" name="comments-filter1" id="comments-filter1"
+                                <label for="search">Search</label>
+                                <input class="default_input" type="text" name="search" id="search"
                                     placeholder="Search...">
                             </li>
                             <li>
-                                <label for="commets-filter2">Manufacturer</label>
-                                <select class="default_input" name="comments-filter2" id="comments-filter2">
+                                <label for="manufacturer">Manufacturer</label>
+                                <select class="default_input" name="manufacturer" id="manufacturer">
                                     <option value="-1" selected>All</option>
                                     <option value="apple">Apple</option>
                                 </select>
                             </li>
                             <li>
-                                <label for="comments-filter3">Date</label>
-                                <input class="default_input" type="date" name="comments-filter3" id="comments-filter3">
+                                <label for="date">Date</label>
+                                <input class="default_input" type="date" name="date" id="date">
                             </li>
                         </ul>
                     </div>

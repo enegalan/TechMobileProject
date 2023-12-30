@@ -72,7 +72,7 @@ function closeModal(link, modal) {
   });
 }
 
-function onFilterChange(filtersDomIdArray, dataTableBody) {
+function onFilterChange(filtersDomIdArray, dataTableBody, fetchUrl) {
   filtersDomIdArray.forEach(filter => {
     filter.addEventListener("input", handleFilterChange);
   });
@@ -86,7 +86,7 @@ function onFilterChange(filtersDomIdArray, dataTableBody) {
     // Remove all rows 
     while (dataTableBody.firstChild) dataTableBody.removeChild(dataTableBody.firstChild);
     try {
-      const response = await fetch('php/admin/list_all_users.php', {
+      const response = await fetch(fetchUrl, {
         method: 'POST',
         body: formData
       });
@@ -298,9 +298,16 @@ const userFilters = [
   document.querySelector('.usersFilters #status')
 ];
 const usersTableBody = document.querySelector('.users-table tbody');
-onFilterChange(userFilters, usersTableBody)
+onFilterChange(userFilters, usersTableBody, 'php/admin/list_all_users.php');
 
 /* OPINIONS */
+const opinionFilters = [
+  document.querySelector('#opinionsFilters #search'),
+  document.querySelector('#opinionsFilters #manufacturer'),
+  document.querySelector('#opinionsFilters #date')
+];
+const opinionsTableBody = document.querySelector('.opinions-table tbody');
+onFilterChange(opinionFilters, opinionsTableBody, 'php/admin/list_all_opinions.php');
 /* FAQS */
 //Open the add FAQ modal
 var add_faq_a = document.querySelector('#add_faq_a');
