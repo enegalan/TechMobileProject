@@ -38,6 +38,18 @@ button {
     min-height: 600px;
     background-color: #fff;
 }
+
+@media screen and (max-width: 1200px) {
+    .productCard_block > .row {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .productCard_block > .row > div {
+        width: 100%;
+    }
+
+}
 /* PARTE IZQUIERDA */
 .productCard_leftSide {
     position: relative;
@@ -187,7 +199,7 @@ button {
     position: relative;
     padding-top: 34px;
     padding-left: 27px;
-    padding-right: 40px;
+    padding-right: 20px;
     width: 100%;
     min-height: 600px;
 }
@@ -620,10 +632,6 @@ input[type="text"] {
     padding: 20px 0 0 0px;
 }
 
-.contenido {
-    padding: 0 0 0 50px;
-}
-
 .hide {
     display: none !important;
 }
@@ -640,6 +648,21 @@ input[type="text"] {
     gap: 30px;
 }
 
+@media screen and (max-width:1200px) {
+    .block_informationAboutDevice > .row {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+}
+
+@media screen and (max-width:600px) {
+    .blogpost-navigation {
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
 .blogpost-navigation {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -652,15 +675,17 @@ input[type="text"] {
     -ms-flex-align: start;
     -webkit-align-items: start;
     align-items: flex-start;
-    -webkit-justify-content: space-between;
-    justify-content: space-between;
+    -webkit-justify-content: space-evenly;
+    justify-content: space-evenly;
     transition: 0.5s ease-out;
     align-items: center;
+    gap: 15px;
 }
 
 .blogpost-navigation .next .btn, .blogpost-navigation .prev .btn {
     color: white;
     background-color: #252525;
+    height: -webkit-fill-available;
 }
 
 .blogpost-navigation .next .btn {
@@ -680,6 +705,8 @@ input[type="text"] {
 .blogpost-navigation img {
     margin-left: 15px !important;
     float: left;
+    height: 130px;
+    width: 120px;
 }
 
 .next, .prev {
@@ -687,6 +714,7 @@ input[type="text"] {
     width: max-content;
     padding: 10px;
     border-radius: 5px;
+    height: 150px;
 }
 
 .next .fa-navigationblock {
@@ -815,6 +843,7 @@ input.block_quantity__number:focus {
 
 .opinions_list{
     margin-top: 50px;
+    padding-bottom: 50px;
 }
 
 .opinions_list > h3{
