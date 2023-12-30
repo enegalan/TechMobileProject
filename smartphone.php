@@ -337,7 +337,7 @@
                                                     class="block_rating__avarage"><?= $global_avg ?></span>
                                             </div>
                                             <div class="row">
-                                                <div class="large-6 small-12 column left-align">
+                                                <div class="price_and_quantity left-align">
                                                     <div class="block_price">
                                                         <p class="block_price__currency">
                                                             <?php echo $smartphone['price'];?>€</p>
@@ -432,8 +432,8 @@
                                                             </li>
                                                         ';
                                                     }
-                                                    $next_smartphone_query->close();
-                                                    $previous_smartphone_query->close();
+                                                    if ($next_smartphone) $next_smartphone_query->close();
+                                                    if ($previous_smartphone) $previous_smartphone_query->close();
                                                 ?>
                                                 
                                             </ul>
@@ -451,7 +451,7 @@
                                             <div value="<?= $global_avg ?>" class="rating_avg_value"></div>
                                             <div class="rating_stars_section">
                                                 <div fill="#FFA90D" class="opinion_stars_background">
-                                                    <div fill="#FFA90D" data-testid="percent-bar" id="rating_avg_stars" value="4.9" class="opinion_stars"></div>
+                                                    <div fill="#FFA90D" data-testid="percent-bar" id="rating_avg_stars" value="<?= $global_avg ?>" class="opinion_stars"></div>
                                                 </div>
                                             </div>
                                             <span value="<?= $global_count ?>" class="opinions_value"> Opiniones</span>
@@ -549,7 +549,7 @@
                             </div>
 
                             <div class="opinions_list">
-                                <h3>Opiniones</h3>
+                                <h2>Opiniones</h2>
                                 <!--List Opinions-->
                                 <?php include 'php/list_smartphone_opinions.php' ?>
                             </div>

@@ -631,7 +631,7 @@ h1.logo {
     height: max-content;
 }
 
-h1.logo a, a:active, a:hover, a:visited {
+h1.logo a, a:active, a:hover {
   text-decoration: none;
   color: #fff;
 }

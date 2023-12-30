@@ -8,5 +8,3 @@ Sistema Dark/Light
 Sistema de Orders
 
 //FIXES
-
-Implementar libreria de sliders

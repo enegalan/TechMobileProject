@@ -98,7 +98,7 @@ if($_GET['id']){
                             <div class="media_container">
                             ' . implode('', $media_dom) . '
                             </div>
-                            <div class="media_slider_controller" style="display:none;">
+                            <div class="media_slider_controller">
                                 <span id="media_slider_controller_previous">
                                     <i class="fas fa-arrow-left"></i>
                                 </span>

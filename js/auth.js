@@ -13,16 +13,20 @@ async function signIn() {
         body: formData
     }).then(res => res.json())
     .then(async data => {
-        if (data.length > 0) {
+        if (data && data.length > 0) {
             const user_id = data[0]['id'];
             localStorage.setItem('user_id', user_id);
             //Fetch user's cart data from the database
             await fetch('./php/auth/fetch_cart.php?user_id='+user_id)
-            .then(res => res.json())
+            .then(res => res.json()).catch(error => {
+                console.error("Fetch error:", error);
+            })
             .then(cartData => {
                 const cart = cartData || {};
                 localStorage.setItem('cart', JSON.stringify(cart));
+                console.log('reloading...S');
                 window.location.reload();
+
             });
         } else {
             console.log("Sign in failed");
