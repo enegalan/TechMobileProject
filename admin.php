@@ -105,11 +105,11 @@ $username = $_SESSION['username'];
                 </li>
 
                 <li>
-                    <a href="#comments">
+                    <a href="#opinions">
                         <span class="icon">
                             <i class="fa-solid fa-comment"></i>
                         </span>
-                        <span class="title">Comments</span>
+                        <span class="title">Opinions</span>
                     </a>
                 </li>
 
@@ -172,8 +172,8 @@ $username = $_SESSION['username'];
 
                     <div class="card">
                         <div>
-                            <div class="numbers">284</div>
-                            <div class="cardName">Comments</div>
+                            <div class="numbers"><?php include 'php/admin/data/countOpinions.php'; getCountOpinions();?></div>
+                            <div class="cardName">Opinions</div>
                         </div>
 
                         <div class="iconBx">
@@ -662,13 +662,13 @@ $username = $_SESSION['username'];
                 </div>
             </div>
             <!-- ======================= End Users ================== -->
-            <!-- ======================= Comments ================== -->
-            <div class="comments">
+            <!-- ======================= Opinions ================== -->
+            <div class="opinions">
                 <div class="cardBox">
                     <div class="card">
                         <div>
-                            <div class="numbers">0</div>
-                            <div class="cardName">New comments this month</div>
+                            <div class="numbers"><?php getCountOpinionsMonth() ?></div>
+                            <div class="cardName">New opinions this month</div>
                         </div>
 
                         <div class="iconBx">
@@ -679,12 +679,12 @@ $username = $_SESSION['username'];
                 </div>
                 <div class="details">
                     <div class="cardHeaderUsersList">
-                        <div class="headerUsers">
-                            <h2>Comments</h2>
+                        <div class="headerOpinions">
+                            <h2>Opinions</h2>
                         </div>
                     </div>
                     <div class="commentsList">
-                        <!--Comments Table-->
+                        <!--Opinions Table-->
                         <div class="comments-table">
                             <table>
                                 <thead>
@@ -700,19 +700,7 @@ $username = $_SESSION['username'];
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>IPHONE 11</td>
-                                        <td>
-                                            <div class="imgBx"><img src="imgs/customer02.jpg" alt=""></div>
-                                        </td>
-                                        <td>egalan</td>
-                                        <td>This is a default text to test the comments.</td>
-                                        <td>2023-08-08 19:40:00</td>
-                                        <td>
-                                            <button type="button" class="btn-remove">Remove</button>
-                                        </td>
-                                    </tr>
+                                    <?php include 'php/admin/list_all_opinions.php'; ?>
                                 </tbody>
                             </table>
                         </div>

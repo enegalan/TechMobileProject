@@ -269,6 +269,12 @@
   /* margin-top: 10px; */
 }
 
+@media screen and (max-width: 1200px)  {
+  .details {
+    grid-template-columns: 2fr;
+  }
+}
+
 .details .recentOrders {
   position: relative;
   display: grid;
@@ -408,10 +414,10 @@
 .smartphones{
   height: 265vh;
 }
-.dashboard, .users, .comments, .faqs, .smartphones, .orders{
+.dashboard, .users, .opinions, .faqs, .smartphones, .orders{
   display: none;
 }
-.dashboard.selected, .users.selected, .comments.selected, .faqs.selected, .smartphones.selected, .orders.selected{
+.dashboard.selected, .users.selected, .opinions.selected, .faqs.selected, .smartphones.selected, .orders.selected{
   display: block;
 }
 .usersList{
@@ -440,6 +446,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-around;
+  padding-top: 150px;
 }
 .faqsList{
   position: relative;
@@ -496,6 +503,12 @@
 .cardHeaderUsersList h2{
   font-weight: 600;    
   color: #4d4d4d;
+}
+
+.headerOpinions h2 {
+  font-weight: 600;
+  color: #4d4d4d;
+  margin-bottom: 50px;
 }
 .cardHeaderUsersList .btn {
   position: relative;
@@ -903,7 +916,7 @@ input[type="radio"] + label {
   }
   .navigation.active {
     width: 300px;
-    left: 0;
+    left: -45px;
   }
   .main {
     width: 100%;

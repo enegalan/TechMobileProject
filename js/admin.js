@@ -21,90 +21,28 @@ toggle.onclick = function () {
 };
 
 // Menu redirections
-var dashboard = document.querySelector('.dashboard');
-var dashboardA = document.querySelector('a[href="#dashboard"]');
+const menu_redirections = ['dashboard', 'users', 'opinions', 'faqs', 'smartphones', 'orders'];
 
-var users = document.querySelector('.users');
-var usersA = document.querySelector('a[href="#users"]');
+menu_redirections.forEach((redirection, index) => {
+  var redirection_element = document.querySelector('.' + redirection);
+  var redirectionA = document.querySelector('a[href="#' + redirection + '"]');
 
-var comments = document.querySelector('.comments');
-var commentsA = document.querySelector('a[href="#comments"]');
-
-var faqs = document.querySelector('.faqs');
-var faqsA = document.querySelector('a[href="#faqs"]');
-
-var smartphones = document.querySelector('.smartphones');
-var smartphonesA = document.querySelector('a[href="#smartphones"]');
-
-var orders = document.querySelector('.orders');
-var ordersA = document.querySelector('a[href="#orders"]');
-//At first display the dashboard by default
-if (!dashboard.classList.contains('selected')) {
-  dashboard.classList.add('selected');
-}
-//Dashboard redirection
-dashboardA.addEventListener('click', function () {
-  removeAllSelectedClass();
-  if (!dashboard.classList.contains('selected')) {
-    dashboard.classList.add('selected');
-  }
-});
-//Users redirection
-usersA.addEventListener('click', function () {
-  removeAllSelectedClass();
-  if (!users.classList.contains('selected')) {
-    users.classList.add('selected');
-  }
-});
-//Comments redirection
-commentsA.addEventListener('click', function () {
-  removeAllSelectedClass();
-  if (!comments.classList.contains('selected')) {
-    comments.classList.add('selected');
-  }
-});
-//FAQs redirection
-faqsA.addEventListener('click', function () {
-  removeAllSelectedClass();
-  if (!faqs.classList.contains('selected')) {
-    faqs.classList.add('selected');
-  }
-});
-//Smartphones redirection
-smartphonesA.addEventListener('click', function () {
-  removeAllSelectedClass();
-  if (!smartphones.classList.contains('selected')) {
-    smartphones.classList.add('selected');
-  }
-});
-//Orders redirection
-ordersA.addEventListener('click', function () {
-  removeAllSelectedClass();
-  if (!orders.classList.contains('selected')) {
-    orders.classList.add('selected');
-  }
-});
-function removeAllSelectedClass() {
-  if (dashboard.classList.contains('selected')) {
-    dashboard.classList.remove('selected');
-  }
-  if (users.classList.contains('selected')) {
-    users.classList.remove('selected');
-  }
-  if (comments.classList.contains('selected')) {
-    comments.classList.remove('selected');
-  }
-  if (faqs.classList.contains('selected')) {
-    faqs.classList.remove('selected');
-  }
-  if (smartphones.classList.contains('selected')) {
-    smartphones.classList.remove('selected');
-  }
-  if (orders.classList.contains('selected')) {
-    orders.classList.remove('selected');
+  // At first display the first redirection by default
+  if (index === 0) {
+    redirection_element.classList.add('selected');
   }
 
-}
+  redirectionA.addEventListener('click', function () {
+    // Remove 'selected' class from all elements
+    menu_redirections.forEach((redirection2) => {
+      document.querySelector('.' + redirection2)?.classList.remove('selected');
+    });
+
+    // Add 'selected' class to the clicked element
+    redirection_element.classList.add('selected');
+  });
+});
+
 /* EACH MAIN VIEW FUNCTIONS */
 /* USERS */
 //Open the add User modal
