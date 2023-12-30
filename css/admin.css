@@ -48,8 +48,16 @@
   border-bottom-left-radius: 30px;
 }
 
-.navigation ul li:hover,
-.navigation ul li.hovered {
+.navigation ul li:hover {
+  background-color: var(--white);
+}
+
+.navigation ul li:not(:hover),
+.navigation ul li {
+  background-color: transparent;
+}
+
+.navigation ul li.active {
   background-color: var(--white);
 }
 
@@ -64,11 +72,15 @@
   width: 100%;
   display: flex;
   text-decoration: none;
-  color: var(--white);
+  color: lightgrey;
 }
-.navigation ul li:hover a,
+.navigation ul li.hovered:hover a,
 .navigation ul li.hovered a {
   color: #4d4d4d;
+}
+.navigation ul li:not(:hover) a,
+.navigation ul li a {
+  color: lightgrey;
 }
 
 .navigation ul li a .icon {
@@ -97,7 +109,8 @@
 
 /* --------- curve outside ---------- */
 .navigation ul li:hover a::before,
-.navigation ul li.hovered a::before {
+.navigation ul li.hovered a::before,
+.navigation ul li.active a::before {
   content: "";
   position: absolute;
   right: 0;
@@ -110,7 +123,8 @@
   pointer-events: none;
 }
 .navigation ul li:hover a::after,
-.navigation ul li.hovered a::after {
+.navigation ul li.hovered a::after,
+.navigation ul li.active a::after {
   content: "";
   position: absolute;
   right: 0;
@@ -121,6 +135,16 @@
   border-radius: 50%;
   box-shadow: 35px -35px 0 10px var(--white);
   pointer-events: none;
+}
+
+.navigation ul li:not(:hover):not(.active) a::before,
+.navigation ul li a::before {
+  box-shadow: none;
+}
+
+.navigation ul li:not(:hover):not(.active) a::after,
+.navigation ul li a::after {
+  box-shadow: none;
 }
 
 /* ===================== Main ===================== */

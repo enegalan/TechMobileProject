@@ -160,8 +160,8 @@ if($_GET['id']){
     } else {
         echo 'No hay opiniones de usuario.';
     }
-    $media_query->close();
-    $opinions_query->close();
+    if ($opinions_result->num_rows > 0) $media_query->close();
+    if ($opinions_result->num_rows > 0) $opinions_query->close();
 }
 
 ?>

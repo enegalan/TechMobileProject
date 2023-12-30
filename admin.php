@@ -638,20 +638,20 @@ $username = $_SESSION['username'];
                         <h2>Filters</h2>
                         <ul>
                             <li>
-                                <label for="users-filter1">Search</label>
-                                <input class="default_input" type="text" name="users-filter1" id="users-filter1" placeholder="Search...">
+                                <label for="search">Search</label>
+                                <input class="default_input" type="text" name="search" id="search" placeholder="Search...">
                             </li>
                             <li>
-                                <label for="users-filter2">Birthdate</label>
-                                <input class="default_input" type="date" name="users-filter2" id="users-filter2">
+                                <label for="birthdate">Birthdate</label>
+                                <input class="default_input" type="date" name="birthdate" id="birthdate">
                             </li>
                             <li>
-                                <label for="users-filter3">Joining date</label>
-                                <input class="default_input" type="date" name="users-filter3" id="users-filter3">
+                                <label for="joining_date">Joining date</label>
+                                <input class="default_input" type="date" name="joining_date" id="joining_date">
                             </li>
                             <li>
-                                <label for="users-filter4">Status</label>
-                                <select class="default_input" name="users-filter4" id="users-filter4">
+                                <label for="status">Status</label>
+                                <select class="default_input" name="status" id="status">
                                     <option value="-1" selected>All</option>
                                     <option value="1">Active</option>
                                     <option value="0">Inactive</option>

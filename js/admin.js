@@ -1,14 +1,23 @@
 // Add hovered class to selected list item
 let list = document.querySelectorAll(".navigation li");
 
-function activeLink() {
+function hoverLink() {
   list.forEach((item) => {
     item.classList.remove("hovered");
   });
   this.classList.add("hovered");
 }
 
-list.forEach((item) => item.addEventListener("mouseover", activeLink));
+function activeLink() {
+  list.forEach((item) => {
+    item.classList.remove('active');
+  });
+  console.log('activing link');
+  this.classList.add('active');
+}
+
+list.forEach((item) => item.addEventListener("mouseover", hoverLink));
+list.forEach((item) => item.addEventListener("click", activeLink));
 
 // Menu Toggle
 let toggle = document.querySelector(".toggle");
@@ -43,23 +52,64 @@ menu_redirections.forEach((redirection, index) => {
   });
 });
 
+/*
+  COMMON VIEW FUNCTIONS
+*/
+
+function showModal(link, modal) {
+  link.addEventListener('click', function () {
+    if (!modal.classList.contains('show')) {
+      modal.classList.add('show');
+    }
+  });
+}
+
+function closeModal(link, modal) {
+  link.addEventListener('click', function () {
+    if (modal.classList.contains('show')) {
+      modal.classList.remove('show');
+    }
+  });
+}
+
+function onFilterChange(filtersDomIdArray, dataTableBody) {
+  filtersDomIdArray.forEach(filter => {
+    filter.addEventListener("input", handleFilterChange);
+  });
+  async function handleFilterChange () {
+    const formData = new FormData();
+    var filters = {};
+    filtersDomIdArray.forEach(filter => {
+      filters[filter.id] = filter.value;
+    });
+    formData.set('filters', JSON.stringify(filters));
+    // Remove all rows 
+    while (dataTableBody.firstChild) dataTableBody.removeChild(dataTableBody.firstChild);
+    try {
+      const response = await fetch('php/admin/list_all_users.php', {
+        method: 'POST',
+        body: formData
+      });
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const newData = await response.text();
+      dataTableBody.innerHTML = newData;
+    } catch (error) {
+      console.error('Error fetching or processing data:', error.message);
+    }
+  }
+}
+
 /* EACH MAIN VIEW FUNCTIONS */
 /* USERS */
 //Open the add User modal
 var add_user_a = document.querySelector('#add_user_a');
 var add_user_modal = document.querySelector('.add_user_modal');
-add_user_a.addEventListener('click', function () {
-  if (!add_user_modal.classList.contains('show')) {
-    add_user_modal.classList.add('show');
-  }
-});
+showModal(add_user_a, add_user_modal);
 //Close the add User modal
 var add_user_close = document.querySelector('.add_user_close');
-add_user_close.addEventListener('click',function () { 
-  if (add_user_modal.classList.contains('show')) {
-    add_user_modal.classList.remove('show');
-  }
-})
+closeModal(add_user_close, add_user_modal);
 
 //Close the edit User modal
 var edit_user_modal = document.querySelector('.edit_user_modal');
@@ -209,8 +259,6 @@ async function updateUser(){
   var instagram = document.querySelector('#edit_user_instagram').value;
   var github = document.querySelector('#edit_user_github').value;
 
-  console.log(user_id,username,password,email,name,surname,birthdate,sex,about,country,province,city,zip,address1,address2,phone,website,facebook,twitter,instagram,github);
-
   var formData = new FormData();
   formData.append('user_id', user_id);
   formData.append('username', username);
@@ -242,23 +290,27 @@ async function updateUser(){
     console.log(data);
   })
 }
-/* COMMENTS */
+//Filters
+const userFilters = [
+  document.querySelector('.usersFilters #search'),
+  document.querySelector('.usersFilters #birthdate'),
+  document.querySelector('.usersFilters #joining_date'),
+  document.querySelector('.usersFilters #status')
+];
+const usersTableBody = document.querySelector('.users-table tbody');
+onFilterChange(userFilters, usersTableBody)
+
+/* OPINIONS */
 /* FAQS */
 //Open the add FAQ modal
 var add_faq_a = document.querySelector('#add_faq_a');
 var add_faq_modal = document.querySelector('.add_faq_modal');
-add_faq_a.addEventListener('click', function () {
-  if (!add_faq_modal.classList.contains('show')) {
-    add_faq_modal.classList.add('show');
-  }
-});
+showModal(add_faq_a, add_faq_modal);
+
 //Close the add FAQ modal
 var add_faq_close = document.querySelector('.add_faq_close');
-add_faq_close.addEventListener('click',function () { 
-  if (add_faq_modal.classList.contains('show')) {
-    add_faq_modal.classList.remove('show');
-  }
-})
+closeModal(add_faq_close, add_faq_modal);
+
 //Add FAQ
 async function createFAQ() {
   var question = document.querySelector('#add_faq_question').value;
@@ -348,18 +400,11 @@ async function deleteFAQ(faq_id) {
 //Open the add Smartphone modal
 var add_smartphone_a = document.querySelector('#add_smartphone_a');
 var add_smartphone_modal = document.querySelector('.add_smartphone_modal');
-add_smartphone_a.addEventListener('click', function () {
-  if (!add_smartphone_modal.classList.contains('show')) {
-    add_smartphone_modal.classList.add('show');
-  }
-});
+showModal(add_smartphone_a, add_smartphone_modal);
+
 //Close the add Smartphone modal
 var add_smartphone_close = document.querySelector('.add_smartphone_close');
-add_smartphone_close.addEventListener('click',function () { 
-  if (add_smartphone_modal.classList.contains('show')) {
-    add_smartphone_modal.classList.remove('show');
-  }
-})
+closeModal(add_smartphone_close, add_smartphone_modal);
 
 //Load image count and colors
 function loadColors1() {
