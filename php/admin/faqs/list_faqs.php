@@ -5,8 +5,19 @@
     if(isset($_SESSION['id']) && $_SESSION['is_admin'] === 1){
 
         include(__DIR__ . '/../../conn.php');
-
-        $query = $conn->prepare("SELECT F.id, F.question, F.answer, F.date, U.username as username FROM faqs F INNER JOIN users U on F.user_id = U.id");
+        if (isset($_POST['filters'])) {
+            $filters = json_decode($_POST['filters']);
+            $search = $filters->search != "" ? "%" . $filters->search . "%" : "%";
+            $date = $filters->date != "" ? "%" . $filters->date . "%" : "%";
+            $query = $conn->prepare("SELECT F.id, F.question, F.answer, F.date, U.username as username FROM faqs F 
+                INNER JOIN users U on F.user_id = U.id
+                WHERE (F.question LIKE ? OR F.answer LIKE ? OR U.username LIKE ?) 
+                AND date(F.date) LIKE ?
+            ");
+            $query->bind_param("ssss", $search, $search, $search, $date);
+        } else {
+            $query = $conn->prepare("SELECT F.id, F.question, F.answer, F.date, U.username as username FROM faqs F INNER JOIN users U on F.user_id = U.id");
+        }
         $query->execute();
         $res = $query->get_result();
         $faqs = array();

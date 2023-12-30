@@ -813,16 +813,16 @@ $username = $_SESSION['username'];
                             </table>
                         </div>
                     </div>
-                    <div class="usersFilters">
+                    <div id="faqsFilters" class="usersFilters">
                         <h2>Filters</h2>
                         <ul>
                             <li>
-                                <label for="faqs-filter1">Search</label>
-                                <input class="default_input" type="text" name="faqs-filter1" id="faqs-filter1" placeholder="Search...">
+                                <label for="search">Search</label>
+                                <input class="default_input" type="text" name="search" id="search" placeholder="Search...">
                             </li>
                             <li>
-                                <label for="faqs-filter3">Date</label>
-                                <input class="default_input" type="date" name="faqs-filter2" id="faqs-filter2">
+                                <label for="date">Date</label>
+                                <input class="default_input" type="date" name="date" id="date">
                             </li>
                         </ul>
                     </div>

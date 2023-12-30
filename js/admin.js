@@ -402,7 +402,12 @@ async function deleteFAQ(faq_id) {
       console.log(data)
     }).finally(window.location.reload());
 }
-
+const faqFilters = [
+  document.querySelector('#faqsFilters #search'),
+  document.querySelector('#faqsFilters #date')
+];
+const faqsTableBody = document.querySelector('.faqs-table tbody');
+onFilterChange(faqFilters, faqsTableBody, 'php/admin/faqs/list_faqs.php');
 /* SMARTPHONES */
 //Open the add Smartphone modal
 var add_smartphone_a = document.querySelector('#add_smartphone_a');
