@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function(){
         
         var actual_width = (avg_value / max_value) * max_width;
         actual_width = Math.min(max_width, actual_width);
-        element.style.width = actual_width + "%";
+        
     }
     // Set each rating_bar_(5-1) width
     const rating_values = document.querySelectorAll('.ratings_ul .rating_li .rating_value');
@@ -101,12 +101,12 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
     // Opinion Media Slider
-    const left_arrow = document.getElementById('media_slider_controller_previous');
-    const right_arrow = document.querySelector('#media_slider_controller_next i');
+    //const left_arrow = document.getElementById('media_slider_controller_previous');
+    //const right_arrow = document.querySelector('#media_slider_controller_next i');
     
     var media = document.querySelectorAll('.media_container img');
-    left_arrow.addEventListener("click", slidePrevious);
-    right_arrow.addEventListener("click", slideNext);
+    //left_arrow.addEventListener("click", slidePrevious);
+    //right_arrow.addEventListener("click", slideNext);
 
     var translate_x_base = -174;
 
@@ -133,7 +133,9 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
     //First set the first image as selected
-    media[0].setAttribute('aria-selected', true);
+    if (media.length > 0) {
+        media[0].setAttribute('aria-selected', true);
+    }
 
     function slidePrevious() {
         var selected = getSelectedMedia();
@@ -199,7 +201,9 @@ document.addEventListener("DOMContentLoaded", function(){
     const opinion_media_slider_elements = document.querySelectorAll('.opinion_media_slider span');
 
     // First set first slider controller active by default
-    opinion_media_slider_elements[0].setAttribute('aria-selected', true);
+    if (opinion_media_slider_elements.length > 0) {
+        opinion_media_slider_elements[0].setAttribute('aria-selected', true);
+    }
 
     opinion_media_slider_elements.forEach(element => {
         element.addEventListener("click", function() {

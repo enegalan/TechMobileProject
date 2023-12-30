@@ -719,8 +719,13 @@ input[type="text"] {
     text-decoration: none;
 }
 
-.blogpost-navigation:hover {
+.blogpost-navigation li:hover {
     transform: translateY(10px);
+    transition: 0.5s;
+}
+
+.blogpost-navigation li:not(:hover) {
+    transform: translateY(0);
     transition: 0.5s;
 }
 

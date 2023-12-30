@@ -107,24 +107,28 @@
 		</nav>
 
 		<?php
-			for ($i = 0; $i < count($m_smartphones); $i++) {
-				$defaultColor = explode(",", $smartphones[$i]['colors'])[0];
-					echo '
-					<div class="articulo">
-						<div class="logoBx ' . $smartphones[$i]["manufacturer_name"] . '">
-							<img src="productos/' . $smartphones[$i]["manufacturer_name"] . '/logo.png">
+			if ($m_smartphones) {
+				for ($i = 0; $i < count($m_smartphones); $i++) {
+					$defaultColor = explode(",", $smartphones[$i]['colors'])[0];
+						echo '
+						<div class="articulo">
+							<div class="logoBx ' . $smartphones[$i]["manufacturer_name"] . '">
+								<img src="productos/' . $smartphones[$i]["manufacturer_name"] . '/logo.png">
+							</div>
+						<div class="imgBx">
+							<img class="loading" src="productos/' . $smartphones[$i]["manufacturer_name"] . '/img/catalogo/' . $smartphones[$i]["thumbnail_name"] . '.png">
+							<div class="esqueleto"></div>
 						</div>
-					<div class="imgBx">
-						<img class="loading" src="productos/' . $smartphones[$i]["manufacturer_name"] . '/img/catalogo/' . $smartphones[$i]["thumbnail_name"] . '.png">
-						<div class="esqueleto"></div>
+						<div class="contentBx">
+							<h2>' . $smartphones[$i]["title"] . '</h2>
+							<div class="precioBx">' . $smartphones[$i]["price"] . '€</div>
+							<a href="smartphone.php?id=' . $smartphones[$i]["id"] . '&color=' . $defaultColor . '">Comprar ahora</a>
+						</div>
 					</div>
-					<div class="contentBx">
-						<h2>' . $smartphones[$i]["title"] . '</h2>
-						<div class="precioBx">' . $smartphones[$i]["price"] . '€</div>
-						<a href="smartphone.php?id=' . $smartphones[$i]["id"] . '&color=' . $defaultColor . '">Comprar ahora</a>
-					</div>
-				</div>
-				';
+					';
+				}
+			} else {
+				echo '<p style="color:white;z-index:1;">No hay productos disponibles</p>.';
 			}
 			$conn->close();
 		?>
