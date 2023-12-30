@@ -24,6 +24,7 @@ $username = $_SESSION['username'];
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="stylesheet" type="text/css" href="css/main.css" />
     <link rel="stylesheet" type="text/css" href="css/scroll.css" />
+    <link rel="stylesheet" type="text/css" href="css/sliderRange.css" />
 </head>
 
 <body>
@@ -1246,6 +1247,26 @@ $username = $_SESSION['username'];
                             </li>
                             <li>
                                 <label for="smartphones-filter3">Price</label>
+                                <div style="margin-left:20px; display: flex;flex-direction: column;width: 400px;">
+                                    <div class="price-input">
+                                        <div class="field">
+                                            <span>Min</span>
+                                            <input type="number" class="input-min" value="2500">
+                                        </div>
+                                        <div class="separator">-</div>
+                                        <div class="field">
+                                            <span>Max</span>
+                                            <input type="number" class="input-max" value="7500">
+                                        </div>
+                                    </div>
+                                    <div class="slider">
+                                        <div class="progress"></div>
+                                    </div>
+                                    <div class="range-input">
+                                        <input type="range" class="range-min" min="0" max="10000" value="2500" step="100">
+                                        <input type="range" class="range-max" min="0" max="10000" value="7500" step="100">
+                                    </div>
+                                </div>
                             </li>
                             <li>
                                 <label for="smartphones-filter4">Rating</label>
@@ -1268,6 +1289,7 @@ $username = $_SESSION['username'];
     <script src="js/admin.js"></script>
     <script src="js/browser.js"></script>
     <script src="js/userModal.js"></script>
+    <script src="js/sliderRange.js"></script>
     <!-- ====== ionicons ======= -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
