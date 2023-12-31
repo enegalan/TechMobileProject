@@ -1232,16 +1232,16 @@ $username = $_SESSION['username'];
                             </table>
                         </div>
                     </div>
-                    <div class="usersFilters">
+                    <div id="smartphonesFilters" class="usersFilters">
                         <h2>Filters</h2>
                         <ul>
                             <li>
-                                <label for="smartphones-filter1">Search</label>
-                                <input class="default_input" type="text" name="smartphones-filter1" id="smartphones-filter1"
+                                <label for="search">Search</label>
+                                <input class="default_input" type="text" name="search" id="search"
                                     placeholder="Search...">
                             </li>
                             <li>
-                                <label for="smartphones-filter2">Manufacturer</label>
+                                <label for="price">Manufacturer</label>
                                 <input class="default_input" type="text" name="smartphones-filter2" id="smartphones-filter2"
                                     placeholder="Search...">
                             </li>
@@ -1251,25 +1251,33 @@ $username = $_SESSION['username'];
                                     <div class="price-input">
                                         <div class="field">
                                             <span>Min</span>
-                                            <input type="number" class="input-min" value="2500">
+                                            <input type="number" id="min_price" class="input-min" value="0">
                                         </div>
                                         <div class="separator">-</div>
                                         <div class="field">
                                             <span>Max</span>
-                                            <input type="number" class="input-max" value="7500">
+                                            <input type="number" id="max_price" class="input-max" value="5000">
                                         </div>
                                     </div>
                                     <div class="slider">
                                         <div class="progress"></div>
                                     </div>
                                     <div class="range-input">
-                                        <input type="range" class="range-min" min="0" max="10000" value="2500" step="100">
-                                        <input type="range" class="range-max" min="0" max="10000" value="7500" step="100">
+                                        <input type="range" class="range-min" min="0" max="5000" value="0" step="100">
+                                        <input type="range" class="range-max" min="0" max="5000" value="5000" step="100">
                                     </div>
                                 </div>
                             </li>
-                            <li>
-                                <label for="smartphones-filter4">Rating</label>
+                            <li style="display:flex;gap:5px;margin-top:10px;">
+                                <label for="rating">Rating</label>
+                                <select name="rating" id="rating">
+                                    <option selected value="-1">All</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
                             </li>
                         </ul>
                     </div>

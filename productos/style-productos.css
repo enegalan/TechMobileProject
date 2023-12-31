@@ -355,52 +355,8 @@ fieldset, label {
     padding: 0;
 }
 
-.block_rating__stars {
-    border: none;
-    float: left;
-    width: auto;
-    margin: 0;
-    padding: 0;
-}
-
 input[type="checkbox"] + label, input[type="radio"] + label {
     margin: 0;
-}
-
-.block_rating__stars > input {
-    display: none;
-}
-
-.block_rating__stars > label:before {
-    margin: 5px;
-    font-size: 15px;
-    font-family: FontAwesome;
-    display: inline-block;
-    content: "\f005";
-}
-
-.block_rating__stars > .half:before {
-    content: "\f089";
-    position: absolute;
-}
-
-.block_rating__stars > label {
-    color: #c9c9c9;
-    float: right;
-}
-
-/***** Estrellas valoraci�n *****/
-.block_rating__stars > input:checked ~ label, /* Muestra estrella dorada cuando se hace click */
-.block_rating__stars:not(:checked) > label:hover, /* Hover de la estrella actual */
-.block_rating__stars:not(:checked) > label:hover ~ label {
-    color: #fccf47;
-}
-/* Hover de estrellas previas */
-.block_rating__stars > input:checked + label:hover, /* Hover estrella actual cuando cambias valoraci�n */
-.block_rating__stars > input:checked ~ label:hover,
-.block_rating__stars > label:hover ~ input:checked ~ label, /* Estrella actual seleccionada */
-.block_rating__stars > input:checked ~ label:hover ~ label {
-    color: #FFED85;
 }
 
 .block_rating__avarage {

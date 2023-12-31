@@ -98,6 +98,7 @@
     <script src="productos/redirect.js"></script>
     <script src="js/main.js"></script>
     <script src="js/userModal.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/ratingStars.css" />
 </head>
 
 <body>

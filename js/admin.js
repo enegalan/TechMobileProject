@@ -870,3 +870,12 @@ async function updateSmartphone() {
       console.log(data)
     }).finally(window.location.reload());
 }
+
+const smartphoneFilters = [
+  document.querySelector("#smartphonesFilters #search"),
+  document.querySelector("#smartphonesFilters #min_price"),
+  document.querySelector("#smartphonesFilters #max_price"),
+  document.querySelector("#smartphonesFilters #rating"),
+];
+const smartphonesTableBody = document.querySelector('.smartphones-table tbody');
+onFilterChange(smartphoneFilters, smartphonesTableBody, 'php/admin/list_all_smartphones.php');
