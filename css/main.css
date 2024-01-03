@@ -258,10 +258,6 @@ textarea {
   border: none;
 }
 
-textarea:focus {
-  border-color: transparent !important;
-}
-
 input::-webkit-input-placeholder { color: #999999; }
 input:-moz-placeholder { color: #999999; }
 input::-moz-placeholder { color: #999999; }

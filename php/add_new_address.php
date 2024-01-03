@@ -35,5 +35,5 @@
         }
         $conn->close();
     }
-    header('../profile.php')
+    header('location: ../profile.php');
 ?>

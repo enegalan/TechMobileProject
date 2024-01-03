@@ -24,7 +24,6 @@ async function signIn() {
             .then(cartData => {
                 const cart = cartData || {};
                 localStorage.setItem('cart', JSON.stringify(cart));
-                console.log('reloading...S');
                 window.location.reload();
 
             });

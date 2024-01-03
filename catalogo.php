@@ -1,8 +1,13 @@
-﻿<!DOCTYPE HTML>
+﻿<?php 
+$search = "%";
+if (isset($_GET['search']) && !empty($_GET['search'])) $search = "%" . $_GET['search'] . "%";
+?>
+<!DOCTYPE HTML>
 <html>
 
 <head>
 	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Catálogo | TechMobile | Eneko Galan</title>
 	<script src="https://kit.fontawesome.com/8e4bd12ccb.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="style.css" />
@@ -17,7 +22,7 @@
 <body style="background-color: #26282a">
 	<!--HEADER-->
 	<header id="nav-wrapper">
-		<div class="menu" id="show-menu">
+		<div class="main_menu" id="show-menu">
 			<nav id="nav">
 				<div class="nav left">
 					<span class="gradient skew">
@@ -44,11 +49,9 @@
 				</div>
 			</nav>
 		</div>
-		<!--Menu Bars (Mobile)-->
-		<div id="icon-menu">
-			<i class="fas fa-bars"></i>
-		</div>
 	</header>
+	<!--Navbar menu (Mobile)-->
+	<?php include 'components/mobile_navbar.php'; ?>
 	<!--Search input-->
 	<div id="ctn-bars-search">
 		<input type="text" id="inputSearch" placeholder="¿Qué deseas buscar?">
@@ -57,6 +60,7 @@
 	<ul id="box-search">
 		<?php
 		include 'php/list_smartphones.php';
+		listAllSmartphones();
 		?>
 	</ul>
 	<div id="cover-ctn-search"></div>
@@ -79,6 +83,7 @@
 		</nav>
 		<br>
 		<?php
+		$smartphones = searchSmartphones($search);
 		for ($i = 0; $i < count($smartphones); $i++) {
 			$defaultColor = explode(",", $smartphones[$i]['colors'])[0];
 			echo '
@@ -106,6 +111,7 @@
 	<script src="js/browser.js"></script>
 	<script src="js/reveal.js"></script>
 	<script src="js/userModal.js"></script>
+    <script src="js/mobile_navbar.js"></script>
     <?php 
         if(isset($_SESSION['id'])){
             echo '<script src="js/cart.js"></script>';

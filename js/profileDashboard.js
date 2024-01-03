@@ -1,6 +1,6 @@
-$(document).ready(function() {
+$(document).ready(function () {
     // Agregar evento de clic a los enlaces de la lista de pestañas
-    $('#myTab a').on('click', function(e) {
+    $('#myTab a').on('click', function (e) {
         e.preventDefault();
         // Obtener el atributo 'href' del enlace clicado
         var target = $(this).attr('href');
@@ -15,7 +15,7 @@ $(document).ready(function() {
     $('#my-orders-table').DataTable();
 
     // Hacer clic en una tarjeta del panel de la cuenta para cambiar de pestaña correspondiente en el banner
-    $('.tg-tabs-content-wrapp .my-account-dashboard .card').click(function() {
+    $('.tg-tabs-content-wrapp .my-account-dashboard .card').click(function () {
         var target = $(this).data('target');
         // Mostrar la pestaña correspondiente y cambiar las clases manualmente
         $('.tab-pane').removeClass('active show');
@@ -24,67 +24,68 @@ $(document).ready(function() {
         $('#myTab a[href="' + target + '"]').addClass('active show');
     });
 });
-function validate(){
+function validate() {
 
-    if(!document.getElementById("inputpassword").value==document.getElementById("inputpassword2").value)alert("Passwords do no match");
-    return document.getElementById("inputpassword").value==document.getElementById("inputpassword2").value;
+    if (!document.getElementById("inputpassword").value == document.getElementById("inputpassword2").value) alert("Passwords do no match");
+    return document.getElementById("inputpassword").value == document.getElementById("inputpassword2").value;
     return false;
 }
-    var add_addressElement = document.querySelector('.add_address');
-    var edit_addressElement = document.querySelector('.edit_address');
-    var addressElements = document.querySelectorAll('.address');
-    var new_addressElement = document.querySelector('.new_address');
-    var close_add_addressElement = document.querySelector('.close_add_address');
-    var close_edit_addressElement  = document.querySelector('.close_edit_address');
-    
-    close_edit_addressElement.addEventListener('click',function () {
-        if(edit_addressElement.classList.contains('show')){
-            edit_addressElement.classList.remove('show');
-        }
-    });
-    new_addressElement.addEventListener('click', function (){
-        
-        if(!add_addressElement.classList.contains('show')){
-            add_addressElement.classList.add('show');
-        }
-    });
-    
-    close_add_addressElement.addEventListener('click', function () { 
-        if(add_addressElement.classList.contains('show')){
-            add_addressElement.classList.remove('show');
-        }
-    });
-    //Edit Gravatar
-    document.addEventListener('DOMContentLoaded', function() {
-        var edit_gravatar = document.querySelector('.edit-gravatar');
-        var edit_gravatar_modal = document.querySelector('.edit-gravatar-modal');
-        var edit_gravatar_modal_close = document.querySelector('.edit-gravatar-modal-close');
+var add_addressElement = document.querySelector('.add_address');
+var edit_addressElement = document.querySelector('.edit_address');
+var addressElements = document.querySelectorAll('.address');
+var new_addressElement = document.querySelector('.new_address');
+var close_add_addressElement = document.querySelector('.close_add_address');
+var close_edit_addressElement = document.querySelector('.close_edit_address');
 
-        edit_gravatar.addEventListener('click', function (event) { 
-            // Check if the click target is either the edit_gravatar icon or the modal itself
-            if (event.target === edit_gravatar.querySelector('.fa-edit')) {
-                edit_gravatar_modal.classList.add('show');
-            }
-        });
+close_edit_addressElement.addEventListener('click', function () {
+    if (edit_addressElement.classList.contains('show')) {
+        edit_addressElement.classList.remove('show');
+    }
+});
+new_addressElement.addEventListener('click', function () {
 
-        edit_gravatar_modal_close.addEventListener('click', function () {
-            edit_gravatar_modal.classList.remove('show');
-        });
+    if (!add_addressElement.classList.contains('show')) {
+        add_addressElement.classList.add('show');
+    }
+});
+
+close_add_addressElement.addEventListener('click', function () {
+    if (add_addressElement.classList.contains('show')) {
+        add_addressElement.classList.remove('show');
+    }
+});
+//Edit Gravatar
+document.addEventListener('DOMContentLoaded', function () {
+    var edit_gravatar = document.querySelector('.edit-gravatar');
+    var edit_gravatar_modal = document.querySelector('.edit-gravatar-modal');
+    var edit_gravatar_modal_close = document.querySelector('.edit-gravatar-modal-close');
+
+    edit_gravatar.addEventListener('click', function (event) {
+        // Check if the click target is either the edit_gravatar icon or the modal itself
+        if (event.target === edit_gravatar.querySelector('.fa-edit')) {
+            edit_gravatar_modal.classList.add('show');
+        }
     });
-    
-    //Insert the addresses into the profile.php HTML
-    addressElements.forEach(function(element) {
-        element.addEventListener('click', async function () { 
-            if(!edit_addressElement.classList.contains('show')){
-                edit_addressElement.classList.add('show');
-                var address_id = element.getAttribute('address-id');
-                var formData = new FormData();
-                formData.append('address_id',address_id);
-                await fetch('./php/list_selected_address.php', {
-                    method: 'POST',
-                    body: formData
-                }).then(res => res.json())
+
+    edit_gravatar_modal_close.addEventListener('click', function () {
+        edit_gravatar_modal.classList.remove('show');
+    });
+});
+
+//Insert the addresses into the profile.php HTML
+addressElements.forEach(function (element) {
+    element.addEventListener('click', async function () {
+        if (!edit_addressElement.classList.contains('show')) {
+            edit_addressElement.classList.add('show');
+            var address_id = element.getAttribute('address-id');
+            var formData = new FormData();
+            formData.append('address_id', address_id);
+            await fetch('./php/list_selected_address.php', {
+                method: 'POST',
+                body: formData
+            }).then(res => res.json())
                 .then(data => {
+                    //Submit Address edit
                     var editing_address_infoDiv = document.querySelector('.editing_address_info');
                     editing_address_infoDiv.innerHTML = `
                                                         <div class="row">
@@ -133,7 +134,7 @@ function validate(){
                                                         </div>
                                                         `;
                     console.log(data[0]['default'])
-                    if(data[0]['default'] == 1){
+                    if (data[0]['default'] == 1) {
                         editing_address_infoDiv.innerHTML += `
                             <div class="row">
                                 <div>
@@ -142,7 +143,7 @@ function validate(){
                                 </div>
                             </div>
                         `;
-                    }else{
+                    } else {
                         editing_address_infoDiv.innerHTML += `
                             <div class="row">
                                 <div>
@@ -153,69 +154,87 @@ function validate(){
                         `;
                     }
                     editing_address_infoDiv.innerHTML += `<button type="submit" onclick="editSelectedAddress(${data[0]['id']})" class="btn btn-primary">Edit</button>`;
+                    editing_address_infoDiv.innerHTML += `<button type="submit" style="margin-left:10px;" onclick="removeSelectedAddress(${data[0]['id']})" class="btn btn-primary">Remove</button>`;
                     //Add the selected address to a localStorage
                     localStorage.setItem('selected_address', JSON.stringify(data));
                 });
-            }
-        });
+        }
     });
+});
 
-    async function editSelectedAddress(address_id) {
-        console.log("edit button clicked");
-        var formData = new FormData();
-        var selected_address = JSON.parse(localStorage.getItem('selected_address'));
-        var defaultVal = document.querySelector('.editing_address_info > .row > input#default' + address_id).checked;
-        
-        if (defaultVal) {
-            defaultVal = 1;
-        } else {
-            defaultVal = 0;
+async function editSelectedAddress(address_id) {
+    var formData = new FormData();
+    var selected_address = JSON.parse(localStorage.getItem('selected_address'));
+    var defaultVal = document.querySelector('.editing_address_info .row input#default' + address_id).checked;
+
+    if (defaultVal) {
+        defaultVal = 1;
+    } else {
+        defaultVal = 0;
+    }
+
+    for (let i = 0; i < selected_address.length; i++) {
+        if (selected_address[i]['default'] !== defaultVal) {
+            selected_address[i]['default'] = defaultVal;
         }
-        
-        for (let i = 0; i < selected_address.length; i++) {
-            if (selected_address[i]['default'] !== defaultVal) {
-                selected_address[i]['default'] = defaultVal;
-            }
-        }
-        
-        // Convert the selected_address array to a JSON string
-        const selected_addressJSON = JSON.stringify(selected_address);
-        
-        // Append the JSON string to the formData
-        formData.append('selected_address', selected_addressJSON);
-        
-        await fetch('./php/edit_selected_address.php', {
-            method: 'POST',
-            body: formData
-        }).then(response => response.text())
+    }
+
+    // Convert the selected_address array to a JSON string
+    const selected_addressJSON = JSON.stringify(selected_address);
+
+    // Append the JSON string to the formData
+    formData.append('selected_address', selected_addressJSON);
+
+    await fetch('./php/edit_selected_address.php', {
+        method: 'POST',
+        body: formData
+    }).then(response => response.text())
         .then(data => {
             edit_addressElement.classList.remove('show');
             //Reload the window to show the new information
             window.location.reload();
         });
-    }
+}
+
+async function removeSelectedAddress(address_id) {
+    var formData = new FormData();
+    
+    // Append the JSON string to the formData
+    formData.append('address_id', address_id);
+    
+    await fetch('./php/remove_selected_address.php', {
+        method: 'POST',
+        body: formData
+    }).then(response => response.text())
+    .then(data => {
+        edit_addressElement.classList.remove('show');
+        //Reload the window to show the new information
+        window.location.reload();
+    });
+}
+
 //My Cards
 let selectedCard = null;
 var remove_card_a = document.querySelector('.remove_card_a');
 //Remove Card
-remove_card_a.addEventListener('click', async function () { 
+remove_card_a.addEventListener('click', async function () {
     var selected_card_id = localStorage.getItem('selected_card_id');
     var formData = new FormData();
-    formData.append('card_id',selected_card_id);
-    await fetch('./php/remove_card.php',{
+    formData.append('card_id', selected_card_id);
+    await fetch('./php/remove_card.php', {
         method: "POST",
         body: formData
     }).then(res => res.text())
-    .then(data => {
-        //Reload the window to remove the card from the HTML correctly
-        window.location.reload();
-    })
+        .then(data => {
+            //Reload the window to remove the card from the HTML correctly
+            window.location.reload();
+        })
 })
 //Cancel edition Card
 var cancel_card_btn = document.querySelector('.cancel_card_btn');
-cancel_card_btn.addEventListener('click', function () { 
+cancel_card_btn.addEventListener('click', function () {
     const cards = document.querySelectorAll('.account');
-    cards.forEach(function(element){
+    cards.forEach(function (element) {
         element.classList.remove('selected')
         selectedCard = null;
         document.querySelector('.card_info_edit').innerHTML = "Select a card";
@@ -226,7 +245,7 @@ cancel_card_btn.addEventListener('click', function () {
 
 //Save edition Card
 var save_card_btn = document.querySelector('.save_card_btn');
-save_card_btn.addEventListener('click', async function () { 
+save_card_btn.addEventListener('click', async function () {
     var selected_card_id = localStorage.getItem('selected_card_id');
     var selected_card_name = document.querySelector('#card-name-' + selected_card_id).value;
     var selected_card_number = document.querySelector('#card-number-' + selected_card_id).value;
@@ -235,20 +254,20 @@ save_card_btn.addEventListener('click', async function () {
     var selected_card_due_month = document.querySelector('#card-due-month-' + selected_card_id).value;
 
     var formData = new FormData();
-    formData.append('card_id',selected_card_id);
-    formData.append('card_name',selected_card_name);
-    formData.append('card_number',selected_card_number);
-    formData.append('card_cvv',selected_card_cvv);
-    formData.append('card_due_year',selected_card_due_year);
-    formData.append('card_due_month',selected_card_due_month);
-    fetch('./php/update_card.php',{
+    formData.append('card_id', selected_card_id);
+    formData.append('card_name', selected_card_name);
+    formData.append('card_number', selected_card_number);
+    formData.append('card_cvv', selected_card_cvv);
+    formData.append('card_due_year', selected_card_due_year);
+    formData.append('card_due_month', selected_card_due_month);
+    fetch('./php/update_card.php', {
         method: "POST",
         body: formData
     }).then(res => res.text())
-    .then(data => {
-        //Reload to show the new information
-        window.location.reload();
-    });
+        .then(data => {
+            //Reload to show the new information
+            window.location.reload();
+        });
 })
 //At first it must say Select a card
 document.querySelector('.card_info_edit').innerHTML = "Select a card";
@@ -269,7 +288,7 @@ function selectCard(card_id) {
         selectedCard = card;
         card.classList.add('selected');
         displaySelectedCardInfo(card_id);
-        localStorage.setItem('selected_card_id',card_id);
+        localStorage.setItem('selected_card_id', card_id);
     } else {
         selectedCard = null;
         document.querySelector('.card_info_edit').innerHTML = "Select a card";
@@ -279,22 +298,22 @@ function selectCard(card_id) {
     }
 }
 
-async function displaySelectedCardInfo(card_id){
+async function displaySelectedCardInfo(card_id) {
     var card_info_editElement = document.querySelector('.card_info_edit');
     var formData = new FormData();
-    formData.append('card_id',card_id);
+    formData.append('card_id', card_id);
     await fetch('./php/list_selected_card_info.php', {
         method: "POST",
         body: formData
     }).then(res => res.json())
-    .then(data => {
-        //Due Year
-        const selectedYear = new Date(data[0]['due_year']);
-        const yearSelectOptions = generateYearSelectOptions(selectedYear, data[0]['id']);
-        //Due Month
-        const dueMonth = data[0]['due_month']; // Asumiendo que tienes data definido en algún lugar
-        const monthOptions = generateMonthOptions(dueMonth, data[0]['id']);
-        card_info_editElement.innerHTML = `
+        .then(data => {
+            //Due Year
+            const selectedYear = new Date(data[0]['due_year']);
+            const yearSelectOptions = generateYearSelectOptions(selectedYear, data[0]['id']);
+            //Due Month
+            const dueMonth = data[0]['due_month']; // Asumiendo que tienes data definido en algún lugar
+            const monthOptions = generateMonthOptions(dueMonth, data[0]['id']);
+            card_info_editElement.innerHTML = `
                     <div class="card_name">
                         <span><b>Card name</b></span>
                         <input type="text" minlength="5" maxlength="30" id="card-name-${data[0]['id']}" value="${data[0]['name']}">
@@ -317,17 +336,17 @@ async function displaySelectedCardInfo(card_id){
                         </div>
                     </div>
                 `;
-    });
+        });
 }
-function generateYearSelectOptions(selectedYear, id) { 
+function generateYearSelectOptions(selectedYear, id) {
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
     const endYear = currentYear + 20;
     let options = "";
-        for (let year = currentYear; year <= endYear; year++) {
-            const selected = year === selectedYear.getFullYear() ? "selected" : "";
-            options += `<option value='${year}' ${selected}>${year}</option>`;
-        }
+    for (let year = currentYear; year <= endYear; year++) {
+        const selected = year === selectedYear.getFullYear() ? "selected" : "";
+        options += `<option value='${year}' ${selected}>${year}</option>`;
+    }
     const select = `<select id="card-due-year-${id}" name='year'>${options}</select>`;
     return select;
 }
@@ -361,21 +380,21 @@ var add_card_modal = document.querySelector('.add_card_modal');
 var add_card = document.querySelector('#add_card');
 var add_card_modal_close = document.querySelector('.add_card_modal_close');
 
-add_card.addEventListener('click', function () { 
-    if(!add_card_modal.classList.contains('show')){
+add_card.addEventListener('click', function () {
+    if (!add_card_modal.classList.contains('show')) {
         add_card_modal.classList.add('show');
     }
 });
 
-add_card_modal_close.addEventListener('click', function () { 
-    if(add_card_modal.classList.contains('show')){
+add_card_modal_close.addEventListener('click', function () {
+    if (add_card_modal.classList.contains('show')) {
         add_card_modal.classList.remove('show');
     }
 })
 
 //Cada 4 digitos se crea un espacio en blanco obligatorio para escribir un credit_number
 var card_number = document.querySelector('#card-number');
-card_number.addEventListener('input', function() {
+card_number.addEventListener('input', function () {
     formatCreditCardNumber(this);
 });
 

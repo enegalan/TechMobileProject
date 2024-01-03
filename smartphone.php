@@ -34,7 +34,7 @@
         $stats_global_recommended_data = $stats_global_recommended_res->fetch_assoc();
         $global_recommended_count = $stats_global_recommended_data['recommended_count'];
         if ($global_count > 0) {
-            $global_recommended_percentage = ($global_count - $global_recommended_count) * 100 / $global_count;
+            $global_recommended_percentage = ($global_recommended_count * 100) / $global_count;
         } else {
             $global_recommended_percentage = 0;
         }
@@ -87,6 +87,7 @@
 
 <head>
     <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $smartphone['title']?> | TechMobile | Eneko Galan</title>
     <link rel="stylesheet" type="text/css" href="productos/style-productos.css" />
     <link rel="stylesheet" type="text/css" href="style.css" />
@@ -104,7 +105,7 @@
 <body>
     <!--HEADER-->
     <header id="nav-wrapper">
-        <div class="menu" id="show-menu">
+        <div class="main_menu" id="show-menu">
             <nav id="nav">
                 <div class="nav left">
                     <span class="gradient skew">
@@ -131,11 +132,9 @@
                 </div>
             </nav>
         </div>
-        <!--Menu Bars (Mobile)-->
-        <div id="icon-menu">
-            <i class="fas fa-bars"></i>
-        </div>
     </header>
+    <!--Navbar menu (Mobile)-->
+    <?php include 'components/mobile_navbar.php'; ?>
     <!--Search input-->
     <div id="ctn-bars-search">
         <input type="text" id="inputSearch" placeholder="¿Qué deseas buscar?">
@@ -144,6 +143,7 @@
     <ul id="box-search">
         <?php
 		include 'php/list_smartphones.php';
+        listAllSmartphones();
 		?>
     </ul>
     <div id="cover-ctn-search"></div>
@@ -376,7 +376,6 @@
                                                                     }
                                                                     echo '<label onclick="redireccionarColor(\'' . strtolower($color) . '\', \'' . strtolower($colors[$i]) . '\')" title="' . ucfirst($colors[$i]) . '" for="radioColor' . ($i + 1) . '" class="block_goodColor__radio block_goodColor__' . $colors[$i] . '"></label>';
                                                                 }
-                                                                $query->close();
                                                             ?>
                                                         </div>
                                                     </div>
@@ -544,7 +543,10 @@
                                 <div class="leave_opinion_section">
                                     <div class="leave_opinion">
                                         <div class="leave_opinion_title">Deja tu opinión</div>
-                                        <button class="leave_opinion_button">Añadir opinión</button>
+                                        <form method="GET" action="rate_smartphone.php">
+                                            <input type="hidden" value="<?= $smartphone['id'] ?>" name="id">
+                                            <button type="submit" class="leave_opinion_button">Añadir opinión</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -561,7 +563,7 @@
         </div>
     </div>
     <script src="js/browser.js"></script>
-    
+    <script src="js/mobile_navbar.js"></script>
     <?php 
         if(isset($_SESSION['id'])){
             echo '<script src="js/cart.js"></script>';

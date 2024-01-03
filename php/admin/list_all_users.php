@@ -71,7 +71,7 @@
                                 <td>' . $active . '</td>
                                 <td>
                                     <button type="button" onclick="editUser(' . $data[$i]['id'] . ')" class="btn-edit">Edit</button>
-                                    <button type="button" class="btn-remove">Remove</button>
+                                    <button data-id="' . $data[$i]['id'] . '" type="button" class="btnUserStatus btn-remove">' . ($data[$i]['active'] == 1 ? 'Inactive' : 'Active')  . '</button>
                                 </td>
                             </tr>
                     ';

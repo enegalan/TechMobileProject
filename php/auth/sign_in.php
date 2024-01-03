@@ -3,7 +3,7 @@
         $emailOrName = $_POST['email'];
         $hash = hash('sha512', $_POST['password']);
         include '../conn.php';
-        $query = $conn->prepare("SELECT * FROM users where (email = ? OR username = ?) and password = ?");
+        $query = $conn->prepare("SELECT * FROM users where (email = ? OR username = ?) and password = ? AND active = 1");
         $query->bind_param("sss",$emailOrName,$emailOrName,$hash);
         $query->execute();
         $res = $query->get_result();

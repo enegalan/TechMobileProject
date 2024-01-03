@@ -139,12 +139,12 @@
 
 .navigation ul li:not(:hover):not(.active) a::before,
 .navigation ul li a::before {
-  box-shadow: none;
+  box-shadow: none !important;
 }
 
 .navigation ul li:not(:hover):not(.active) a::after,
 .navigation ul li a::after {
-  box-shadow: none;
+  box-shadow: none !important;
 }
 
 /* ===================== Main ===================== */
@@ -646,6 +646,7 @@ button.btn-remove:hover{
     padding: 2%;
     width: 95%;
     flex-direction: column;
+    box-shadow: 4px 4px 10px black;
 }
 .add_smartphone_main .card, .edit_smartphone_main .card,
 .add_user_main .card, .edit_user_main .card,
@@ -925,12 +926,12 @@ input[type="radio"] + label {
 }
 .add_smartphone_close, .edit_smartphone_close,
 .add_user_close, .edit_user_close, 
-.add_faq_close, .edit_fa_close{
+.add_faq_close, .edit_faq_close{
   font-size: 25px;
 }
 .add_smartphone_close:hover, .edit_smartphone_close:hover,
 .add_user_close:hover, .edit_user_close:hover, 
-.add_faq_close:hover, .edit_fa_close:hover{
+.add_faq_close:hover, .edit_faq_close:hover{
   cursor: pointer;
 }
 /* ====================== Responsive Design ========================== */
@@ -951,6 +952,9 @@ input[type="radio"] + label {
   }
   .cardBox {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .container {
+    top: 0px !important;
   }
 }
 

@@ -290,6 +290,21 @@ async function updateUser(){
     console.log(data);
   })
 }
+document.querySelectorAll('.btnUserStatus').forEach(button => {
+  button.addEventListener("click", async (event) => {
+    var user_id = event.target.getAttribute('data-id');
+    var formData = new FormData();
+    formData.append('id', user_id);
+
+    await fetch('./php/admin/toggleUserStatus.php',  {
+      method: 'POST',
+      body: formData,
+    }).then(res => res.text())
+    .then(data => {
+      window.location.reload();
+    })
+  });
+})
 //Filters
 const userFilters = [
   document.querySelector('.usersFilters #search'),
@@ -301,6 +316,22 @@ const usersTableBody = document.querySelector('.users-table tbody');
 onFilterChange(userFilters, usersTableBody, 'php/admin/list_all_users.php');
 
 /* OPINIONS */
+document.querySelectorAll('.removeOpinion').forEach(element => {
+  element.addEventListener('click', async (event) => {
+    var opinion_id = event.target.getAttribute('data-id');
+  
+    var formData = new FormData();
+    formData.append("opinion_id", opinion_id);
+
+    await fetch('php/admin/removeOpinion.php', {
+      method: 'post',
+      body: formData,
+    }).then(res => res.text())
+    .then(data => {
+      window.location.reload();
+    })
+  })
+})
 const opinionFilters = [
   document.querySelector('#opinionsFilters #search'),
   document.querySelector('#opinionsFilters #manufacturer'),
@@ -336,6 +367,11 @@ async function createFAQ() {
       console.log(data)
     }).finally(window.location.reload());
 }
+
+//Close the edit FAQ modal
+var edit_faq_close = document.querySelector('.edit_faq_close');
+var edit_faq_modal = document.querySelector('.edit_faq_modal');
+closeModal(edit_faq_close, edit_faq_modal);
 
 //Edit FAQ modal
 async function editFAQ(faq_id) { 

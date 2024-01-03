@@ -1,0 +1,106 @@
+/*Dark colors*/
+:root {
+    --dark-bg: #141414;
+    --dark-grey: #252525;
+    --light: #b9b9b9;
+    --md-grey: #2d2d2d;
+    --hover: #1c1c1c
+}
+
+@media (prefers-color-scheme: dark) {
+    body, .productCard_block, .block_descriptionCharacteristic, .block_specificationInformation_table,
+    .main, .reply_label {
+        background-color: var(--dark-bg) !important;
+    }
+    .sliderBlock_positionControls__paginatorItem, .block_specificationInformation_table tr,
+    .block_specificationInformation_table th, .block_specificationInformation_table td {
+        border: 1px solid white;
+    }
+    .block_name, .block_descriptionInformation, .text_specification, 
+    .rating_placeholder, .rating_value, .leave_opinion_title, .recommended_title,
+    .recommended_value, .opinions_value, .opinions_list h2, .opinion_user,
+    .opinion_date, .opinion, .opinion q, .opinion_answer, .breadcrumbs__item,
+    .head-title > *, .head-title i, .contact1-form-title, .answer_opinion:hover {
+        color: var(--light) !important;
+    }
+    .opinion b, .answer_opinion, .block_quantity__number, .block_specificationInformation_table,
+    .menu__toggle, .menu__group, .r-link, .menu__link:hover, .menu__link.submenu_parent:focus, .accordion-content,
+    .submenu a, .payment_details, .order_summary, .opinions_list, .details .recentOrders table tr,
+    .cardHeader h2, .toggle, .user, .headerUsers, .cardHeaderUsersList h2, .usersList table tr, .commentsList table tr,
+    .faqsList table tr, .smartphonesList table tr, .usersFilters, .default_input, .headerFAQ, .usersFilters select,
+    .field input, .orders, .user-card, .user-info, .user-dashboard, .nav-area ul li a,
+    div#my-orders-table_length select, .form-group>input, div#my-orders-table_filter input, div#my-orders-table_paginate a,
+    #add_card:hover, .add_card_modal_close:hover, .card_due_date > .row > select, input#card-cvv, 
+    .add_address.show, .edit_address.show, .add_address.show>.row>div>input, .edit_address.show>.editing_address_info>.row>div>input,
+    input#card-name, input#card-number, .account, .add-account-modal .account, .my-wallet-sidebar .account, .card_info_edit input,
+    .card_info_edit select, .edit-gravatar-modal.show, .navigation ul li.active.hovered a, .rateSmartphoneBody, #opinion textarea,
+    .reply_label, .reply_textarea, .reply_min_label, .add_smartphone_main, .edit_smartphone_main, .add_user_main, .edit_user_main,ç
+    .add_faq_main, .edit_faq_main, textarea, .default_textarea, input[type="number"] {
+        color: white !important;
+    }
+    .button_addToCard, .opinion_media_slider, .search-box, .add_smartphone_upload_image::before, .edit_smartphone_upload_image::before {
+        filter: invert();
+    }
+    .opinion_card_content, .answer_opinion, .opinion_answer, .block_quantity__number,
+    .breadcrumbs__item, .breadcrumbs__item:after, .articulo, .menu__toggle::before,
+    .accordion, .payment_details, .order_summary, .main_cart input, .cardBox .card, .details .recentOrders,
+    .recentCustomers, .usersList, .usersFilters, .commentsList, .faqsList, .smartphonesList, .field input,
+    .user-card, .user-info, .user-dashboard, .nav-area ul li a , #my-orders, .cards_list, .tg-tabs-content-wrapp .tg-form,
+    .container-contact1, #opinion textarea, .nav, .add_smartphone_main .card, .edit_smartphone_main .card, .add_user_main .card,
+    .edit_user_main .card, .add_faq_main .card, .edit_faq_main .card {
+        background: none;
+        background-color: var(--dark-grey) !important;
+    }
+    .block_quantity__number, .user-info>.row>input, #my-orders, div#my-orders-table_length select,
+    .form-group>input, div#my-orders-table_filter input, div#my-orders-table_filter input:focus,
+    .card_due_date > .row > select, #opinion textarea, .reply_textarea, textarea , .add_smartphone_images, 
+    .edit_smartphone_images{
+        border: none !important;
+    }
+    .breadcrumbs__item:before, .breadcrumbs__item .breadcrumbs__item:hover:after, .breadcrumbs__item:hover,
+    .breadcrumbs__item:hover::before, .breadcrumbs__item:hover::after, .r-link:hover, .menu__link.submenu_parent:focus,
+    .details_card, .summary_card, .default_input, .usersFilters select, .user-info>.row>input,
+    .nav-area ul li a:hover, div#my-orders-table_length select, input#card-name, input#card-number,
+    .card_due_date > .row > select, .form-group>input, div#my-orders-table_filter input, div#my-orders-table_paginate a,
+    input#card-cvv, .add_address.show>.row>div>input, .edit_address.show>.editing_address_info>.row>div>input,
+    .row input[type="checkbox"], .account, .add-account-modal .account, .my-wallet-sidebar .account,
+    .card_info_edit input, .card_info_edit select, .default_textarea, .add_smartphone_images, .edit_smartphone_images, .add_smartphone_upload_image::after, .edit_smartphone_upload_image::after {
+        background: none;
+        background-color: var(--hover) !important;
+    }
+    .breadcrumbs, .menu__toggle::before, .info-about, .user-card, .user-info, .tg-tabs-content-wrapp .tg-form,
+    .account, .add-account-modal .account, .my-wallet-sidebar .account, .user-dashboard, textarea, input[type="number"] {
+        border-color: var(--hover) !important;
+    }
+    .m-hamburger::before, .m-hamburger::after, .m-hamburger__label {
+        background-color: white !important;
+    }
+    
+    ul#myTab, .add_card_modal_info, .add_address.show, .edit_address.show, .card_edit, .input1, .edit-gravatar-modal.show,
+    .edit-gravatar, .navigation ul li.active, .navigation ul li:hover, .rateSmartphoneBody, .reply_textarea,
+    .add_smartphone_main, .edit_smartphone_main, .add_user_main, .edit_user_main, .add_faq_main, .edit_faq_main, 
+    .add_smartphone_images ul, .edit_smartphone_images ul {
+        background: var(--md-grey) !important;
+    }
+
+    .user-dashboard-nav-bg>svg {
+        fill: var(--dark-grey) !important;
+    }
+
+    .add_smartphone_upload_image::before, .edit_smartphone_upload_image::before {
+        color: black;
+    }
+
+    /*SPECIAL STYLES*/
+    nav.page-header-top-nav {
+        background: linear-gradient(#303030,#100e17) padding-box,linear-gradient(90deg,#74278e,#e91483) 0/100% no-repeat border-box,linear-gradient(-90deg,#eb7d01,#e9167d 37.5vw,rgb(234 35 79)) 100% 101%/65% 75% no-repeat border-box;
+    }
+
+    .navigation ul li:hover a::before, .navigation ul li.hovered a::before, .navigation ul li.active a::before {
+        box-shadow: 35px 35px 0 10px var(--md-grey) !important;
+    }
+
+    .navigation ul li:hover a::after, .navigation ul li.hovered a::after, .navigation ul li.active a::after {
+        box-shadow: 35px -35px 0 10px var(--md-grey) !important;
+    }
+}

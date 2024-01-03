@@ -1,0 +1,409 @@
+.r-button {
+    --uirButtonBackgroundColor: var(--rButtonBackgroundColor, transparent);
+    --uirButtonPadding: var(--rButtonPadding, var(--rButtonPaddingTop, 0) var(--rButtonPaddingRight, 0) var(--rButtonPaddingBottom, 0) var(--rButtonPaddingLeft, 0));
+    --uirButtonBorderWidth: var(--rButtonBorderWidth, 0);
+    --uirButtonBorderStyle: var(--rButtonBorderStyle, solid);
+    --uirButtonBorderColor: var(--rButtonBorderColor, currentColor);
+    --uirButtonFontFamily: var(--rButtonFontFamily, inherit);
+    --uirButtonFontSize: var(--rButtonFontSize, inherit);
+    --uirButtonColor: var(--rButtonColor);
+
+    background-color: var(--uirButtonBackgroundColor);
+    padding: var(--uirButtonPadding);
+
+    border-width: var(--uirButtonBorderWidth);
+    border-style: var(--uirButtonBorderStyle);
+    border-color: var(--uirButtonBorderColor);
+
+    cursor: pointer;
+
+    font-family: var(--uirButtonFontFamily);
+    font-size: var(--uirButtonFontSize);
+}
+
+.r-button::-moz-focus-inner,
+.r-button[type="button"]::-moz-focus-inner,
+.r-button[type="reset"]::-moz-focus-inner,
+.r-button[type="submit"]::-moz-focus-inner {
+
+    /* Remove the inner border and padding in Firefox. */
+
+    border-style: none;
+    padding: 0;
+}
+
+/* The component will reset browser's styles of link */
+
+.r-link {
+    --uirLinkDisplay: var(--rLinkDisplay, inline-flex);
+    --uirLinkTextColor: var(--rLinkTextColor);
+    --uirLinkTextDecoration: var(--rLinkTextDecoration, none);
+
+    display: var(--uirLinkDisplay) !important;
+    color: var(--uirLinkTextColor);
+    text-decoration: var(--uirLinkTextDecoration) !important;
+    padding: 15px 30px 15px 30px;
+    border-radius: 10px;
+}
+
+/* The component will reset browser's styles of list */
+
+.r-list {
+    --uirListPaddingLeft: var(--rListPaddingLeft, 0);
+    --uirListMarginTop: var(--rListMarginTop, 0);
+    --uirListMarginBottom: var(--rListMarginBottom, 0);
+    --uirListListStyle: var(--rListListStyle, none);
+
+    padding-left: var(--uirListPaddingLeft) !important;
+    margin-top: var(--uirListMarginTop) !important;
+    margin-bottom: var(--uirListMarginBottom) !important;
+    list-style: var(--uirListListStyle) !important;
+}
+
+/* Basic styles of the hamburger component */
+
+.m-hamburger {
+    --uiHamburgerThickness: var(--hamburgerThickness, 4px);
+
+    display: var(--hamburgerDisplay, inline-flex);
+    width: 30%;
+    height: 3vh;
+
+    position: relative;
+}
+
+.m-hamburger::before,
+.m-hamburger::after,
+.m-hamburger__label {
+    width: 100%;
+    height: var(--uiHamburgerThickness);
+    border-radius: var(--hamburgerBorderRadius, 5px);
+    background-color: var(--colorBlack, currentColor);
+
+    position: absolute;
+    left: 0;
+}
+
+.m-hamburger::before,
+.m-hamburger::after {
+    content: "";
+}
+
+.m-hamburger::before {
+    top: 0;
+}
+
+.m-hamburger::after {
+    bottom: 0;
+}
+
+.m-hamburger__label {
+    /* The calculation of middle hamburger button line position */
+
+    top: calc(50% - calc(var(--uiHamburgerThickness) / 2));
+}
+
+/* helper to hide elements that are available only for screen readers. */
+
+.screen-reader {
+    width: var(--screenReaderWidth, 1px) !important;
+    height: var(--screenReaderHeight, 1px) !important;
+    padding: var(--screenReaderPadding, 0) !important;
+    border: var(--screenReaderBorder, none) !important;
+
+    position: var(--screenReaderPosition, absolute) !important;
+    clip: var(--screenReaderClip, rect(1px, 1px, 1px, 1px)) !important;
+    overflow: var(--screenReaderOverflow, hidden) !important;
+}
+
+/*
+  =====
+  MENU STYLES
+  =====
+  */
+
+.menu {
+    --uiMenuCircleSize: 15.25vh;
+    --uiMenuCircleOffset: var(--menuCircleOffset, 1rem);
+    --uiMenuCircleHeight: calc(var(--uiMenuCircleSize) / 2);
+    --uiMenuCircleBackgroundColor: var(--menuCircleBackgroundColor, currentColor);
+
+    --uiMenuHamburgerWidth: var(--menuHamburgerWidth, 1.75rem);
+    --uiMenuHamburgerHeight: var(--menuHamburgerHeight, 1.25rem);
+
+    --rButtonPaddingTop: calc(var(--uiMenuCircleHeight) - var(--uiMenuHamburgerHeight) - var(--uiMenuCircleOffset));
+
+    --hamburgerWidth: var(--uiMenuHamburgerWidth);
+    --hamburgerHeight: var(--uiMenuHamburgerHeight);
+    --hamburgerBackgroundColor: var(--menuHamburgerBackgroundColor, #fff);
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: var(--menuZindex, 9998);
+}
+
+.menu__nav {
+    box-sizing: border-box;
+    width: 100%;
+    height: 0;
+
+    transition: opacity .2s ease-out;
+    opacity: 0;
+
+    display: flex;
+    align-items: flex-end;
+    z-index: 2;
+}
+
+.menu__list {
+    width: 100%;
+    max-height: 100%;
+
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.menu__toggle {
+    box-sizing: border-box;
+    width: var(--uiMenuCircleSize);
+    height: var(--uiMenuCircleHeight);
+    flex: none;
+    position: relative;
+    color: var(--colorBlack);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 3vh;
+}
+
+.menu__toggle::before {
+    /*
+    1. The font-size property is used to simplify calculations of the element's sizes and position
+    2. The negative value for the bottom property need for hiding half of circle. 
+    */
+
+    content: "";
+    width: 1em;
+    height: 1em;
+    font-size: var(--uiMenuCircleSize);
+    /* 1 */
+
+    background-color: var(--uiMenuCircleBackgroundColor);
+    border-radius: 50%;
+
+    position: absolute;
+    bottom: -.5em;
+    /* 2 */
+    left: calc(50% - .5em);
+    z-index: -1;
+
+    will-change: width, height;
+    transition: transform .25s cubic-bezier(0.04, -0.1, 0.29, 0.98),
+        width .25s cubic-bezier(0.04, -0.1, 0.29, 0.98),
+    height .25s cubic-bezier(0.04, -0.1, 0.29, 0.98);
+    border: 1px solid var(--uiMenuCircleBackgroundColor);
+}
+
+/* styles of hamburger's animation */
+
+.m-hamburger::before,
+.m-hamburger::after,
+.m-hamburger__label {
+    transition-timing-function: ease;
+    transition-duration: .15s;
+}
+
+.m-hamburger::before,
+.m-hamburger::after {
+    transition-property: transform;
+}
+
+.m-hamburger__label {
+    transition-property: transform, opacity;
+}
+
+/*
+  =====
+  MENU STATES
+  =====
+  */
+
+.menu__link:hover,
+.menu__link.submenu_parent:focus {
+    background: var(--colorWhite);
+    color: var(--colorBlack);
+}
+.menu__link.submenu_parent:not(:focus) {
+    background-color: transparent;
+}
+.menu_activated {
+    height: 100%;
+}
+
+.menu_activated .menu__nav {
+    flex-grow: 1;
+    opacity: 1;
+
+    will-change: opacity;
+    transition-duration: .2s;
+    transition-delay: .3s;
+}
+
+.menu_activated .menu__toggle::before {
+    width: 100vmax;
+    height: 100vmax;
+    transform: translate3d(-50vh, -50vh, 0) scale(5);
+    transition-duration: 1s;
+}
+
+.menu:not(.menu_activated) .menu__list {
+    display: none;
+}
+
+.menu_activated .m-hamburger::before {
+    top: 50%;
+    transform: translate3d(0, -50%, 0) rotate(45deg);
+}
+
+.menu_activated .m-hamburger::after {
+    transform: translate3d(0, -50%, 0) rotate(135deg);
+    top: 50%;
+}
+
+.menu_activated .m-hamburger__label {
+    transform: rotate(-45deg) translate3d(-.285em, -.3em, 0);
+    opacity: 0;
+}
+
+/*
+    =====
+    SETTINGS
+    =====
+  */
+
+:root {
+    --colorWhite: #fff;
+    --colorBlack: #252525;
+    --colorMain: #e2dfdf;
+    --menuCircleBackgroundColor: var(--colorMain);
+    --menuHamburgerBackgroundColor: var(--colorWhite);
+    --menuHaburgerOutlineColor: var(--colorMain);
+}
+
+.submenu {
+    display: inline-flex;
+    position: absolute;
+    padding: 20px;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: -30%;
+    gap: 20px;
+    border-radius: 10px;
+    transform: translateX(100vw);
+    transition: .5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    right: 0;
+}
+
+.menu-item:visited .submenu {
+    display: inline-flex;
+}
+
+.submenu a {
+    display: block;
+    margin: 5px 0;
+    color: var(--colorBlack);
+}
+
+
+.menu__group {
+    --rLinkTextColor: var(--colorBlack);
+
+    padding: .5rem 2rem;
+    font-size: 3vh;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+@media screen and (min-width: 992px) {
+    .menu {
+        visibility: hidden;
+    }
+}
+@media screen and (max-width: 991px) {
+    .menu {
+        visibility: visible;
+    }
+}
+
+.search-box {
+    font-size: 20px;
+    border: solid 0.3em #000;
+    display: inline-block;
+    position: relative;
+    border-radius: 2.5em;
+}
+.search-box input[type="text"] {
+    background: none;
+    font-family: inherit;
+    font-weight: bold;
+    width: 2.5em;
+    height: 3vh;
+    padding: 0.3em 2.1em 0.3em 0.4em;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 50%;
+    transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55) 150ms;
+    margin: 0 !important;
+
+}
+.search-box input[type="text"]:focus {
+    outline: none;
+}
+.search-box input[type="text"]:focus, .search-box input[type="text"]:not(:placeholder-shown) {
+    width: 18em;
+    transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+.search-box input[type="text"]:focus + button[type="reset"], .search-box input[type="text"]:not(:placeholder-shown) + button[type="reset"] {
+    transform: rotate(-45deg) translateY(0);
+    transition: transform 150ms ease-out 800ms;
+}
+.search-box input[type="text"]:focus + button[type="reset"]:after, .search-box input[type="text"]:not(:placeholder-shown) + button[type="reset"]:after {
+    opacity: 1;
+    transition: top 150ms ease-out 950ms, right 150ms ease-out 950ms, opacity 150ms ease 950ms;
+}
+.search-box button[type="reset"] {
+    background-color: transparent;
+    width: 1.4em;
+    height: 1.4em;
+    border: 0;
+    padding: 0;
+    outline: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0.55em;
+    right: 0.7vw;
+    transform: rotate(-45deg) translateY(2.2em);
+    transition: transform 150ms ease-out 150ms;
+}
+.search-box button[type="reset"]:before, .search-box button[type="reset"]:after {
+    content: "";
+    background-color: #000;
+    width: 0.3em;
+    height: 1.4em;
+    position: absolute;
+}
+.search-box button[type="reset"]:after {
+    transform: rotate(90deg);
+    opacity: 0;
+    transition: transform 150ms ease-out, opacity 150ms ease-out;
+}

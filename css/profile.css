@@ -47,14 +47,16 @@
 .edit-gravatar{
     background: #e6e5e5;
     position: absolute;
-    padding: 10px;
     border-radius: 50px;
     width: 45px;
     text-align: center;
     right: 100px;
     color: #636363;
-    transform: .5s;
+    transform: .5s ease-in;
     z-index: 2;
+}
+.edit-gravatar > i:first-of-type {
+    padding: 14px;
 }
 .edit-gravatar:hover{
     cursor: pointer;
@@ -163,7 +165,6 @@
     border-radius: 5px;
     border: 2px solid lightgrey;
     width: 1000px;
-    height: 840px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -323,6 +324,7 @@ a#account-detail {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
 }
 
 .left {
@@ -348,16 +350,12 @@ div#dashboard {
     margin-top: 20%;
 }
 
-div#myTabContent {
-    padding: 4%;
-}
-
 .active.show {
     display: block !important;
 }
 
 .tab-pane>div {
-    margin-top: 4.5%;
+    margin-top: 35px;
 }
 
 li.nav-item {
@@ -462,7 +460,7 @@ div#my-orders-table_filter input {
 }
 
 div#my-orders-table_filter input:focus {
-    border: 1px solid black !important;
+    border: 1px solid black;
 
 }
 
@@ -490,8 +488,7 @@ div#my-orders-table_filter {
 }
 
 .tg-tabs-content-wrapp .tg-form {
-    width: 900px;
-    height: 500px;
+    width: 100%;
     float: left;
     background: #f7f7f7;
     padding: 30px 30px 10px;
@@ -499,6 +496,10 @@ div#my-orders-table_filter {
     position: relative;
     display: flex;
     justify-content: center;
+}
+
+.inner {
+    width: 100%;
 }
 
 .tg-tabs-content-wrapp form.tg-form.social-media {
@@ -588,10 +589,11 @@ div#my-orders-table_paginate {
 
 div#my-orders-table_paginate span a.current {
     color: #fff !important;
-    background: #207ba1;
+    background: #207ba1 !important;
 }
 
-.tg-tabs-content-wrapp .my-account-dashboard .card {
+.tg-tabs-content-wrapp .my-account-dashboard .card, .close_add_address:hover, .close_edit_address:hover,
+span.add_card_modal_close {
     cursor: pointer;
 }
 
@@ -644,7 +646,22 @@ table#my-orders-table a.view-order {
     }
 
     .user-info {
-        width: 500px !important;
+        width: 100% !important;
+    }
+
+    .my-cards {
+        padding: 0 !important;
+    }
+
+    .all_cards {
+        margin-top: 15px !important;
+        margin-left: 50% !important;
+    }
+
+    .account.selected {
+        left: 9.5vw;
+        top: 9.8%;
+        transform: none !important;
     }
 
     li.nav-item {
@@ -652,12 +669,8 @@ table#my-orders-table a.view-order {
         padding-right: 160px;
     }
 
-    div#myTabContent {
-        padding-top: 20%;
-    }
-
-    .user-dashboard {
-        width: 500px;
+    .user-dashboard, .card_edit {
+        width: 100% !important;
     }
 
     .dataTables_length,
@@ -668,6 +681,37 @@ table#my-orders-table a.view-order {
 
     div#my-orders-table_filter input {
         width: 105px !important;
+    }
+
+    .edit-gravatar-modal.show {
+        left: -450% !important;
+    }
+
+    .profile-form, .my-cards, .user-info>.row {
+        gap: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .cards_list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100% !important;
+    }
+
+    .all_cards {
+        margin-right: 0 !important;
+    }
+    
+    .row {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .my-account-dashboard .row > div, #my-orders, .user-card, .container .inner {
+        width: 100%;
     }
 
 }
@@ -718,7 +762,8 @@ table#my-orders-table a.view-order {
     position: absolute;
     margin: 0 !important;
     padding: 0;
-    margin-top: 4.5% !important;
+    margin-top: 0;
+    padding-top: 15px;
 }
 
 .my-cards {
@@ -859,6 +904,7 @@ input#card-cvv{
     padding: 8%;
     border-radius: 5px;
     position: relative;
+    box-shadow: 2px 4px 12px 0px black;
 }
 .add_card_modal_info>h3 {
     text-align: left;

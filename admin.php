@@ -15,6 +15,7 @@ $username = $_SESSION['username'];
 
 <head>
     <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard | TechMobile | Eneko Galan</title>
@@ -30,7 +31,7 @@ $username = $_SESSION['username'];
 <body>
     <!--HEADER-->
     <header id="nav-wrapper">
-        <div class="menu" id="show-menu">
+        <div class="main_menu" id="show-menu">
             <nav id="nav">
                 <div class="nav left">
                     <span class="gradient skew">
@@ -57,11 +58,9 @@ $username = $_SESSION['username'];
 				</div>
             </nav>
         </div>
-        <!--Menu Bars (Mobile)-->
-        <div id="icon-menu">
-            <i class="fas fa-bars"></i>
-        </div>
     </header>
+    <!--Navbar menu (Mobile)-->
+    <?php include 'components/mobile_navbar.php'; ?>
     <!--Search input-->
     <div id="ctn-bars-search">
         <input type="text" id="inputSearch" placeholder="¿Qué deseas buscar?">
@@ -70,6 +69,7 @@ $username = $_SESSION['username'];
     <ul id="box-search">
         <?php
 		include 'php/list_smartphones.php';
+        listAllSmartphones();
 		?>
     </ul>
     <div id="cover-ctn-search"></div>
@@ -1290,12 +1290,15 @@ $username = $_SESSION['username'];
             </div>
             <!-- ======================= End Orders ================== -->
         </div>
+        <a href="#" class="cd-top text-replace js-cd-top">Subir</a>
     </div>
 
     <!-- =========== Scripts =========  -->
     <script src="js/auth.js"></script>
     <script src="js/admin.js"></script>
+    <script src="js/main.js"></script>
     <script src="js/browser.js"></script>
+    <script src="js/mobile_navbar.js"></script>
     <script src="js/userModal.js"></script>
     <script src="js/sliderRange.js"></script>
     <!-- ====== ionicons ======= -->

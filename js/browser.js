@@ -1,6 +1,6 @@
-document.getElementById("icon-menu").addEventListener("click", mostrar_menu);
-document.getElementById("ctn-icon-search").addEventListener("click", mostrar_buscador);
-document.getElementById("cover-ctn-search").addEventListener("click", ocultar_buscador);
+document.getElementById("icon-menu") && document.getElementById("icon-menu").addEventListener("click", mostrar_menu);
+document.getElementById("ctn-icon-search") && document.getElementById("ctn-icon-search").addEventListener("click", mostrar_buscador);
+document.getElementById("cover-ctn-search") && document.getElementById("cover-ctn-search").addEventListener("click", ocultar_buscador);
 
 bars_search = document.getElementById("ctn-bars-search");
 cover_ctn_search = document.getElementById("cover-ctn-search");

@@ -40,7 +40,7 @@
                         <td>' . $data[$i]['quote'] . '</td>
                         <td>' . $data[$i]['date'] . '</td>
                         <td>
-                            <button type="button" class="btn-remove">Remove</button>
+                            <button type="button" data-id="' . $data[$i]['id'] . '" class="removeOpinion btn-remove">Remove</button>
                         </td>
                     </tr>
                 ';

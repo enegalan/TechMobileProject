@@ -51,30 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
         if(smartphone){
-            //Rating system
-            var starsInput = document.querySelectorAll('.block_rating__stars input');
-            var ratingElements = document.getElementsByClassName("block_rating__stars");
-
-            // Supongamos que deseas obtener el atributo smartphone-id del primer elemento
-            var firstRatingElement = ratingElements[0];
-            var smartphone_id = firstRatingElement.getAttribute("smartphone-id");
-            starsInput.forEach(function (starInput) {
-                starInput.addEventListener('click', async function () { 
-                    var rating = this.value;
-                    console.log("RATING: ",rating)
-                    console.log("SmartphoneID: ",smartphone_id)
-                    var formData = new FormData();
-                    formData.append('rating', rating);
-                    formData.append('smartphone_id', smartphone_id);
-                    await fetch('./php/rating.php',{
-                        method: "POST",
-                        body: formData
-                    }).then(res => res.text())
-                    .then(data => {
-                        console.log(data);
-                    })
-                })
-            })
+            
         }
     } else if (contacto) {
         var link1 = document.querySelector('.nav.right .menu-default[href="contacto.php"]');
@@ -134,3 +111,8 @@ document.addEventListener('DOMContentLoaded', function () {
         link1.classList.add('active');
     }
 });
+/* Submenu link show/hide */
+function toggleSubmenu() {
+    var submenu = document.querySelector('#submenu');
+    submenu.style.transform = (submenu.style.transform === 'translateX(-10vw)') ? 'translateX(100vw)' : 'translateX(-10vw)';
+}

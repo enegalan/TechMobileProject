@@ -3,6 +3,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechMobile | Eneko Galan</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="stylesheet" type="text/css" href="css/main.css" />
@@ -15,7 +16,7 @@
 <body>
     <!--HEADER-->
 	<header id="nav-wrapper">
-		<div class="menu" id="show-menu">
+		<div class="main_menu" id="show-menu">
 			<nav id="nav">
 				<div class="nav left">
 					<span class="gradient skew">
@@ -42,11 +43,9 @@
 				</div>
 			</nav>
 		</div>
-		<!--Menu Bars (Mobile)-->
-		<div id="icon-menu">
-			<i class="fas fa-bars"></i>
-		</div>
 	</header>
+    <!--Navbar menu (Mobile)-->
+    <?php include 'components/mobile_navbar.php'; ?>
 	<!--Search input-->
 	<div id="ctn-bars-search">
 		<input type="text" id="inputSearch" placeholder="¿Qué deseas buscar?">
@@ -55,6 +54,7 @@
 	<ul id="box-search">
 		<?php
 		include 'php/list_smartphones.php';
+        listAllSmartphones();
 		?>
 	</ul>
 	<div id="cover-ctn-search"></div>
@@ -62,9 +62,6 @@
     <div class="head-title">
         <div class="icon-secret-game">
             TechMobile
-            <a href="game/game.html">
-                <i class="fa-solid fa-play"></i>
-            </a>
         </div>
     </div>
     
@@ -110,6 +107,7 @@
         </div>
     </div>
     <script src="js/browser.js"></script>
+    <script src="js/mobile_navbar.js"></script>
     <script src="js/userModal.js"></script>
     <script src="js/main.js"></script>
     <?php 

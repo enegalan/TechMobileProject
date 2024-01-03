@@ -5,7 +5,7 @@
 if($_GET['id']){
     include 'conn.php';
     $smartphone_id = $_GET['id'];
-    $opinions_query = $conn->prepare("SELECT O.id, O.user_id, U.username, U.name, U.surname, U.gravatar, O.smartphone_id, O.rating_id, O.quote, O.advantages, O.disadvantages, O.recommended, O.date, O.verified, O.media FROM opinions O INNER JOIN users U on O.user_id = U.id WHERE smartphone_id = ?");
+    $opinions_query = $conn->prepare("SELECT O.id, O.user_id, U.username, U.name, U.surname, U.gravatar, O.smartphone_id, O.quote, O.advantages, O.disadvantages, O.recommended, O.date, O.verified, O.media FROM opinions O INNER JOIN users U on O.user_id = U.id WHERE smartphone_id = ?");
     $opinions_query->bind_param("i", $smartphone_id);
     $opinions_query->execute();
     $opinions_result = $opinions_query->get_result();
@@ -23,6 +23,7 @@ if($_GET['id']){
             $media_result = $media_query->get_result();
             $medias = array();
             $id_aux = 0;
+            $media_dom = array();
             while ($media = $media_result->fetch_assoc()) {
                 $medias[] = $media;
                 $media_dom[] = '<img aria-selected="" src="' . $media['path'] . '">';
@@ -58,7 +59,7 @@ if($_GET['id']){
     
             //Get each opinion answers
             // TODO: When 5 opinions reached, make a button to show all of them
-            $opinion_answers_query = $conn->prepare("SELECT OA.id, OA.quote, OA.date, U.username FROM opinion_answers OA INNER JOIN users U on OA.user_id = U.id WHERE OA.opinion_id = ?");
+            $opinion_answers_query = $conn->prepare("SELECT OA.id, OA.quote, OA.date, U.username, U.gravatar FROM opinion_answers OA INNER JOIN users U on OA.user_id = U.id WHERE OA.opinion_id = ?");
             $opinion_answers_query->bind_param("i", $opinion['id']);
             $opinion_answers_query->execute();
             $opinion_answers_result = $opinion_answers_query->get_result();
@@ -74,7 +75,7 @@ if($_GET['id']){
                         </div>
                         <div class="opinion_answer_header">
                             <div class="opinion_answer_user">
-                                <img class="opinion_answer_user_gravatar" src="images/users/default.jpg">
+                                <img class="opinion_answer_user_gravatar" src="' . $opinion_answer['gravatar'] . '">
                                 <span class="opinion_answer_user_username"><b>' . $opinion_answer['username'] . '</b></span>
                             </div>
                             <div class="opinion_answer_date">' . date('d/m/Y', strtotime($opinion_answer['date'])) . '</div>
@@ -94,21 +95,23 @@ if($_GET['id']){
                             <img src="' . $opinion['gravatar'] . '" alt="user-gravatar">
                             <p><b>' . $opinion['username'] . '</b></p>
                         </div>
-                        <div class="opinion_media">
-                            <div class="media_container">
-                            ' . implode('', $media_dom) . '
+                        <div>
+                            <div class="opinion_media">
+                                <div class="media_container">
+                                ' . implode('', $media_dom) . '
+                                </div>
+                                <div class="media_slider_controller">
+                                    <span id="media_slider_controller_previous">
+                                        <i class="fas fa-arrow-left"></i>
+                                    </span>
+                                    <span id="media_slider_controller_next">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </span>
+                                </div>
                             </div>
-                            <div class="media_slider_controller">
-                                <span id="media_slider_controller_previous">
-                                    <i class="fas fa-arrow-left"></i>
-                                </span>
-                                <span id="media_slider_controller_next">
-                                    <i class="fas fa-arrow-right"></i>
-                                </span>
+                            <div class="opinion_media_slider">
+                                ' . implode('', $opinion_media_slider_dom) . '
                             </div>
-                        </div>
-                        <div class="opinion_media_slider">
-                            ' . implode('', $opinion_media_slider_dom) . '
                         </div>
                     </div>
                     <div class="contenido">
@@ -133,7 +136,7 @@ if($_GET['id']){
                         </div>
                         <div class="opinion_buttons">
                             <span class="useful_opinion">
-                                <a class="useful_opinion_a" href="#">
+                                <a data-id="' . $opinion['id'] . '" class="useful_opinion_a" href="#">
                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -145,8 +148,25 @@ if($_GET['id']){
                                 </a>
                             </span>
                             <span class="answer_opinion_span">
-                                <div class="answer_opinion" onclick="">Responder</div>
+                                <div class="answer_opinion" data-id="' . $opinion['id'] . '">Responder</div>
                             </span>
+                        </div>
+                        <div data-id="' . $opinion['id'] . '" class="reply_opinion">
+                            <div class="reply_textarea_container">
+                                <label for="comment" class="reply_label">Comentar</label>
+                                <textarea id="comment" minlength="15" placeholder="@' . $opinion['username'] . '" class="reply_textarea">@' . $opinion['username'] . '</textarea>
+                                <div class="reply_min_label">* Mínimo 15 caracteres</div>
+                            </div>
+                            <div class="reply_controls">
+                                <div>
+                                    <button data-id="' . $opinion['id'] . '" class="reply_button">
+                                        Comentar
+                                    </button>
+                                    <button class="reply_cancel_button">
+                                        Cancelar
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="opinion_answers">

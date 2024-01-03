@@ -1,29 +1,31 @@
 <?php
-session_start();
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
 if (isset($_SESSION['id'])) {
     $id = $_SESSION['id'];
-    $is_admin = $_SESSION['is_admin'];
-    $username = $_SESSION['username'];
-    $email = $_SESSION['email'];
-    $name = $_SESSION['name'];
-    $surname = $_SESSION['surname'];
-    $birthdate = $_SESSION['birthdate'];
-    $sex = $_SESSION['sex'];
-    $about = $_SESSION['about'];
+    $is_admin = $_SESSION['is_admin'] ?? false;
+    $username = $_SESSION['username'] ?? '';
+    $email = $_SESSION['email'] ?? '';
+    $name = $_SESSION['name'] ?? '';
+    $surname = $_SESSION['surname'] ?? '';
+    $birthdate = $_SESSION['birthdate'] ?? '';
+    $sex = $_SESSION['sex'] ?? '';
+    $about = $_SESSION['about'] ?? '';
     $gravatar = $_SESSION['gravatar'];
-    $password = $_SESSION['password'];
-    $country = $_SESSION['country'];
-    $city = $_SESSION['city'];
-    $province = $_SESSION['province'];
-    $phone = $_SESSION['phone'];
-    $website = $_SESSION['website'];
-    $facebook = $_SESSION['facebook'];
-    $twitter = $_SESSION['twitter'];
-    $instagram = $_SESSION['instagram'];
-    $github = $_SESSION['github'];
-    $address1 = $_SESSION['address1'];
-    $address2 = $_SESSION['address2'];
-    $zip = $_SESSION['zip'];
+    $password = $_SESSION['password'] ;
+    $country = $_SESSION['country'] ?? '';
+    $city = $_SESSION['city'] ?? '';
+    $province = $_SESSION['province'] ?? '';
+    $phone = $_SESSION['phone'] ?? '';
+    $website = $_SESSION['website'] ?? '';
+    $facebook = $_SESSION['facebook'] ?? '';
+    $twitter = $_SESSION['twitter'] ?? '';
+    $instagram = $_SESSION['instagram'] ?? '';
+    $github = $_SESSION['github'] ?? '';
+    $address1 = $_SESSION['address1'] ?? '';
+    $address2 = $_SESSION['address2'] ?? '';
+    $zip = $_SESSION['zip'] ?? '';
 }else{
     header('location: index.php');
 }
@@ -34,6 +36,7 @@ if (isset($_SESSION['id'])) {
 
 <head>
     <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil | TechMobile | Eneko Galan</title>
     <script src="https://kit.fontawesome.com/8e4bd12ccb.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
@@ -53,7 +56,7 @@ if (isset($_SESSION['id'])) {
 <body>
     <!--HEADER-->
     <header id="nav-wrapper">
-        <div class="menu" id="show-menu">
+        <div class="main_menu" id="show-menu">
             <nav id="nav">
                 <div class="nav left">
                     <span class="gradient skew">
@@ -80,11 +83,9 @@ if (isset($_SESSION['id'])) {
 				</div>
             </nav>
         </div>
-        <!--Menu Bars (Mobile)-->
-        <div id="icon-menu">
-            <i class="fas fa-bars"></i>
-        </div>
     </header>
+    <!--Navbar menu (Mobile)-->
+    <?php include 'components/mobile_navbar.php'; ?>
     <!--Search input-->
     <div id="ctn-bars-search">
         <input type="text" id="inputSearch" placeholder="¿Qué deseas buscar?">
@@ -93,6 +94,7 @@ if (isset($_SESSION['id'])) {
     <ul id="box-search">
         <?php
 		include 'php/list_smartphones.php';
+        listAllSmartphones();
 		?>
     </ul>
     <div id="cover-ctn-search"></div>
@@ -724,6 +726,7 @@ if (isset($_SESSION['id'])) {
     <script src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
     <script src="js/browser.js"></script>
+    <script src="js/mobile_navbar.js"></script>
     <script src="js/userModal.js"></script>
     <script src="js/profileDashboard.js"></script>
     <script src="js/cart.js"></script>

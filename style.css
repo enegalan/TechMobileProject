@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:100,300,400,500,600,700,800, 800i, 900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@406&display=swap');
+@import url('css/dark_mode.css');
+@import url('css/mobile_navbar.css');
 *{box-sizing: border-box;font-family: 'Poppins', sans-serif;}
 
 ::selection{background-color: rgba(38, 135, 187, 0.38);color: #fff;}
@@ -16,19 +18,25 @@ a{text-decoration:none;}
 
 body {
     margin: 0px;
+    padding: 0;
     background-color: #5e5e5e;
     width: -webkit-fill-available;
 }
 
 #contenidoprincipal\ producto{
-	height: 100vh;
 	padding-top:6%;
 	padding-bottom:0px;
-	position:absolute;
 	display: inline-flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	width: 100%;
+    height: auto;
+}
+
+@media screen and (min-width: 1035px) {
+    #contenidoprincipal\ producto {
+        height: 100vh;
+    }
 }
 
 #contenidoprincipal\ index{
@@ -164,7 +172,7 @@ body[data-aie=zoom-out] .top-level .row-bg-wrap {
 }
 
 .head-title {
-    font-size: 6rem;
+    font-size: 8vh;
     color: #efefef;
     position: absolute;
     top: 11%;
@@ -255,8 +263,6 @@ body[data-aie=zoom-out] .top-level .row-bg-wrap {
     padding: 0;
 }
 
-.container .card img{filter: invert(1);}
-
 .container .card .face.face2 .content a{
     margin: 15px 0 0;
     display:  inline-block;
@@ -281,7 +287,7 @@ body[data-aie=zoom-out] .top-level .row-bg-wrap {
 .logoBx.bitbigger > img{width: 25%;}
 
 #contenidoprincipal\ producto.greyBx::before {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     background-color: #26282a;
@@ -436,13 +442,14 @@ nav.page-header-top-nav {
     margin-top: revert !important;
 	justify-content: center;
 	width: 100%;
+    padding-left: 10rem;
 }
 
 .page-header-top-nav a {
     white-space: nowrap;
     padding: 0 1rem;
     color: white;
-    font-size: calc(0.5rem + 0.5vw);
+    font-size: calc(1rem + 0.5vw);
 }
 
 .page-header-top-nav a:hover{
@@ -475,7 +482,7 @@ nav.page-header-top-nav {
 
 .breadcrumbs__item {
     background: #fff;
-    color: #333 !important;
+    color: #333;
     outline: none;
     padding: 0.75em 0.75em 0.75em 1.25em;
     position: relative;
@@ -489,7 +496,7 @@ nav.page-header-top-nav {
 }
 
 .breadcrumbs__item:focus:after, .breadcrumbs__item:focus, .breadcrumbs__item.is-active {
-    background: #323f4a;
+    background: #323f4a !important;
     color: #fff !important;
 }
 
@@ -706,6 +713,13 @@ a:hover {
         padding-right: 3em;
     }
     
+}
+
+@media screen and (max-width: 991px) {
+    .nav, #ctn-bars-search {
+        display: none !important;
+    }
+
 }
 
 .dropdown-a > a > i, a.c-primary-nav__link.js-dropdown__trigger.nav-link-span{

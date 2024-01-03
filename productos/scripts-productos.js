@@ -228,4 +228,88 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
     });
+
+    // Useful opinion function
+    document.querySelectorAll('.useful_opinion_a').forEach(element => {
+        element.addEventListener('click', usefulOpinion)
+    })
+    function usefulOpinion(event) {
+        event.preventDefault();
+        
+        var opinion_id = event.target.getAttribute('data-id');
+        const formData = new FormData();
+        formData.append('id', opinion_id);
+
+        if (localStorage.getItem('user_id')) {
+            fetch('php/add_new_useful_opinion.php', {
+                method: 'POST',
+                body: formData,
+            })
+            .then(res => res.text())
+            .then(data => {
+                window.location.reload();
+            })
+        }
+    }
+
+    // Open an opinion reply
+    document.querySelectorAll('.answer_opinion').forEach(element => {
+        element.addEventListener("click", showReplyForm);
+    })
+
+    function showReplyForm(event) {
+        setAllRepliesDisabled();
+        document.querySelectorAll('.reply_opinion').forEach(element => {
+            if (element.getAttribute('data-id') === event.target.getAttribute('data-id')) {
+                element.classList.contains('disabled') && element.classList.remove('disabled')
+                !element.classList.contains('active') && element.classList.add('active');
+            }
+        })
+    }
+
+    // Set all opinion replies disabled
+    setAllRepliesDisabled();
+
+    function setAllRepliesDisabled() {
+        document.querySelectorAll('.reply_opinion').forEach(element => {
+            !element.classList.contains('disabled') && element.classList.add('disabled')
+            element.classList.contains('active') && element.classList.remove('active');
+        });
+    }
+
+    document.querySelectorAll('.reply_cancel_button').forEach(element => {
+        element.addEventListener('click', setAllRepliesDisabled);
+    })
+
+    // Avoid user to erase @username from reply textareas
+    document.querySelectorAll('.reply_textarea').forEach(textarea => {
+        textarea.addEventListener('input', (event) => {
+            if (!event.target.value.startsWith(event.target.placeholder)) {
+                event.target.value = event.target.placeholder;
+            }
+        })
+    })
+
+    // Request reply a opinion
+    document.querySelectorAll('.reply_button').forEach(button => {
+        button.addEventListener('click', async (event) => {
+            console.log(event.target);
+            var opinion_id = event.target.getAttribute('data-id');
+            var comment = document.querySelector('.reply_opinion[data-id="' + opinion_id + '"] .reply_textarea').value;
+            const formData = new FormData();
+            formData.append('opinion_id', opinion_id);
+            formData.append('comment', comment);
+
+            if (comment.length >= 15) {
+                await fetch('php/reply_opinion.php', {
+                    method: 'POST',
+                    body: formData,
+                }).then(res => res.text())
+                .then(data => {
+                    window.location.reload();
+                })
+            }
+        });
+    });
+
 });
