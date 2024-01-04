@@ -303,37 +303,12 @@
                                                     <?php echo $smartphone['description']; ?>
                                                 </span>
                                             </div>
-
                                             <div class="block_rating clearfix">
-                                                <fieldset class="block_rating__stars"
-                                                    smartphone-id="<?php echo $smartphone['id']; ?>">
-                                                    <input type="radio" id="star5" name="rating" value="5" />
-                                                    <label class="full" for="star5"
-                                                        title="Increíble - 5 estrellas"></label>
-                                                    <input type="radio" id="star4half" name="rating" value="4.5" />
-                                                    <label class="half" for="star4half"
-                                                        title="Muy bien - 4.5 estrellas"></label>
-                                                    <input type="radio" id="star4" name="rating" value="4" />
-                                                    <label class="full" for="star4" title="Bien - 4 estrellas"></label>
-                                                    <input type="radio" id="star3half" name="rating" value="3.5" />
-                                                    <label class="half" for="star3half"
-                                                        title="Por debajo de la media - 3.5 estrellas"></label>
-                                                    <input type="radio" id="star3" name="rating" value="3" />
-                                                    <label class="full" for="star3" title="Average - 3 stars"></label>
-                                                    <input type="radio" id="star2half" name="rating" value="2.5" />
-                                                    <label class="half" for="star2half"
-                                                        title="Meh - 2.5 estrellas"></label>
-                                                    <input type="radio" id="star2" name="rating" value="2" />
-                                                    <label class="full" for="star2" title="Mal - 2 stars"></label>
-                                                    <input type="radio" id="star1half" name="rating" value="1.5" />
-                                                    <label class="half" for="star1half"
-                                                        title="Muy mal - 1.5 estrellas"></label>
-                                                    <input type="radio" id="star1" name="rating" value="1" />
-                                                    <label class="full" for="star1" title="Fatal - 1 star"></label>
-                                                    <input type="radio" id="starhalf" name="rating" value="0.5" />
-                                                    <label class="half" for="starhalf"
-                                                        title="Una porquería - 0.5 estrellas"></label>
-                                                </fieldset>
+                                                <div class="rating_stars_section">
+                                                    <div fill="#FFA90D" class="opinion_stars_background">
+                                                        <div fill="#FFA90D" data-testid="percent-bar" id="rating_avg_stars" value="<?= $global_avg ?>" class="opinion_stars"></div>
+                                                    </div>
+                                                </div>
                                                 <span
                                                     class="block_rating__avarage"><?= $global_avg ?></span>
                                             </div>
