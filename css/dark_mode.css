@@ -29,9 +29,9 @@
     .cardHeader h2, .toggle, .user, .headerUsers, .cardHeaderUsersList h2, .usersList table tr, .commentsList table tr,
     .faqsList table tr, .smartphonesList table tr, .usersFilters, .default_input, .headerFAQ, .usersFilters select,
     .field input, .orders, .user-card, .user-info, .user-dashboard, .nav-area ul li a,
-    div#my-orders-table_length select, .form-group>input, div#my-orders-table_filter input, div#my-orders-table_paginate a,
-    #add_card:hover, .add_card_modal_close:hover, .card_due_date > .row > select, input#card-cvv, 
-    .add_address.show, .edit_address.show, .add_address.show>.row>div>input, .edit_address.show>.editing_address_info>.row>div>input,
+    div#my-orders-table_length select, div#my-opinions-table_length select, .form-group>input, div#my-orders-table_filter input, div#my-orders-table_paginate a,
+    div#my-opinions-table_filter input, div#my-opinions-table_paginate a, #add_card:hover, .add_card_modal_close:hover,
+    .card_due_date > .row > select, input#card-cvv, .add_address.show, .edit_address.show, .add_address.show>.row>div>input, .edit_address.show>.editing_address_info>.row>div>input,
     input#card-name, input#card-number, .account, .add-account-modal .account, .my-wallet-sidebar .account, .card_info_edit input,
     .card_info_edit select, .edit-gravatar-modal.show, .navigation ul li.active.hovered a, .rateSmartphoneBody, #opinion textarea,
     .reply_label, .reply_textarea, .reply_min_label, .add_smartphone_main, .edit_smartphone_main, .add_user_main, .edit_user_main,ç
@@ -45,14 +45,15 @@
     .breadcrumbs__item, .breadcrumbs__item:after, .articulo, .menu__toggle::before,
     .accordion, .payment_details, .order_summary, .main_cart input, .cardBox .card, .details .recentOrders,
     .recentCustomers, .usersList, .usersFilters, .commentsList, .faqsList, .smartphonesList, .field input,
-    .user-card, .user-info, .user-dashboard, .nav-area ul li a , #my-orders, .cards_list, .tg-tabs-content-wrapp .tg-form,
+    .user-card, .user-info, .user-dashboard, .nav-area ul li a , #my-orders, #my-opinions, .cards_list, .tg-tabs-content-wrapp .tg-form,
     .container-contact1, #opinion textarea, .nav, .add_smartphone_main .card, .edit_smartphone_main .card, .add_user_main .card,
     .edit_user_main .card, .add_faq_main .card, .edit_faq_main .card {
         background: none;
         background-color: var(--dark-grey) !important;
     }
-    .block_quantity__number, .user-info>.row>input, #my-orders, div#my-orders-table_length select,
+    .block_quantity__number, .user-info>.row>input, #my-orders, #my-opinions, div#my-orders-table_length select, div#my-opinions-table_length select,
     .form-group>input, div#my-orders-table_filter input, div#my-orders-table_filter input:focus,
+    div#my-opinions-table_filter input, div#my-opinions-table_filter input:focus,
     .card_due_date > .row > select, #opinion textarea, .reply_textarea, textarea , .add_smartphone_images, 
     .edit_smartphone_images{
         border: none !important;
@@ -60,8 +61,9 @@
     .breadcrumbs__item:before, .breadcrumbs__item .breadcrumbs__item:hover:after, .breadcrumbs__item:hover,
     .breadcrumbs__item:hover::before, .breadcrumbs__item:hover::after, .r-link:hover, .menu__link.submenu_parent:focus,
     .details_card, .summary_card, .default_input, .usersFilters select, .user-info>.row>input,
-    .nav-area ul li a:hover, div#my-orders-table_length select, input#card-name, input#card-number,
+    .nav-area ul li a:hover, div#my-orders-table_length select, div#my-opinions-table_length select, input#card-name, input#card-number,
     .card_due_date > .row > select, .form-group>input, div#my-orders-table_filter input, div#my-orders-table_paginate a,
+    div#my-opinions-table_filter input, div#my-opinions-table_paginate a,
     input#card-cvv, .add_address.show>.row>div>input, .edit_address.show>.editing_address_info>.row>div>input,
     .row input[type="checkbox"], .account, .add-account-modal .account, .my-wallet-sidebar .account,
     .card_info_edit input, .card_info_edit select, .default_textarea, .add_smartphone_images, .edit_smartphone_images, .add_smartphone_upload_image::after, .edit_smartphone_upload_image::after {

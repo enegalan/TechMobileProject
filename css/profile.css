@@ -1,3 +1,5 @@
+@import url('./opinions.css');
+
 #contenidoprincipal\ profile {
     height: -webkit-fill-available;
     padding-top: 4%;
@@ -203,10 +205,9 @@
     border-radius: 5px;
     border: 2px solid lightgrey;
     margin-right: 10px;
-    height: 1070px;
     margin-top: 10px;
     position: relative;
-    overflow: hidden;
+    width: 1000px;
 }
 
 .social-list {
@@ -335,27 +336,25 @@ a#account-detail {
     display: none;
 }
 
-#my-orders {
+#my-orders, #my-opinions {
     display: none;
     width: 910px;
-    height: 450px;
     float: left;
     background: #f7f7f7;
     padding: 30px 30px 10px;
     border: 1px solid #eaeaea;
-    margin-top: 4.5%;
+    margin-top: 35px;
 }
 
 div#dashboard {
-    margin-top: 20%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 .active.show {
     display: block !important;
-}
-
-.tab-pane>div {
-    margin-top: 35px;
 }
 
 li.nav-item {
@@ -439,33 +438,42 @@ th.sorting {
     height: 100%;
 }
 
-#my-orders-table {
-    line-height: 40px;
+#my-opinions-table {
+    margin-bottom: 20px !important;
 }
 
-div#my-orders-table_length {
+#my-orders-table, #my-opinions-table {
+    line-height: 70px;
+}
+
+div#my-orders-table_length, div#my-opinions-table_length {
     width: fit-content;
     float: left;
 }
 
-div#my-orders-table_filter {
+div#my-orders-table_filter, div#my-opinions-table_filter {
     width: fit-content;
     float: right;
 }
 
 div#my-orders-table_length select,
-div#my-orders-table_filter input {
+div#my-orders-table_filter input,
+div#my-opinions-table_length select,
+div#my-opinions-table_filter input {
     border: 1px solid #207ba1;
     padding: 5px 15px;
 }
 
-div#my-orders-table_filter input:focus {
+div#my-orders-table_filter input:focus,
+div#my-opinions-table_filter input:focus {
     border: 1px solid black;
 
 }
 
 div#my-orders-table_length,
-div#my-orders-table_filter {
+div#my-orders-table_filter, 
+div#my-opinions-table_length,
+div#my-opinions-table_filter {
     margin-bottom: 22px;
 }
 
@@ -496,6 +504,7 @@ div#my-orders-table_filter {
     position: relative;
     display: flex;
     justify-content: center;
+    overflow-y: scroll;
 }
 
 .inner {
@@ -533,6 +542,7 @@ form.account_details {
 }
 
 table#my-orders-table a.view-order:hover,
+table#my-users-table a.view-order:hover,
 .tg-tabs-content-wrapp form.tg-form button:hover,
 .card_options > .other_options > button:hover,
 .card_info_add > button{
@@ -556,11 +566,13 @@ table#my-orders-table a.view-order:hover,
     font-size: 15px;
 }
 
-div#my-orders-table_info {
+div#my-orders-table_info,
+div#my-opinions-table_info {
     float: left;
 }
 
-div#my-orders-table_paginate {
+div#my-orders-table_paginate,
+div#my-opinions-table_paginate {
     float: right;
 }
 
@@ -573,7 +585,8 @@ div#my-orders-table_paginate {
     color: black !important;
 }
 
-div#my-orders-table_paginate a {
+div#my-orders-table_paginate a,
+div#my-opinions-table_paginate a {
     background: #e6e6e6;
     margin: 0 2px;
     padding: 3px 11px;
@@ -583,13 +596,15 @@ div#my-orders-table_paginate a {
     color: #000;
 }
 
-div#my-orders-table_paginate {
+div#my-orders-table_paginate,
+div#my-opinions-table_paginate {
     margin-top: 8px;
 }
 
-div#my-orders-table_paginate span a.current {
+div#my-orders-table_paginate span a.current,
+div#my-opinions-table_paginate span a.current {
     color: #fff !important;
-    background: #207ba1 !important;
+    background: #e73e81 !important;
 }
 
 .tg-tabs-content-wrapp .my-account-dashboard .card, .close_add_address:hover, .close_edit_address:hover,
@@ -599,7 +614,7 @@ span.add_card_modal_close {
 
 .tg-tabs-content-wrapp .my-account-dashboard .card:hover,
 .tg-tabs-content-wrapp .my-account-dashboard .card.active {
-    background: #207ba1;
+    background: #e73e81;
 }
 
 .tg-tabs-content-wrapp .my-account-dashboard .card:hover *,
@@ -613,7 +628,8 @@ span.add_card_modal_close {
     box-shadow: 0px 2px 7px -5px;
 }
 
-table#my-orders-table a.view-order {
+table#my-orders-table a.view-order,
+table#my-opinions-table a.view-order {
     background: #e73e81;
     cursor: pointer;
     text-decoration: none;
@@ -622,14 +638,17 @@ table#my-orders-table a.view-order {
     border-radius: 5px;
 }
 
-#my-orders-table>tbody>tr {
+#my-orders-table>tbody>tr,
+#my-opinions-table>tbody>tr {
     line-height: 50px;
 }
 
 @media(min-width:768px) {
 
     table#my-orders-table td.action,
-    table#my-orders-table th.action {
+    table#my-orders-table th.action,
+    table#my-opinions-table td.action,
+    table#my-opinions-table th.action {
         text-align: center;
     }
 
@@ -651,6 +670,14 @@ table#my-orders-table a.view-order {
 
     .my-cards {
         padding: 0 !important;
+    }
+
+    .card_edit {
+        border-radius: 5px !important;
+    }
+
+    .form-group>input {
+        width: 100%;
     }
 
     .all_cards {
@@ -675,11 +702,13 @@ table#my-orders-table a.view-order {
 
     .dataTables_length,
     div#my-orders-table_filter>labels,
+    div#my-opinions-table_filter>labels,
     .action>a {
         font-size: 14px;
     }
 
-    div#my-orders-table_filter input {
+    div#my-orders-table_filter input,
+    div#my-opinions-table_filter input {
         width: 105px !important;
     }
 
@@ -708,9 +737,10 @@ table#my-orders-table a.view-order {
     .row {
         flex-wrap: wrap;
         justify-content: center;
+        width: 100%;
     }
 
-    .my-account-dashboard .row > div, #my-orders, .user-card, .container .inner {
+    .my-account-dashboard .row > div, #my-orders, #my-opinions, .user-card, .container .inner {
         width: 100%;
     }
 
@@ -745,13 +775,17 @@ table#my-orders-table a.view-order {
     }
 
     div#my-orders-table_length select,
-    div#my-orders-table_filter input {
+    div#my-orders-table_filter input,
+    div#my-opinions-table_length select,
+    div#my-opinions-table_filter input {
         max-width: 120px;
         font-size: 14px;
     }
 
     div#my-orders-table_length label,
-    div#my-orders-table_filter label {
+    div#my-orders-table_filter label,
+    div#my-opinions-table_length label,
+    div#my-opinions-table_filter label {
         font-size: 0px;
     }
 }
@@ -763,13 +797,10 @@ table#my-orders-table a.view-order {
     margin: 0 !important;
     padding: 0;
     margin-top: 0;
-    padding-top: 15px;
 }
 
 .my-cards {
-    padding: 4%;
     display: flex;
-    justify-content: center;
     align-items: stretch;
     padding-top: 0;
 }
@@ -777,7 +808,7 @@ table#my-orders-table a.view-order {
 .cards_list {
     background-color: #f2f2f2;
     padding: 3%;
-    width: 340px;
+    width: 40%;
     padding-left: 5%;
     padding-right: 5%;
     border-radius: 5px 0 0 5px;
@@ -810,7 +841,7 @@ table#my-orders-table a.view-order {
 .card_edit {
     background-color: #eaeaea;
     padding: 3%;
-    width: 550px;
+    width: 60%;
     padding-left: 5%;
     padding-right: 5%;
     border-radius: 0 5px 5px 0;
@@ -1139,4 +1170,19 @@ input#card-cvv{
 .row input[type="checkbox"]{
     width: 150px !important;
     height: 25px !important;
+}
+
+.show_answer_replies {
+    display: block;
+    margin-top: 150px;
+    height: 70vh;
+    overflow-y: scroll;
+}
+
+.show_answer_replies.disabled {
+    display: none;
+}
+
+.container {
+    position: relative !important;
 }

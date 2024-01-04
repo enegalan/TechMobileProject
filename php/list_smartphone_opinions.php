@@ -41,7 +41,7 @@ if($_GET['id']){
             $is_verified_dom = $opinion['verified'] ? '<span class="verified_opinion"><b>Opinión verificada</b></span>' : '';
     
             //Get useful opinions count value
-            $useful_opinion_value = 0;        //Get useful opinions count value
+            $useful_opinion_value = 0;
             $useful_opinion_query = $conn->prepare("SELECT count(*) as useful_count FROM useful_opinions WHERE opinion_id = ?");
             $useful_opinion_query->bind_param("i", $opinion['id']);
             $useful_opinion_query->execute();
@@ -69,8 +69,8 @@ if($_GET['id']){
                 $opinions_answers_dom .= '
                     <div class="opinion_answer" id="' . $opinion_answer['id'] . '">
                         <div class="opinion_answer_reply_section">
-                            <span class="opinion_answer_reply">
-                                <i class="fa-solid fa-reply"></i>
+                            <span class="opinion_answer_reply" data-id="' . $opinion_answer['id'] . '">
+                                <i data-id="' . $opinion_answer['id'] . '" class="fa-solid fa-reply"></i>
                             </span>
                         </div>
                         <div class="opinion_answer_header">
@@ -83,6 +83,23 @@ if($_GET['id']){
                         <br>
                         <q>' . nl2br($opinion_answer['quote']) . '</q>
                         <br>
+                        <div data-id="' . $opinion_answer['id'] . '" class="reply_answer_opinion">
+                            <div class="reply_textarea_container">
+                                <label for="comment" class="reply_label">Comentar</label>
+                                <textarea id="comment" minlength="15" placeholder="@' . $opinion_answer['username'] . '" class="reply_textarea">@' . $opinion['username'] . '</textarea>
+                                <div class="reply_min_label">* Mínimo 15 caracteres</div>
+                            </div>
+                            <div class="reply_controls">
+                                <div>
+                                    <button answer-id="' . $opinion_answer['id'] . '" data-id="' . $opinion['id'] . '" class="reply_answer_button">
+                                        Comentar
+                                    </button>
+                                    <button class="reply_cancel_button">
+                                        Cancelar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>';
             }
             $opinion_answers_query->close();

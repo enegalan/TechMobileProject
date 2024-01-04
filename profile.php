@@ -268,10 +268,19 @@ if (isset($_SESSION['id'])) {
                                 <!--Nav Tab Background-->
                                 <?php include 'components/nav_tab_background.php'; ?>
                                 <!---->
+                                <a class="nav-link user-dashboard-nav-a" id="myopinion" data-toggle="tab"
+                                    href="#my-opinions" role="tab" aria-controls="my-opinions" aria-selected="false"><i
+                                        class="fas fa-file-invoice"></i>
+                                    <span>Opinions</span></a>
+                            </li>
+                            <li class="nav-item user-dashboard-nav-li">
+                                <!--Nav Tab Background-->
+                                <?php include 'components/nav_tab_background.php'; ?>
+                                <!---->
                                 <a class="nav-link user-dashboard-nav-a" id="mycard" data-toggle="tab" href="#mycards"
                                     role="tab" aria-controls="mycards" aria-selected="false"><i
                                         class="fas fa-sign-out-alt"></i>
-                                    <span>My Cards</span></a>
+                                    <span>Cards</span></a>
                             </li>
                             <li class="nav-item user-dashboard-nav-li">
                                 <!--Nav Tab Background-->
@@ -280,7 +289,7 @@ if (isset($_SESSION['id'])) {
                                 <a class="nav-link user-dashboard-nav-a" id="my-address" data-toggle="tab"
                                     href="#address" role="tab" aria-controls="address" aria-selected="false"><i
                                         class="fas fa-map-marker-alt"></i>
-                                    <span>My Addresses</span></a>
+                                    <span>Addresses</span></a>
                             </li>
                             <li class="nav-item user-dashboard-nav-li">
                                 <!--Nav Tab Background-->
@@ -306,7 +315,7 @@ if (isset($_SESSION['id'])) {
                                     <div class="my-account-dashboard">
                                         <div class="inner">
                                             <div class="row">
-                                                <!--Your Orders Card-->
+                                                <!--Orders Card-->
                                                 <div class="col-md-4 mb-3">
                                                     <div class="card" data-target="#my-orders" area-toggle="my-order">
                                                         <div class="card-body">
@@ -314,12 +323,25 @@ if (isset($_SESSION['id'])) {
                                                                 <a><img
                                                                         src="https://res.cloudinary.com/templategalaxy/image/upload/v1631257421/codepen-my-account/images/orders_n2aopq.png"></a>
                                                             </div>
-                                                            <h2>Your Orders</h2>
+                                                            <h2>Orders</h2>
                                                             <p>Check out the status of your orders.</p>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!--Your Addresses Card-->
+                                                <!--Opinions Card-->
+                                                <div class="col-md-4 mb-3">
+                                                    <div class="card" data-target="#my-opinions" area-toggle="my-opinion">
+                                                        <div class="card-body">
+                                                            <div class="text-center">
+                                                                <a><img
+                                                                        src="https://res.cloudinary.com/templategalaxy/image/upload/v1631257421/codepen-my-account/images/orders_n2aopq.png"></a>
+                                                            </div>
+                                                            <h2>Opinions</h2>
+                                                            <p>Check out your opinions and reply them.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--Addresses Card-->
                                                 <div class="col-md-4 mb-3">
                                                     <div class="card" data-target="#address" area-toggle="my-address">
                                                         <div class="card-body">
@@ -327,12 +349,12 @@ if (isset($_SESSION['id'])) {
                                                                 <a><img
                                                                         src="https://res.cloudinary.com/templategalaxy/image/upload/v1631257421/codepen-my-account/images/notebook_psrhv5.png"></a>
                                                             </div>
-                                                            <h2>Your Addresses</h2>
+                                                            <h2>Addresses</h2>
                                                             <p>Add, edit or remove your addresses.</p>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!--Your Cards Card -->
+                                                <!--Cards Card -->
                                                 <div class="col-md-4 mb-3">
                                                     <div class="card" data-target="#mycards" area-toggle="mycards">
                                                         <div class="card-body">
@@ -340,7 +362,7 @@ if (isset($_SESSION['id'])) {
                                                                 <a><img
                                                                         src="https://res.cloudinary.com/templategalaxy/image/upload/v1631257421/codepen-my-account/images/notebook_psrhv5.png"></a>
                                                             </div>
-                                                            <h2>Your Cards</h2>
+                                                            <h2>Cards</h2>
                                                             <p>Add, edit or remove your saved cards.</p>
                                                         </div>
                                                     </div>
@@ -384,7 +406,7 @@ if (isset($_SESSION['id'])) {
                                                 <td>Sep 9, 2021</td>
                                                 <td>Completed</td>
                                                 <td>$350</td>
-                                                <td class="action"><a href="#" class="view-order">View Order</a>
+                                                <td class="action"><a href="#" class="view-order">View replies</a>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -392,7 +414,7 @@ if (isset($_SESSION['id'])) {
                                                 <td>Sep 8, 2021</td>
                                                 <td>Pending</td>
                                                 <td>$190</td>
-                                                <td class="action"><a href="#" class="view-order">View Order</a>
+                                                <td class="action"><a href="#" class="view-order">View replies</a>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -400,7 +422,7 @@ if (isset($_SESSION['id'])) {
                                                 <td>Sep 7, 2021</td>
                                                 <td>Completed</td>
                                                 <td>$399</td>
-                                                <td class="action"><a href="#" class="view-order">View Order</a>
+                                                <td class="action"><a href="#" class="view-order">View replies</a>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -710,8 +732,49 @@ if (isset($_SESSION['id'])) {
                                                 </div>
                                             </section>
                                         </div>
-
                                     </div>
+                                </div>
+                            </div>
+                            <!--My Opinions-->
+                            <div class="tab-pane fade" id="my-opinions" role="tabpanel" aria-labelledby="myopinions">
+                                <table id="my-opinions-table"
+                                    class="table table-striped table-bordered dt-responsive nowrap"
+                                    style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Quote</th>
+                                            <th>Media</th>
+                                            <th>Recommended</th>
+                                            <th>Status</th>
+                                            <th class="action">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        
+                                        $user_opinions_query = $conn->prepare("SELECT O.id, O.quote as opinion_quote, O.media, O.recommended, O.verified, S.title, U.username FROM opinions O
+                                        INNER JOIN smartphones S on O.smartphone_id = S.id
+                                        INNER JOIN users U on O.user_id = U.id WHERE O.user_id = ?");
+                                        $user_id = $_SESSION['user_id'];
+                                        $user_opinions_query->bind_param("i", $id);
+                                        $user_opinions_query->execute();
+                                        $user_opinions_res = $user_opinions_query->get_result();
+                                        while ($opinion = $user_opinions_res->fetch_assoc()) {
+                                            echo '<tr>
+                                                <td>' . $opinion['title'] . '</td>
+                                                <td>' . $opinion['opinion_quote'] . '</td>
+                                                <td>' . $opinion['media'] . '</td>
+                                                <td>' . ($opinion['recommended'] ? 'Recommended' : 'Not recommended') . '</td>
+                                                <td>' . ($opinion['verified'] ? 'Verified' : 'Not verified') . '</td>
+                                                <td class="action"><a href="#" data-id="' . $opinion['id'] . '" class="viewReplies view-order">View replies</a></td>
+                                            </tr>';
+                                        }
+                                        ?>
+                                    </tbody>
+                                </table>
+                                <div class="show_answer_replies">
+
                                 </div>
                             </div>
                         </div>
@@ -743,15 +806,3 @@ if (isset($_SESSION['id'])) {
 ███████╗██║░╚███║███████╗██║░╚██╗╚█████╔╝
 ╚══════╝╚═╝░░╚══╝╚══════╝╚═╝░░╚═╝░╚════╝░
 -->
-<!--<a href="" class="my-orders">
-                    My Orders
-                </a>
-                <a href="" class="follow-shopping">
-                    Follow Shopping
-                </a>
-                <a href="" class="my-favourites">
-                    My Favourites
-                </a>
-                <a href="" class="my-comments">
-                    My Comments
-                </a>-->

@@ -13,6 +13,7 @@ $(document).ready(function () {
 
     // Inicializar la tabla DataTable
     $('#my-orders-table').DataTable();
+    $('#my-opinions-table').DataTable();
 
     // Hacer clic en una tarjeta del panel de la cuenta para cambiar de pestaña correspondiente en el banner
     $('.tg-tabs-content-wrapp .my-account-dashboard .card').click(function () {
@@ -198,19 +199,19 @@ async function editSelectedAddress(address_id) {
 
 async function removeSelectedAddress(address_id) {
     var formData = new FormData();
-    
+
     // Append the JSON string to the formData
     formData.append('address_id', address_id);
-    
+
     await fetch('./php/remove_selected_address.php', {
         method: 'POST',
         body: formData
     }).then(response => response.text())
-    .then(data => {
-        edit_addressElement.classList.remove('show');
-        //Reload the window to show the new information
-        window.location.reload();
-    });
+        .then(data => {
+            edit_addressElement.classList.remove('show');
+            //Reload the window to show the new information
+            window.location.reload();
+        });
 }
 
 //My Cards
@@ -419,3 +420,110 @@ function formatCreditCardNumber(input) {
 function limitToNumbers(input) {
     input.value = input.value.replace(/\D/g, '').substr(0, 16);
 }
+
+
+const show_answer_replies_dom = document.querySelector('.show_answer_replies');
+show_answer_replies_dom.classList.add('disabled');
+// Open replies modal function
+document.querySelectorAll('.viewReplies').forEach(element => {
+    element.addEventListener('click', async (event) => {
+        event.preventDefault();
+        const opinion_id = event.target.getAttribute("data-id");
+        console.log(opinion_id);
+
+        const formData = new FormData();
+        formData.append('id', opinion_id);
+
+        await fetch('php/getOpinionReplies.php', {
+            method: 'POST',
+            body: formData,
+        }).then(res => res.text())
+            .then(data => {
+                console.log(data);
+                show_answer_replies_dom.innerHTML = data;
+
+                show_answer_replies_dom.classList.remove('disabled');
+
+
+
+
+
+                // Set each opinion rating stars width
+                const opinion_stars = document.querySelectorAll('.opinion_stars');
+                opinion_stars.forEach(opinion_star => {
+                    const opinion_star_value = parseFloat(opinion_star.getAttribute('value'));
+                    setRatingStars(opinion_star, opinion_star_value, 5);
+                });
+
+                function setRatingStars(element, avg_value, max_value) {
+                    console.log('setting rating stars')
+                    const max_width = 100; // with max value
+
+                    var actual_width = (avg_value / max_value) * max_width;
+                    actual_width = Math.min(max_width, actual_width);
+                    element.style.width = actual_width + "%";
+                }
+
+                function setAllRepliesDisabled() {
+                    document.querySelectorAll('.reply_opinion').forEach(element => {
+                        !element.classList.contains('disabled') && element.classList.add('disabled')
+                        element.classList.contains('active') && element.classList.remove('active');
+                    });
+                }
+
+                // Open opinion answer reply
+                document.querySelectorAll('.opinion_answer_reply').forEach(element => {
+                    element.addEventListener("click", showAnswerReplyForm);
+                })
+
+                function showAnswerReplyForm(event) {
+                    setAllRepliesDisabled();
+                    document.querySelectorAll('.reply_answer_opinion').forEach(element => {
+                        if (element.getAttribute('data-id') === event.target.getAttribute('data-id')) {
+                            element.classList.contains('disabled') && element.classList.remove('disabled')
+                            !element.classList.contains('active') && element.classList.add('active');
+                        }
+                    })
+                }
+
+                // Set all opinion replies disabled
+                setAllAnswerRepliesDisabled();
+
+                function setAllAnswerRepliesDisabled() {
+                    setAllRepliesDisabled();
+                    document.querySelectorAll('.reply_answer_opinion').forEach(element => {
+                        !element.classList.contains('disabled') && element.classList.add('disabled')
+                        element.classList.contains('active') && element.classList.remove('active');
+                    });
+                }
+
+                document.querySelectorAll('.reply_cancel_button').forEach(element => {
+                    element.addEventListener('click', setAllAnswerRepliesDisabled);
+                })
+
+                // Request the opinion answer reply
+                document.querySelectorAll('.reply_answer_button').forEach(button => {
+                    button.addEventListener('click', async (event) => {
+                        console.log(event.target);
+                        var opinion_id = event.target.getAttribute('data-id');
+                        var answer_id = event.target.getAttribute('answer-id');
+                        var comment = document.querySelector('.reply_answer_opinion[data-id="' + answer_id + '"] .reply_textarea').value;
+                        const formData = new FormData();
+                        formData.append('opinion_id', opinion_id);
+                        formData.append('comment', comment);
+
+                        if (comment.length >= 15) {
+                            await fetch('php/reply_opinion.php', {
+                                method: 'POST',
+                                body: formData,
+                            }).then(res => res.text())
+                                .then(data => {
+                                    window.location.reload();
+                                })
+                        }
+                    });
+                });
+
+            })
+    })
+});

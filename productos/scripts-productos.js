@@ -293,7 +293,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Request reply a opinion
     document.querySelectorAll('.reply_button').forEach(button => {
         button.addEventListener('click', async (event) => {
-            console.log(event.target);
             var opinion_id = event.target.getAttribute('data-id');
             var comment = document.querySelector('.reply_opinion[data-id="' + opinion_id + '"] .reply_textarea').value;
             const formData = new FormData();
@@ -312,4 +311,57 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    // Open opinion answer reply
+    document.querySelectorAll('.opinion_answer_reply').forEach(element => {
+        element.addEventListener("click", showAnswerReplyForm);
+    })
+
+    function showAnswerReplyForm(event) {
+        console.log('clickckckckc');
+        setAllRepliesDisabled();
+        document.querySelectorAll('.reply_answer_opinion').forEach(element => {
+            if (element.getAttribute('data-id') === event.target.getAttribute('data-id')) {
+                element.classList.contains('disabled') && element.classList.remove('disabled')
+                !element.classList.contains('active') && element.classList.add('active');
+            }
+        })
+    }
+
+    // Set all opinion replies disabled
+    setAllAnswerRepliesDisabled();
+
+    function setAllAnswerRepliesDisabled() {
+        setAllRepliesDisabled();
+        document.querySelectorAll('.reply_answer_opinion').forEach(element => {
+            !element.classList.contains('disabled') && element.classList.add('disabled')
+            element.classList.contains('active') && element.classList.remove('active');
+        });
+    }
+
+    document.querySelectorAll('.reply_cancel_button').forEach(element => {
+        element.addEventListener('click', setAllAnswerRepliesDisabled);
+    })
+
+    // Request the opinion answer reply
+    document.querySelectorAll('.reply_answer_button').forEach(button => {
+        button.addEventListener('click', async (event) => {
+            console.log(event.target);
+            var opinion_id = event.target.getAttribute('data-id');
+            var answer_id = event.target.getAttribute('answer-id');
+            var comment = document.querySelector('.reply_answer_opinion[data-id="' + answer_id + '"] .reply_textarea').value;
+            const formData = new FormData();
+            formData.append('opinion_id', opinion_id);
+            formData.append('comment', comment);
+
+            if (comment.length >= 15) {
+                await fetch('php/reply_opinion.php', {
+                    method: 'POST',
+                    body: formData,
+                }).then(res => res.text())
+                .then(data => {
+                    window.location.reload();
+                })
+            }
+        });
+    });
 });
