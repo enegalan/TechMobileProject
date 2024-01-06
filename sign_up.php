@@ -115,6 +115,7 @@
                     </div>
 
                     <span class="btn-sign-up" onclick="signUp()">Sign Up</span>
+                    <span style="margin:auto;">Already have an account? Click <a style="color:#e5397d;" href="sign_in.php">here.</span>
                 </div>
             </div>
         </div>

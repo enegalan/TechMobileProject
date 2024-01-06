@@ -36,7 +36,7 @@
     .card_info_edit select, .edit-gravatar-modal.show, .navigation ul li.active.hovered a, .rateSmartphoneBody, #opinion textarea,
     .reply_label, .reply_textarea, .reply_min_label, .add_smartphone_main, .edit_smartphone_main, .add_user_main, .edit_user_main,ç
     .add_faq_main, .edit_faq_main, textarea, .default_textarea, input[type="number"], nav.page-header-top-nav, .no_results, .page-header-top-nav a,
-    .main-index, .articulo, .precioBx, .manufacturer_article a, .newsletters_inpu, .product-box, .newsletters_input  {
+    .main-index, .articulo, .precioBx, .manufacturer_article a, .newsletters_inpu, .product-box, .newsletters_input, .sign_up_form, .sign_in_form {
         color: white !important;
     }
     .button_addToCard, .opinion_media_slider, .search-box, .add_smartphone_upload_image::before, .edit_smartphone_upload_image::before {
