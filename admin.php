@@ -3,11 +3,12 @@ if(session_status() !== PHP_SESSION_ACTIVE){
     session_start();
 }
 //Checking if the user is admin
-if(!isset($_SESSION['id']) && $_SESSION['is_admin'] !== 1){
+if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admin'] !== 1){
     header('location: index.php');
+} else {
+    $gravatar = isset($_SESSION['gravatar']) ? $_SESSION['gravatar'] : 'images/users/default.jpg';
+    $username = $_SESSION['username'];
 }
-$gravatar = $_SESSION['gravatar'];
-$username = $_SESSION['username'];
 ?>
 
 <!DOCTYPE html>
@@ -929,28 +930,7 @@ $username = $_SESSION['username'];
                             <div class="row" style="display: inline-grid;">
                                 <span>Colors</span>
                                 <div class="add_smartphone_color_options_div" style="display: block;">
-                                    <input type="checkbox" class="color-options" id="option-black" color="option-black" value="black">
-                                    <label for="option-black">Black</label>
-                                    <input type="checkbox" class="color-options" id="option-white" color="option-white" value="white">
-                                    <label for="option-white">White</label>
-                                    <input type="checkbox" class="color-options" id="option-grey" color="option-grey" value="grey">
-                                    <label for="option-grey">Grey</label>
-                                    <input type="checkbox" class="color-options" id="option-spacegrey" color="option-spacegrey" value="spacegrey">
-                                    <label for="option-spacegrey">Space Grey</label>
-                                    <input type="checkbox" class="color-options" id="option-gold" color="option-gold" value="gold">
-                                    <label for="option-gold">Gold</label>
-                                    <input type="checkbox" class="color-options" id="option-silver" color="option-silver" value="silver">
-                                    <label for="option-silver">Silver</label>
-                                    <input type="checkbox" class="color-options" id="option-rosegold" color="option-rosegold" value="rosegold">
-                                    <label for="option-rosegold">Rosegold</label>
-                                    <input type="checkbox" class="color-options" id="option-green" color="option-green" value="green">
-                                    <label for="option-green">Green</label>
-                                    <input type="checkbox" class="color-options" id="option-purple" color="option-purple" value="purple">
-                                    <label for="option-purple">Purple</label>
-                                    <input type="checkbox" class="color-options" id="option-red" color="option-red" value="red">
-                                    <label for="option-red">Red</label>
-                                    <input type="checkbox" class="color-options" id="option-yellow" color="option-yellow" value="yellow">
-                                    <label for="option-yellow">Yellow</label>
+                                    <?php include 'php/admin/list_colors.php'; echo $list_colors; ?>
                                 </div>
                             </div>
                         </div>
@@ -1116,28 +1096,7 @@ $username = $_SESSION['username'];
                             <div class="row" style="display: inline-grid;">
                                 <span>Colors</span>
                                 <div class="edit_smartphone_color_options_div" style="display: block;">
-                                    <input type="checkbox" class="color-options" id="option-black" color="option-black" value="black">
-                                    <label for="option-black">Black</label>
-                                    <input type="checkbox" class="color-options" id="option-white" color="option-white" value="white">
-                                    <label for="option-white">White</label>
-                                    <input type="checkbox" class="color-options" id="option-grey" color="option-grey" value="grey">
-                                    <label for="option-grey">Grey</label>
-                                    <input type="checkbox" class="color-options" id="option-spacegrey" color="option-spacegrey" value="spacegrey">
-                                    <label for="option-spacegrey">Space Grey</label>
-                                    <input type="checkbox" class="color-options" id="option-gold" color="option-gold" value="gold">
-                                    <label for="option-gold">Gold</label>
-                                    <input type="checkbox" class="color-options" id="option-silver" color="option-silver" value="silver">
-                                    <label for="option-silver">Silver</label>
-                                    <input type="checkbox" class="color-options" id="option-rosegold" color="option-rosegold" value="rosegold">
-                                    <label for="option-rosegold">Rosegold</label>
-                                    <input type="checkbox" class="color-options" id="option-green" color="option-green" value="green">
-                                    <label for="option-green">Green</label>
-                                    <input type="checkbox" class="color-options" id="option-purple" color="option-purple" value="purple">
-                                    <label for="option-purple">Purple</label>
-                                    <input type="checkbox" class="color-options" id="option-red" color="option-red" value="red">
-                                    <label for="option-red">Red</label>
-                                    <input type="checkbox" class="color-options" id="option-yellow" color="option-yellow" value="yellow">
-                                    <label for="option-yellow">Yellow</label>
+                                    <?= $list_colors ?>
                                 </div>
                             </div>
                         </div>

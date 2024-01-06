@@ -128,7 +128,7 @@
 					';
 				}
 			} else {
-				echo '<p style="color:white;z-index:1;">No hay productos disponibles</p>.';
+				echo '<p class="no_results">No hay productos disponibles</p>.';
 			}
 			$conn->close();
 		?>

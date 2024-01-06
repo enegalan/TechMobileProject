@@ -18,7 +18,6 @@
 
     function getAllSmartphones() {
         include "conn.php";
-        var_dump('getting all smartphones');
         $query = $conn->prepare("SELECT S.id, S.title, S.subtitle1, S.subtitle2, M.name AS manufacturer_name, S.price, S.description, S.rating, S.width, S.height, S.thick, S.weight, S.display, S.chip, S.camera, S.os, S.storage, S.colors, S.thumbnail_name, S.model, S.image_count, S.stock FROM smartphones S INNER JOIN manufacturers M on S.manufacturer_id = M.id");
         $query->execute();
         $res = $query->get_result();

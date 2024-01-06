@@ -644,7 +644,6 @@ async function createSmartphone() {
     body: formData
   }).then(res => res.text())
     .then(data => {
-      console.log(data)
     }).finally(window.location.reload());
 }
 function radioButtonsChecking1() {

@@ -20,7 +20,7 @@
     .rating_placeholder, .rating_value, .leave_opinion_title, .recommended_title,
     .recommended_value, .opinions_value, .opinions_list h2, .opinion_user,
     .opinion_date, .opinion, .opinion q, .opinion_answer, .breadcrumbs__item,
-    .head-title > *, .head-title i, .contact1-form-title, .answer_opinion:hover {
+    .head-title > *, .head-title i, .contact1-form-title, .answer_opinion:hover, .product-box strong {
         color: var(--light) !important;
     }
     .opinion b, .answer_opinion, .block_quantity__number, .block_specificationInformation_table,
@@ -35,11 +35,15 @@
     input#card-name, input#card-number, .account, .add-account-modal .account, .my-wallet-sidebar .account, .card_info_edit input,
     .card_info_edit select, .edit-gravatar-modal.show, .navigation ul li.active.hovered a, .rateSmartphoneBody, #opinion textarea,
     .reply_label, .reply_textarea, .reply_min_label, .add_smartphone_main, .edit_smartphone_main, .add_user_main, .edit_user_main,ç
-    .add_faq_main, .edit_faq_main, textarea, .default_textarea, input[type="number"] {
+    .add_faq_main, .edit_faq_main, textarea, .default_textarea, input[type="number"], nav.page-header-top-nav, .no_results, .page-header-top-nav a,
+    .main-index, .articulo, .precioBx, .manufacturer_article a, .newsletters_inpu, .product-box, .newsletters_input  {
         color: white !important;
     }
     .button_addToCard, .opinion_media_slider, .search-box, .add_smartphone_upload_image::before, .edit_smartphone_upload_image::before {
         filter: invert();
+    }
+    .manufacturer, .logoBx, .manufacturer_logo {
+        filter: none !important;
     }
     .opinion_card_content, .answer_opinion, .opinion_answer, .block_quantity__number,
     .breadcrumbs__item, .breadcrumbs__item:after, .articulo, .menu__toggle::before,
@@ -47,7 +51,7 @@
     .recentCustomers, .usersList, .usersFilters, .commentsList, .faqsList, .smartphonesList, .field input,
     .user-card, .user-info, .user-dashboard, .nav-area ul li a , #my-orders, #my-opinions, .cards_list, .tg-tabs-content-wrapp .tg-form,
     .container-contact1, #opinion textarea, .nav, .add_smartphone_main .card, .edit_smartphone_main .card, .add_user_main .card,
-    .edit_user_main .card, .add_faq_main .card, .edit_faq_main .card {
+    .edit_user_main .card, .add_faq_main .card, .edit_faq_main .card, .articulo {
         background: none;
         background-color: var(--dark-grey) !important;
     }
@@ -55,7 +59,7 @@
     .form-group>input, div#my-orders-table_filter input, div#my-orders-table_filter input:focus,
     div#my-opinions-table_filter input, div#my-opinions-table_filter input:focus,
     .card_due_date > .row > select, #opinion textarea, .reply_textarea, textarea , .add_smartphone_images, 
-    .edit_smartphone_images{
+    .edit_smartphone_images, .articulo, .newsletters_input{
         border: none !important;
     }
     .breadcrumbs__item:before, .breadcrumbs__item .breadcrumbs__item:hover:after, .breadcrumbs__item:hover,
@@ -66,7 +70,8 @@
     div#my-opinions-table_filter input, div#my-opinions-table_paginate a,
     input#card-cvv, .add_address.show>.row>div>input, .edit_address.show>.editing_address_info>.row>div>input,
     .row input[type="checkbox"], .account, .add-account-modal .account, .my-wallet-sidebar .account,
-    .card_info_edit input, .card_info_edit select, .default_textarea, .add_smartphone_images, .edit_smartphone_images, .add_smartphone_upload_image::after, .edit_smartphone_upload_image::after {
+    .card_info_edit input, .card_info_edit select, .default_textarea, .add_smartphone_images, .edit_smartphone_images, .add_smartphone_upload_image::after,
+    .edit_smartphone_upload_image::after, .newsletters_input, input[type="number"] {
         background: none;
         background-color: var(--hover) !important;
     }
@@ -81,7 +86,8 @@
     ul#myTab, .add_card_modal_info, .add_address.show, .edit_address.show, .card_edit, .input1, .edit-gravatar-modal.show,
     .edit-gravatar, .navigation ul li.active, .navigation ul li:hover, .rateSmartphoneBody, .reply_textarea,
     .add_smartphone_main, .edit_smartphone_main, .add_user_main, .edit_user_main, .add_faq_main, .edit_faq_main, 
-    .add_smartphone_images ul, .edit_smartphone_images ul {
+    .add_smartphone_images ul, .edit_smartphone_images ul, #contenidoprincipal\ producto.greyBx::before,
+    #newsletters, .product-box {
         background: var(--md-grey) !important;
     }
 
@@ -95,7 +101,7 @@
 
     /*SPECIAL STYLES*/
     nav.page-header-top-nav {
-        background: linear-gradient(#303030,#100e17) padding-box,linear-gradient(90deg,#74278e,#e91483) 0/100% no-repeat border-box,linear-gradient(-90deg,#eb7d01,#e9167d 37.5vw,rgb(234 35 79)) 100% 101%/65% 75% no-repeat border-box;
+        background: linear-gradient(#303030,#100e17) padding-box,linear-gradient(90deg,#74278e,#e91483) 0/100% no-repeat border-box,linear-gradient(-90deg,#eb7d01,#e9167d 37.5vw,rgb(234 35 79)) 100% 101%/65% 75% no-repeat border-box !important;
     }
 
     .navigation ul li:hover a::before, .navigation ul li.hovered a::before, .navigation ul li.active a::before {

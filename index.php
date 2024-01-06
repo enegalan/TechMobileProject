@@ -7,9 +7,12 @@
     <title>TechMobile | Eneko Galan</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/productSlider.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/main.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" type="text/css"  href="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/css/lightslider.min.css">
     <script src="https://kit.fontawesome.com/8e4bd12ccb.js" crossorigin="anonymous"></script>
 </head>
 
@@ -59,51 +62,125 @@
 	</ul>
 	<div id="cover-ctn-search"></div>
     <!--------->
-    <div class="head-title">
-        <div class="icon-secret-game">
-            TechMobile
-        </div>
-    </div>
-    
-    <!--Color Waves-->
-    <?php include 'components/color_waves.php' ?>
     <!--Waves Footer-->
     <?php include 'components/waves_footer.php' ?>
 
     <div id="contenidoprincipal index" class="wpb_row vc_row-fluid vc_row standard_section">
-        <div class="container">
-            <a href="catalogo.php">
-                <div class="card" href="catalogo.php">
-                    <div class="face face1">
-                        <div class="content">
-                            <img src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/452/external-shop-sales-vitaliy-gorbachev-lineal-vitaly-gorbachev.png">
-                            <h3>Catálogo</h3>
-                        </div>
+        <div class="sliderContainer container">
+            <!--Slider-->
+            <!-- Slider main container -->
+            <div id="header" class="swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide">
+                        <a href="">
+                            <picture>
+                                <source media="(max-width: 768px)" srcset="images/banners/es/min/banner1.avif">
+                                <img src="images/banners/es/full/banner1.avif"/>
+                            </picture>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="">
+                            <picture>
+                                <source media="(max-width: 768px)" srcset="images/banners/es/min/banner2.avif">
+                                <img src="images/banners/es/full/banner2.avif"/>
+                            </picture>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="">
+                            <picture>
+                                <source media="(max-width: 768px)" srcset="images/banners/es/min/banner3.avif">
+                                <img src="images/banners/es/full/banner3.avif"/>
+                            </picture>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="">
+                            <picture>
+                                <source media="(max-width: 768px)" srcset="images/banners/es/min/banner4.avif">
+                                <img src="images/banners/es/full/banner4.avif"/>
+                            </picture>
+                        </a>
                     </div>
                 </div>
-            </a>
-            
-            <a href="contacto.php">
-                <div class="card">
-                    <div class="face face1">
-                        <div class="content">
-                            <img src="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/452/external-email-interface-kiranshastry-lineal-kiranshastry.png">
-                            <h3>Contacto</h3>
-                        </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+
+                <!-- If we need scrollbar -->
+                <div class="swiper-scrollbar"></div>
+            </div>
+        </div>
+        <div class="main-index">
+            <!--Most recent smartphones-->
+            <section id="most-recent">
+                <h3>Lo últimos productos por aquí</h3>
+                <section id="last-products" class="products-slider">
+                    <div class="product-container">
+                        <ul class="autoWidth cs-hidden">
+                            <!-- Slides -->
+                            <?php
+                                $smartphones = array_reverse(getAllSmartphones());                            
+                                $limit = 16;
+                                foreach ($smartphones as $smartphone) {
+                                    if ($limit > 0) {
+                                        $defaultColor = explode(",", $smartphone['colors'])[0];
+                                        echo '
+                                        <li class="item-a">
+                                            <div class="product-box">
+                                                <a href="smartphone.php?id=' . $smartphone["id"] . '&color=' . $defaultColor . '">
+                                                    <strong>' . $smartphone['title'] . '</strong>
+                                                    <img src="productos/' . $smartphone["manufacturer_name"] . '/img/catalogo/' . $smartphone["thumbnail_name"] . '.png">
+                                                    <span class="precioBx">' . $smartphone['price'] . '</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        ';
+                                    }
+                                    $limit--;
+                                }
+
+                            ?>
+                        </ul>
                     </div>
+
+                </section>
+            </section>
+            <!--Manufacturers-->
+            <section id="manufacturer">
+                <h3>Encuentra lo que quieres con tus marcas favoritas</h3>
+                <div class="manufacturers_list">
+                <?php include 'php/list_manufacturers.php'; 
+                    foreach($manufacturers as $manufacturer) {
+                        echo '<div class="manufacturer_article articulo"><a href="manufacturer.php?id=' . $manufacturer['id'] . '">' . 
+                            '<div style="display:flex;justify-content:center;width:100%;height:50%"><img class="manufacturer_logo" src="productos/' . $manufacturer['name'] . '/logo.png"></div>'
+                            . '<div style="display:flex;justify-content:center;align-items:center;width:100%;height:50%;border-top: 1px solid grey;"><span>' . ucfirst($manufacturer['name']) . '</span></div>'
+                            . '</a></div>';
+                    }
+                ?>
                 </div>
-            </a>
-            
-            <a href="faqs.php">
-                <div class="card">
-                    <div class="face face1">
-                        <div class="content">
-                            <img src="https://img.icons8.com/external-bearicons-detailed-outline-bearicons/452/external-faq-frequently-asked-questions-faq-bearicons-detailed-outline-bearicons-1.png">
-                            <h3>FAQs</h3>
-                        </div>
+            </section>
+            <!--Newsletters-->
+            <section id="newsletters">
+                <h3>¿Buscas lo último en smartphones?</h3>
+                <p>Suscríbete para estar al día de las mejores ofertas y otras noticias del sector.</p>
+                <form action="" method="POST">
+                    <div>
+                        <input class="newsletters_input" type="text" placeholder="Correo electrónico">
+                        <button class="newsletters_submit" type="submit">Me inscribo</button>
                     </div>
-                </div>
-            </a>
+                    <div>
+                        <input type="checkbox" name="accept_conditions" id="accept_conditions">
+                        <label for="accept_conditions">Acepto las condiciones para recibirs los correos y ofertas de TechMobile.</label>
+                    </div>
+                </form>
+            </section>
         </div>
     </div>
     <script src="js/browser.js"></script>
@@ -114,8 +191,12 @@
         if(isset($_SESSION['id'])){
             echo '<script src="js/cart.js"></script>';
         }
-    ?>
+        ?>
     <script src="js/auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/js/lightslider.min.js"></script>
+    <script src="js/swiper.js"></script>
+    <script src="js/productSlider.js"></script>
 </body>
 </html>
 <!--

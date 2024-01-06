@@ -21,7 +21,7 @@
     transform: translate(-50%,-20%);
     left: 50%;
     border-radius: 10px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
     border: 2px solid rgba(255,255,255,0.1);
     box-shadow: 0 0 40px rgba(8,7,16,0.6);
     padding: 20px 35px;
@@ -32,7 +32,7 @@
     flex-direction: column;
     align-items: flex-start;
     height: 100%;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 .sign_up_form input{
     display: block;
@@ -70,4 +70,8 @@
 .sign_up_form > h1 {
     margin: 0;
     margin-bottom: 10px;
+}
+
+div#contenidoprincipal\ sign-up {
+    margin-top: 25%;
 }
