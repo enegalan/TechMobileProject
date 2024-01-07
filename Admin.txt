@@ -1,26 +1,3 @@
-Users -
-	*Card (User count & user active & user inactive)
-	*Add user button & modal to add it
-	*Filters (Username, email, name, surname, phone, country, city, zip, address1, address2, province) OR (Birthdate) OR (Joining date (Joining date)) OR Status(All/active/!active) 
-	*Columns (UserImage, User ID, Username, email, name, surname, phone, birthdate, sex, country, city, zip, address1, address2, province, status(active), action (Edit Or Remove)
-	*When edit is clicked show modal with (username, password, email, name, surname, phone, birthdate, sex, about, country, city, zip, address1, address2, province, status(active))
-	*When remove is clicked show confirmation modal
-
-Comments -
-
-	* Table with all smartphones
-	* Columns (Smartphone, name, User ID, username, comment, action(Remove))
-
-FAQs -
-
-	* Button to create a FAQ & modal to create it (question, answer)
-	* List of all FAQs in a table (FAQ ID, question, answer, created_by(Username))
-
-Smartphones -
-	*Filters (Manufacturer, price, rating)
-	*Add Smartphone button & modal
-	*Smartphones list & when clicked open a modal to edit
-
 Orders -
 	*Best Selling Products (image, name, price, stock, ordersCount)
 	*Top Manufacturers (logo, name, stock, ganancies)
