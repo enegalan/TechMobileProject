@@ -11,7 +11,7 @@ if ($result && $result->num_rows > 0) {
     $cart = $row['cart'];
     echo $cart;
 } else {
-    echo "[]";
+    echo json_encode(array());
 }
 
 $conn->close();

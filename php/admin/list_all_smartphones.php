@@ -1,4 +1,5 @@
-<?php 
+<?php
+    include 'lang/detect_lang.php';
     if(session_status() !== PHP_SESSION_ACTIVE){
         session_start();
     }
@@ -42,14 +43,14 @@
                         <td>' . $data[$i]['price'] . '€</td>
                         <td>' . $data[$i]['rating'] . '</td>
                         <td>
-                            <button type="button" onclick="editSmartphone(' . $data[$i]['id'] . ')" class="btn-edit">Edit</button>
-                            <button type="button" onclick="removeSmartphone(' . $data[$i]['id'] . ')" class="btn-remove">Remove</button>
+                            <button type="button" onclick="editSmartphone(' . $data[$i]['id'] . ')" class="btn-edit">' . $lang['edit'] . '</button>
+                            <button type="button" onclick="removeSmartphone(' . $data[$i]['id'] . ')" class="btn-remove">' . $lang['remove'] . '</button>
                         </td>
                     </tr>
                 ';
             }
         } else {
-            $out = '<h2 style="position:absolute;">No results found.</h2>';
+            $out = '<h2 style="position:absolute;">' . $lang['no_results'] . '.</h2>';
         }
         $query->close();
         echo $out;

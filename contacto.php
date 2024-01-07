@@ -1,9 +1,12 @@
-﻿<!DOCTYPE HTML>
+﻿<?php 
+	include 'lang/detect_lang.php';
+?>
+<!DOCTYPE HTML>
 <html>
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Contacto | TechMobile | Eneko Galan</title>
+	<title><?= $lang['contact'] ?> | TechMobile | Eneko Galan</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="style.css" />
 	<link rel="stylesheet" type="text/css" href="css/main.css" />
@@ -57,7 +60,7 @@
 	<?php include 'components/mobile_navbar.php'; ?>
 	<!--Search input-->
 	<div id="ctn-bars-search">
-		<input type="text" id="inputSearch" placeholder="¿Qué deseas buscar?">
+		<input type="text" id="inputSearch" placeholder="<?= $lang['what_you_want_to_search'] ?>">
 	</div>
 	<!--Search Box Results-->
 	<ul id="box-search">
@@ -82,33 +85,33 @@
 
 				<form class="contact1-form validate-form">
 					<span class="contact1-form-title">
-						Contacto
+						<?= $lang['contact'] ?>
 					</span>
 
-					<div class="wrap-input1 validate-input" data-validate="Nombre requerido">
-						<input class="input1" type="text" name="name" placeholder="Nombre">
+					<div class="wrap-input1 validate-input" data-validate="<?= $lang['name'] ?> <?= $lang['required'] ?>">
+						<input class="input1" type="text" name="name" placeholder="<?= $lang['name'] ?>">
 						<span class="shadow-input1"></span>
 					</div>
 
-					<div class="wrap-input1 validate-input" data-validate="Correo válido requerido: ex@abc.xyz">
-						<input class="input1" type="text" name="email" placeholder="Email">
+					<div class="wrap-input1 validate-input" data-validate="<?= $lang['valid_email_required'] ?>: ex@abc.xyz">
+						<input class="input1" type="text" name="email" placeholder="<?= $lang['email'] ?>">
 						<span class="shadow-input1"></span>
 					</div>
 
-					<div class="wrap-input1 validate-input" data-validate="Asunto válido requerido">
-						<input class="input1" type="text" name="subject" placeholder="Asunto">
+					<div class="wrap-input1 validate-input" data-validate="<?= $lang['valid_subject_required'] ?>">
+						<input class="input1" type="text" name="subject" placeholder="<?= $lang['subject'] ?>">
 						<span class="shadow-input1"></span>
 					</div>
 
-					<div class="wrap-input1 validate-input" data-validate="Mensaje requerido">
-						<textarea class="input1" name="message" type="text" cols="1" rows="10" placeholder="Mensaje"></textarea>
+					<div class="wrap-input1 validate-input" data-validate="<?= $lang['message'] ?> <?= $lang['required'] ?>">
+						<textarea class="input1" name="message" type="text" cols="1" rows="10" placeholder="<?= $lang['message'] ?>"></textarea>
 						<span class="shadow-input1"></span>
 					</div>
 
 					<div class="container-contact1-form-btn">
 						<button class="contact1-form-btn">
 							<span>
-								Mandar mensaje
+								<?= $lang['send_message'] ?>
 								<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
 							</span>
 						</button>

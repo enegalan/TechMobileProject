@@ -1,4 +1,7 @@
-﻿<!DOCTYPE HTML>
+﻿<?php 
+    include 'lang/detect_lang.php';
+?>
+<!DOCTYPE HTML>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -47,7 +50,7 @@
 	<?php include 'components/mobile_navbar.php'; ?>
 	<!--Search input-->
 	<div id="ctn-bars-search">
-		<input type="text" id="inputSearch" placeholder="¿Qué deseas buscar?">
+		<input type="text" id="inputSearch" placeholder="<?= $lang['what_you_want_to_search'] ?>">
 	</div>
 	<!--Search Box Results-->
 	<ul id="box-search">

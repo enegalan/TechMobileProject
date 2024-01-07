@@ -1,4 +1,5 @@
 <?php
+    include 'lang/detect_lang.php';
     if(session_status() !== PHP_SESSION_ACTIVE){
         session_start();
     }
@@ -26,7 +27,7 @@
             $confirm_password = hash('sha512',$_POST['confirm_password']);
             if ($password !== $confirm_password) {
                 // Las contraseñas no coinciden, muestra un mensaje de error
-                echo "Las contraseñas no coinciden. Por favor, inténtalo de nuevo."  . "<br><br>";
+                echo $lang['error_passwords_not_validated']  . "<br><br>";
                 header('Location: ../profile.php');
                 exit; // Detener el procesamiento del formulario
             }

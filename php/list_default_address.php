@@ -1,4 +1,5 @@
-<?php 
+<?php
+include 'lang/detect_lang.php';
 if(session_status() !== PHP_SESSION_ACTIVE){
     session_start();
 }
@@ -16,7 +17,7 @@ if(isset($_SESSION['id'])){
             $defaultAddress[] = $res->fetch_assoc();
             $html = '
             <div class="default_address">
-                <h3>Saved Address</h3>
+                <h3>' . $lang['saved_address'] . '</h3>
                 <p>' . $defaultAddress[$i]['name'] . ' ' . $defaultAddress[$i]['surname'] . '</p>
                 <p>' . $defaultAddress[$i]['address1'] . ' ' . $defaultAddress[$i]['address2'] . '</p>
                 <p>' . $defaultAddress[$i]['city'] . ', ' . $defaultAddress[$i]['province'] . ', ' . $defaultAddress[$i]['zip'] . '</p>

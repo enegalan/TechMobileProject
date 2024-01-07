@@ -1,9 +1,10 @@
 <?php
+include 'lang/detect_lang.php';
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
 if (isset($_SESSION['id'])) {
-    $id = $_SESSION['id'];
+    $user_id = $_SESSION['id'];
     $is_admin = $_SESSION['is_admin'] ?? false;
     $username = $_SESSION['username'] ?? '';
     $email = $_SESSION['email'] ?? '';
@@ -37,7 +38,7 @@ if (isset($_SESSION['id'])) {
 <head>
     <meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil | TechMobile | Eneko Galan</title>
+    <title><?= $lang['profile'] ?> | TechMobile | Eneko Galan</title>
     <script src="https://kit.fontawesome.com/8e4bd12ccb.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="stylesheet" type="text/css" href="css/main.css" />
@@ -88,7 +89,7 @@ if (isset($_SESSION['id'])) {
     <?php include 'components/mobile_navbar.php'; ?>
     <!--Search input-->
     <div id="ctn-bars-search">
-        <input type="text" id="inputSearch" placeholder="¿Qué deseas buscar?">
+        <input type="text" id="inputSearch" placeholder="<?= $lang['what_you_want_to_search'] ?>">
     </div>
     <!--Search Box Results-->
     <ul id="box-search">
@@ -108,88 +109,88 @@ if (isset($_SESSION['id'])) {
             <div class="user-card">
                 <!--User Gravatar-->
                 <div class="user-gravatar">
-                    <img class="user-gravatar-img" src="<?php echo $gravatar; ?>" alt="userGravatar">
+                    <img class="user-gravatar-img" src="<?= $gravatar; ?>" alt="userGravatar">
                     <!--Edit User Gravatar-->
                     <div class="edit-gravatar">
                         <i class="fa-solid fa-edit"></i>
                         <div class="edit-gravatar-modal">
                             <div class="row">
-                                <h3>Upload your profile image</h3>
+                                <h3><?= $lang['upload_your_profile_image'] ?></h3>
                                 <span class="edit-gravatar-modal-close"><i class="fa-solid fa-x"></i></span>
                             </div>
                             <form action="php/uploadGravatar.php" method="POST" enctype="multipart/form-data">
                                 <input type="file" name="gravatar">
-                                <button type="submit" class="btn btn-primary">Upload</button>
+                                <button type="submit" class="btn btn-primary"><?= $lang['upload'] ?></button>
                             </form>
                         </div>
                     </div>
                 </div>
                 <h5 id="username">
-                    <?php echo $username; ?>
+                    <?= $username; ?>
                 </h5>
                 <div class="info-localization">
                     <?php if(trim($country) !== ""){ ?>
                         <span id="country">
-                            <?php echo $country; ?>
+                            <?= $country; ?>
                         </span>
                     <?php }?>
                     <?php if(trim($city) !== ""){ ?>
                         <span>,ㅤ</span>
                         <span id="city">
-                            <?php echo $city; ?>
+                            <?= $city; ?>
                         </span>
                     <?php }?>
                 </div>
                 <div class="info-birthdate">
                     <span id="birthdate">
-                        <?php echo $birthdate ?>
+                        <?= $birthdate ?>
                     </span>
                 </div>
                 <div class="info-about">
-                    <?php echo $about; ?>
+                    <?= $about; ?>
                 </div>
             </div>
             <!--User Information-->
             <div class="user-info">
                 <div class="row">
-                    <span>Name</span>
-                    <input type="text" name="name" id="name" value="<?php echo $name; ?>" disabled>
+                    <span><?= $lang['name'] ?></span>
+                    <input type="text" name="name" id="name" value="<?= $name; ?>" disabled>
                 </div>
                 <div class="row">
-                    <span>Surname</span>
-                    <input type="text" name="surname" id="surname" value="<?php echo $surname; ?>" disabled>
+                    <span><?= $lang['surname'] ?></span>
+                    <input type="text" name="surname" id="surname" value="<?= $surname; ?>" disabled>
                 </div>
                 <div class="row">
-                    <span>E-mail address</span>
-                    <input type="text" name="email" id="email" value="<?php echo $email; ?>" disabled>
+                    <span><?= $lang['email'] ?></span>
+                    <input type="text" name="email" id="email" value="<?= $email; ?>" disabled>
                 </div>
                 <div class="row">
-                    <span>Phone</span>
-                    <input type="text" name="phone" id="phone" value="<?php echo $phone; ?>" disabled>
+                    <span><?= $lang['phone'] ?></span>
+                    <input type="text" name="phone" id="phone" value="<?= $phone; ?>" disabled>
                 </div>
                 <div class="row">
-                    <span>Address1</span>
-                    <input type="text" name="address1" id="address1" value="<?php echo $address1; ?>" disabled>
+                    <span><?= $lang['address1'] ?></span>
+                    <input type="text" name="address1" id="address1" value="<?= $address1; ?>" disabled>
                 </div>
                 <div class="row">
-                    <span>Address2</span>
-                    <input type="text" name="address2" id="address2" value="<?php echo $address2; ?>" disabled>
+                    <span><?= $lang['address2'] ?></span>
+                    <input type="text" name="address2" id="address2" value="<?= $address2; ?>" disabled>
                 </div>
                 <div class="row">
-                    <span>City</span>
-                    <input type="text" name="city" id="city" value="<?php echo $city; ?>" disabled>
+                    <span><?= $lang['city'] ?></span>
+                    <input type="text" name="city" id="city" value="<?= $city; ?>" disabled>
                 </div>
                 <div class="row">
-                    <span>Province</span>
-                    <input type="text" name="province" id="province" value="<?php echo $province; ?>" disabled>
+                    <span><?= $lang['province'] ?></span>
+                    <input type="text" name="province" id="province" value="<?= $province; ?>" disabled>
                 </div>
                 <div class="row">
-                    <span>ZIP</span>
-                    <input type="text" name="zip" id="zip" value="<?php echo $zip; ?>" disabled>
+                    <span><?= $lang['zip'] ?></span>
+                    <input type="text" name="zip" id="zip" value="<?= $zip; ?>" disabled>
                 </div>
                 <div class="row">
-                    <span>Country</span>
-                    <input type="text" name="country" id="country" value="<?php echo $country; ?>" disabled>
+                    <span><?= $lang['country'] ?></span>
+                    <input type="text" name="country" id="country" value="<?= $country; ?>" disabled>
                 </div>
             </div>
             <!--User Social-->
@@ -200,7 +201,7 @@ if (isset($_SESSION['id'])) {
                             <li class="social-row">
                                 <i class="fa-solid fa-globe"></i>
                                 <span class="social-text">
-                                    <?php echo $website; ?>
+                                    <?= $website; ?>
                                 </span>
                             </li>
                         <?php }?>
@@ -208,7 +209,7 @@ if (isset($_SESSION['id'])) {
                             <li class="social-row">
                                 <i class="fa-brands fa-facebook-f"></i>
                                 <span class="social-text">
-                                    <?php echo $facebook; ?>
+                                    <?= $facebook; ?>
                                 </span>
                             </li>
                         <?php }?>
@@ -216,7 +217,7 @@ if (isset($_SESSION['id'])) {
                             <li class="social-row">
                                 <i class="fa-brands fa-twitter"></i>
                                 <span class="social-text">
-                                    <?php echo $twitter; ?>
+                                    <?= $twitter; ?>
                                 </span>
                             </li>
                         <?php }?>
@@ -224,7 +225,7 @@ if (isset($_SESSION['id'])) {
                             <li class="social-row">
                                 <i class="fa-brands fa-instagram"></i>
                                 <span class="social-text">
-                                    <?php echo $instagram; ?>
+                                    <?= $instagram; ?>
                                 </span>
                             </li>
                         <?php }?>
@@ -232,7 +233,7 @@ if (isset($_SESSION['id'])) {
                             <li class="social-row">
                                 <i class="fa-brands fa-github"></i>
                                 <span class="social-text">
-                                    <?php echo $github; ?>
+                                    <?= $github; ?>
                                 </span>
                             </li>
                         <?php }?>
@@ -253,7 +254,7 @@ if (isset($_SESSION['id'])) {
                                 <a class="nav-link user-dashboard-nav-a active show" id="dashboard-link"
                                     data-toggle="tab" href="#dashboard" role="tab" aria-controls="dashboard"
                                     aria-selected="true"><i class="fas fa-tachometer-alt" aria-hidden="true"></i>
-                                    <span>Dashboard</span></a>
+                                    <span><?= $lang['dashboard'] ?></span></a>
                             </li>
                             <li class="nav-item user-dashboard-nav-li">
                                 <!--Nav Tab Background-->
@@ -262,7 +263,7 @@ if (isset($_SESSION['id'])) {
                                 <a class="nav-link user-dashboard-nav-a" id="my-order" data-toggle="tab"
                                     href="#my-orders" role="tab" aria-controls="my-orders" aria-selected="false"><i
                                         class="fas fa-file-invoice"></i>
-                                    <span>Orders</span></a>
+                                    <span><?= $lang['orders'] ?></span></a>
                             </li>
                             <li class="nav-item user-dashboard-nav-li">
                                 <!--Nav Tab Background-->
@@ -271,7 +272,7 @@ if (isset($_SESSION['id'])) {
                                 <a class="nav-link user-dashboard-nav-a" id="myopinion" data-toggle="tab"
                                     href="#my-opinions" role="tab" aria-controls="my-opinions" aria-selected="false"><i
                                         class="fas fa-file-invoice"></i>
-                                    <span>Opinions</span></a>
+                                    <span><?= $lang['opinions'] ?></span></a>
                             </li>
                             <li class="nav-item user-dashboard-nav-li">
                                 <!--Nav Tab Background-->
@@ -280,7 +281,7 @@ if (isset($_SESSION['id'])) {
                                 <a class="nav-link user-dashboard-nav-a" id="mycard" data-toggle="tab" href="#mycards"
                                     role="tab" aria-controls="mycards" aria-selected="false"><i
                                         class="fas fa-sign-out-alt"></i>
-                                    <span>Cards</span></a>
+                                    <span><?= $lang['cards'] ?></span></a>
                             </li>
                             <li class="nav-item user-dashboard-nav-li">
                                 <!--Nav Tab Background-->
@@ -289,7 +290,7 @@ if (isset($_SESSION['id'])) {
                                 <a class="nav-link user-dashboard-nav-a" id="my-address" data-toggle="tab"
                                     href="#address" role="tab" aria-controls="address" aria-selected="false"><i
                                         class="fas fa-map-marker-alt"></i>
-                                    <span>Addresses</span></a>
+                                    <span><?= $lang['addresses'] ?></span></a>
                             </li>
                             <li class="nav-item user-dashboard-nav-li">
                                 <!--Nav Tab Background-->
@@ -298,7 +299,7 @@ if (isset($_SESSION['id'])) {
                                 <a class="nav-link user-dashboard-nav-a" id="account-detail" data-toggle="tab"
                                     href="#account-details" role="tab" aria-controls="account-details"
                                     aria-selected="false"><i class="fas fa-user-alt"></i> 
-                                    <span>Account Details</span></a>
+                                    <span><?= $lang['account_details'] ?></span></a>
                             </li>
                         </ul>
                     </div>
@@ -323,8 +324,8 @@ if (isset($_SESSION['id'])) {
                                                                 <a><img
                                                                         src="https://res.cloudinary.com/templategalaxy/image/upload/v1631257421/codepen-my-account/images/orders_n2aopq.png"></a>
                                                             </div>
-                                                            <h2>Orders</h2>
-                                                            <p>Check out the status of your orders.</p>
+                                                            <h2><?= $lang['orders'] ?></h2>
+                                                            <p><?= $lang['check_out_orders_status'] ?></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -336,8 +337,8 @@ if (isset($_SESSION['id'])) {
                                                                 <a><img
                                                                         src="https://res.cloudinary.com/templategalaxy/image/upload/v1631257421/codepen-my-account/images/orders_n2aopq.png"></a>
                                                             </div>
-                                                            <h2>Opinions</h2>
-                                                            <p>Check out your opinions and reply them.</p>
+                                                            <h2><?= $lang['opinions'] ?></h2>
+                                                            <p><?= $lang['check_out_opinions_and_reply'] ?></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -349,8 +350,8 @@ if (isset($_SESSION['id'])) {
                                                                 <a><img
                                                                         src="https://res.cloudinary.com/templategalaxy/image/upload/v1631257421/codepen-my-account/images/notebook_psrhv5.png"></a>
                                                             </div>
-                                                            <h2>Addresses</h2>
-                                                            <p>Add, edit or remove your addresses.</p>
+                                                            <h2><?= $lang['addresses'] ?></h2>
+                                                            <p><?= $lang['add_edit_or_remove_addresses'] ?></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -362,8 +363,8 @@ if (isset($_SESSION['id'])) {
                                                                 <a><img
                                                                         src="https://res.cloudinary.com/templategalaxy/image/upload/v1631257421/codepen-my-account/images/notebook_psrhv5.png"></a>
                                                             </div>
-                                                            <h2>Cards</h2>
-                                                            <p>Add, edit or remove your saved cards.</p>
+                                                            <h2><?= $lang['cards'] ?></h2>
+                                                            <p><?= $lang['add_edit_or_remove_cards'] ?></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -376,8 +377,8 @@ if (isset($_SESSION['id'])) {
                                                                 <a><img
                                                                         src="https://res.cloudinary.com/templategalaxy/image/upload/v1631257421/codepen-my-account/images/login_aq9v9z.png"></a>
                                                             </div>
-                                                            <h2>Account Details</h2>
-                                                            <p>Edit your account adding more information about you.</p>
+                                                            <h2><?= $lang['account_details'] ?></h2>
+                                                            <p><?= $lang['edit_your_account_adding_more_info'] ?></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -393,11 +394,11 @@ if (isset($_SESSION['id'])) {
                                         style="width:100%">
                                         <thead>
                                             <tr>
-                                                <th>Order</th>
-                                                <th>Date</th>
-                                                <th>Status</th>
-                                                <th>Total</th>
-                                                <th class="action">Action</th>
+                                                <th><?= $lang['order'] ?></th>
+                                                <th><?= $lang['date'] ?></th>
+                                                <th><?= $lang['status'] ?></th>
+                                                <th><?= $lang['total'] ?></th>
+                                                <th class="action"><?= $lang['action'] ?></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -406,7 +407,7 @@ if (isset($_SESSION['id'])) {
                                                 <td>Sep 9, 2021</td>
                                                 <td>Completed</td>
                                                 <td>$350</td>
-                                                <td class="action"><a href="#" class="view-order">View replies</a>
+                                                <td class="action"><a href="#" class="view-order"><?= $lang['view_replies'] ?></a>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -414,7 +415,7 @@ if (isset($_SESSION['id'])) {
                                                 <td>Sep 8, 2021</td>
                                                 <td>Pending</td>
                                                 <td>$190</td>
-                                                <td class="action"><a href="#" class="view-order">View replies</a>
+                                                <td class="action"><a href="#" class="view-order"><?= $lang['view_replies'] ?></a>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -422,7 +423,7 @@ if (isset($_SESSION['id'])) {
                                                 <td>Sep 7, 2021</td>
                                                 <td>Completed</td>
                                                 <td>$399</td>
-                                                <td class="action"><a href="#" class="view-order">View replies</a>
+                                                <td class="action"><a href="#" class="view-order"><?= $lang['view_replies'] ?></a>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -445,64 +446,64 @@ if (isset($_SESSION['id'])) {
                                                 </div>
                                                 <div class="add_address">
                                                     <div class="row address-header">
-                                                        <h3>Add a new address</h3>
+                                                        <h3><?= $lang['add_new_address'] ?></h3>
                                                         <span class="close_add_address"><i
                                                                 class="fa-solid fa-x"></i></span>
                                                     </div>
                                                     <div class="row">
                                                         <div>
-                                                            <label for="name">Name</label>
+                                                            <label for="name"><?= $lang['name'] ?></label>
                                                             <input type="text" name="name" id="name">
                                                         </div>
                                                         <div>
-                                                            <label for="surname">Surname</label>
+                                                            <label for="surname"><?= $lang['surname'] ?></label>
                                                             <input type="text" name="surname" id="surname">
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div>
-                                                            <label for="address1">Address 1</label>
+                                                            <label for="address1"><?= $lang['address1'] ?></label>
                                                             <input type="text" name="address1" id="address1">
                                                         </div>
                                                         <div>
-                                                            <label for="address2">Address 2</label>
+                                                            <label for="address2"><?= $lang['address2'] ?></label>
                                                             <input type="text" name="address2" id="address2">
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div>
-                                                            <label for="city">City</label>
+                                                            <label for="city"><?= $lang['city'] ?></label>
                                                             <input type="text" name="city" id="city">
                                                         </div>
                                                         <div>
-                                                            <label for="province">Province</label>
+                                                            <label for="province"><?= $lang['province'] ?></label>
                                                             <input type="text" name="province" id="province">
                                                         </div>
                                                         <div>
-                                                            <label for="zip">ZIP</label>
+                                                            <label for="zip"><?= $lang['zip'] ?></label>
                                                             <input type="text" name="zip" id="zip">
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div>
-                                                            <label for="country">Country</label>
+                                                            <label for="country"><?= $lang['country'] ?></label>
                                                             <input type="text" name="country" id="country">
                                                         </div>
                                                         <div>
-                                                            <label for="phone">Phone</label>
+                                                            <label for="phone"><?= $lang['phone'] ?></label>
                                                             <input type="text" name="phone" id="phone">
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        <label for="default">Change to default address</label>
+                                                        <label for="default"><?= $lang['change_to_default_address'] ?></label>
                                                         <input type="checkbox" name="default" id="default">
                                                     </div>
-                                                    <button type="submit" class="btn btn-primary">Add</button>
+                                                    <button type="submit" class="btn btn-primary"><?= $lang['add'] ?></button>
                                                 </div>
                                             </form>
                                             <div class="edit_address">
                                                 <div class="row address-header">
-                                                    <h3>Edit address</h3>
+                                                    <h3><?= $lang['edit_address'] ?></h3>
                                                     <span class="close_edit_address"><i
                                                             class="fa-solid fa-x"></i></span>
                                                 </div>
@@ -523,73 +524,73 @@ if (isset($_SESSION['id'])) {
                                                 <div class="form-col">
                                                     <div class="row">
                                                         <div class="form-group col-md-6">
-                                                            <label for="inputfname">Name</label>
+                                                            <label for="inputfname"><?= $lang['name'] ?></label>
                                                             <input type="text" name="name" class="form-control"
-                                                                id="inputfname" placeholder="Name">
+                                                                id="inputfname" placeholder="<?= $lang['name'] ?>">
                                                         </div>
                                                         <div class="form-group col-md-6">
-                                                            <label for="inputlname">Surname</label>
+                                                            <label for="inputlname"><?= $lang['surname'] ?></label>
                                                             <input name="surname" type="text" class="form-control"
-                                                                id="inputlname" placeholder="Surname">
+                                                                id="inputlname" placeholder="<?= $lang['surname'] ?>">
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="form-group col-md-12">
-                                                            <label for="inputusername">Username</label>
+                                                            <label for="inputusername"><?= $lang['username'] ?></label>
                                                             <input name="username" type="text" class="form-control"
-                                                                id="inputusername" placeholder="Username">
+                                                                id="inputusername" placeholder="<?= $lang['username'] ?>">
                                                         </div>
                                                         <div class="form-group col-md-12">
-                                                            <label for="inputphone">Phone</label>
+                                                            <label for="inputphone"><?= $lang['phone'] ?></label>
                                                             <input name="phone" type="text" class="form-control"
-                                                                id="inputphone" placeholder="123456789">
+                                                                id="inputphone" placeholder="<?= $lang['phone'] ?>">
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="form-group col-md-12">
-                                                            <label for="inputEmail4">Email</label>
+                                                            <label for="inputEmail4"><?= $lang['email'] ?></label>
                                                             <input name="email" type="email" class="form-control"
-                                                                id="inputEmail4" placeholder="Email">
+                                                                id="inputEmail4" placeholder="<?= $lang['email'] ?>">
                                                         </div>
                                                         <div class="form-group col-md-12">
-                                                            <label for="inputbd">Birthdate</label>
+                                                            <label for="inputbd"><?= $lang['birthdate'] ?></label>
                                                             <input name="birthdate" type="date" class="form-control"
                                                                 id="inputbd" placeholder="MM/DD/YYYY">
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="form-group col-md-12">
-                                                            <label for="inputpassword">Password</label>
+                                                            <label for="inputpassword"><?= $lang['password'] ?></label>
                                                             <input name="password" type="text" class="form-control"
                                                                 id="inputpassword" placeholder="Password">
                                                         </div>
                                                         <div class="form-group col-md-12">
-                                                            <label for="confirm_password">Confirm password</label>
+                                                            <label for="confirm_password"><?= $lang['confirm_password'] ?></label>
                                                             <input name="confirm_password" type="text"
                                                                 class="form-control" id="confirm_password"
-                                                                placeholder="Repeat password">
+                                                                placeholder="<?= $lang['confirm_password'] ?>">
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="form-group col-md-12">
-                                                            <label for="about">About me</label>
-                                                            <input type="text" placeholder="I am..." name="about"
+                                                            <label for="about"><?= $lang['about_me'] ?></label>
+                                                            <input type="text" placeholder="<?= $lang['i_am'] ?>..." name="about"
                                                                 id="about">
                                                         </div>
                                                     </div>
-                                                    <button type="submit" class="btn btn-primary">Update</button>
+                                                    <button type="submit" class="btn btn-primary"><?= $lang['update'] ?></button>
                                             </form>
                                         </div>
                                         <br><br><br>
                                         <div class="form-col">
                                             <form class="tg-form social-media" action="php/updateSocialMedia.php"
                                                 method="POST">
-                                                <h3>Social Media</h3>
+                                                <h3><?= $lang['social_media'] ?></h3>
                                                 <div class="row">
                                                     <div class="form-group col-md-6">
-                                                        <label for="website">Website</label>
+                                                        <label for="website"><?= $lang['website'] ?></label>
                                                         <input type="text" name="website" class="form-control"
-                                                            id="website" placeholder="www.yourwebsite.com">
+                                                            id="website" placeholder="www.<?= $lang['yourwebsite'] ?>.com">
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="facebook">Facebook</label>
@@ -611,12 +612,12 @@ if (isset($_SESSION['id'])) {
                                                 </div>
                                                 <div class="row">
                                                     <div class="form-group col-md-12">
-                                                        <label for="github">Github</label>
+                                                        <label for="github">GitHub</label>
                                                         <input name="github" type="email" class="form-control"
                                                             id="github" placeholder="username">
                                                     </div>
                                                 </div>
-                                                <button type="submit" class="btn btn-primary">Update</button>
+                                                <button type="submit" class="btn btn-primary"><?= $lang['update'] ?></button>
                                             </form>
                                         </div>
                                     </div>
@@ -629,7 +630,7 @@ if (isset($_SESSION['id'])) {
                                         <div class="my-cards">
                                             <section class="cards_list">
                                                 <div class="row">
-                                                    <h2>My Cards</h2>
+                                                    <h2><?= $lang['my_cards'] ?></h2>
                                                     <span id="add_card"><i class="fa-solid fa-plus"></i></span>
                                                 </div>
                                                 <div class="selected_card">
@@ -641,14 +642,14 @@ if (isset($_SESSION['id'])) {
                                                 </div>
                                             </section>
                                             <section class="card_edit">
-                                                <h2>Edit card</h2>
+                                                <h2><?= $lang['edit_card'] ?></h2>
                                                 <div class="row">
 
                                                     <div class="card_info_edit">
                                                         <!--List selected card information via Ajax-->
                                                     </div>
                                                     <div class="card_billing_address">
-                                                        <h2>Billing Address</h2>
+                                                        <h2><?= $lang['billing_address'] ?></h2>
                                                         <div class="billing_address">
                                                             <?php include 'php/list_default_address.php'; ?>
                                                         </div>
@@ -656,35 +657,35 @@ if (isset($_SESSION['id'])) {
                                                 </div>
                                                 <div class="card_options">
                                                     <div class="remove_card">
-                                                        <a class="remove_card_a" href="">Remove card</a>
+                                                        <a class="remove_card_a" href=""><?= $lang['remove_card'] ?></a>
                                                     </div>
                                                     <div class="other_options">
-                                                        <button class="cancel_card_btn">Cancel</button>
-                                                        <button class="save_card_btn">Save</button>
+                                                        <button class="cancel_card_btn"><?= $lang['cancel'] ?></button>
+                                                        <button class="save_card_btn"><?= $lang['save'] ?></button>
                                                     </div>
                                                 </div>
                                             </section>
                                             <section>
                                                 <div class="add_card_modal">
                                                     <div class="add_card_modal_info">
-                                                        <h3>Add a new card</h3>
+                                                        <h3><?= $lang['add_new_card'] ?></h3>
                                                         <span class="add_card_modal_close"><i class="fa-solid fa-x"></i></span>
                                                         <form method="POST" action="php/add_card.php">
                                                             <div class="card_info_add">
                                                                 <div class="card_name">
-                                                                    <span><b>Card name</b></span>
+                                                                    <span><b><?= $lang['card_name'] ?></b></span>
                                                                     <input type="text" name="card_name" id="card-name" minlength="5" maxlength="30" value="">
                                                                 </div>
                                                                 <div class="card_number">
-                                                                    <span><b>Card number</b></span>
+                                                                    <span><b><?= $lang['card_number'] ?></b></span>
                                                                     <input type="text" name="card_number" id="card-number" minlength="11" maxlength="19" oninput="limitToNumbers(this)" value="">
                                                                 </div>
                                                                 <div class="card_cvv">
-                                                                    <span><b>CVV</b></span>
+                                                                    <span><b><?= $lang['cvv'] ?></b></span>
                                                                     <input type="text" name="card_cvv" id="card-cvv" minlength="3" maxlength="3" oninput="limitToNumbers(this)" value="">
                                                                 </div>
                                                                 <div class="card_due_date">
-                                                                    <span><b>Card due date</b></span>
+                                                                    <span><b><?= $lang['due_date'] ?></b></span>
                                                                     <div class="row">
                                                                         <select id="card-due-month" name="card_due_month">
                                                                             <option value="01" selected>01</option>
@@ -725,7 +726,7 @@ if (isset($_SESSION['id'])) {
                                                                         </select>
                                                                     </div>
                                                                 </div>
-                                                                <button class="btn btn-active">Add</button>
+                                                                <button class="btn btn-active"><?= $lang['add'] ?></button>
                                                             </div>
                                                         </form>
                                                     </div>
@@ -742,33 +743,33 @@ if (isset($_SESSION['id'])) {
                                     style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th>Product</th>
-                                            <th>Quote</th>
-                                            <th>Media</th>
-                                            <th>Recommended</th>
-                                            <th>Status</th>
-                                            <th class="action">Action</th>
+                                            <th><?= $lang['product'] ?></th>
+                                            <th><?= $lang['quote'] ?></th>
+                                            <th><?= $lang['media'] ?></th>
+                                            <th><?= $lang['recommended2'] ?></th>
+                                            <th><?= $lang['status'] ?></th>
+                                            <th class="action"><?= $lang['action'] ?></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
-                                        
-                                        $user_opinions_query = $conn->prepare("SELECT O.id, O.quote as opinion_quote, O.media, O.recommended, O.verified, S.title, U.username FROM opinions O
-                                        INNER JOIN smartphones S on O.smartphone_id = S.id
-                                        INNER JOIN users U on O.user_id = U.id WHERE O.user_id = ?");
-                                        $user_id = $_SESSION['user_id'];
-                                        $user_opinions_query->bind_param("i", $id);
-                                        $user_opinions_query->execute();
-                                        $user_opinions_res = $user_opinions_query->get_result();
-                                        while ($opinion = $user_opinions_res->fetch_assoc()) {
-                                            echo '<tr>
-                                                <td>' . $opinion['title'] . '</td>
-                                                <td>' . $opinion['opinion_quote'] . '</td>
-                                                <td>' . $opinion['media'] . '</td>
-                                                <td>' . ($opinion['recommended'] ? 'Recommended' : 'Not recommended') . '</td>
-                                                <td>' . ($opinion['verified'] ? 'Verified' : 'Not verified') . '</td>
-                                                <td class="action"><a href="#" data-id="' . $opinion['id'] . '" class="viewReplies view-order">View replies</a></td>
-                                            </tr>';
+                                        if (isset($_SESSION['id'])) {
+                                            $user_opinions_query = $conn->prepare("SELECT O.id, O.quote as opinion_quote, O.media, O.recommended, O.verified, S.title, U.username FROM opinions O
+                                            INNER JOIN smartphones S on O.smartphone_id = S.id
+                                            INNER JOIN users U on O.user_id = U.id WHERE O.user_id = ?");
+                                            $user_opinions_query->bind_param("i", $user_id);
+                                            $user_opinions_query->execute();
+                                            $user_opinions_res = $user_opinions_query->get_result();
+                                            while ($opinion = $user_opinions_res->fetch_assoc()) {
+                                                echo '<tr>
+                                                    <td>' . $opinion['title'] . '</td>
+                                                    <td>' . $opinion['opinion_quote'] . '</td>
+                                                    <td>' . $opinion['media'] . '</td>
+                                                    <td>' . ($opinion['recommended'] ? $lang['recommended2'] : $lang['not_recommended']) . '</td>
+                                                    <td>' . ($opinion['verified'] ? $lang['verified'] : $lang['not_verified']) . '</td>
+                                                    <td class="action"><a href="#" data-id="' . $opinion['id'] . '" class="viewReplies view-order">' . $lang['view_replies'] . '</td>
+                                                </tr>';
+                                            }
                                         }
                                         ?>
                                     </tbody>
@@ -783,7 +784,7 @@ if (isset($_SESSION['id'])) {
             </div>
         </div>
     </div>
-    <a href="#" class="cd-top text-replace js-cd-top">Subir</a>
+    <a href="#" class="cd-top text-replace js-cd-top"><?= $lang['go_top'] ?></a>
     </div>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>

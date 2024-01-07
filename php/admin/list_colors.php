@@ -1,19 +1,20 @@
 <?php 
+include 'lang/detect_lang.php';
 $colors = [
-    'black' => 'Black',
-    'white' => 'White', 
-    'grey' => 'Grey', 
-    'spacegrey' => 'Space Grey', 
-    'gold' => 'Gold', 
-    'silver' => 'Silver', 
-    'rosegold' => 'Rosegold', 
-    'green' => 'Green', 
-    'purple' => 'Purple', 
-    'red' => 'Red', 
-    'yellow' => 'Yellow', 
-    'blue' => 'Blue', 
-    'bronce' => 'Bronce', 
-    'orange' => 'Orange',
+    'black' => $lang['black'],
+    'white' => $lang['white'], 
+    'grey' => $lang['grey'], 
+    'spacegrey' => $lang['space_grey'], 
+    'gold' => $lang['gold'], 
+    'silver' => $lang['silver'], 
+    'rosegold' => $lang['rosegold'], 
+    'green' => $lang['green'], 
+    'purple' => $lang['purple'], 
+    'red' => $lang['red'], 
+    'yellow' => $lang['yellow'], 
+    'blue' => $lang['blue'], 
+    'bronce' => $lang['bronce'], 
+    'orange' => $lang['orange'],
 ];
 
 $list_colors = '';

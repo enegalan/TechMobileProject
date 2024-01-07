@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+include 'lang/detect_lang.php';
 
 include 'php/conn.php';
 
@@ -18,22 +20,22 @@ $admin_links = '';
 if ($authenticated) {
     $auth_links = '
         <li class="menu__group">
-            <a href="#" onclick="toggleSubmenu()" class="menu__link r-link submenu_parent">Cuenta</a>
+            <a href="#" onclick="toggleSubmenu()" class="menu__link r-link submenu_parent">' . $lang['account'] . '</a>
             <div class="submenu" id="submenu">
-                <a href="profile.php">Mi Cuenta</a>
-                <a href="cart.php">Carrito</a>
+                <a href="profile.php">' . $lang['my_account'] . '</a>
+                <a href="cart.php">' . $lang['cart'] . '</a>
             </div>
         </li>
     ';
     if ($is_admin) {
         $auth_links = '
             <li class="menu__group">
-                <a href="#" onclick="toggleSubmenu()" class="menu__link r-link submenu_parent">Cuenta</a>
+                <a href="#" onclick="toggleSubmenu()" class="menu__link r-link submenu_parent">' . $lang['account'] . '</a>
                 <div class="submenu" id="submenu">
-                    <a href="profile.php">Mi Cuenta</a>
-                    <a href="admin.php">Admin</a>
-                    <a href="cart.php">Carrito</a>
-                    <a onclick="signOut()" rel="nofollow" style="padding:20px;font-size: 15px;" class="logOut"><i class="fa-solid fa-power-off"></i>Cerrar Sesión</a>
+                    <a href="profile.php">' . $lang['my_account'] . '</a>
+                    <a href="admin.php">' . $lang['admin'] . '</a>
+                    <a href="cart.php">' . $lang['cart'] . '</a>
+                    <a onclick="signOut()" rel="nofollow" style="padding:20px;font-size: 15px;" class="logOut"><i class="fa-solid fa-power-off"></i>' . $lang['logout'] . '</a>
                 </div>
             </li>
         ';
@@ -41,7 +43,7 @@ if ($authenticated) {
 } else {
     $auth_links = '
         <li class="menu__group">
-            <a href="sign_in.php" class="menu__link r-link">Iniciar sesión</a>
+            <a href="sign_in.php" class="menu__link r-link">' . $lang['login'] . '</a>
         </li>
     ';
 }
@@ -50,6 +52,31 @@ echo '
 
 <div class="menu">
     <nav id="main-menu" class="menu__nav">
+        <div style="position: absolute;top: 100px;left: 20px;">
+            <ul style="list-style:none;display:flex; gap: 25px; align-items:center">
+                <li>
+                    <a href="?lang=es">
+                        <img style="width: 3rem;border-radius:0.6rem;" src="images/flags/es.png"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="?lang=en">
+                        <img style="width: 3rem;border-radius:0.6rem" src="images/flags/en.png"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="?lang=fr">
+                        <img style="width: 3rem;border-radius:0.6rem" src="images/flags/fr.png"/>
+                    </a>
+                </li>
+                <li>
+                    <label class="switch">
+                        <input type="checkbox" checked onChange="toggleColorScheme();" id="input">
+                        <span class="slider round"></span>
+                    </label>
+                </li>
+            </ul>
+        </div>
         <div style="position: absolute;top: 45px;right: 75px;">
             <div class="search-box">
                 <form method="GET" action="catalogo.php" id="searching_form">
@@ -60,13 +87,13 @@ echo '
         </div>
         <ul class="menu__list r-list">
         <li class="menu__group">
-            <a href="index.php" class="menu__link r-link">Inicio</a>
+            <a href="index.php" class="menu__link r-link">' . $lang['home'] . '</a>
         </li>
         <li class="menu__group">
-            <a href="catalogo.php" class="menu__link r-link">Catálogo</a>
+            <a href="catalogo.php" class="menu__link r-link">' . $lang['catalogue'] . '</a>
         </li>
         <li class="menu__group">
-            <a href="contacto.php" class="menu__link r-link">Contacto</a>
+            <a href="contacto.php" class="menu__link r-link">' . $lang['contact'] . '</a>
         </li>
         <li class="menu__group">
             <a href="faqs.php" class="menu__link r-link">FAQs</a>
@@ -77,7 +104,7 @@ echo '
     <button class="menu__toggle r-button" type="button" aria-controls="main-menu">
         <span class="menu__hamburger m-hamburger">
         <span class="m-hamburger__label">
-            <span class="menu__toggle-hint screen-reader">Open menu</span>
+            <span class="menu__toggle-hint screen-reader">' . $lang['open_menu'] . '</span>
         </span>
         </span>
     </button>

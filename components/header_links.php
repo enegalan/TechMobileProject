@@ -1,24 +1,26 @@
-<?php 
+<?php
+
+include 'lang/detect_lang.php';
 
 echo '
     <a href="index.php" class="nav-link menu-default">
         <span class="nav-link-span">
             <span class="u-nav">
-            Inicio
+            ' . $lang['home'] . '
             </span>
         </span>
     </a>
     <a href="catalogo.php" class="nav-link menu-default">
         <span class="nav-link-span">
             <span class="u-nav">
-            Catálogo
+            ' . $lang['catalogue'] . '
             </span>
         </span>
     </a>
     <a href="contacto.php" class="nav-link menu-default">
         <span class="nav-link-span">
             <span class="u-nav">
-            Contacto
+            ' . $lang['contact'] . '
             </span>
         </span>
     </a>

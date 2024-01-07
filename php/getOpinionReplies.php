@@ -1,4 +1,5 @@
 <?php
+include 'lang/detect_lang.php';
 
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
@@ -54,17 +55,17 @@ if ($_SESSION['id'] && isset($_POST['id'])) {
                     <br>
                     <div data-id="' . $opinion_answer['id'] . '" class="reply_answer_opinion">
                             <div class="reply_textarea_container">
-                                <label for="comment" class="reply_label">Comentar</label>
+                                <label for="comment" class="reply_label">' . $lang['comment'] . '</label>
                                 <textarea id="comment" minlength="15" placeholder="@' . $opinion_answer['username'] . '" class="reply_textarea">@' . $opinion['username'] . '</textarea>
-                                <div class="reply_min_label">* Mínimo 15 caracteres</div>
+                                <div class="reply_min_label">* ' . $lang['min'] . ' 15 ' . $lang['chars'] . '</div>
                             </div>
                             <div class="reply_controls">
                                 <div>
                                     <button answer-id="' . $opinion_answer['id'] . '" data-id="' . $opinion['id'] . '" class="reply_answer_button">
-                                        Comentar
+                                        ' . $lang['comment'] . '
                                     </button>
                                     <button class="reply_cancel_button">
-                                        Cancelar
+                                        ' . $lang['cancel'] . '
                                     </button>
                                 </div>
                             </div>

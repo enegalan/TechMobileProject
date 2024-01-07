@@ -15,8 +15,8 @@
         for($i = 0; $i < $res->num_rows;$i++){
             $card[] = $res->fetch_assoc();
         }
-        echo json_encode($card);
         $query->close();
+        echo json_encode($card);
         
     }
 ?>

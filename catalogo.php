@@ -1,4 +1,5 @@
 ﻿<?php 
+include 'lang/detect_lang.php';
 $search = "%";
 if (isset($_GET['search']) && !empty($_GET['search'])) $search = "%" . $_GET['search'] . "%";
 ?>
@@ -8,7 +9,7 @@ if (isset($_GET['search']) && !empty($_GET['search'])) $search = "%" . $_GET['se
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Catálogo | TechMobile | Eneko Galan</title>
+	<title><?= $lang['catalogue'] ?> | TechMobile | Eneko Galan</title>
 	<script src="https://kit.fontawesome.com/8e4bd12ccb.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="style.css" />
 	<link rel="stylesheet" type="text/css" href="css/main.css" />
@@ -54,7 +55,7 @@ if (isset($_GET['search']) && !empty($_GET['search'])) $search = "%" . $_GET['se
 	<?php include 'components/mobile_navbar.php'; ?>
 	<!--Search input-->
 	<div id="ctn-bars-search">
-		<input type="text" id="inputSearch" placeholder="¿Qué deseas buscar?">
+		<input type="text" id="inputSearch" placeholder="<?= $lang['what_you_want_to_search'] ?>">
 	</div>
 	<!--Search Box Results-->
 	<ul id="box-search">
@@ -99,18 +100,18 @@ if (isset($_GET['search']) && !empty($_GET['search'])) $search = "%" . $_GET['se
 				<div class="contentBx">
 					<h2>' . $smartphones[$i]["title"] . '</h2>
 					<div class="precioBx">' . $smartphones[$i]["price"] . '€</div>
-					<a href="smartphone.php?id=' . $smartphones[$i]["id"] . '&color=' . $defaultColor . '">Comprar ahora</a>
+					<a href="smartphone.php?id=' . $smartphones[$i]["id"] . '&color=' . $defaultColor . '">' . $lang['buy_now'] . '</a>
 				</div>
 			</div>
 			';
 			}
 		} else {
-			echo '<p class="no_results">No hay productos disponibles</p>.';
+			echo '<p class="no_results">' . $lang['no_products_available'] . '</p>.';
 		}
 		?>
 
 	</div>
-	<a href="#" class="cd-top text-replace js-cd-top">Subir</a>
+	<a href="#" class="cd-top text-replace js-cd-top"><?= $lang['go_top'] ?></a>
 	</div>
 	<script src="js/browser.js"></script>
 	<script src="js/reveal.js"></script>

@@ -1,5 +1,5 @@
 <?php 
-
+include 'lang/detect_lang.php';
 //It would be cool to restringe users to be logged to see opinions (as a boolean option to set true/false)
 
 if($_GET['id']){
@@ -38,7 +38,7 @@ if($_GET['id']){
             }
             
             //Get if it's a verified opinion
-            $is_verified_dom = $opinion['verified'] ? '<span class="verified_opinion"><b>Opinión verificada</b></span>' : '';
+            $is_verified_dom = $opinion['verified'] ? '<span class="verified_opinion"><b>' . $lang['verified_opinion'] . '</b></span>' : '';
     
             //Get useful opinions count value
             $useful_opinion_value = 0;
@@ -87,15 +87,15 @@ if($_GET['id']){
                             <div class="reply_textarea_container">
                                 <label for="comment" class="reply_label">Comentar</label>
                                 <textarea id="comment" minlength="15" placeholder="@' . $opinion_answer['username'] . '" class="reply_textarea">@' . $opinion['username'] . '</textarea>
-                                <div class="reply_min_label">* Mínimo 15 caracteres</div>
+                                <div class="reply_min_label">* ' . $lang['min'] . ' 15 ' . strtolower($lang['chars']) . '</div>
                             </div>
                             <div class="reply_controls">
                                 <div>
                                     <button answer-id="' . $opinion_answer['id'] . '" data-id="' . $opinion['id'] . '" class="reply_answer_button">
-                                        Comentar
+                                        ' . $lang['comment'] . '
                                     </button>
                                     <button class="reply_cancel_button">
-                                        Cancelar
+                                        ' . $lang['cancel'] . '
                                     </button>
                                 </div>
                             </div>
@@ -161,26 +161,26 @@ if($_GET['id']){
                                             fill="#333333">
                                         </path>
                                     </svg>
-                                    Opinión útil (<span id="useful_ipinion_value">' . $useful_opinion_value . '</span>)
+                                    ' . $lang['useful_opinion'] . ' (<span id="useful_ipinion_value">' . $useful_opinion_value . '</span>)
                                 </a>
                             </span>
                             <span class="answer_opinion_span">
-                                <div class="answer_opinion" data-id="' . $opinion['id'] . '">Responder</div>
+                                <div class="answer_opinion" data-id="' . $opinion['id'] . '">' . $lang['reply'] . '</div>
                             </span>
                         </div>
                         <div data-id="' . $opinion['id'] . '" class="reply_opinion">
                             <div class="reply_textarea_container">
-                                <label for="comment" class="reply_label">Comentar</label>
+                                <label for="comment" class="reply_label">' . $lang['reply'] . '</label>
                                 <textarea id="comment" minlength="15" placeholder="@' . $opinion['username'] . '" class="reply_textarea">@' . $opinion['username'] . '</textarea>
-                                <div class="reply_min_label">* Mínimo 15 caracteres</div>
+                                <div class="reply_min_label">* ' . $lang['min'] . ' 15 ' . $lang['chars'] . '</div>
                             </div>
                             <div class="reply_controls">
                                 <div>
                                     <button data-id="' . $opinion['id'] . '" class="reply_button">
-                                        Comentar
+                                        ' . $lang['comment'] . '
                                     </button>
                                     <button class="reply_cancel_button">
-                                        Cancelar
+                                    ' . $lang['cancel'] . '
                                     </button>
                                 </div>
                             </div>
@@ -195,7 +195,7 @@ if($_GET['id']){
                 ';
         }
     } else {
-        echo 'No hay opiniones de usuario.';
+        echo $lang['no_user_opinions'];
     }
     if ($opinions_result->num_rows > 0) $media_query->close();
     if ($opinions_result->num_rows > 0) $opinions_query->close();

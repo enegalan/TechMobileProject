@@ -13,6 +13,5 @@
         $query->execute();
 
         $query->close();
-        echo "INSERT INTO succesfull";
     }
 ?>

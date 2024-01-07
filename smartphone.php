@@ -1,4 +1,6 @@
 ﻿<?php 
+    include 'lang/detect_lang.php';
+
     //Get Smartphone data via GET ?id and ?color
     if(isset($_GET['id']) && isset($_GET['color'])){
         include 'php/conn.php';
@@ -88,7 +90,7 @@
 <head>
     <meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $smartphone['title']?> | TechMobile | Eneko Galan</title>
+    <title><?= $smartphone['title']?> | TechMobile | Eneko Galan</title>
     <link rel="stylesheet" type="text/css" href="productos/style-productos.css" />
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="stylesheet" type="text/css" href="css/main.css" />
@@ -137,7 +139,7 @@
     <?php include 'components/mobile_navbar.php'; ?>
     <!--Search input-->
     <div id="ctn-bars-search">
-        <input type="text" id="inputSearch" placeholder="¿Qué deseas buscar?">
+        <input type="text" id="inputSearch" placeholder="<?= $lang['what_you_want_to_search'] ?>">
     </div>
     <!--Search Box Results-->
     <ul id="box-search">
@@ -154,16 +156,16 @@
     <?php include 'components/waves_footer.php' ?>
 
     <nav class="breadcrumbs">
-        <a href="index.php" class="breadcrumbs__item">Inicio</a>
-        <a href="catalogo.php" class="breadcrumbs__item">Catálogo</a>
-        <?php echo "<a href='manufacturer.php?id=" . $smartphone['manufacturer_id'] . "' class='breadcrumbs__item'>" . ucfirst($smartphone['manufacturer_name']) . "</a>";?>
-        <?php echo "<a class='breadcrumbs__item is-active'>" . $smartphone['title'] . "</a>";?>
+        <a href="index.php" class="breadcrumbs__item"><?= $lang['home'] ?></a>
+        <a href="catalogo.php" class="breadcrumbs__item"><?= $lang['catalogue'] ?></a>
+        <?= "<a href='manufacturer.php?id=" . $smartphone['manufacturer_id'] . "' class='breadcrumbs__item'>" . ucfirst($smartphone['manufacturer_name']) . "</a>";?>
+        <?= "<a class='breadcrumbs__item is-active'>" . $smartphone['title'] . "</a>";?>
     </nav>
 
     <div id="contenidoprincipal" class="wpb_row vc_row-fluid vc_row standard_section"
-        data-product-id="<?php echo $id;?>">
+        data-product-id="<?= $id;?>">
         <div class="centrado_articulo">
-            <div id="articulo" class="<?php echo $smartphone['thumbnail_name'];?>">
+            <div id="articulo" class="<?= $smartphone['thumbnail_name'];?>">
                 <div class="column small-centered">
                     <div class="productCard_block">
 
@@ -210,24 +212,24 @@
                                         <div class="block_specification__specificationShow">
                                             <i class="fa fa-cog block_specification__button block_specification__button__rotate"
                                                 aria-hidden="true"></i>
-                                            <span class="block_specification__text">especificaciones</span>
+                                            <span class="block_specification__text"><?= $lang['specs'] ?></span>
                                         </div>
                                         <div class="block_specification__informationShow hide">
                                             <i class="fa fa-info-circle block_specification__button block_specification__button__jump"
                                                 aria-hidden="true"></i>
-                                            <span class="block_specification__text">información</span>
+                                            <span class="block_specification__text"><?= $lang['info'] ?></span>
                                         </div>
                                     </div>
 
                                     <div class="block_product">
                                         <h2 class="block_name block_name__mainName"><span
-                                                class="smartphone_main_title"><?php echo $smartphone['title'];?></span><sup>&reg;
+                                                class="smartphone_main_title"><?= $smartphone['title'];?></span><sup>&reg;
                                             </sup></h2>
                                         <h2 class="block_name block_name__addName">
-                                            <?php echo $smartphone['subtitle1']; ?></h2>
+                                            <?= $smartphone['subtitle1']; ?></h2>
 
                                         <p class="block_product__advantagesProduct">
-                                            <?php echo $smartphone['subtitle2'];?>
+                                            <?= $smartphone['subtitle2'];?>
                                         </p>
 
                                         <div class="block_informationAboutDevice">
@@ -236,47 +238,47 @@
                                                 class="block_descriptionCharacteristic block_descriptionCharacteristic__disActive">
                                                 <table class="block_specificationInformation_table">
                                                     <tr>
-                                                        <th>Características</th>
-                                                        <th>Valor</th>
+                                                        <th><?= $lang['caracteristics'] ?></th>
+                                                        <th><?= $lang['value'] ?></th>
                                                     </tr>
                                                     <tr>
-                                                        <td>Color</td>
-                                                        <td><?php echo ucfirst($color); ?></td>
+                                                        <td><?= $lang['color'] ?></td>
+                                                        <td><?= ucfirst($color); ?></td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Alto</td>
-                                                        <td><?php echo $smartphone['width'];?>cm</td>
+                                                        <td><?= $lang['width'] ?></td>
+                                                        <td><?= $smartphone['width'];?>cm</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Ancho</td>
-                                                        <td><?php echo $smartphone['height'];?>cm</td>
+                                                        <td><?= $lang['height'] ?></td>
+                                                        <td><?= $smartphone['height'];?>cm</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Grosor</td>
-                                                        <td><?php echo $smartphone['thick'];?>cm</td>
+                                                        <td><?= $lang['thick'] ?></td>
+                                                        <td><?= $smartphone['thick'];?>cm</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Peso</td>
-                                                        <td><?php echo $smartphone['weight'];?>g</td>
+                                                        <td><?= $lang['weight'] ?></td>
+                                                        <td><?= $smartphone['weight'];?>g</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Pantalla</td>
-                                                        <td><?php echo $smartphone['display'];?></td>
+                                                        <td><?= $lang['display'] ?></td>
+                                                        <td><?= $smartphone['display'];?></td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Chip</td>
-                                                        <td><?php echo $smartphone['chip'];?></td>
+                                                        <td><?= $lang['chip'] ?></td>
+                                                        <td><?= $smartphone['chip'];?></td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Cámara</td>
-                                                        <td><?php echo $smartphone['camera'];?></td>
+                                                        <td><?= $lang['camera'] ?></td>
+                                                        <td><?= $smartphone['camera'];?></td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Sistema operativo</td>
-                                                        <td><?php echo $smartphone['os'];?></td>
+                                                        <td><?= $lang['os'] ?></td>
+                                                        <td><?= $smartphone['os'];?></td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Almacenamiento</td>
+                                                        <td><?= $lang['storage'] ?></td>
                                                         <?php 
                                                             $storages = explode(",",$smartphone['storage']);
                                                             $out = "";
@@ -300,7 +302,7 @@
 
                                             <div class="block_descriptionInformation">
                                                 <span>
-                                                    <?php echo $smartphone['description']; ?>
+                                                    <?= $smartphone['description']; ?>
                                                 </span>
                                             </div>
                                             <div class="block_rating clearfix">
@@ -316,11 +318,11 @@
                                                 <div class="price_and_quantity left-align">
                                                     <div class="block_price">
                                                         <p class="block_price__currency">
-                                                            <?php echo $smartphone['price'];?>€</p>
-                                                        <p class="block_price__shipping">Mas gastos de envío</p>
+                                                            <?= $smartphone['price'];?>€</p>
+                                                        <p class="block_price__shipping"><?= $lang['plus_shipping_costs'] ?></p>
                                                     </div>
                                                     <div class="block_quantity clearfix">
-                                                        <span class="text_specification">Cantidad</span>
+                                                        <span class="text_specification"><?= $lang['quantity'] ?></span>
                                                         <div class="block_quantity__chooseBlock">
                                                             <input id="amountInput" class="block_quantity__number"
                                                                 name="quantityNumber" type="text" min="1" value="1">
@@ -335,7 +337,7 @@
                                                 </div>
                                                 <div class="large-6 small-12 column end">
                                                     <div class="block_goodColor">
-                                                        <span class="text_specification">Elige el color:</span>
+                                                        <span class="text_specification"><?= $lang['choose_color'] ?>:</span>
                                                         <div class="block_goodColor__allColors">
                                                             <?php
                                                                 $colors = explode(",",$smartphone['colors']);
@@ -349,13 +351,12 @@
                                                                         <input type='radio' name='colorOfItem' class='radio_button' id='radioColor" . $i + 1 . "' />
                                                                         ";
                                                                     }
-                                                                    echo '<label onclick="redireccionarColor(\'' . strtolower($color) . '\', \'' . strtolower($colors[$i]) . '\')" title="' . ucfirst($colors[$i]) . '" for="radioColor' . ($i + 1) . '" class="block_goodColor__radio block_goodColor__' . $colors[$i] . '"></label>';
+                                                                    echo '<label onclick="redireccionarColor(\'' . strtolower($color) . '\', \'' . strtolower($colors[$i]) . '\')" title="' . $lang[$colors[$i]] . '" for="radioColor' . ($i + 1) . '" class="block_goodColor__radio block_goodColor__' . $colors[$i] . '"></label>';
                                                                 }
                                                             ?>
                                                         </div>
                                                     </div>
-                                                    <button id="addToCart" class="button button_addToCard">Añadir al
-                                                        carrito</button>
+                                                    <button id="addToCart" class="button button_addToCard"><?= $lang['add_to_cart'] ?></button>
                                                 </div>
                                             </div>
                                             <ul class="blogpost-navigation">
@@ -429,13 +430,13 @@
                                                     <div fill="#FFA90D" data-testid="percent-bar" id="rating_avg_stars" value="<?= $global_avg ?>" class="opinion_stars"></div>
                                                 </div>
                                             </div>
-                                            <span value="<?= $global_count ?>" class="opinions_value"> Opiniones</span>
+                                            <span value="<?= $global_count ?>" class="opinions_value"> <?= $lang['opinions'] ?></span>
                                         </div>
                                     </div>
                                     <div class="report_card">
                                         <div class="opinion_card_content">
                                             <div value="<?= $global_recommended_percentage ?>" class="recommended_percentage_value">%</div>
-                                            <span class="recommended_title">Recomiendan</span>
+                                            <span class="recommended_title"><?= $lang['recommended'] ?></span>
                                             <span value="<?= $global_recommended_count ?>" class="recommended_value"></span>
                                         </div>
                                     </div>
@@ -517,17 +518,17 @@
                                 </div>
                                 <div class="leave_opinion_section">
                                     <div class="leave_opinion">
-                                        <div class="leave_opinion_title">Deja tu opinión</div>
+                                        <div class="leave_opinion_title"><?= $lang['leave_opinion'] ?></div>
                                         <form method="GET" action="rate_smartphone.php">
                                             <input type="hidden" value="<?= $smartphone['id'] ?>" name="id">
-                                            <button type="submit" class="leave_opinion_button">Añadir opinión</button>
+                                            <button type="submit" class="leave_opinion_button"><?= $lang['add_opinion'] ?></button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="opinions_list">
-                                <h2>Opiniones</h2>
+                                <h2><?= $lang['opinions'] ?></h2>
                                 <!--List Opinions-->
                                 <?php include 'php/list_smartphone_opinions.php' ?>
                             </div>

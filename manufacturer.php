@@ -1,4 +1,5 @@
-<?php 
+<?php
+	include 'lang/detect_lang.php';
     if(isset($_GET['id'])){
         include 'php/conn.php';
         $id = $_GET['id'];
@@ -30,7 +31,7 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title><?php echo ucfirst($manufacturer[0]['name'])?> | TechMobile | Eneko Galan</title>
+	<title><?= ucfirst($manufacturer[0]['name'])?> | TechMobile | Eneko Galan</title>
 	<script src="https://kit.fontawesome.com/8e4bd12ccb.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="style.css" />
 	<link rel="stylesheet" type="text/css" href="css/main.css" />
@@ -75,7 +76,7 @@
 	<?php include 'components/mobile_navbar.php'; ?>
 	<!--Search input-->
 	<div id="ctn-bars-search">
-		<input type="text" id="inputSearch" placeholder="¿Qué deseas buscar?">
+		<input type="text" id="inputSearch" placeholder="<?= $lang['what_you_want_to_search'] ?>">
 	</div>
 	<!--Search Box Results-->
 	<ul id="box-search">
@@ -122,13 +123,13 @@
 						<div class="contentBx">
 							<h2>' . $m_smartphones[$i]["title"] . '</h2>
 							<div class="precioBx">' . $m_smartphones[$i]["price"] . '€</div>
-							<a href="smartphone.php?id=' . $m_smartphones[$i]["id"] . '&color=' . $defaultColor . '">Comprar ahora</a>
+							<a href="smartphone.php?id=' . $m_smartphones[$i]["id"] . '&color=' . $defaultColor . '">' . $lang['buy_now'] . '</a>
 						</div>
 					</div>
 					';
 				}
 			} else {
-				echo '<p class="no_results">No hay productos disponibles</p>.';
+				echo '<p class="no_results">' . $lang['no_products_available'] . '</p>.';
 			}
 			$conn->close();
 		?>

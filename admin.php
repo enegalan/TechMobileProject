@@ -1,4 +1,5 @@
 <?php 
+include 'lang/detect_lang.php';
 if(session_status() !== PHP_SESSION_ACTIVE){
     session_start();
 }
@@ -19,7 +20,7 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard | TechMobile | Eneko Galan</title>
+    <title><?= $lang['admin_dashboard'] ?> | TechMobile | Eneko Galan</title>
     <link rel="stylesheet" href="css/admin.css">
     <script src="https://kit.fontawesome.com/8e4bd12ccb.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -64,7 +65,7 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
     <?php include 'components/mobile_navbar.php'; ?>
     <!--Search input-->
     <div id="ctn-bars-search">
-        <input type="text" id="inputSearch" placeholder="¿Qué deseas buscar?">
+        <input type="text" id="inputSearch" placeholder="<?= $lang['what_you_want_to_search'] ?>">
     </div>
     <!--Search Box Results-->
     <ul id="box-search">
@@ -84,7 +85,7 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                         <span class="icon">
                             <i class="fa-solid fa-star"></i>
                         </span>
-                        <span class="title">Admin Dashboard</span>
+                        <span class="title"><?= $lang['admin_dashboard'] ?></span>
                     </a>
                 </li>
 
@@ -93,7 +94,7 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                         <span class="icon">
                             <i class="fa-solid fa-house"></i>
                         </span>
-                        <span class="title">Dashboard</span>
+                        <span class="title"><?= $lang['dashboard'] ?></span>
                     </a>
                 </li>
 
@@ -102,7 +103,7 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                         <span class="icon">
                             <i class="fa-solid fa-user-group"></i>
                         </span>
-                        <span class="title">Users</span>
+                        <span class="title"><?= $lang['users'] ?></span>
                     </a>
                 </li>
 
@@ -111,7 +112,7 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                         <span class="icon">
                             <i class="fa-solid fa-comment"></i>
                         </span>
-                        <span class="title">Opinions</span>
+                        <span class="title"><?= $lang['opinions'] ?></span>
                     </a>
                 </li>
 
@@ -129,7 +130,7 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                         <span class="icon">
                             <i class="fa-solid fa-mobile-screen-button"></i>
                         </span>
-                        <span class="title">Smartphones</span>
+                        <span class="title"><?= $lang['smartphones'] ?></span>
                     </a>
                 </li>
 
@@ -138,7 +139,7 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                         <span class="icon">
                             <i class="fa-solid fa-boxes-stacked"></i>
                         </span>
-                        <span class="title">Orders</span>
+                        <span class="title"><?= $lang['orders'] ?></span>
                     </a>
                 </li>
 
@@ -154,7 +155,7 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                 </div>
 
                 <div class="user">
-                    <span>Welcome back, <?= $username?></span>
+                    <span><?= $lang['welcome_back'] ?>, <?= $username?></span>
                     <img src="<?= $gravatar ?>" alt="">
                 </div>
             </div>
@@ -164,7 +165,7 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                     <div class="card">
                         <div>
                             <div class="numbers">80</div>
-                            <div class="cardName">Sales</div>
+                            <div class="cardName"><?= $lang['sales'] ?></div>
                         </div>
 
                         <div class="iconBx">
@@ -175,7 +176,7 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                     <div class="card">
                         <div>
                             <div class="numbers"><?php include 'php/admin/data/countOpinions.php'; getCountOpinions();?></div>
-                            <div class="cardName">Opinions</div>
+                            <div class="cardName"><?= $lang['opinions'] ?></div>
                         </div>
 
                         <div class="iconBx">
@@ -186,7 +187,7 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                     <div class="card">
                         <div>
                             <div class="numbers">7842€</div>
-                            <div class="cardName">Earning</div>
+                            <div class="cardName"><?= $lang['earning'] ?></div>
                         </div>
 
                         <div class="iconBx">
@@ -199,20 +200,20 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                 <div class="details">
                     <div class="recentOrders">
                         <div class="cardHeader">
-                            <h2>Recent Orders</h2>
-                            <a href="#" class="btn">View All</a>
+                            <h2><?= $lang['recent_orders'] ?></h2>
+                            <a href="#" class="btn"><?= $lang['view_all'] ?></a>
                         </div>
 
                         <table>
                             <thead>
                                 <tr>
-                                    <td>Order ID</td>
-                                    <td>User ID</td>
-                                    <td>Username</td>
-                                    <td>Order</td>
-                                    <td>Order Price</td>
-                                    <td>Payment</td>
-                                    <td>Status</td>
+                                    <td><?= $lang['order'] ?> ID</td>
+                                    <td><?= $lang['user'] ?> ID</td>
+                                    <td><?= $lang['username'] ?></td>
+                                    <td><?= $lang['order'] ?></td>
+                                    <td><?= $lang['order_price'] ?></td>
+                                    <td><?= $lang['payment'] ?></td>
+                                    <td><?= $lang['status'] ?></td>
                                 </tr>
                             </thead>
 
@@ -221,7 +222,7 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                                     <td>1</td>
                                     <td>1</td>
                                     <td>egalan</td>
-                                    <td>View Order</td>
+                                    <td><?= $lang['view_order'] ?></td>
                                     <td>1200€</td>
                                     <td>Paypal</td>
                                     <td><span class="status delivered">Delivered</span></td>
@@ -231,7 +232,7 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                                     <td>1</td>
                                     <td>1</td>
                                     <td>egalan</td>
-                                    <td>View Order</td>
+                                    <td><?= $lang['view_order'] ?></td>
                                     <td>1200€</td>
                                     <td>Mastercard</td>
                                     <td><span class="status pending">Pending</span></td>
@@ -241,7 +242,7 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                                     <td>1</td>
                                     <td>1</td>
                                     <td>egalan</td>
-                                    <td>View Order</td>
+                                    <td><?= $lang['view_order'] ?></td>
                                     <td>1200€</td>
                                     <td>Paypal</td>
                                     <td><span class="status return">Return</span></td>
@@ -251,7 +252,7 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                                     <td>1</td>
                                     <td>1</td>
                                     <td>egalan</td>
-                                    <td>View Order</td>
+                                    <td><?= $lang['view_order'] ?></td>
                                     <td>1200€</td>
                                     <td>Visa</td>
                                     <td><span class="status inProgress">In Progress</span></td>
@@ -261,7 +262,7 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                                     <td>1</td>
                                     <td>1</td>
                                     <td>egalan</td>
-                                    <td>View Order</td>
+                                    <td><?= $lang['view_order'] ?></td>
                                     <td>1200€</td>
                                     <td>Visa</td>
                                     <td><span class="status delivered">Delivered</span></td>
@@ -271,7 +272,7 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                                     <td>1</td>
                                     <td>1</td>
                                     <td>egalan</td>
-                                    <td>View Order</td>
+                                    <td><?= $lang['view_order'] ?></td>
                                     <td>1200€</td>
                                     <td>Paypal</td>
                                     <td><span class="status pending">Pending</span></td>
@@ -281,7 +282,7 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                                     <td>1</td>
                                     <td>1</td>
                                     <td>egalan</td>
-                                    <td>View Order</td>
+                                    <td><?= $lang['view_order'] ?></td>
                                     <td>1200€</td>
                                     <td>Mastercard</td>
                                     <td><span class="status return">Return</span></td>
@@ -291,7 +292,7 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                                     <td>1</td>
                                     <td>1</td>
                                     <td>egalan</td>
-                                    <td>View Order</td>
+                                    <td><?= $lang['view_order'] ?></td>
                                     <td>1200€</td>
                                     <td>Paypal</td>
                                     <td><span class="status inProgress">In Progress</span></td>
@@ -303,7 +304,7 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                     <!-- ================= Recent Users ================ -->
                     <div class="recentCustomers">
                         <div class="cardHeader">
-                            <h2>Recent Users</h2>
+                            <h2><?= $lang['recent_users'] ?></h2>
                         </div>
                         <!--List of Recent Users--->
                         <?php include 'php/admin/list_recent_users.php'; 
@@ -319,238 +320,238 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                 <div class="add_user_modal">
                     <div class="add_user_main">
                         <div class="add_user_main_title">
-                            <h2>Add user</h2>
+                            <h2><?= $lang['add_user'] ?></h2>
                             <span class="add_user_close"><i class="fa-solid fa-x"></i></span>
                         </div>
                         <div class="card">
-                            <h3>User Info</h3>
+                            <h3><?= $lang['user_info'] ?></h3>
                             <div class="row" style="display: inline-grid;">
                                 <div>
-                                    <label for="add_user_username">Username</label>
-                                    <input class="default_input" type="text" minlength="4" id="add_user_username" placeholder="Enter username">
+                                    <label for="add_user_username"><?= $lang['username'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="add_user_username" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['username']) ?>">
                                 </div>
                             </div>
                             <div class="row" style="display: inline-grid;">
                                 <div>
-                                    <label for="add_user_password">Password</label>
-                                    <input class="default_input" type="text" minlength="4" id="add_user_password" placeholder="Enter password">
+                                    <label for="add_user_password"><?= $lang['password'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="add_user_password" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['password']) ?>">
                                 </div>
                                 <div>
-                                    <label for="add_user_email">Email</label>
-                                    <input class="default_input" type="text" minlength="10" id="add_user_email" placeholder="Enter email">
+                                    <label for="add_user_email"><?= $lang['email'] ?></label>
+                                    <input class="default_input" type="text" minlength="10" id="add_user_email" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['email']) ?>">
                                 </div>
                             </div>
                             <div class="row" style="display: inline-grid;">
                                 <div>
-                                    <label for="add_user_name">Name</label>
-                                    <input class="default_input" type="text" min="0" id="add_user_name" placeholder="Enter name">
+                                    <label for="add_user_name"><?= $lang['name'] ?></label>
+                                    <input class="default_input" type="text" min="0" id="add_user_name" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['name']) ?>">
                                 </div>
                                 <div>
-                                    <label for="add_user_surname">Surname</label>
-                                    <input class="default_input" type="text" minlength="4" id="add_user_surname" placeholder="Enter surname">
+                                    <label for="add_user_surname"><?= $lang['surname'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="add_user_surname" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['surname']) ?>">
                                 </div>
                                 <div>
-                                    <label for="add_user_birthdate">Birthdate</label>
+                                    <label for="add_user_birthdate"><?= $lang['birthdate'] ?></label>
                                     <input class="default_input" type="date" id="add_user_birthdate">
                                 </div>
                             </div>
                             <div class="row" style="display: inline-grid;">
                                 <div>
-                                    <label for="add_user_sex">Sex</label>
+                                    <label for="add_user_sex"><?= $lang['sex'] ?></label>
                                     <select class="default_input" name="add_user_sex" id="add_user_sex">
-                                        <option value="-1">Select...</option>
-                                        <option value="M">Male</option>
-                                        <option value="F">Female</option>
+                                        <option value="-1"><?= $lang['select'] ?>...</option>
+                                        <option value="M"><?=$lang['male'] ?></option>
+                                        <option value="F"><?= $lang['female'] ?></option>
                                     </select>
                                 </div>
                                 <div>
-                                    <label for="add_user_about">About</label>
-                                    <textarea class="default_textarea" type="text" minlength="4" id="add_user_about" placeholder="I am a..."></textarea>
+                                    <label for="add_user_about"><?= $lang['about_me'] ?></label>
+                                    <textarea class="default_textarea" type="text" minlength="4" id="add_user_about" placeholder="<?= $lang['i_am'] ?>..."></textarea>
                                 </div>
                             </div>
                             <div class="row" style="display: inline-grid;">
                                 <div>
-                                    <label for="add_user_country">Country</label>
-                                    <input class="default_input" type="text" minlength="4" id="add_user_country" placeholder="Enter country">
+                                    <label for="add_user_country"><?= $lang['country'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="add_user_country" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['country']) ?>">
                                 </div>
                                 <div>
-                                    <label for="add_user_province">Province</label>
-                                    <input class="default_input" type="text" minlength="4" id="add_user_province" placeholder="Enter province">
-                                </div>
-                            </div>
-                            <div class="row" style="display: inline-grid;">
-                                <div>
-                                    <label for="add_user_city">City</label>
-                                    <input class="default_input" type="text" minlength="4" id="add_user_city" placeholder="Enter city">
-                                </div>
-                                <div>
-                                    <label for="add_user_zip">ZIP</label>
-                                    <input class="default_input" type="text" minlength="4" id="add_user_zip" placeholder="Enter ZIP">
+                                    <label for="add_user_province"><?= $lang['province'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="add_user_province" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['province']) ?>">
                                 </div>
                             </div>
                             <div class="row" style="display: inline-grid;">
                                 <div>
-                                    <label for="add_user_address1">Address 1</label>
-                                    <input class="default_input" type="text" minlength="4" id="add_user_address1" placeholder="Enter address 1">
+                                    <label for="add_user_city"><?= $lang['city'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="add_user_city" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['city']) ?>">
                                 </div>
                                 <div>
-                                    <label for="add_user_address2">Address 2</label>
-                                    <input class="default_input" type="text" minlength="4" id="add_user_address2" placeholder="Enter address 2">
+                                    <label for="add_user_zip"><?= $lang['zip'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="add_user_zip" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['zip']) ?>">
                                 </div>
                             </div>
                             <div class="row" style="display: inline-grid;">
                                 <div>
-                                    <label for="add_user_phone">Phone</label>
-                                    <input class="default_input" type="text" minlength="4" id="add_user_phone" placeholder="Enter phone">
+                                    <label for="add_user_address1"><?= $lang['address1'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="add_user_address1" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['address1']) ?>">
                                 </div>
                                 <div>
-                                    <label for="add_user_website">Website</label>
-                                    <input class="default_input" type="text" minlength="4" id="add_user_website" placeholder="www.mywebsite.com">
+                                    <label for="add_user_address2"><?= $lang['address2'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="add_user_address2" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['address2']) ?>">
+                                </div>
+                            </div>
+                            <div class="row" style="display: inline-grid;">
+                                <div>
+                                    <label for="add_user_phone"><?= $lang['phone'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="add_user_phone" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['phone']) ?>">
+                                </div>
+                                <div>
+                                    <label for="add_user_website"><?= $lang['website'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="add_user_website" placeholder="www.<?= strtolower($lang['yourwebsite']) ?>.com">
                                 </div>
                             </div>
                             <div class="row" style="display: inline-grid;">
                                 <div>
                                     <label for="add_user_facebook">Facebook</label>
-                                    <input class="default_input" type="text" minlength="4" id="add_user_facebook" placeholder="Enter Facebook username">
+                                    <input class="default_input" type="text" minlength="4" id="add_user_facebook" placeholder="<?= $lang['enter_facebook_username'] ?>">
                                 </div>
                                 <div>
                                     <label for="add_user_twitter">Twitter</label>
-                                    <input class="default_input" type="text" minlength="4" id="add_user_twitter" placeholder="Enter Twitter username">
+                                    <input class="default_input" type="text" minlength="4" id="add_user_twitter" placeholder="<?= $lang['enter_twitter_username'] ?>">
                                 </div>
                             </div>
                             <div class="row" style="display: inline-grid;">
                                 <div>
                                     <label for="add_user_instagram">Instagram</label>
-                                    <input class="default_input" type="text" minlength="4" id="add_user_instagram" placeholder="Enter Instagram @username">
+                                    <input class="default_input" type="text" minlength="4" id="add_user_instagram" placeholder="<?= $lang['enter_instagram_username'] ?> @<?= strtolower($lang['user']) ?>">
                                 </div>
                                 <div>
-                                    <label for="add_user_github">Github</label>
-                                    <input class="default_input" type="text" minlength="4" id="add_user_github" placeholder="Enter Github username">
+                                    <label for="add_user_github">GitHub</label>
+                                    <input class="default_input" type="text" minlength="4" id="add_user_github" placeholder="<?= $lang['enter_github_username'] ?>">
                                 </div>
                             </div>
                         </div>
-                        <div class="row"><button onclick="createUser()">Submit</button></div>
+                        <div class="row"><button onclick="createUser()"><?= $lang['submit'] ?></button></div>
                     </div>
                 </div>
                 <!--Edit User Modal-->
                 <div class="edit_user_modal">
                     <div class="edit_user_main">
                         <div class="edit_user_main_title">
-                            <h2>Edit user</h2>
+                            <h2><?= $lang['edit_user'] ?></h2>
                             <span class="edit_user_close"><i class="fa-solid fa-x"></i></span>
                         </div>
                         <div class="card">
-                            <h3>User Info</h3>
+                            <h3><?= $lang['user_info'] ?></h3>
                             <div class="row" style="display: inline-grid;">
                                 <div>
                                     <label for="edit_user_id">ID</label>
                                     <input class="default_input" type="text" id="edit_user_id" disabled>
                                 </div>
                                 <div>
-                                    <label for="edit_user_username">Username</label>
-                                    <input class="default_input" type="text" minlength="4" id="edit_user_username" placeholder="Enter username">
+                                    <label for="edit_user_username"><?= $lang['username'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="edit_user_username" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['username']) ?>">
                                 </div>
                             </div>
                             <div class="row" style="display: inline-grid;">
                                 <div>
-                                    <label for="edit_user_password">Password</label>
-                                    <input class="default_input" type="password" minlength="10" id="edit_user_password" placeholder="Enter password">
+                                    <label for="edit_user_password"><?= $lang['password'] ?></label>
+                                    <input class="default_input" type="password" minlength="10" id="edit_user_password" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['password']) ?>">
                                 </div>
                                 <div>
-                                    <label for="edit_user_email">Email</label>
-                                    <input class="default_input" type="text" minlength="10" id="edit_user_email" placeholder="Enter email">
+                                    <label for="edit_user_email"><?= $lang['email'] ?></label>
+                                    <input class="default_input" type="text" minlength="10" id="edit_user_email" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['email']) ?>">
                                 </div>
                             </div>
                             <div class="row" style="display: inline-grid;">
                                 <div>
-                                    <label for="edit_user_name">Name</label>
-                                    <input class="default_input" type="text" min="2" id="edit_user_name" placeholder="Enter name">
+                                    <label for="edit_user_name"><?= $lang['name'] ?></label>
+                                    <input class="default_input" type="text" min="2" id="edit_user_name" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['name']) ?>">
                                 </div>
                                 <div>
-                                    <label for="edit_user_surname">Surname</label>
-                                    <input class="default_input" type="text" minlength="2" id="edit_user_surname" placeholder="Enter surname">
+                                    <label for="edit_user_surname"><?= $lang['surname'] ?></label>
+                                    <input class="default_input" type="text" minlength="2" id="edit_user_surname" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['surname']) ?>">
                                 </div>
                                 <div>
-                                    <label for="edit_user_birthdate">Birthdate</label>
+                                    <label for="edit_user_birthdate"><?= $lang['birthdate'] ?></label>
                                     <input class="default_input" type="date" id="edit_user_birthdate">
                                 </div>
                             </div>
                             <div class="row" style="display: inline-grid;">
                                 <div>
-                                    <label for="edit_user_sex">Sex</label>
+                                    <label for="edit_user_sex"><?= $lang['sex'] ?></label>
                                     <select class="default_input" name="edit_user_sex" id="edit_user_sex">
-                                        <option value="-1">Select...</option>
-                                        <option value="M">Male</option>
-                                        <option value="F">Female</option>
+                                        <option value="-1"><?= $lang['select'] ?>...</option>
+                                        <option value="M"><?= $lang['male'] ?></option>
+                                        <option value="F"><?= $lang['female'] ?></option>
                                     </select>
                                 </div>
                                 <div>
-                                    <label for="edit_user_about">About</label>
-                                    <textarea class="default_textarea" id="edit_user_about" type="text" cols="1" rows="5" placeholder="I am a..."></textarea>
+                                    <label for="edit_user_about"><?= $lang['about_me'] ?></label>
+                                    <textarea class="default_textarea" id="edit_user_about" type="text" cols="1" rows="5" placeholder="<?= strtolower($lang['i_am']) ?>..."></textarea>
                                 </div>
                             </div>
                             <div class="row" style="display: inline-grid;">
                                 <div>
-                                    <label for="edit_user_country">Country</label>
-                                    <input class="default_input" type="text" minlength="4" id="edit_user_country" placeholder="Enter country">
+                                    <label for="edit_user_country"><?= $lang['country'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="edit_user_country" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['country']) ?>">
                                 </div>
                                 <div>
-                                    <label for="edit_user_province">Province</label>
-                                    <input class="default_input" type="text" minlength="4" id="edit_user_province" placeholder="Enter province">
-                                </div>
-                            </div>
-                            <div class="row" style="display: inline-grid;">
-                                <div>
-                                    <label for="edit_user_city">City</label>
-                                    <input class="default_input" type="text" minlength="4" id="edit_user_city" placeholder="Enter city">
-                                </div>
-                                <div>
-                                    <label for="edit_user_zip">ZIP</label>
-                                    <input class="default_input" type="text" minlength="4" id="edit_user_zip" placeholder="Enter ZIP">
+                                    <label for="edit_user_province"><?= $lang['province'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="edit_user_province" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['province']) ?>">
                                 </div>
                             </div>
                             <div class="row" style="display: inline-grid;">
                                 <div>
-                                    <label for="edit_user_address1">Address 1</label>
-                                    <input class="default_input" type="text" minlength="4" id="edit_user_address1" placeholder="Enter address 1">
+                                    <label for="edit_user_city"><?= $lang['city'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="edit_user_city" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['city']) ?>">
                                 </div>
                                 <div>
-                                    <label for="edit_user_address2">Address 2</label>
-                                    <input class="default_input" type="text" minlength="4" id="edit_user_address2" placeholder="Enter address 2">
-                                </div>
-                            </div>
-                            <div class="row" style="display: inline-grid;">
-                                <div>
-                                    <label for="edit_user_phone">Phone</label>
-                                    <input class="default_input" type="text" id="edit_user_phone" placeholder="Enter phone">
-                                </div>
-                                <div>
-                                    <label for="edit_user_website">Website</label>
-                                    <input class="default_input" type="text" id="edit_user_website" placeholder="www.mywebsite.com">
+                                    <label for="edit_user_zip"><?= $lang['zip'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="edit_user_zip" placeholder="<?= $lang['enter'] ?> <?= $lang['zip'] ?>">
                                 </div>
                             </div>
                             <div class="row" style="display: inline-grid;">
                                 <div>
-                                    <label for="edit_user_facebook">Facebook</label>
-                                    <input class="default_input" type="text" id="edit_user_facebook" placeholder="Enter Facebook username">
+                                    <label for="edit_user_address1"><?= $lang['address1'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="edit_user_address1" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['address1']) ?>">
+                                </div>
+                                <div>
+                                    <label for="edit_user_address2"><?= $lang['address2'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="edit_user_address2" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['address2']) ?>">
+                                </div>
+                            </div>
+                            <div class="row" style="display: inline-grid;">
+                                <div>
+                                    <label for="edit_user_phone"><?= $lang['phone'] ?></label>
+                                    <input class="default_input" type="text" id="edit_user_phone" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['phone']) ?>">
+                                </div>
+                                <div>
+                                    <label for="edit_user_website"><?= $lang['website'] ?></label>
+                                    <input class="default_input" type="text" id="edit_user_website" placeholder="www.<?= strtolower($lang['youwebsite']) ?>.com">
+                                </div>
+                            </div>
+                            <div class="row" style="display: inline-grid;">
+                                <div>
+                                    <label for="edit_user_facebook"><?= $lang['facebook'] ?></label>
+                                    <input class="default_input" type="text" id="edit_user_facebook" placeholder="<?= $lang['enter_facebook_username'] ?>">
                                 </div>
                                 <div>
                                     <label for="edit_user_twitter">Twitter</label>
-                                    <input class="default_input" type="text" id="edit_user_twitter" placeholder="Enter Twitter username">
+                                    <input class="default_input" type="text" id="edit_user_twitter" placeholder="<?= $lang['enter_twitter_username'] ?>">
                                 </div>
                             </div>
                             <div class="row" style="display: inline-grid;">
                                 <div>
                                     <label for="edit_user_instagram">Instagram</label>
-                                    <input class="default_input" type="text" id="edit_user_instagram" placeholder="Enter Instagram @username">
+                                    <input class="default_input" type="text" id="edit_user_instagram" placeholder="<?= $lang['enter_instagram_username'] ?> Instagram @<?= strtolower($lang['username']) ?>">
                                 </div>
                                 <div>
                                     <label for="edit_user_github">Github</label>
-                                    <input class="default_input" type="text" id="edit_user_github" placeholder="Enter Github username">
+                                    <input class="default_input" type="text" id="edit_user_github" placeholder="<?= $lang['enter_github_username'] ?>">
                                 </div>
                             </div>
                         </div>
-                        <div class="row"><button onclick="updateUser()">Submit</button></div>
+                        <div class="row"><button onclick="updateUser()"><?= $lang['submit'] ?></button></div>
                     </div>
                 </div>
 
@@ -563,7 +564,7 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                                     echo countUsers(); 
                                 ?>
                             </div>
-                            <div class="cardName">Users</div>
+                            <div class="cardName"><?= $lang['users'] ?></div>
                         </div>
 
                         <div class="iconBx">
@@ -574,8 +575,8 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
 
                     <div class="card">
                         <div>
-                            <div class="numbers"><?php echo countActiveUsers(); ?></div>
-                            <div class="cardName">Users active</div>
+                            <div class="numbers"><?= countActiveUsers(); ?></div>
+                            <div class="cardName"><?= $lang['users_active'] ?></div>
                         </div>
 
                         <div class="iconBx">
@@ -586,8 +587,8 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
 
                     <div class="card">
                         <div>
-                            <div class="numbers"><?php echo countInactiveUsers(); ?></div>
-                            <div class="cardName">Users inactive</div>
+                            <div class="numbers"><?= countInactiveUsers(); ?></div>
+                            <div class="cardName"><?= $lang['users_inactive'] ?></div>
                         </div>
 
                         <div class="iconBx">
@@ -599,8 +600,8 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                 <div class="details">
                     <div class="cardHeaderUsersList">
                         <div class="headerUsers">
-                            <h2>Users</h2>
-                            <a href="#" class="btn" id="add_user_a">Add</a>
+                            <h2><?= $lang['users'] ?></h2>
+                            <a href="#" class="btn" id="add_user_a"><?= $lang['add'] ?></a>
                         </div>
                     </div>
                     <div class="usersList">
@@ -612,21 +613,21 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                                         <td></td>
                                         <!--Users Gravatar-->
                                         <td>ID</td>
-                                        <td>Username</td>
-                                        <td>Email</td>
-                                        <td>Name</td>
-                                        <td>Surname</td>
-                                        <td>Phone</td>
-                                        <td>Birthdate</td>
-                                        <td>Sex</td>
-                                        <td>Country</td>
-                                        <td>Province</td>
-                                        <td>City</td>
-                                        <td>ZIP</td>
-                                        <td>Address 1</td>
-                                        <td>Address 2</td>
-                                        <td>Status</td>
-                                        <td>Action</td>
+                                        <td><?= $lang['username'] ?></td>
+                                        <td><?= $lang['email'] ?></td>
+                                        <td><?= $lang['name'] ?></td>
+                                        <td><?= $lang['surname'] ?></td>
+                                        <td><?= $lang['phone'] ?></td>
+                                        <td><?= $lang['birthdate'] ?></td>
+                                        <td><?= $lang['sex'] ?></td>
+                                        <td><?= $lang['country'] ?></td>
+                                        <td><?= $lang['province'] ?></td>
+                                        <td><?= $lang['city'] ?></td>
+                                        <td><?= $lang['zip'] ?></td>
+                                        <td><?= $lang['address1'] ?></td>
+                                        <td><?= $lang['address2'] ?></td>
+                                        <td><?= $lang['status'] ?></td>
+                                        <td><?= $lang['action'] ?></td>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -637,26 +638,26 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                         </div>
                     </div>
                     <div class="usersFilters">
-                        <h2>Filters</h2>
+                        <h2><?= $lang['filters'] ?></h2>
                         <ul>
                             <li>
-                                <label for="search">Search</label>
-                                <input class="default_input" type="text" name="search" id="search" placeholder="Search...">
+                                <label for="search"><?= $lang['search'] ?></label>
+                                <input class="default_input" type="text" name="search" id="search" placeholder="<?= $lang['search'] ?>...">
                             </li>
                             <li>
-                                <label for="birthdate">Birthdate</label>
+                                <label for="birthdate"><?= $lang['birthdate'] ?></label>
                                 <input class="default_input" type="date" name="birthdate" id="birthdate">
                             </li>
                             <li>
-                                <label for="joining_date">Joining date</label>
+                                <label for="joining_date"><?= $lang['joining_date'] ?></label>
                                 <input class="default_input" type="date" name="joining_date" id="joining_date">
                             </li>
                             <li>
-                                <label for="status">Status</label>
+                                <label for="status"><?= $lang['status'] ?></label>
                                 <select class="default_input" name="status" id="status">
-                                    <option value="-1" selected>All</option>
-                                    <option value="1">Active</option>
-                                    <option value="0">Inactive</option>
+                                    <option value="-1" selected><?= $lang['all'] ?></option>
+                                    <option value="1"><?= $lang['active'] ?></option>
+                                    <option value="0"><?= $lang['inactive'] ?></option>
                                 </select>
                             </li>
                         </ul>
@@ -670,7 +671,7 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                     <div class="card">
                         <div>
                             <div class="numbers"><?php getCountOpinionsMonth() ?></div>
-                            <div class="cardName">New opinions this month</div>
+                            <div class="cardName"><?= $lang['new_opinions_month'] ?></div>
                         </div>
 
                         <div class="iconBx">
@@ -682,7 +683,7 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                 <div class="details">
                     <div class="cardHeaderUsersList">
                         <div class="headerOpinions">
-                            <h2>Opinions</h2>
+                            <h2><?= $lang['opinions'] ?></h2>
                         </div>
                     </div>
                     <div class="commentsList">
@@ -692,13 +693,13 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                                 <thead>
                                     <tr>
                                         <td>ID</td>
-                                        <td>Smartphone</td>
+                                        <td><?= $lang['smartphone'] ?></td>
                                         <td></td>
                                         <!--Users Gravatar-->
-                                        <td>Username</td>
-                                        <td>Comment</td>
-                                        <td>Date</td>
-                                        <td>Action</td>
+                                        <td><?= $lang['username'] ?></td>
+                                        <td><?= $lang['opinion'] ?></td>
+                                        <td><?= $lang['date'] ?></td>
+                                        <td><?= $lang['action'] ?></td>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -708,22 +709,30 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                         </div>
                     </div>
                     <div id="opinionsFilters" class="usersFilters">
-                        <h2>Filters</h2>
+                        <h2><?= $lang['filters'] ?></h2>
                         <ul>
                             <li>
-                                <label for="search">Search</label>
+                                <label for="search"><?= $lang['search'] ?></label>
                                 <input class="default_input" type="text" name="search" id="search"
-                                    placeholder="Search...">
+                                    placeholder="<?= $lang['search'] ?>...">
                             </li>
                             <li>
-                                <label for="manufacturer">Manufacturer</label>
+                                <label for="manufacturer"><?= $lang['manufacturer'] ?></label>
                                 <select class="default_input" name="manufacturer" id="manufacturer">
-                                    <option value="-1" selected>All</option>
-                                    <option value="apple">Apple</option>
+                                    <option value="-1" selected><?= $lang['all'] ?></option>
+                                    <?php
+                                        include 'php/list_manufacturers.php';
+                                        foreach ($manufacturers as $manufacturer) {
+                                            echo '
+                                                <option value="' . $manufacturer['name'] .'">' . ucfirst($manufacturer['name']) .'</option>
+                                            ';                                            
+                                        }
+                                        
+                                    ?>
                                 </select>
                             </li>
                             <li>
-                                <label for="date">Date</label>
+                                <label for="date"><?= $lang['date'] ?></label>
                                 <input class="default_input" type="date" name="date" id="date">
                             </li>
                         </ul>
@@ -735,54 +744,54 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
             <div class="add_faq_modal">
                 <div class="add_faq_main">
                     <div class="add_faq_main_title">
-                        <h2>Add FAQ</h2>
+                        <h2><?= $lang['add'] ?> FAQ</h2>
                         <span class="add_faq_close"><i class="fa-solid fa-x"></i></span>
                     </div>
                     <div class="card">
-                        <h3>FAQ Info</h3>
+                        <h3>FAQ <?= $lang['info'] ?></h3>
                         <div class="row" style="display: inline-grid;">
                             <div>
-                                <label for="add_faq_question">Question</label>
-                                <input class="default_input" type="text" minlength="5" id="add_faq_question" placeholder="Enter question">
+                                <label for="add_faq_question"><?= $lang['question'] ?></label>
+                                <input class="default_input" type="text" minlength="5" id="add_faq_question" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['question']) ?>">
                             </div>
                         </div>
                         <div class="row" style="display: inline-grid;">
                             <div>
-                                <label for="add_faq_answer">Answer</label>
-                                <input class="default_input" type="text" minlength="5" id="add_faq_answer" placeholder="Enter answer">
+                                <label for="add_faq_answer"><?= $lang['answer'] ?></label>
+                                <input class="default_input" type="text" minlength="5" id="add_faq_answer" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['add']) ?>">
                             </div>
                         </div>
                     </div>
-                    <div class="row"><button onclick="createFAQ()">Submit</button></div>
+                    <div class="row"><button onclick="createFAQ()"><?= $lang['submit'] ?></button></div>
                 </div>
             </div>
             <!--Edit FAQ Modal-->
             <div class="edit_faq_modal">
                 <div class="edit_faq_main">
                     <div class="edit_faq_main_title">
-                        <h2>Edit FAQ</h2>
+                        <h2><?= $lang['edit'] ?> FAQ</h2>
                         <span class="edit_faq_close"><i class="fa-solid fa-x"></i></span>
                     </div>
                     <div class="card">
-                        <h3>FAQ Info</h3>
+                        <h3>FAQ <?= $lang['info'] ?></h3>
                         <div class="row" style="display: inline-grid;">
                             <div>
                                 <label for="edit_faq_id">ID</label>
                                 <input class="default_input" type="text" id="edit_faq_id" disabled>
                             </div>
                             <div>
-                                <label for="edit_faq_question">Question</label>
-                                <input class="default_input" type="text" minlength="5" id="edit_faq_question" placeholder="Enter question">
+                                <label for="edit_faq_question"><?= $lang['question'] ?></label>
+                                <input class="default_input" type="text" minlength="5" id="edit_faq_question" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['question']) ?>">
                             </div>
                         </div>
                         <div class="row" style="display: inline-grid;">
                             <div>
-                                <label for="edit_faq_answer">Answer</label>
-                                <input class="default_input" type="text" minlength="5" id="edit_faq_answer" placeholder="Enter answer">
+                                <label for="edit_faq_answer"><?= $lang['answer'] ?></label>
+                                <input class="default_input" type="text" minlength="5" id="edit_faq_answer" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['answer']) ?>">
                             </div>
                         </div>
                     </div>
-                    <div class="row"><button onclick="updateFAQ()">Submit</button></div>
+                    <div class="row"><button onclick="updateFAQ()"><?= $lang['submit'] ?></button></div>
                 </div>
             </div>
             <!-- ======================= FAQs ================== -->
@@ -792,7 +801,7 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                         <div class="cardHeaderFAQList">
                             <div class="headerFAQ">
                                 <h2>FAQs</h2>
-                                <a href="#" id="add_faq_a" class="btn">Add</a>
+                                <a href="#" id="add_faq_a" class="btn"><?= $lang['add'] ?></a>
                             </div>
                         </div>
                         <!--FAQs Table-->
@@ -801,11 +810,11 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                                 <thead>
                                     <tr>
                                         <td>ID</td>
-                                        <td>Question</td>
-                                        <td>Answer</td>
-                                        <td>Created by</td>
-                                        <td>Date</td>
-                                        <td>Action</td>
+                                        <td><?= $lang['question'] ?></td>
+                                        <td><?= $lang['answer'] ?></td>
+                                        <td><?= $lang['created_by'] ?></td>
+                                        <td><?= $lang['date'] ?></td>
+                                        <td><?= $lang['action'] ?></td>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -816,14 +825,14 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                         </div>
                     </div>
                     <div id="faqsFilters" class="usersFilters">
-                        <h2>Filters</h2>
+                        <h2><?= $lang['filters'] ?></h2>
                         <ul>
                             <li>
-                                <label for="search">Search</label>
-                                <input class="default_input" type="text" name="search" id="search" placeholder="Search...">
+                                <label for="search"><?= $lang['search'] ?></label>
+                                <input class="default_input" type="text" name="search" id="search" placeholder="<?= $lang['search'] ?>...">
                             </li>
                             <li>
-                                <label for="date">Date</label>
+                                <label for="date"><?= $lang['date'] ?></label>
                                 <input class="default_input" type="date" name="date" id="date">
                             </li>
                         </ul>
@@ -837,82 +846,82 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                 <div class="add_smartphone_modal">
                     <div class="add_smartphone_main">
                         <div class="add_smartphone_main_title">
-                            <h2>Add smartphone</h2>
+                            <h2><?= $lang['add'] ?> <?= strtolower($lang['smartphone']) ?></h2>
                             <span class="add_smartphone_close"><i class="fa-solid fa-x"></i></span>
                         </div>
                         <div class="card">
-                            <h3>Smartphone Info</h3>
+                            <h3><?= $lang['smartphone'] ?> <?= $lang['info'] ?></h3>
                             <div class="row" style="display: inline-grid;">
-                                <label for="add_smartphone_title">Title</label>
-                                <input class="default_input" type="text" minlength="4" id="smartphone_add_title" placeholder="Enter title">
+                                <label for="add_smartphone_title"><?= $lang['title'] ?></label>
+                                <input class="default_input" type="text" minlength="4" id="smartphone_add_title" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['title']) ?>">
                             </div>
                             <div class="row" style="display: inline-grid;">
                                 <div>
                                     <label for="smartphone_add_subtitle1">Subtitle1</label>
-                                    <input class="default_input" type="text" minlength="10" id="smartphone_add_subtitle1" placeholder="Enter subtitle 1">
+                                    <input class="default_input" type="text" minlength="10" id="smartphone_add_subtitle1" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['subtitle']) ?> 1">
                                 </div>
                                 <div>
                                     <label for="smartphone_add_subtitle2">Subtitle2</label>
-                                    <input class="default_input" type="text" minlength="10" id="smartphone_add_subtitle2" placeholder="Enter subtitle 2">
+                                    <input class="default_input" type="text" minlength="10" id="smartphone_add_subtitle2" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['subtitle']) ?> 2">
                                 </div>
                             </div>
                             <div class="row" style="display: inline-grid;">
-                                <label for="smartphone_add_price">Price</label>
-                                <input class="default_input" type="text" min="0" id="smartphone_add_price" placeholder="Enter price in euros">
+                                <label for="smartphone_add_price"><?= $lang['price'] ?></label>
+                                <input class="default_input" type="text" min="0" id="smartphone_add_price" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['price'] . ' ' . $lang['in']) ?> Euros €">
                             </div>
                             <div class="row" style="display: inline-grid;">
                                 <div>
-                                    <label for="smartphone_add_description">Description</label>
-                                    <textarea class="default_textarea" type="text" minlength="4" id="smartphone_add_description" placeholder="Enter a description"></textarea>
+                                    <label for="smartphone_add_description"><?= $lang['description'] ?></label>
+                                    <textarea class="default_textarea" type="text" minlength="4" id="smartphone_add_description" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['description']) ?>"></textarea>
                                 </div>
                                 <div>
-                                    <label for="smartphone_add_model">Model</label>
-                                    <input class="default_input" type="text" minlength="4" id="smartphone_add_model" placeholder="Enter model">
-                                </div>
-                            </div>
-                            <div class="row" style="display: inline-grid;">
-                                <div>
-                                    <label for="smartphone_add_width">Width</label>
-                                    <input class="default_input" type="text" minlength="4" id="smartphone_add_width" placeholder="Enter width">
-                                </div>
-                                <div>
-                                    <label for="smartphone_add_height">Height</label>
-                                    <input class="default_input" type="text" minlength="4" id="smartphone_add_height" placeholder="Enter height">
+                                    <label for="smartphone_add_model"><?= $lang['model'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="smartphone_add_model" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['add']) ?>">
                                 </div>
                             </div>
                             <div class="row" style="display: inline-grid;">
                                 <div>
-                                    <label for="smartphone_add_thick">Thick</label>
-                                    <input class="default_input" type="text" minlength="4" id="smartphone_add_thick" placeholder="Enter thick">
+                                    <label for="smartphone_add_width"><?= $lang['width'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="smartphone_add_width" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['width']) ?>">
                                 </div>
                                 <div>
-                                    <label for="smartphone_add_weight">Weight</label>
-                                    <input class="default_input" type="text" minlength="4" id="smartphone_add_weight" placeholder="Enter weight">
-                                </div>
-                            </div>
-                            <div class="row" style="display: inline-grid;">
-                                <div>
-                                    <label for="smartphone_add_display">Display</label>
-                                    <input class="default_input" type="text" minlength="4" id="smartphone_add_display" placeholder="Enter display">
-                                </div>
-                                <div>
-                                    <label for="smartphone_add_chip">Chip</label>
-                                    <input class="default_input" type="text" minlength="4" id="smartphone_add_chip" placeholder="Enter chip">
+                                    <label for="smartphone_add_height"><?= $lang['height'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="smartphone_add_height" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['height']) ?>">
                                 </div>
                             </div>
                             <div class="row" style="display: inline-grid;">
                                 <div>
-                                    <label for="smartphone_add_camera">Camera</label>
-                                    <input class="default_input" type="text" minlength="4" id="smartphone_add_camera" placeholder="Enter camera">
+                                    <label for="smartphone_add_thick"><?= $lang['thick'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="smartphone_add_thick" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['thick']) ?>">
                                 </div>
                                 <div>
-                                    <label for="smartphone_add_os">OS</label>
-                                    <input class="default_input" type="text" minlength="4" id="smartphone_add_os" placeholder="Enter OS">
+                                    <label for="smartphone_add_weight"><?= $lang['weight'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="smartphone_add_weight" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['weight']) ?>">
                                 </div>
                             </div>
                             <div class="row" style="display: inline-grid;">
                                 <div>
-                                    <span>Storage</span>
+                                    <label for="smartphone_add_display"><?= $lang['display'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="smartphone_add_display" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['display']) ?>">
+                                </div>
+                                <div>
+                                    <label for="smartphone_add_chip"><?= $lang['chip'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="smartphone_add_chip" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['chip']) ?>">
+                                </div>
+                            </div>
+                            <div class="row" style="display: inline-grid;">
+                                <div>
+                                    <label for="smartphone_add_camera"><?= $lang['camera'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="smartphone_add_camera" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['camera']) ?>">
+                                </div>
+                                <div>
+                                    <label for="smartphone_add_os"><?= $lang['os'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="smartphone_add_os" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['os']) ?>">
+                                </div>
+                            </div>
+                            <div class="row" style="display: inline-grid;">
+                                <div>
+                                    <span><?= $lang['storage'] ?></span>
                                     <div class="add_smartphone_storage_options" style="display: block;">
                                         <input type="checkbox" id="option16" name="option16" value="16">
                                         <label for="option16">16GB</label>
@@ -928,7 +937,7 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                                 </div>
                             </div>
                             <div class="row" style="display: inline-grid;">
-                                <span>Colors</span>
+                                <span><?= $lang['colors'] ?></span>
                                 <div class="add_smartphone_color_options_div" style="display: block;">
                                     <?php include 'php/admin/list_colors.php'; echo $list_colors; ?>
                                 </div>
@@ -936,24 +945,24 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                         </div>
                         <div class="row">
                             <div class="card" style="width: 61%;margin-right: 0;">
-                                <h3>Smartphone Gallery</h3>
+                                <h3><?= $lang['smartphone_gallery'] ?></h3>
                                 <div class="row">
                                     <div class="upload-wrapper">
                                         <span class="upload-label">
-                                        Upload Thumbnail
+                                            <?= $lang['upload_thumbnail'] ?>
                                         </span>
-                                        <input type="file" name="add-smartphone-upload-thumbnail" id="add-smartphone-upload-thumbnail" class="upload-input" placeholder="Upload File">
+                                        <input type="file" name="add-smartphone-upload-thumbnail" id="add-smartphone-upload-thumbnail" class="upload-input" placeholder="<?= $lang['upload_file'] ?>">
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label for="add_smartphone_image_count">Image Count</label>
+                                    <label for="add_smartphone_image_count"><?= $lang['image_count'] ?></label>
                                     <input 105px id="add_smartphone_image_count" type="number" min="0" value="0">
                                 </div>
                                 <div class="row">
-                                    <button onclick="loadColors1()">Load colors</button>
+                                    <button onclick="loadColors1()"><?= $lang['load_colors'] ?></button>
                                 </div>
                                 <div class="row" style="align-items: flex-start;padding-bottom: 10%;">
-                                    <label>Add images</label>
+                                    <label><?= $lang['add_images'] ?></label>
                                     <div class="add_smartphone_images">
                                         <ul>
                                             <li>
@@ -970,11 +979,11 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                                 </div>
                             </div>
                             <div class="card" style="width: 36%;height: 50%;top: -25%;">
-                                <h3>Manufacturer</h3>
+                                <h3><?= $lang['manufacturer'] ?></h3>
                                 <div class="row">
-                                    <label for="add_smartphone_manufacturer_id">Manufacturer name</label>
+                                    <label for="add_smartphone_manufacturer_id"><?= $lang['manufacturer_name'] ?></label>
                                     <select class="default_input" name="add_smartphone_manufacturer_id" id="add_smartphone_manufacturer_id">
-                                        <option value="-1">Select...</option>
+                                        <option value="-1"><?= $lang['select'] ?>...</option>
                                         <?php include 'php/list_manufacturers.php';
                                             for($i = 0; $i < count($manufacturers); $i++){
                                                 echo '
@@ -986,12 +995,12 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                                     </select>
                                 </div>
                                 <div class="row">
-                                    <label for="add_smartphone_stock">Stock</label>
+                                    <label for="add_smartphone_stock"><?= $lang['stock'] ?></label>
                                     <input class="default_input" type="number" name="add_smartphone_stock" id="add_smartphone_stock" style="width:105px;" min="0" value="0">
                                 </div>
                             </div>
                         </div>
-                        <div class="row"><button onclick="createSmartphone()">Submit</button></div>
+                        <div class="row"><button onclick="createSmartphone()"><?= $lang['submit'] ?></button></div>
                     </div>
                 </div>
                 <!--Edit Smartphone Modal-->
@@ -999,86 +1008,86 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                 <div class="edit_smartphone_modal">
                     <div class="edit_smartphone_main">
                         <div class="edit_smartphone_main_title">
-                            <h2>Edit smartphone</h2>
+                            <h2><?= $lang['edit'] ?> smartphone</h2>
                             <span class="edit_smartphone_close"><i class="fa-solid fa-x"></i></span>
                         </div>
                         <div class="card">
-                            <h3>Smartphone Info</h3>
+                            <h3>Smartphone <?= $lang['info'] ?></h3>
                             <div class="row">
                                 <label for="smartphone_edit_id">ID</label>
                                 <input class="default_input" type="number" minlength="4" id="smartphone_edit_id" value="" disabled>
                             </div>
                             <div class="row" style="display: inline-grid;">
-                                <label for="smartphone_edit_title">Title</label>
-                                <input class="default_input" type="text" minlength="4" id="smartphone_edit_title" placeholder="Enter title">
+                                <label for="smartphone_edit_title"><?= $lang['title'] ?></label>
+                                <input class="default_input" type="text" minlength="4" id="smartphone_edit_title" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['title']) ?>">
                             </div>
                             <div class="row" style="display: inline-grid;">
                                 <div>
-                                    <label for="smartphone_edit_subtitle1">Subtitle1</label>
-                                    <input class="default_input" type="text" minlength="10" id="smartphone_edit_subtitle1" placeholder="Enter subtitle 1">
+                                    <label for="smartphone_edit_subtitle1"><?= $lang['subtitle'] ?> 1</label>
+                                    <input class="default_input" type="text" minlength="10" id="smartphone_edit_subtitle1" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['subtitle']) ?> 1">
                                 </div>
                                 <div>
-                                    <label for="smartphone_edit_subtitle2">Subtitle2</label>
-                                    <input class="default_input" type="text" minlength="10" id="smartphone_edit_subtitle2" placeholder="Enter subtitle 2">
-                                </div>
-                            </div>
-                            <div class="row" style="display: inline-grid;">
-                                <label for="smartphone_edit_price">Price</label>
-                                <input class="default_input" type="text" min="0" id="smartphone_edit_price" placeholder="Enter price in euros">
-                            </div>
-                            <div class="row" style="display: inline-grid;">
-                                <div>
-                                    <label for="smartphone_edit_description">Description</label>
-                                    <textarea class="default_textarea" type="text" minlength="4" id="smartphone_edit_description" placeholder="Enter a description"></textarea>
-                                </div>
-                                <div>
-                                    <label for="smartphone_edit_model">Model</label>
-                                    <input class="default_input" type="text" minlength="4" id="smartphone_edit_model" placeholder="Enter model">
+                                    <label for="smartphone_edit_subtitle2"><?= $lang['subtitle'] ?> 2</label>
+                                    <input class="default_input" type="text" minlength="10" id="smartphone_edit_subtitle2" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['subtitle']) ?> 2">
                                 </div>
                             </div>
                             <div class="row" style="display: inline-grid;">
+                                <label for="smartphone_edit_price"><?= $lang['price'] ?></label>
+                                <input class="default_input" type="text" min="0" id="smartphone_edit_price" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['price'] . $lang['in']) ?>  Euros €">
+                            </div>
+                            <div class="row" style="display: inline-grid;">
                                 <div>
-                                    <label for="smartphone_edit_width">Width</label>
-                                    <input class="default_input" type="text" minlength="4" id="smartphone_edit_width" placeholder="Enter width">
+                                    <label for="smartphone_edit_description"><?= $lang['description'] ?></label>
+                                    <textarea class="default_textarea" type="text" minlength="4" id="smartphone_edit_description" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['description']) ?>"></textarea>
                                 </div>
                                 <div>
-                                    <label for="smartphone_edit_height">Height</label>
-                                    <input class="default_input" type="text" minlength="4" id="smartphone_edit_height" placeholder="Enter height">
+                                    <label for="smartphone_edit_model"><?= $lang['model'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="smartphone_edit_model" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['model']) ?>">
                                 </div>
                             </div>
                             <div class="row" style="display: inline-grid;">
                                 <div>
-                                    <label for="smartphone_edit_thick">Thick</label>
-                                    <input class="default_input" type="text" minlength="4" id="smartphone_edit_thick" placeholder="Enter thick">
+                                    <label for="smartphone_edit_width"><?= $lang['width'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="smartphone_edit_width" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['width']) ?>">
                                 </div>
                                 <div>
-                                    <label for="smartphone_edit_weight">Weight</label>
-                                    <input class="default_input" type="text" minlength="4" id="smartphone_edit_weight" placeholder="Enter weight">
-                                </div>
-                            </div>
-                            <div class="row" style="display: inline-grid;">
-                                <div>
-                                    <label for="smartphone_edit_display">Display</label>
-                                    <input class="default_input" type="text" minlength="4" id="smartphone_edit_display" placeholder="Enter display">
-                                </div>
-                                <div>
-                                    <label for="smartphone_edit_chip">Chip</label>
-                                    <input class="default_input" type="text" minlength="4" id="smartphone_edit_chip" placeholder="Enter chip">
+                                    <label for="smartphone_edit_height"><?= $lang['height'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="smartphone_edit_height" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['height']) ?>">
                                 </div>
                             </div>
                             <div class="row" style="display: inline-grid;">
                                 <div>
-                                    <label for="smartphone_edit_camera">Camera</label>
-                                    <input class="default_input" type="text" minlength="4" id="smartphone_edit_camera" placeholder="Enter camera">
+                                    <label for="smartphone_edit_thick"><?= $lang['thick'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="smartphone_edit_thick" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['thick']) ?>">
                                 </div>
                                 <div>
-                                    <label for="smartphone_edit_os">OS</label>
-                                    <input class="default_input" type="text" minlength="4" id="smartphone_edit_os" placeholder="Enter OS">
+                                    <label for="smartphone_edit_weight"><?= $lang['weight'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="smartphone_edit_weight" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['weight']) ?>">
                                 </div>
                             </div>
                             <div class="row" style="display: inline-grid;">
                                 <div>
-                                    <span>Storage</span>
+                                    <label for="smartphone_edit_display"><?= $lang['display'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="smartphone_edit_display" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['display']) ?>">
+                                </div>
+                                <div>
+                                    <label for="smartphone_edit_chip"><?= $lang['chip'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="smartphone_edit_chip" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['chip']) ?>">
+                                </div>
+                            </div>
+                            <div class="row" style="display: inline-grid;">
+                                <div>
+                                    <label for="smartphone_edit_camera"><?= $lang['camera'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="smartphone_edit_camera" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['camera']) ?>">
+                                </div>
+                                <div>
+                                    <label for="smartphone_edit_os"><?= $lang['os'] ?></label>
+                                    <input class="default_input" type="text" minlength="4" id="smartphone_edit_os" placeholder="<?= $lang['enter'] ?> <?= strtolower($lang['os']) ?>">
+                                </div>
+                            </div>
+                            <div class="row" style="display: inline-grid;">
+                                <div>
+                                    <span><?= $lang['storage'] ?></span>
                                     <div class="edit_smartphone_storage_options" style="display: block;">
                                         <input type="checkbox" id="option16" name="option16" value="16">
                                         <label for="option16">16GB</label>
@@ -1094,7 +1103,7 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                                 </div>
                             </div>
                             <div class="row" style="display: inline-grid;">
-                                <span>Colors</span>
+                                <span><?= $lang['colors'] ?></span>
                                 <div class="edit_smartphone_color_options_div" style="display: block;">
                                     <?= $list_colors ?>
                                 </div>
@@ -1102,29 +1111,29 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                         </div>
                         <div class="row">
                             <div class="card" style="width: 61%;margin-right: 0;">
-                                <h3>Smartphone Gallery</h3>
+                                <h3><?= $lang['smartphone_gallery'] ?></h3>
                                 <div class="row">
                                     <div class="upload-wrapper">
                                         <span class="upload-label">
-                                        Upload Thumbnail
+                                            <?= $lang['upload_thumbnail'] ?>
                                         </span>
-                                        <input type="file" name="edit-smartphone-upload-thumbnail" id="edit-smartphone-upload-thumbnail" class="upload-input" placeholder="Upload File">
+                                        <input type="file" name="edit-smartphone-upload-thumbnail" id="edit-smartphone-upload-thumbnail" class="upload-input" placeholder="<?= $lang['upload_file'] ?>">
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label for="edit_smartphone_image_count">Image Count</label>
+                                    <label for="edit_smartphone_image_count"><?= $lang['image_count'] ?></label>
                                     <input class="default_input" id="edit_smartphone_image_count" type="number" min="0" value="0">
                                 </div>
                                 <div class="row">
-                                    <button onclick="loadColors2()">Load colors</button>
+                                    <button onclick="loadColors2()"><?= $lang['load_colors'] ?></button>
                                 </div>
                                 <div class="row" style="align-items: flex-start;padding-bottom: 10%;">
-                                    <label for="edit_smartphone_add_images">Add images</label>
+                                    <label for="edit_smartphone_add_images"><?= $lang['add_images'] ?></label>
                                     <div class="edit_smartphone_images">
                                         <ul>
                                             <li>
                                                 <input type="radio" color="black" name="radioButton" class="radio_button" id="radioColor1" checked>
-                                                <label title="Black" for="radioColor1" class="block_goodColor__radio block_goodColor__black"></label>
+                                                <label title="<?= $lang['height'] ?>" for="radioColor1" class="block_goodColor__radio block_goodColor__black"></label>
                                             </li>
                                         </ul>
                                         <div class="edit-smartphone-colors-upload">
@@ -1136,11 +1145,11 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                                 </div>
                             </div>
                             <div class="card" style="width: 36%;height: 50%;top: -25%;">
-                                <h3>Manufacturer</h3>
+                                <h3><?= $lang['manufacturer'] ?></h3>
                                 <div class="row">
-                                    <label for="edit_smartphone_manufacturer_id">Manufacturer name</label>
+                                    <label for="edit_smartphone_manufacturer_id"><?= $lang['manufacturer_name'] ?></label>
                                     <select class="default_input" name="edit_smartphone_manufacturer_id" id="edit_smartphone_manufacturer_id">
-                                        <option value="-1">Select...</option>
+                                        <option value="-1"><?= $lang['select'] ?>...</option>
                                         <?php include 'php/list_manufacturers.php';
                                             for($i = 0; $i < count($manufacturers); $i++){
                                                 echo '
@@ -1152,20 +1161,20 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                                     </select>
                                 </div>
                                 <div class="row">
-                                    <label for="edit_smartphone_stock">Stock</label>
+                                    <label for="edit_smartphone_stock"><?= $lang['stock'] ?></label>
                                     <input class="default_input" type="number" name="edit_smartphone_stock" id="edit_smartphone_stock" style="width: 105px;" min="0" value="0">
                                 </div>
                             </div>
                         </div>
-                        <div class="row"><button onclick="updateSmartphone()">Submit</button></div>
+                        <div class="row"><button onclick="updateSmartphone()"><?= $lang['submit'] ?></button></div>
                     </div>
                 </div>
 
                 <div class="details">
                     <div class="cardHeaderSmartphonesList">
                         <div class="headerUsers">
-                            <h2>Smartphones</h2>
-                            <a href="#" id="add_smartphone_a" class="btn">Add</a>
+                            <h2><?= $lang['smartphones'] ?></h2>
+                            <a href="#" id="add_smartphone_a" class="btn"><?= $lang['add'] ?></a>
                         </div>
                     </div>
                     <div class="smartphonesList">
@@ -1177,11 +1186,11 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                                         <td>ID</td>
                                         <td></td>
                                         <!--Smartphone thumbnail-->
-                                        <td>Name</td>
-                                        <td>Manufacturer</td>
-                                        <td>Price</td>
-                                        <td>Rating</td>
-                                        <td>Action</td>
+                                        <td><?= $lang['name'] ?></td>
+                                        <td><?= $lang['manufacturer'] ?></td>
+                                        <td><?= $lang['price'] ?></td>
+                                        <td><?= $lang['rating'] ?></td>
+                                        <td><?= $lang['action'] ?></td>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -1192,20 +1201,20 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                         </div>
                     </div>
                     <div id="smartphonesFilters" class="usersFilters">
-                        <h2>Filters</h2>
+                        <h2><?= $lang['filters'] ?></h2>
                         <ul>
                             <li>
-                                <label for="search">Search</label>
+                                <label for="search"><?= $lang['search'] ?></label>
                                 <input class="default_input" type="text" name="search" id="search"
-                                    placeholder="Search...">
+                                    placeholder="<?= $lang['search'] ?>...">
                             </li>
                             <li>
-                                <label for="price">Manufacturer</label>
+                                <label for="price"><?= $lang['manufacturer'] ?></label>
                                 <input class="default_input" type="text" name="smartphones-filter2" id="smartphones-filter2"
-                                    placeholder="Search...">
+                                    placeholder="<?= $lang['search'] ?>...">
                             </li>
                             <li>
-                                <label for="smartphones-filter3">Price</label>
+                                <label for="smartphones-filter3"><?= $lang['pricec'] ?></label>
                                 <div style="margin-left:20px; display: flex;flex-direction: column;width: 400px;">
                                     <div class="price-input">
                                         <div class="field">
@@ -1228,9 +1237,9 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                                 </div>
                             </li>
                             <li style="display:flex;gap:5px;margin-top:10px;">
-                                <label for="rating">Rating</label>
+                                <label for="rating"><?= $lang['rating'] ?></label>
                                 <select name="rating" id="rating">
-                                    <option selected value="-1">All</option>
+                                    <option selected value="-1"><?= $lang['all'] ?></option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -1245,11 +1254,11 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
             <!-- ======================= End Smartphones ================== -->
             <!-- ======================= Orders ================== -->
             <div class="orders">
-                <h1>Orders</h1>
+                <h1><?= $lang['orders'] ?></h1>
             </div>
             <!-- ======================= End Orders ================== -->
         </div>
-        <a href="#" class="cd-top text-replace js-cd-top">Subir</a>
+        <a href="#" class="cd-top text-replace js-cd-top"><?= $lang['go_top'] ?></a>
     </div>
 
     <!-- =========== Scripts =========  -->

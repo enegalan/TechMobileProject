@@ -1,4 +1,5 @@
-<?php 
+<?php
+    include 'lang/detect_lang.php';
     if(session_status() !== PHP_SESSION_ACTIVE){
         session_start();
     }
@@ -32,8 +33,8 @@
                     <td>' . $faqs[$i]['username'] . '</td>
                     <td>' . $faqs[$i]['date'] . '</td>
                     <td>
-                        <button onclick="editFAQ(' . $faqs[$i]['id'] . ')" type="button" class="btn-edit">Edit</button>
-                        <button onclick="deleteFAQ(' . $faqs[$i]['id'] . ')" type="button" class="btn-remove">Remove</button>
+                        <button onclick="editFAQ(' . $faqs[$i]['id'] . ')" type="button" class="btn-edit">' . $lang['edit'] .'</button>
+                        <button onclick="deleteFAQ(' . $faqs[$i]['id'] . ')" type="button" class="btn-remove"> ' . $lang['remove'] . '</button>
                     </td>
                 </tr>
             ';

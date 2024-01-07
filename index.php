@@ -1,4 +1,6 @@
-﻿
+﻿<?php 
+    include 'lang/detect_lang.php';
+?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -51,7 +53,7 @@
     <?php include 'components/mobile_navbar.php'; ?>
 	<!--Search input-->
 	<div id="ctn-bars-search">
-		<input type="text" id="inputSearch" placeholder="¿Qué deseas buscar?">
+		<input type="text" id="inputSearch" placeholder="<?= $lang['what_you_want_to_search'] ?>">
 	</div>
 	<!--Search Box Results-->
 	<ul id="box-search">
@@ -120,7 +122,7 @@
         <div class="main-index">
             <!--Most recent smartphones-->
             <section id="most-recent">
-                <h3>Lo últimos productos por aquí</h3>
+                <h3><?= $lang['last_products_here'] ?></h3>
                 <section id="last-products" class="products-slider">
                     <div class="product-container">
                         <ul class="autoWidth cs-hidden">
@@ -154,7 +156,7 @@
             </section>
             <!--Manufacturers-->
             <section id="manufacturer">
-                <h3>Encuentra lo que quieres con tus marcas favoritas</h3>
+                <h3><?= $lang['find_by_manufacturer'] ?></h3>
                 <div class="manufacturers_list">
                 <?php include 'php/list_manufacturers.php'; 
                     foreach($manufacturers as $manufacturer) {
@@ -168,20 +170,21 @@
             </section>
             <!--Newsletters-->
             <section id="newsletters">
-                <h3>¿Buscas lo último en smartphones?</h3>
-                <p>Suscríbete para estar al día de las mejores ofertas y otras noticias del sector.</p>
+                <h3><?= $lang['looking_for_best_smartphones'] ?></h3>
+                <p><?= $lang['suscribe_newsletters'] ?></p>
                 <form action="" method="POST">
                     <div>
                         <input class="newsletters_input" type="text" placeholder="Correo electrónico">
-                        <button class="newsletters_submit" type="submit">Me inscribo</button>
+                        <button class="newsletters_submit" type="submit"><?= $lang['i_suscribe'] ?></button>
                     </div>
                     <div>
                         <input type="checkbox" name="accept_conditions" id="accept_conditions">
-                        <label for="accept_conditions">Acepto las condiciones para recibirs los correos y ofertas de TechMobile.</label>
+                        <label for="accept_conditions"><?= $lang['accept_newsletters_conditions'] ?></label>
                     </div>
                 </form>
             </section>
         </div>
+        <button id="darkmode-btn" onclick="toggleColorScheme()"><i class="fas fa-sun fa-2x" id="btn-icon"></i></button>
     </div>
     <script src="js/browser.js"></script>
     <script src="js/mobile_navbar.js"></script>

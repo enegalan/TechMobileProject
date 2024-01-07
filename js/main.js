@@ -116,3 +116,26 @@ function toggleSubmenu() {
     var submenu = document.querySelector('#submenu');
     submenu.style.transform = (submenu.style.transform === 'translateX(-10vw)') ? 'translateX(100vw)' : 'translateX(-10vw)';
 }
+
+function toggleColorScheme() {
+    const htmlElement = document.querySelector('html');
+    const iconElement = document.querySelector('#darkmode-btn i');
+
+    htmlElement.classList.toggle('dark');
+    
+    if (iconElement.classList.contains('fa-sun')) {
+        iconElement.classList.remove('fa-sun');
+        iconElement.classList.add('fa-moon');
+    } else {
+        iconElement.classList.remove('fa-moon');
+        iconElement.classList.add('fa-sun');
+    }
+}
+function detectColorScheme () {
+    if (!window.matchMedia) {
+        return false;
+    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches || localStorage.getItem('theme') == "dark") {
+        !document.querySelector('html').classList.contains('dark') ? document.querySelector('html').classList.add('dark') : '';
+    }
+}
+detectColorScheme();

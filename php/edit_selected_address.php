@@ -3,7 +3,6 @@ if(session_status() !== PHP_SESSION_ACTIVE){
     session_start();
 }
 
-
 if(isset($_SESSION['id']) && isset($_POST['selected_address'])){
     include 'conn.php';
     

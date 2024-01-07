@@ -1,4 +1,5 @@
 <?php 
+    include 'lang/detect_lang.php';
     if(session_status() !== PHP_SESSION_ACTIVE){
         session_start();
     }
@@ -11,7 +12,7 @@
 <head>
     <meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In | TechMobile | Eneko Galan</title>
+    <title><?= $lang['sign_in'] ?> | TechMobile | Eneko Galan</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="stylesheet" type="text/css" href="css/main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -56,7 +57,7 @@
     <?php include 'components/mobile_navbar.php'; ?>
 	<!--Search input-->
 	<div id="ctn-bars-search">
-		<input type="text" id="inputSearch" placeholder="¿Qué deseas buscar?">
+		<input type="text" id="inputSearch" placeholder="<?= $lang['what_you_want_to_search'] ?>">
 	</div>
 	<!--Search Box Results-->
 	<ul id="box-search">
@@ -75,24 +76,24 @@
         <div class="container">
             <div class="sign_up_modal">
                 <div class="sign_up_form">
-                    <h1>Sign In</h1>
+                    <h1><?= $lang['sign_in'] ?></h1>
 
                     <div class="row">
                         <div>
-                            <label for="sign_up_email">Email</label>
-                            <input type="text" name="email" placeholder="Email" id="sign_up_email">
+                            <label for="sign_up_email"><?= $lang['email'] ?></label>
+                            <input type="text" name="email" placeholder="<?= $lang['email'] ?>" id="sign_up_email">
                         </div>
                     </div>
 
                     <div class="row">
                         <div>
-                            <label for="sign_up_password">Password</label>
+                            <label for="sign_up_password"><?= $lang['password'] ?></label>
                             <input type="password" name="password" placeholder="Password" id="sign_up_password">
                         </div>
                     </div>
 
-                    <span class="btn-sign-up" onclick="signIn()">Sign In</span>
-                    <span style="margin:auto;">Don't have an account? Click <a style="color:#e5397d;" href="sign_up.php">here.</span>
+                    <span class="btn-sign-up" onclick="signIn()"><?= $lang['sign_in'] ?></span>
+                    <span style="margin:auto;"><?= $lang['dont_have_account'] ?> <a style="color:#e5397d;" href="sign_up.php"><?= $lang['here'] ?>.</span>
                 </div>
             </div>
         </div>

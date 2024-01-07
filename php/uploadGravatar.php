@@ -1,4 +1,5 @@
-<?php 
+<?php
+    include 'lang/detect_lang.php';
     if(session_status() !== PHP_SESSION_ACTIVE){
         session_start();
     }
@@ -45,10 +46,10 @@
                 header('location: ../profile.php');
                 exit;
             }else{
-                echo 'Error al subir el archivo';
+                echo $lang['error_uploading_file'];
             }
         }else{
-            echo 'Error al subir el archivo';
+            echo $lang['error_uploading_file'];
         }
     }
 ?>

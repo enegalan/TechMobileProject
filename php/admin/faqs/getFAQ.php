@@ -18,10 +18,10 @@
             $faq[] = $res->fetch_assoc();
         }
 
-        echo json_encode($faq);
-
         $query->close();
         $conn->close();
+
+        echo json_encode($faq);
     }
 
 ?>

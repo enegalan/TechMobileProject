@@ -1,4 +1,5 @@
 <?php 
+    include 'lang/detect_lang.php';
     if(session_status() !== PHP_SESSION_ACTIVE){
         session_start();
     }
@@ -11,7 +12,7 @@
 <head>
     <meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up | TechMobile | Eneko Galan</title>
+    <title><?= $lang['sign_up'] ?> | TechMobile | Eneko Galan</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="stylesheet" type="text/css" href="css/main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -56,7 +57,7 @@
     <?php include 'components/mobile_navbar.php'; ?>
 	<!--Search input-->
 	<div id="ctn-bars-search">
-		<input type="text" id="inputSearch" placeholder="¿Qué deseas buscar?">
+		<input type="text" id="inputSearch" placeholder="<?= $lang['what_you_want_to_search'] ?>">
 	</div>
 	<!--Search Box Results-->
 	<ul id="box-search">
@@ -75,47 +76,47 @@
         <div class="container">
             <div class="sign_up_modal">
                 <div class="sign_up_form">
-                    <h1>Sign Up</h1>
+                    <h1><?= $lang['sign_up'] ?></h1>
 
                     <div class="row">
                         <div>
-                            <label for="sign_up_name">Name</label>
-                            <input type="text" placeholder="Name" id="sign_up_name">
+                            <label for="sign_up_name"><?= $lang['name'] ?></label>
+                            <input type="text" placeholder="<?= $lang['name'] ?>" id="sign_up_name">
                         </div>
                         <div>
-                            <label for="sign_up_surname">Surname</label>
-                            <input type="text" placeholder="Surname" id="sign_up_surname">
+                            <label for="sign_up_surname"><?= $lang['surname'] ?></label>
+                            <input type="text" placeholder="<?= $lang['surname'] ?>" id="sign_up_surname">
                         </div>
                     </div>
 
                     <div class="row">
                         <div>
-                            <label for="sign_up_username">Username</label>
-                            <input type="text" placeholder="Username" id="sign_up_username">
+                            <label for="sign_up_username"><?= $lang['username'] ?></label>
+                            <input type="text" placeholder="<?= $lang['username'] ?>" id="sign_up_username">
                         </div>
                         <div>
-                            <label for="sign_up_email">Email</label>
-                            <input type="text" placeholder="Email" id="sign_up_email">
+                            <label for="sign_up_email"><?= $lang['email'] ?></label>
+                            <input type="text" placeholder="<?= $lang['email'] ?>" id="sign_up_email">
                         </div>
                         <div>
-                            <label for="sign_up_birthdate">Birthdate</label>
-                            <input type="date" placeholder="Birthdate" id="sign_up_birthdate">
+                            <label for="sign_up_birthdate"><?= $lang['birthdate'] ?></label>
+                            <input type="date" placeholder="<?= $lang['birthdate'] ?>" id="sign_up_birthdate">
                         </div>
                     </div>
 
                     <div class="row">
                         <div>
-                            <label for="sign_up_password">Password</label>
+                            <label for="sign_up_password"><?= $lang['password'] ?></label>
                             <input type="password" placeholder="Password" id="sign_up_password">
                         </div>
                         <div>
-                            <label for="sign_up_password2">Repeat Password</label>
-                            <input type="password" placeholder="Repeat Password" id="sign_up_password2">
+                            <label for="sign_up_password2"><?= $lang['repeat_password'] ?></label>
+                            <input type="password" placeholder="<?= $lang['repeat_password'] ?>" id="sign_up_password2">
                         </div>
                     </div>
 
-                    <span class="btn-sign-up" onclick="signUp()">Sign Up</span>
-                    <span style="margin:auto;">Already have an account? Click <a style="color:#e5397d;" href="sign_in.php">here.</span>
+                    <span class="btn-sign-up" onclick="signUp()"><?= $lang['sign_up'] ?></span>
+                    <span style="margin:auto;"><?= $lang['already_account'] ?><a style="color:#e5397d;" href="sign_in.php"><?= $lang['here'] ?>.</span>
                 </div>
             </div>
         </div>
