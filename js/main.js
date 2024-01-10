@@ -130,12 +130,38 @@ function toggleColorScheme() {
         iconElement.classList.remove('fa-moon');
         iconElement.classList.add('fa-sun');
     }
+
+    if (htmlElement.classList.contains('dark')) {
+        localStorage.setItem('theme', 'dark');
+    } else {
+        localStorage.setItem('theme', 'light');
+    }
 }
 function detectColorScheme () {
+    var theme = "light";
     if (!window.matchMedia) {
         return false;
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches || localStorage.getItem('theme') == "dark") {
+    } else {
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches || localStorage.getItem('theme') == "dark") {
+            theme = "dark";
+        } 
+        if (window.matchMedia("(prefers-color-scheme: light)").matches || localStorage.getItem('theme') == 'light') {
+            theme = "light";
+        }
+    } 
+        
+
+    if (theme == "dark") {
         !document.querySelector('html').classList.contains('dark') ? document.querySelector('html').classList.add('dark') : '';
+    } else {
+        document.querySelector('html').classList.contains('dark') ? document.querySelector('html').classList.remove('dark') : '';
     }
 }
 detectColorScheme();
+
+// Preloading
+document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(function() {
+        document.getElementById("preload-view").style.display = "none";
+    }, 1000);
+});

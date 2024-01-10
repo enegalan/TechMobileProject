@@ -40,7 +40,7 @@ if (isset($_SESSION['id'])) {
             </label>
             <a class="sign_in_button" onclick="signIn()">' . $lang['login'] . '</a>
             <div class="links">
-                <a href="sign_up.php" rel="nofollow">' . $lang['signup'] . '</a>
+                <a href="sign_up.php" rel="nofollow">' . $lang['sign_up'] . '</a>
                 <a href="" rel="nofollow">' . $lang['forgot_password'] . '</a>
             </div>
         <form>

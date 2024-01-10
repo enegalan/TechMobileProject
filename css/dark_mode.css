@@ -14,7 +14,8 @@
     html.dark .block_descriptionCharacteristic,
     html.dark .block_specificationInformation_table,
     html.dark .main,
-    html.dark .reply_label {
+    html.dark .reply_label,
+    html.dark #preload-view {
         background-color: var(--dark-bg) !important;
     }
 
@@ -214,8 +215,7 @@
     html.dark textarea,
     html.dark .add_smartphone_images,
     html.dark .edit_smartphone_images,
-    .articulo,
-    .newsletters_input {
+    html.dark .newsletters_input {
         border: none !important;
     }
 
@@ -322,6 +322,13 @@
     /*SPECIAL STYLES*/
     html.dark nav.page-header-top-nav {
         background: linear-gradient(#303030, #100e17) padding-box, linear-gradient(90deg, #74278e, #e91483) 0/100% no-repeat border-box, linear-gradient(-90deg, #eb7d01, #e9167d 37.5vw, rgb(234 35 79)) 100% 101%/65% 75% no-repeat border-box !important;
+    }
+
+    html.dark .loader {
+        border-left-color: var(--dark-grey);
+        border-right-color: var(--dark-grey);
+        border-bottom-color: var(--dark-grey);
+
     }
 
     html.dark .navigation ul li:hover a::before,

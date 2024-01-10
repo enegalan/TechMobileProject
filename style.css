@@ -3,6 +3,8 @@
 @import url('css/dark_mode.css');
 @import url('css/mobile_navbar.css');
 @import url('css/newsletters.css');
+@import url('css/preload.css');
+
 *{box-sizing: border-box;font-family: 'Poppins', sans-serif;}
 
 ::selection{background-color: rgba(38, 135, 187, 0.38);color: #fff;}

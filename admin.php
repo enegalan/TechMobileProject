@@ -31,6 +31,9 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
 </head>
 
 <body>
+    <div id="preload-view">
+            <div class="loader"></div>
+    </div>
     <!--HEADER-->
     <header id="nav-wrapper">
         <div class="main_menu" id="show-menu">
@@ -527,7 +530,7 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                                 </div>
                                 <div>
                                     <label for="edit_user_website"><?= $lang['website'] ?></label>
-                                    <input class="default_input" type="text" id="edit_user_website" placeholder="www.<?= strtolower($lang['youwebsite']) ?>.com">
+                                    <input class="default_input" type="text" id="edit_user_website" placeholder="www.<?= strtolower($lang['yourwebsite']) ?>.com">
                                 </div>
                             </div>
                             <div class="row" style="display: inline-grid;">
@@ -1214,7 +1217,7 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
                                     placeholder="<?= $lang['search'] ?>...">
                             </li>
                             <li>
-                                <label for="smartphones-filter3"><?= $lang['pricec'] ?></label>
+                                <label for="smartphones-filter3"><?= $lang['price'] ?></label>
                                 <div style="margin-left:20px; display: flex;flex-direction: column;width: 400px;">
                                     <div class="price-input">
                                         <div class="field">

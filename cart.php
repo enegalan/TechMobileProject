@@ -18,6 +18,9 @@
 </head>
 
 <body>
+    <div id="preload-view">
+            <div class="loader"></div>
+    </div>
     <!--HEADER-->
     <header id="nav-wrapper">
         <div class="main_menu" id="show-menu">
@@ -123,6 +126,9 @@
                 <p><?= $lang['total_amount'] ?></p>
                 <h4>0</h4>
             </div>
+            <div class="proced_payment">
+                    <a href=""><?= $lang['proceed_payment'] ?></a>
+            </div>
 
         </div>
     </div>
@@ -131,6 +137,7 @@
     </div>
     <script src="js/browser.js"></script>
     <script src="js/userModal.js"></script>
+    <script src="js/main.js"></script>
     <script src="js/mobile_navbar.js"></script>
     <?php 
         if(isset($_SESSION['id'])){
