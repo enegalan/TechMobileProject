@@ -1,6 +1,6 @@
 <?php 
 
-    if(session_status() !== PHP_SESSION_ACTIVE){
+    if(session_status() !== PHP_SESSION_ACTIVE && !headers_sent()){
         session_start();
     }
     if(isset($_SESSION['id']) && $_SESSION['is_admin'] === 1 && isset($_POST['question']) && isset($_POST['answer'])){

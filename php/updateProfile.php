@@ -1,6 +1,6 @@
 <?php
     include 'lang/detect_lang.php';
-    if(session_status() !== PHP_SESSION_ACTIVE){
+    if(session_status() !== PHP_SESSION_ACTIVE && !headers_sent()){
         session_start();
     }
     if(isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['username']) && isset($_POST['phone']) && isset($_POST['email']) && isset($_POST['birthdate']) && isset($_POST['password']) && isset($_POST['confirm_password']) && isset($_POST['about'])){

@@ -1,5 +1,5 @@
 <?php
-    if(session_status() !== PHP_SESSION_ACTIVE){
+    if(session_status() !== PHP_SESSION_ACTIVE && !headers_sent()){
         session_start();
     }
     if(isset($_SESSION['id']) && isset($_POST['card_name']) && isset($_POST['card_number']) && isset($_POST['card_cvv']) && isset($_POST['card_due_month']) && isset($_POST['card_due_year'])){

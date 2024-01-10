@@ -1,5 +1,5 @@
 <?php 
-    if(session_status() !== PHP_SESSION_ACTIVE){
+    if(session_status() !== PHP_SESSION_ACTIVE && !headers_sent()){
         session_start();
     }
     if(isset($_SESSION['id']) && isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['address1']) && isset($_POST['address2']) && isset($_POST['city']) && isset($_POST['country']) && isset($_POST['zip']) && isset($_POST['province']) && isset($_POST['phone'])){

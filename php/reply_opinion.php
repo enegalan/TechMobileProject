@@ -1,6 +1,6 @@
 <?php 
 
-if (session_status() !== PHP_SESSION_ACTIVE) {
+if (session_status() !== PHP_SESSION_ACTIVE && !headers_sent()) {
     session_start();
 }
 if ($_SESSION['id'] && isset($_POST['opinion_id']) && isset($_POST['comment'])) {
