@@ -108,7 +108,7 @@
     html.dark .card_info_edit input,
     html.dark .card_info_edit select,
     html.dark .edit-gravatar-modal.show,
-    html.dark .navigation ul li.active.hovered a,
+    html.dark .navigation ul li.active:hover a,
     html.dark .rateSmartphoneBody,
     html.dark #opinion textarea,
     html.dark .reply_label,
@@ -136,7 +136,8 @@
     html.dark .sign_up_form,
     html.dark .sign_in_form,
     html.dark .sign_up_form input,
-    html.dark #darkmode-btn {
+    html.dark #darkmode-btn,
+    html.dark .product_info h1 {
         color: white !important;
     }
 
@@ -186,6 +187,7 @@
     html.dark .container-contact1,
     html.dark #opinion textarea,
     html.dark .nav,
+    html.dark .user-form,
     html.dark .add_smartphone_main .card,
     html.dark .edit_smartphone_main .card,
     html.dark .add_user_main .card,
@@ -215,7 +217,8 @@
     html.dark textarea,
     html.dark .add_smartphone_images,
     html.dark .edit_smartphone_images,
-    html.dark .newsletters_input {
+    html.dark .newsletters_input,
+    html.dark .articulo  {
         border: none !important;
     }
 
@@ -306,7 +309,10 @@
     html.dark #contenidoprincipal\ producto.greyBx::before,
     html.dark #newsletters,
     html.dark .product-box,
-    html.dark #darkmode-btn {
+    html.dark #darkmode-btn,
+    html.dark .default_address,
+    html.dark .pqt-plus, 
+    html.dark .pqt-minus {
         background: var(--md-grey) !important;
     }
 
@@ -331,14 +337,16 @@
 
     }
 
+    html.dark .user-form:after {
+        border-bottom-color: var(--dark-grey);
+    }
+
     html.dark .navigation ul li:hover a::before,
-    html.dark .navigation ul li.hovered a::before,
     html.dark .navigation ul li.active a::before {
         box-shadow: 35px 35px 0 10px var(--md-grey) !important;
     }
 
     html.dark .navigation ul li:hover a::after,
-    html.dark .navigation ul li.hovered a::after,
     html.dark .navigation ul li.active a::after {
         box-shadow: 35px -35px 0 10px var(--md-grey) !important;
     }
@@ -360,7 +368,7 @@
     height: 0;
 }
 
-.slider {
+.sliderdark {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -372,7 +380,7 @@
     transition: .4s;
 }
 
-.slider:before {
+.sliderdark:before {
     position: absolute;
     content: "";
     height: 60px;
@@ -384,7 +392,7 @@
     transition: .4s;
 }
 
-.slider:after {
+.sliderdark:after {
     background-color: #2b2b2b;
     content: "";
     position: absolute;
@@ -398,7 +406,7 @@
     transition: .2s;
 }
 
-input:checked+.slider:after {
+input:checked+.sliderdark:after {
     left: auto;
     opacity: 1;
     -webkit-transform: translateX(60px);
@@ -408,11 +416,11 @@ input:checked+.slider:after {
     transition: .5s;
 }
 
-input:checked+.slider {
+input:checked+.sliderdark {
     background-color: #2b2b2b;
 }
 
-input:checked+.slider:before {
+input:checked+.sliderdark:before {
     /*background: transparent;
     box-shadow: 25px 0px 0px 0px #f9c20a;*/
     -webkit-transform: translateX(66px);
@@ -420,24 +428,25 @@ input:checked+.slider:before {
     transform: translateX(66px);
 }
 
-.slider.round {
+.sliderdark.round {
     border-radius: 34px;
 }
 
-.slider.round:before {
+.sliderdark.round:before {
     border-radius: 50%;
 }
 
 #darkmode-btn {
     position: fixed;
-    bottom: 50px;
-    right: 10px;
+    bottom: 35px;
+    left: 40px;
     z-index: 100;
     width: 50px;
     height: 50px;
     border: none;
     outline: none;
-    border-radius: 8px;
+    border-radius: 50%;
+    padding: 10px;
     background-color: #f2f2f2;
     cursor: pointer;
     transition: 300ms;

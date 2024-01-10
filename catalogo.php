@@ -94,9 +94,9 @@ if (isset($_GET['search']) && !empty($_GET['search'])) $search = "%" . $_GET['se
 				echo '
 				<div class="articulo">
 					<div class="logoBx ' . $smartphones[$i]["manufacturer_name"] . '">
-						   <img src="productos/' . $smartphones[$i]["manufacturer_name"] . '/logo.png">
+						<img src="productos/' . $smartphones[$i]["manufacturer_name"] . '/logo.png">
 					</div>
-				   <div class="imgBx">
+				<div class="imgBx">
 					<img class="loading" src="productos/' . $smartphones[$i]["manufacturer_name"] . '/img/catalogo/' . $smartphones[$i]["thumbnail_name"] . '.png">
 					<div class="esqueleto"></div>
 				</div>
@@ -112,9 +112,8 @@ if (isset($_GET['search']) && !empty($_GET['search'])) $search = "%" . $_GET['se
 			echo '<p class="no_results">' . $lang['no_products_available'] . '</p>.';
 		}
 		?>
-
-	</div>
-	<a href="#" class="cd-top text-replace js-cd-top"><?= $lang['go_top'] ?></a>
+		<a href="#" class="cd-top text-replace js-cd-top"><?= $lang['go_top'] ?></a>
+		<button id="darkmode-btn" onclick="toggleColorScheme()"><i class="fas fa-sun fa-2x" id="btn-icon"></i></button>
 	</div>
 	<script src="js/browser.js"></script>
 	<script src="js/reveal.js"></script>

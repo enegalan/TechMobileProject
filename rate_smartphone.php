@@ -239,16 +239,17 @@ if (isset($_SESSION['id']) && isset($_GET['id']) && !empty($_GET['id'])) {
                 </div>
             </div>
         </div>
+        <button id="darkmode-btn" onclick="toggleColorScheme()"><i class="fas fa-sun fa-2x" id="btn-icon"></i></button>
     </div>
     <script src="js/rate_smartphone.js"></script>
     <script src="js/browser.js"></script>
     <script src="js/mobile_navbar.js"></script>
     <?php
-if (isset($_SESSION['id'])) {
-    echo '<script src="js/cart.js"></script>';
-}
-$conn->close();
-?>
+    if (isset($_SESSION['id'])) {
+        echo '<script src="js/cart.js"></script>';
+    }
+    $conn->close();
+    ?>
     <script src="js/browser.js"></script>
 	<script src="js/auth.js"></script>
     <script src="js/drag_and_drop_input.js"></script>

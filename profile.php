@@ -46,7 +46,6 @@ if (isset($_SESSION['id'])) {
     <link rel="stylesheet" type="text/css" href="css/profile.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/main.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
@@ -108,50 +107,101 @@ if (isset($_SESSION['id'])) {
 
     <div id="contenidoprincipal profile" class="wpb_row vc_row-fluid vc_row standard_section greyBx">
         <div class="profile-form">
-            <!--User Card (Gravatar, username, country, city, birthdate & about)-->
-            <div class="user-card">
-                <!--User Gravatar-->
-                <div class="user-gravatar">
-                    <img class="user-gravatar-img" src="<?= $gravatar; ?>" alt="userGravatar">
-                    <!--Edit User Gravatar-->
-                    <div class="edit-gravatar">
-                        <i class="fa-solid fa-edit"></i>
-                        <div class="edit-gravatar-modal">
-                            <div class="row">
-                                <h3><?= $lang['upload_your_profile_image'] ?></h3>
-                                <span class="edit-gravatar-modal-close"><i class="fa-solid fa-x"></i></span>
+            <div style="display:flex;flex-direction:column;gap:10px;width:30%;margin-right:10px;">
+                <!--User Card (Gravatar, username, country, city, birthdate & about)-->
+                <div class="user-card">
+                    <!--User Gravatar-->
+                    <div class="user-gravatar">
+                        <img class="user-gravatar-img" src="<?= $gravatar; ?>" alt="userGravatar">
+                        <!--Edit User Gravatar-->
+                        <div class="edit-gravatar">
+                            <i class="fa-solid fa-edit"></i>
+                            <div class="edit-gravatar-modal">
+                                <div class="row">
+                                    <h3><?= $lang['upload_your_profile_image'] ?></h3>
+                                    <span class="edit-gravatar-modal-close"><i class="fa-solid fa-x"></i></span>
+                                </div>
+                                <form action="php/uploadGravatar.php" method="POST" enctype="multipart/form-data">
+                                    <input type="file" name="gravatar">
+                                    <button type="submit" class="btn btn-primary"><?= $lang['upload'] ?></button>
+                                </form>
                             </div>
-                            <form action="php/uploadGravatar.php" method="POST" enctype="multipart/form-data">
-                                <input type="file" name="gravatar">
-                                <button type="submit" class="btn btn-primary"><?= $lang['upload'] ?></button>
-                            </form>
                         </div>
                     </div>
-                </div>
-                <h5 id="username">
-                    <?= $username; ?>
-                </h5>
-                <div class="info-localization">
-                    <?php if(trim($country) !== ""){ ?>
-                        <span id="country">
-                            <?= $country; ?>
+                    <h5 id="username">
+                        <?= $username; ?>
+                    </h5>
+                    <div class="info-localization">
+                        <?php if(trim($country) !== ""){ ?>
+                            <span id="country">
+                                <?= $country; ?>
+                            </span>
+                        <?php }?>
+                        <?php if(trim($city) !== ""){ ?>
+                            <span>,ㅤ</span>
+                            <span id="city">
+                                <?= $city; ?>
+                            </span>
+                        <?php }?>
+                    </div>
+                    <div class="info-birthdate">
+                        <span id="birthdate">
+                            <?= $birthdate ?>
                         </span>
-                    <?php }?>
-                    <?php if(trim($city) !== ""){ ?>
-                        <span>,ㅤ</span>
-                        <span id="city">
-                            <?= $city; ?>
-                        </span>
-                    <?php }?>
+                    </div>
+                    <div class="info-about">
+                        <?= $about; ?>
+                    </div>
                 </div>
-                <div class="info-birthdate">
-                    <span id="birthdate">
-                        <?= $birthdate ?>
-                    </span>
-                </div>
-                <div class="info-about">
-                    <?= $about; ?>
-                </div>
+                <!--User Social-->
+                <?php if(trim($website) !== "" && trim($facebook) !== "" && trim($twitter) !== "" && trim($instagram) !== "" && trim($github) !== ""){ ?>
+                    <div class="user-social">
+                        <ul class="social-list">
+                            <?php if(trim($website) !== ""){ ?>
+                                <li class="social-row">
+                                    <i class="fa-solid fa-globe"></i>
+                                    <span class="social-text">
+                                        <?= $website; ?>
+                                    </span>
+                                </li>
+                            <?php }?>
+                            <?php if(trim($facebook) !== ""){ ?>
+                                <li class="social-row">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                    <span class="social-text">
+                                        <?= $facebook; ?>
+                                    </span>
+                                </li>
+                            <?php }?>
+                            <?php if(trim($twitter) !== ""){ ?>
+                                <li class="social-row">
+                                    <i class="fa-brands fa-twitter"></i>
+                                    <span class="social-text">
+                                        <?= $twitter; ?>
+                                    </span>
+                                </li>
+                            <?php }?>
+                            <?php if(trim($instagram) !== ""){ ?>
+                                <li class="social-row">
+                                    <i class="fa-brands fa-instagram"></i>
+                                    <span class="social-text">
+                                        <?= $instagram; ?>
+                                    </span>
+                                </li>
+                            <?php }?>
+                            <?php if(trim($github) !== ""){ ?>
+                                <li class="social-row">
+                                    <i class="fa-brands fa-github"></i>
+                                    <span class="social-text">
+                                        <?= $github; ?>
+                                    </span>
+                                </li>
+                            <?php }?>
+                        </ul>
+                    </div>
+                <?php }else{?>
+                    <div></div>
+                <?php }?>
             </div>
             <!--User Information-->
             <div class="user-info">
@@ -196,55 +246,6 @@ if (isset($_SESSION['id'])) {
                     <input type="text" name="country" id="country" value="<?= $country; ?>" disabled>
                 </div>
             </div>
-            <!--User Social-->
-            <?php if(trim($website) !== "" && trim($facebook) !== "" && trim($twitter) !== "" && trim($instagram) !== "" && trim($github) !== ""){ ?>
-                <div class="user-social">
-                    <ul class="social-list">
-                        <?php if(trim($website) !== ""){ ?>
-                            <li class="social-row">
-                                <i class="fa-solid fa-globe"></i>
-                                <span class="social-text">
-                                    <?= $website; ?>
-                                </span>
-                            </li>
-                        <?php }?>
-                        <?php if(trim($facebook) !== ""){ ?>
-                            <li class="social-row">
-                                <i class="fa-brands fa-facebook-f"></i>
-                                <span class="social-text">
-                                    <?= $facebook; ?>
-                                </span>
-                            </li>
-                        <?php }?>
-                        <?php if(trim($twitter) !== ""){ ?>
-                            <li class="social-row">
-                                <i class="fa-brands fa-twitter"></i>
-                                <span class="social-text">
-                                    <?= $twitter; ?>
-                                </span>
-                            </li>
-                        <?php }?>
-                        <?php if(trim($instagram) !== ""){ ?>
-                            <li class="social-row">
-                                <i class="fa-brands fa-instagram"></i>
-                                <span class="social-text">
-                                    <?= $instagram; ?>
-                                </span>
-                            </li>
-                        <?php }?>
-                        <?php if(trim($github) !== ""){ ?>
-                            <li class="social-row">
-                                <i class="fa-brands fa-github"></i>
-                                <span class="social-text">
-                                    <?= $github; ?>
-                                </span>
-                            </li>
-                        <?php }?>
-                    </ul>
-                </div>
-            <?php }else{?>
-                <div></div>
-            <?php }?>
             <!--User Dashboard-->
             <div class="user-dashboard">
                 <div class="container">
@@ -616,7 +617,7 @@ if (isset($_SESSION['id'])) {
                                                 <div class="row">
                                                     <div class="form-group col-md-12">
                                                         <label for="github">GitHub</label>
-                                                        <input name="github" type="email" class="form-control"
+                                                        <input name="github" type="text" class="form-control"
                                                             id="github" placeholder="username">
                                                     </div>
                                                 </div>
@@ -788,7 +789,7 @@ if (isset($_SESSION['id'])) {
         </div>
     </div>
     <a href="#" class="cd-top text-replace js-cd-top"><?= $lang['go_top'] ?></a>
-    </div>
+    <button id="darkmode-btn" onclick="toggleColorScheme()"><i class="fas fa-sun fa-2x" id="btn-icon"></i></button>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>

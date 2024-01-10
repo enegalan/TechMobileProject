@@ -1262,6 +1262,7 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
             <!-- ======================= End Orders ================== -->
         </div>
         <a href="#" class="cd-top text-replace js-cd-top"><?= $lang['go_top'] ?></a>
+        <button id="darkmode-btn" onclick="toggleColorScheme()"><i class="fas fa-sun fa-2x" id="btn-icon"></i></button>
     </div>
 
     <!-- =========== Scripts =========  -->

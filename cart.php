@@ -80,60 +80,59 @@
         <div class="main_cart">
             
         
-        <div class="payment_details">
-            <h1><?= $lang['payment_info'] ?></h1>
-            <div class="details_card">
-                <div class="name_address">
-                    <div class="first_lastName">
-                        <input type="text" placeholder="<?= $lang['name'] ?>" />
-                        <input type="text" placeholder="<?= $lang['surname'] ?>" />
-                        <input type="text" onkeyup="change()" id="put" placeholder="<?= $lang['address1'] ?>" />
+            <div class="payment_details">
+                <h1><?= $lang['payment_info'] ?></h1>
+                <div class="details_card">
+                    <div class="name_address">
+                        <div class="first_lastName">
+                            <input type="text" placeholder="<?= $lang['name'] ?>" />
+                            <input type="text" placeholder="<?= $lang['surname'] ?>" />
+                            <input type="text" onkeyup="change()" id="put" placeholder="<?= $lang['address1'] ?>" />
+                        </div>
+                        <div class="address">
+                            <input type="text" onkeyup="change()" id="put" placeholder="<?= $lang['address2'] ?>" />
+                            <input type="number" placeholder="<?= $lang['zip'] ?>" min="1" />
+                            <input type="text" placeholder="<?= $lang['city'] ?>" />
+                            <input type="text" placeholder="<?= $lang['country'] ?>" />
+                        </div>
                     </div>
-                    <div class="address">
-                        <input type="text" onkeyup="change()" id="put" placeholder="<?= $lang['address2'] ?>" />
-                        <input type="number" placeholder="<?= $lang['zip'] ?>" min="1" />
-                        <input type="text" placeholder="<?= $lang['city'] ?>" />
-                        <input type="text" placeholder="<?= $lang['country'] ?>" />
+                    <h1><?= $lang['billing_address'] ?></h1>
+                    <div class="my_addresses">
+                        <?php include 'php/list_default_address.php';?>
+                        <?php include 'php/list_my_addresses.php';?>
+                    </div>
+                    <div class="proced_payment">
+                        <a href=""><?= $lang['proceed_payment'] ?></a>
                     </div>
                 </div>
-                <h1><?= $lang['billing_address'] ?></h1>
-                <div class="my_addresses">
-                    <?php include 'php/list_default_address.php';?>
-                    <?php include 'php/list_my_addresses.php';?>
+            </div>
+            <div class="order_summary">
+                <h1><?= $lang['order_summary'] ?></h1>
+                <div class="summary_card">
+                    <!--Cart List-->
+                </div>
+                
+                <!--Cart Report-->
+                <hr />
+                <div class="order_price">
+                    <p><?= $lang['order'] ?></p>
+                    <h4>0</h4>
+                </div>
+                <div class="order_service">
+                    <p><?= $lang['additional_service'] ?></p>
+                    <h4>10€</h4>
+                </div>
+                <div class="order_total">
+                    <p><?= $lang['total_amount'] ?></p>
+                    <h4>0</h4>
                 </div>
                 <div class="proced_payment">
-                    <a href=""><?= $lang['proceed_payment'] ?></a>
+                        <a href=""><?= $lang['proceed_payment'] ?></a>
                 </div>
+
             </div>
         </div>
-        <div class="order_summary">
-            <h1><?= $lang['order_summary'] ?></h1>
-            <div class="summary_card">
-                <!--Cart List-->
-            </div>
-            
-            <!--Cart Report-->
-            <hr />
-            <div class="order_price">
-                <p><?= $lang['order'] ?></p>
-                <h4>0</h4>
-            </div>
-            <div class="order_service">
-                <p><?= $lang['additional_service'] ?></p>
-                <h4>10€</h4>
-            </div>
-            <div class="order_total">
-                <p><?= $lang['total_amount'] ?></p>
-                <h4>0</h4>
-            </div>
-            <div class="proced_payment">
-                    <a href=""><?= $lang['proceed_payment'] ?></a>
-            </div>
-
-        </div>
-    </div>
-    </div>
-
+        <button id="darkmode-btn" onclick="toggleColorScheme()"><i class="fas fa-sun fa-2x" id="btn-icon"></i></button>
     </div>
     <script src="js/browser.js"></script>
     <script src="js/userModal.js"></script>

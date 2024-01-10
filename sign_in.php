@@ -100,6 +100,7 @@
                 </div>
             </div>
         </div>
+        <button id="darkmode-btn" onclick="toggleColorScheme()"><i class="fas fa-sun fa-2x" id="btn-icon"></i></button>
     </div>
     <script src="js/browser.js"></script>
     <script src="js/mobile_navbar.js"></script>

@@ -72,7 +72,7 @@ echo '
                 <li>
                     <label class="switch">
                         <input type="checkbox" checked onChange="toggleColorScheme();" id="input">
-                        <span class="slider round"></span>
+                        <span class="sliderdark round"></span>
                     </label>
                 </li>
             </ul>

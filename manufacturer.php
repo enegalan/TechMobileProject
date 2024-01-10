@@ -137,6 +137,7 @@
 			$conn->close();
 		?>
 	</div>
+	<button id="darkmode-btn" onclick="toggleColorScheme()"><i class="fas fa-sun fa-2x" id="btn-icon"></i></button>
 	<script src="js/browser.js"></script>
 	<script src="js/reveal.js"></script>
 	<script src="js/userModal.js"></script>
