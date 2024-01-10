@@ -89,7 +89,6 @@ CREATE TABLE `opinion_answers` (
 
 
 /*!40000 ALTER TABLE `opinion_answers` DISABLE KEYS */;
-INSERT INTO `opinion_answers` VALUES (1,1,1,'Muy bien','2023-08-27 20:41:46'),(2,1,1,'Muy bien','2023-08-27 20:41:49'),(3,1,3,'Hola muy buenas que placa base recomiendas para este procesador lo necestio para producción musical gracias un saludo','2023-09-10 21:40:57'),(5,31,9,'@egalan gracias por tu aportación','2024-01-03 14:17:16'),(6,31,9,'@egalan  hehhehehehehe','2024-01-03 23:46:48'),(7,31,9,'@egalan muy wena','2024-01-03 23:47:04'),(8,31,9,'@egalan msmsmsmsm','2024-01-04 00:07:38'),(9,31,9,'@egalan tetstest','2024-01-04 00:59:15'),(10,31,9,'@egalan zzzzzzzzz','2024-01-04 00:59:34');/*!40000 ALTER TABLE `opinion_answers` ENABLE KEYS */;
 
 
 --
@@ -114,9 +113,6 @@ CREATE TABLE `opinion_media` (
 --
 -- Dumping data for table `opinion_media`
 --
-
-
-INSERT INTO `opinion_media` VALUES (86,31,'images/opinions/31/dd5ed8253d2d2b02da4904a8075e33aed9dc23e7.png','2024-01-02 23:00:00','0000-00-00 00:00:00'),(87,31,'images/opinions/31/a6643c5409eb94150f617e70ecf557ed1f46974f.png','2024-01-02 23:00:00','0000-00-00 00:00:00');
 
 --
 -- Table structure for table `opinions`
@@ -149,7 +145,6 @@ CREATE TABLE `opinions` (
 --
 
 /*!40000 ALTER TABLE `opinions` DISABLE KEYS */;
-INSERT INTO `opinions` VALUES (31,9,1,'ZZZZZZZZZZZZZ','4','','',1,'2024-01-03 01:20:55',NULL);
 /*!40000 ALTER TABLE `opinions` ENABLE KEYS */;
 
 --
@@ -220,7 +215,6 @@ CREATE TABLE `useful_opinions` (
 --
 
 /*!40000 ALTER TABLE `useful_opinions` DISABLE KEYS */;
-INSERT INTO `useful_opinions` VALUES (1,1,'2023-08-27 20:37:02'),(1,2,'2023-08-27 20:37:06'),(1,3,'2023-09-10 21:38:48'),(31,9,'2024-01-04 00:59:08');
 /*!40000 ALTER TABLE `useful_opinions` ENABLE KEYS */;
 
 --
@@ -253,7 +247,6 @@ CREATE TABLE `user_addresses` (
 -- Dumping data for table `user_addresses`
 --
 
-INSERT INTO `user_addresses` VALUES (1,1,'Eneko','Galan Elorza','Avenida de Barcelona 16','3ºB','Donostia','Guipúzcoa',20014,'Spain','699924091',1),(2,1,'Eneko','Galan','Alcibar','Etorbidea','Azkoitia','GIPUZKOA',20720,'España','669924091',0),(3,1,'Eneko','Galan','Alcibar','Etorbidea','Azkoitia','GIPUZKOA',20720,'España','669924091',0),(4,1,'Eneko','Galan','Alcibar','Etorbidea','Azkoitia','GIPUZKOA',20720,'España','669924091',0),(5,1,'Eneko','Galan','Alcibar','Etorbidea','Azkoitia','GIPUZKOA',20720,'España','669924091',0),(6,1,'Eneko','Galan','Avenida Barcelona','16 3ºB','Donostia','Guipúzcoa',20014,'España','669924091',0),(8,9,'Eneko','Galan','Avenida Barcelona 16 ','3ºB','Donostia','Guipúzcoa',20014,'España','669924091',1),(9,9,'Eneko','Galan','Avenida Barcelona 16 ','3ºB','Donostia','Guipúzcoa',20014,'España','669924091',0),(11,9,'Eneko','Galan','Avenida Barcelona 16 ','3ºB','Donostia','Guipúzcoa',20014,'España','669924091',0),(12,9,'Eneko','Galan','Avenida Barcelona 16 ','3ºB','Donostia','Guipúzcoa',20014,'España','669924091',0),(13,9,'Eneko','Galan','Avenida Barcelona 16 ','3ºB','Donostia','Guipúzcoa',20014,'España','669924091',0);
 
 
 --
@@ -283,7 +276,6 @@ CREATE TABLE `user_cards` (
 --
 
 /*!40000 ALTER TABLE `user_cards` DISABLE KEYS */;
-INSERT INTO `user_cards` VALUES (2,1,'Card 2','mastercard','1234 5678 1234 2245',222,2028,'09'),(4,1,'Card 2','visa','4562 1235 6431 2331',152,2031,'09'),(5,9,'','paypal','9002 3521 3',123,2038,'08');
 /*!40000 ALTER TABLE `user_cards` ENABLE KEYS */;
 
 --
@@ -325,7 +317,6 @@ CREATE TABLE `users` (
 --
 
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,1,'egalan','c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a38015f23f3eab1d80b931dd472634dfac71cd34ebc35d16ab7fb8a90c81f975113d6c7538dc69dd8de9077ec','admin@admin.com','Eneko','Galan','2003-05-13','M','Hello','Spain','Donostia','111111111','techmobile.com','admin','admin',20014,'admin','admin','Avenida Barcelona','16 3B','Guipúzcoa','2023-07-09 13:14:47',0,'./images/users/1.png','{\"1\":[{\"product_id\":\"2\",\"name\":\"IPHONE 11\",\"amount\":5,\"price\":489.99,\"image\":\"http://localhost/TechMobileProject/productos/apple/img/producto/11/black/1.png\"}]}'),(2,0,'enegalan','d3047c8db322845de46011d0b63610290772b5ec1303e1520b11a64c698551cfbb220868da75e072a3f6722afa3e1c32acf3c4137a111223aca1fc5ab68396cb','enekogalanelorza@gmail.com','Eneko','Galan','2003-05-13','M','This is a default text.','España','Donostia','669924091','demo.com','egalan','egalan',20014,'egalan','egalan','Avenida Barcelona','16 3ºB','Guipúzcoa','2023-08-17 16:35:25',1,'./images/users/1.png','{\"2\":[{\"product_id\":\"2\",\"name\":\"IPHONE 11\",\"amount\":1,\"price\":489.99,\"image\":\"http://localhost/TechMobileProject/productos/apple/img/producto/11/black/1.png\"}]}'),(3,0,'pepeadeeley','974f3036f39834082e23f4d70f1feba9d4805b3ee2cedb50b6f1f49f72dd83616c2155f9ff6e08a1cefbf9e6ba2f4aaa45233c8c066a65e002924abfa51590c4','pepe@gmail.com','Pepe','Adeeley','1997-11-12',NULL,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2023-08-22 23:12:02',1,'./images/users/default.jpg',NULL),(4,0,'pepeadeeley','974f3036f39834082e23f4d70f1feba9d4805b3ee2cedb50b6f1f49f72dd83616c2155f9ff6e08a1cefbf9e6ba2f4aaa45233c8c066a65e002924abfa51590c4','pepe@gmail.com','Pepe','Adeeley','1899-11-11',NULL,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2023-08-23 19:57:42',1,'./images/users/default.jpg',NULL),(5,0,'aaa','d6f644b19812e97b5d871658d6d3400ecd4787faeb9b8990c1e7608288664be77257104a58d033bcf1a0e0945ff06468ebe53e2dff36e248424c7273117dac09','aaa@aaa.com','AAA','AAA','1997-04-12',NULL,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2023-08-23 20:00:09',1,'./images/users/default.jpg',NULL),(6,0,'bbb','5edc1c6a4390075a3ca27f4d4161c46b374b1c3b2d63f846db6fff0c513203c3ac3b14a24a6f09d8bf21407a4842113b5d9aa359d266299c3d6cf9e92db66dbe','bbb@bbb.com','bbb','bbb','1970-11-11',NULL,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2023-08-23 20:01:26',1,'./images/users/default.jpg',NULL),(7,0,'bbb','5edc1c6a4390075a3ca27f4d4161c46b374b1c3b2d63f846db6fff0c513203c3ac3b14a24a6f09d8bf21407a4842113b5d9aa359d266299c3d6cf9e92db66dbe','bbb@bbb.com','bbb','bbb','1970-11-11',NULL,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2023-08-23 20:01:27',1,'./images/users/default.jpg',NULL),(8,0,'ccc','2b83283b8caf7e952ad6b0443a87cd9ee263bc32c4d78c5b678ac03556175059679b4b8513b021b16a27f6d2a35484703129129f35b6cdfe418ef6473b1f8f23','ccc@ccc.com','ccc','ccc','2001-02-12',NULL,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2023-08-23 20:04:11',1,'./images/users/default.jpg',NULL),(9,1,'egalan','e75e23b2acbd43baedee7ab5a3a37784131f507d738525d1bf48f3bfcf6388ceee1b35db03b0944ff4f8c9ca244a5afbfeb11c356cd01e620b40c7fc4ecac4d3','enekogalanelorza@gmail.com','Eneko','Galan','2003-05-13',NULL,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2023-12-30 02:13:28',1,'./images/users/default.jpg','{\"9\":[{\"product_id\":\"50\",\"name\":\"iPhone 12\",\"amount\":1,\"price\":399.99,\"image\":\"http://localhost/TechMobileProject/productos/apple/img/producto/12/blue/1.png\"}]}');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

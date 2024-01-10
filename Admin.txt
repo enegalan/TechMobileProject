@@ -1,3 +1,0 @@
-Orders -
-	*Best Selling Products (image, name, price, stock, ordersCount)
-	*Top Manufacturers (logo, name, stock, ganancies)
