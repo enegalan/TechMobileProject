@@ -1100,7 +1100,7 @@ i.fa-solid.fa-cart-shopping::after {
     flex-wrap: wrap;
     justify-content: center;
     text-align: center;
-    
+    width: 100%;
 }
 
 .manufacturer_logo {

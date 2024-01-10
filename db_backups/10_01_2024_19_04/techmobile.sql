@@ -20,8 +20,6 @@
 --
 
 DROP TABLE IF EXISTS `faqs`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `faqs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
@@ -32,17 +30,13 @@ CREATE TABLE `faqs` (
   KEY `user_id` (`user_id`),
   CONSTRAINT `faqs_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
 -- Dumping data for table `faqs`
---
 
-LOCK TABLES `faqs` WRITE;
 /*!40000 ALTER TABLE `faqs` DISABLE KEYS */;
-INSERT INTO `faqs` VALUES (2,9,'¿Se puede realizar una compra?','En estos momentos, la opción de compra se encuentra no disponible debido a que es una web-proyecto.','2023-08-27 16:26:22'),(3,1,'¿Llegarán más modelos de teléfono a la tienda?','Dependiendo de si nos quedamos sin las existencias actuales se evaluará la opción de añadir nuevos productos a la tienda.','2023-08-27 16:26:44'),(4,1,'¿Los gastos de envío están incluídos?','Sí, tal y como pone explícitamente debajo de los precios de cada producto.','2023-08-27 16:27:16'),(5,1,'¿Cuánto tiempo tardará en llegarme el pedido?','Los envíos oscilan entre 7-15 días, quitando los días no laborales.','2023-08-27 16:27:41'),(6,1,'¿Cómo me aseguro de que mi pedido llegará?','Cuando realizas una compra se te indicará paso por paso cómo hacer un seguimiento a tu pedido para que no lo pierdas de vista en ningún momento.','2023-08-27 16:28:11'),(7,1,'¿Qué es esta web?','Para abreviar, esta web ofrece productos de segunda mano renovados, es decir, sin ningún defecto o daño, y se ofrecen a un precio más asequible y económico.','2023-08-27 16:28:49'),(8,1,'¿Se pueden hacer devoluciones?','Para poder hacer una devolución deberás aportar información que verifique tu compra e indicar el motivo de la devolución.','2023-08-27 16:29:15'),(9,1,'¿En qué condiciones se puede vender un teléfono?','Realmente mientras se pueda encender y operar con él, podemos aceptar tu producto. Aunque siempre hay excepciones y dado el caso informaremos al usuario devolviendole su producto sin coste alguno.','2023-08-27 16:30:59'),(10,1,'¿Cuándo me llegaría el dinero tras enviar mi producto?','En el mismo momento en que el dispositivo haya sido comprobado y aceptado, se te informará de ello y el pago debería llegar entre 5-10 minutos desde el aviso.','2023-08-27 16:31:20'),(11,1,'¿Puedo vender una tablet?','No es posible vender ni comprar ningún dispositivo que no sea un smartphone en esta web.','2023-08-27 16:31:41'),(12,1,'¿Se puede devolver el producto independientemente del motivo?','¡Sí! El motivo siempre lo pedimos porque nos interesa saber tu opinión, pero esto es opcional. En tanto evaluémos el producto devuelto para asegurar que ha tenido un uso adecuado del mismo, te lo haremos saber y se te ingresará la devolución.','2023-08-27 16:32:24'),(13,1,'¿Hacéis pedidos fuera de España?','No, por el momento no disponemos la capacidad de hacer envíos fuera de España.','2023-08-27 16:33:02'),(14,1,'¿Dispondremos de rebajas en eventos señalados del año?','¡Claro! Habrá rebajas tanto en Halloween, Navidades y Black Friday.','2023-08-27 16:33:28');
+INSERT INTO `faqs` VALUES (2,9,'¿Se puede realizar una compra?','En estos momentos, la opción de compra se encuentra no disponible debido a que es una web-proyecto.','2023-08-27 16:26:22');
 /*!40000 ALTER TABLE `faqs` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
 -- Table structure for table `manufacturers`
@@ -50,23 +44,23 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `manufacturers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `manufacturers` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `manufacturers`
 --
 
-LOCK TABLES `manufacturers` WRITE;
+
 /*!40000 ALTER TABLE `manufacturers` DISABLE KEYS */;
 INSERT INTO `manufacturers` VALUES (1,'apple'),(2,'huawei'),(3,'nokia'),(4,'oppo'),(5,'samsung'),(6,'xiaomi');
 /*!40000 ALTER TABLE `manufacturers` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
 -- Table structure for table `opinion_answers`
@@ -74,30 +68,29 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `opinion_answers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `opinion_answers` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `opinion_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `quote` varchar(500) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `quote` text DEFAULT NULL,
   `date` timestamp NULL DEFAULT current_timestamp(),
-  PRIMARY KEY (`id`,`opinion_id`,`user_id`),
+  PRIMARY KEY (`id`),
   KEY `opinion_id` (`opinion_id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `opinion_answers_ibfk_1` FOREIGN KEY (`opinion_id`) REFERENCES `opinions` (`id`),
   CONSTRAINT `opinion_answers_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `opinion_answers`
 --
 
-LOCK TABLES `opinion_answers` WRITE;
+
 /*!40000 ALTER TABLE `opinion_answers` DISABLE KEYS */;
-INSERT INTO `opinion_answers` VALUES (1,1,1,'Muy bien','2023-08-27 20:41:46'),(2,1,1,'Muy bien','2023-08-27 20:41:49'),(3,1,3,'Hola muy buenas que placa base recomiendas para este procesador lo necestio para producción musical gracias un saludo','2023-09-10 21:40:57'),(5,31,9,'@egalan gracias por tu aportación','2024-01-03 14:17:16'),(6,31,9,'@egalan  hehhehehehehe','2024-01-03 23:46:48'),(7,31,9,'@egalan muy wena','2024-01-03 23:47:04'),(8,31,9,'@egalan msmsmsmsm','2024-01-04 00:07:38'),(9,31,9,'@egalan tetstest','2024-01-04 00:59:15'),(10,31,9,'@egalan zzzzzzzzz','2024-01-04 00:59:34');
-/*!40000 ALTER TABLE `opinion_answers` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `opinion_answers` VALUES (1,1,1,'Muy bien','2023-08-27 20:41:46'),(2,1,1,'Muy bien','2023-08-27 20:41:49'),(3,1,3,'Hola muy buenas que placa base recomiendas para este procesador lo necestio para producción musical gracias un saludo','2023-09-10 21:40:57'),(5,31,9,'@egalan gracias por tu aportación','2024-01-03 14:17:16'),(6,31,9,'@egalan  hehhehehehehe','2024-01-03 23:46:48'),(7,31,9,'@egalan muy wena','2024-01-03 23:47:04'),(8,31,9,'@egalan msmsmsmsm','2024-01-04 00:07:38'),(9,31,9,'@egalan tetstest','2024-01-04 00:59:15'),(10,31,9,'@egalan zzzzzzzzz','2024-01-04 00:59:34');/*!40000 ALTER TABLE `opinion_answers` ENABLE KEYS */;
+
 
 --
 -- Table structure for table `opinion_media`
@@ -105,28 +98,25 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `opinion_media`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `opinion_media` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `opinion_id` int(11) NOT NULL,
   `path` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT curdate(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   KEY `opinion_id` (`opinion_id`),
   CONSTRAINT `opinion_media_ibfk_1` FOREIGN KEY (`opinion_id`) REFERENCES `opinions` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=88 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `opinion_media`
 --
 
-LOCK TABLES `opinion_media` WRITE;
-/*!40000 ALTER TABLE `opinion_media` DISABLE KEYS */;
+
 INSERT INTO `opinion_media` VALUES (86,31,'images/opinions/31/dd5ed8253d2d2b02da4904a8075e33aed9dc23e7.png','2024-01-02 23:00:00','0000-00-00 00:00:00'),(87,31,'images/opinions/31/a6643c5409eb94150f617e70ecf557ed1f46974f.png','2024-01-02 23:00:00','0000-00-00 00:00:00');
-/*!40000 ALTER TABLE `opinion_media` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `opinions`
@@ -151,18 +141,16 @@ CREATE TABLE `opinions` (
   KEY `smartphone_id` (`smartphone_id`),
   CONSTRAINT `opinions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   CONSTRAINT `opinions_ibfk_2` FOREIGN KEY (`smartphone_id`) REFERENCES `smartphones` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `opinions`
 --
 
-LOCK TABLES `opinions` WRITE;
 /*!40000 ALTER TABLE `opinions` DISABLE KEYS */;
 INSERT INTO `opinions` VALUES (31,9,1,'ZZZZZZZZZZZZZ','4','','',1,'2024-01-03 01:20:55',NULL);
 /*!40000 ALTER TABLE `opinions` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `smartphones`
@@ -204,11 +192,10 @@ CREATE TABLE `smartphones` (
 -- Dumping data for table `smartphones`
 --
 
-LOCK TABLES `smartphones` WRITE;
 /*!40000 ALTER TABLE `smartphones` DISABLE KEYS */;
 INSERT INTO `smartphones` VALUES (1,'IPHONE 6S','Apple iPhone 6S – Libre','Apple - iPhone 6S – 2015',1,89.99,'El iPhone 6s es un teléfono inteligente de gama alta diseñado por Apple Inc., con procesador de dos núcleos a 1.85 GHz, 2 GB de memoria RAM y pantalla de 4,7 pulgadas. Es parte de la serie iPhone y fue anunciado el 9 de septiembre de 2015.',13.81,6.7,0.69,129,'Retina HD 750 x 1334','A8 64 bits','12MP 1080p HD 60fps','iOS 9','16,32,64,128','spacegrey,gold,silver,rosegold','iphone6s','6S',3,365,3.5),(2,'IPHONE 11','128GB - Negro - Libre','Apple - iPhone 11 128 GB – Color Negro',1,489.99,'La medida exacta de todo. Un nuevo sistema de cámara dual que abarca un campo de visión más amplio. El chip más rápido que haya tenido un smart­phone. Una batería que dura todo el día, para que hagas más y cargues menos. Y el vídeo de mayor calidad en un smart­phone, que hará que tus recuerdos sean aún más inolvidables. El iPhone 11 llega pisando fuerte.',15.09,7.57,0.83,194,'Liquid Retina HD 1792 x 828','Chip A13 Bionic 2,66GHz','12MP 4K 60fps','iOS 15','64,128,256','black,white,green,purple,red,yellow','iphone11','11',3,6112,0),(3,'IPHONE 7','Apple iPhone 7 – Libre','Apple - iPhone 7 – 2016',1,199.99,'El iPhone 7 NegroMate es el móvil más elegante quepresenta Apple de cara a mantener su gama de smartphone en la cumbre otro añomás. En su presentación, compartida con el iPhone7 Plus, estos móviles libres vuelven a sorprender a propios y extraños conlas ya típicas pero inesperadas e innovadoras ideas de la compañía de lamanzana mordida, sin duda este nuevo dispositivo sigue siendo la vanguardiadel mundo móvil.',13,6,0,138,' LCD Retina HD','Chip A10 Fusion','12MP 4K 60fps','iOS 10','32,128,256','black,gold,silver,rosegold,red','iphone 7','7',3,623,0),(50,'iPhone 12','Apple iPhone 12 – Libre','Apple - iPhone 12 – 2020',1,399.99,'Más allá de la velocidad. Tecnología 5G. Chip A14 Bionic, el más veloz en un smartphone. Pantalla OLED de borde a borde. Ceramic Shield, cuatro veces más resistente a las caídas. Modo Noche en cada una de las cámaras. Y dos tamaños: ideal y perfecto. Sí, el iPhone 12 lo tiene todo.',14.67,7.15,0.74,164,'Super Retina XDR 6,1\" OLED','A14 Bionic','12MP 4K 60fps','iOS 14','64,128,256','black,white,green,purple,red,blue','iphone 12','12',4,12300,0);
 /*!40000 ALTER TABLE `smartphones` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
 -- Table structure for table `useful_opinions`
@@ -225,18 +212,16 @@ CREATE TABLE `useful_opinions` (
   KEY `user_id` (`user_id`),
   CONSTRAINT `useful_opinions_ibfk_1` FOREIGN KEY (`opinion_id`) REFERENCES `opinions` (`id`),
   CONSTRAINT `useful_opinions_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `useful_opinions`
 --
 
-LOCK TABLES `useful_opinions` WRITE;
 /*!40000 ALTER TABLE `useful_opinions` DISABLE KEYS */;
 INSERT INTO `useful_opinions` VALUES (1,1,'2023-08-27 20:37:02'),(1,2,'2023-08-27 20:37:06'),(1,3,'2023-09-10 21:38:48'),(31,9,'2024-01-04 00:59:08');
 /*!40000 ALTER TABLE `useful_opinions` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `user_addresses`
@@ -261,18 +246,15 @@ CREATE TABLE `user_addresses` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `user_addresses_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `user_addresses`
 --
 
-LOCK TABLES `user_addresses` WRITE;
-/*!40000 ALTER TABLE `user_addresses` DISABLE KEYS */;
 INSERT INTO `user_addresses` VALUES (1,1,'Eneko','Galan Elorza','Avenida de Barcelona 16','3ºB','Donostia','Guipúzcoa',20014,'Spain','699924091',1),(2,1,'Eneko','Galan','Alcibar','Etorbidea','Azkoitia','GIPUZKOA',20720,'España','669924091',0),(3,1,'Eneko','Galan','Alcibar','Etorbidea','Azkoitia','GIPUZKOA',20720,'España','669924091',0),(4,1,'Eneko','Galan','Alcibar','Etorbidea','Azkoitia','GIPUZKOA',20720,'España','669924091',0),(5,1,'Eneko','Galan','Alcibar','Etorbidea','Azkoitia','GIPUZKOA',20720,'España','669924091',0),(6,1,'Eneko','Galan','Avenida Barcelona','16 3ºB','Donostia','Guipúzcoa',20014,'España','669924091',0),(8,9,'Eneko','Galan','Avenida Barcelona 16 ','3ºB','Donostia','Guipúzcoa',20014,'España','669924091',1),(9,9,'Eneko','Galan','Avenida Barcelona 16 ','3ºB','Donostia','Guipúzcoa',20014,'España','669924091',0),(11,9,'Eneko','Galan','Avenida Barcelona 16 ','3ºB','Donostia','Guipúzcoa',20014,'España','669924091',0),(12,9,'Eneko','Galan','Avenida Barcelona 16 ','3ºB','Donostia','Guipúzcoa',20014,'España','669924091',0),(13,9,'Eneko','Galan','Avenida Barcelona 16 ','3ºB','Donostia','Guipúzcoa',20014,'España','669924091',0);
-/*!40000 ALTER TABLE `user_addresses` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
 -- Table structure for table `user_cards`
@@ -293,26 +275,21 @@ CREATE TABLE `user_cards` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `user_cards_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `user_cards`
 --
 
-LOCK TABLES `user_cards` WRITE;
 /*!40000 ALTER TABLE `user_cards` DISABLE KEYS */;
 INSERT INTO `user_cards` VALUES (2,1,'Card 2','mastercard','1234 5678 1234 2245',222,2028,'09'),(4,1,'Card 2','visa','4562 1235 6431 2331',152,2031,'09'),(5,9,'','paypal','9002 3521 3',123,2038,'08');
 /*!40000 ALTER TABLE `user_cards` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `users`
 --
-
 DROP TABLE IF EXISTS `users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `is_admin` tinyint(4) NOT NULL DEFAULT 0,
@@ -341,18 +318,16 @@ CREATE TABLE `users` (
   `gravatar` varchar(300) NOT NULL DEFAULT './images/users/default.jpg' COMMENT 'URL relativa de la imagen.',
   `cart` varchar(500) DEFAULT NULL COMMENT 'Atributo con muchos cambios pues se actualiza por cada producto añadido o removido. Se añade un array en forma de JSON.',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` VALUES (1,1,'egalan','c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a38015f23f3eab1d80b931dd472634dfac71cd34ebc35d16ab7fb8a90c81f975113d6c7538dc69dd8de9077ec','admin@admin.com','Eneko','Galan','2003-05-13','M','Hello','Spain','Donostia','111111111','techmobile.com','admin','admin',20014,'admin','admin','Avenida Barcelona','16 3B','Guipúzcoa','2023-07-09 13:14:47',0,'./images/users/1.png','{\"1\":[{\"product_id\":\"2\",\"name\":\"IPHONE 11\",\"amount\":5,\"price\":489.99,\"image\":\"http://localhost/TechMobileProject/productos/apple/img/producto/11/black/1.png\"}]}'),(2,0,'enegalan','d3047c8db322845de46011d0b63610290772b5ec1303e1520b11a64c698551cfbb220868da75e072a3f6722afa3e1c32acf3c4137a111223aca1fc5ab68396cb','enekogalanelorza@gmail.com','Eneko','Galan','2003-05-13','M','This is a default text.','España','Donostia','669924091','demo.com','egalan','egalan',20014,'egalan','egalan','Avenida Barcelona','16 3ºB','Guipúzcoa','2023-08-17 16:35:25',1,'./images/users/1.png','{\"2\":[{\"product_id\":\"2\",\"name\":\"IPHONE 11\",\"amount\":1,\"price\":489.99,\"image\":\"http://localhost/TechMobileProject/productos/apple/img/producto/11/black/1.png\"}]}'),(3,0,'pepeadeeley','974f3036f39834082e23f4d70f1feba9d4805b3ee2cedb50b6f1f49f72dd83616c2155f9ff6e08a1cefbf9e6ba2f4aaa45233c8c066a65e002924abfa51590c4','pepe@gmail.com','Pepe','Adeeley','1997-11-12',NULL,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2023-08-22 23:12:02',1,'./images/users/default.jpg',NULL),(4,0,'pepeadeeley','974f3036f39834082e23f4d70f1feba9d4805b3ee2cedb50b6f1f49f72dd83616c2155f9ff6e08a1cefbf9e6ba2f4aaa45233c8c066a65e002924abfa51590c4','pepe@gmail.com','Pepe','Adeeley','1899-11-11',NULL,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2023-08-23 19:57:42',1,'./images/users/default.jpg',NULL),(5,0,'aaa','d6f644b19812e97b5d871658d6d3400ecd4787faeb9b8990c1e7608288664be77257104a58d033bcf1a0e0945ff06468ebe53e2dff36e248424c7273117dac09','aaa@aaa.com','AAA','AAA','1997-04-12',NULL,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2023-08-23 20:00:09',1,'./images/users/default.jpg',NULL),(6,0,'bbb','5edc1c6a4390075a3ca27f4d4161c46b374b1c3b2d63f846db6fff0c513203c3ac3b14a24a6f09d8bf21407a4842113b5d9aa359d266299c3d6cf9e92db66dbe','bbb@bbb.com','bbb','bbb','1970-11-11',NULL,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2023-08-23 20:01:26',1,'./images/users/default.jpg',NULL),(7,0,'bbb','5edc1c6a4390075a3ca27f4d4161c46b374b1c3b2d63f846db6fff0c513203c3ac3b14a24a6f09d8bf21407a4842113b5d9aa359d266299c3d6cf9e92db66dbe','bbb@bbb.com','bbb','bbb','1970-11-11',NULL,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2023-08-23 20:01:27',1,'./images/users/default.jpg',NULL),(8,0,'ccc','2b83283b8caf7e952ad6b0443a87cd9ee263bc32c4d78c5b678ac03556175059679b4b8513b021b16a27f6d2a35484703129129f35b6cdfe418ef6473b1f8f23','ccc@ccc.com','ccc','ccc','2001-02-12',NULL,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2023-08-23 20:04:11',1,'./images/users/default.jpg',NULL),(9,1,'egalan','e75e23b2acbd43baedee7ab5a3a37784131f507d738525d1bf48f3bfcf6388ceee1b35db03b0944ff4f8c9ca244a5afbfeb11c356cd01e620b40c7fc4ecac4d3','enekogalanelorza@gmail.com','Eneko','Galan','2003-05-13',NULL,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2023-12-30 02:13:28',1,'./images/users/default.jpg','{\"9\":[{\"product_id\":\"50\",\"name\":\"iPhone 12\",\"amount\":1,\"price\":399.99,\"image\":\"http://localhost/TechMobileProject/productos/apple/img/producto/12/blue/1.png\"}]}');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
