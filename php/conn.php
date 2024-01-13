@@ -8,7 +8,7 @@ try {
     echo "Error loading environment variables: " . $e->getMessage();
 }
 
-$conn = mysqli_connect(getenv('DB_HOST'),getenv('DB_USER'),getenv('DB_PASSWORD'),getenv('DB_SCHEMA'));
+$conn = mysqli_connect($_ENV['DB_HOST'],$_ENV['DB_USER'],$_ENV['DB_PASSWORD'],$_ENV['DB_SCHEMA']);
 if(!$conn){
     echo "Error database connection";
     die;
