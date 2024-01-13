@@ -107,7 +107,7 @@ if (isset($_SESSION['id'])) {
 
     <div id="contenidoprincipal profile" class="wpb_row vc_row-fluid vc_row standard_section greyBx">
         <div class="profile-form">
-            <div style="display:flex;flex-direction:column;gap:10px;width:30%;margin-right:10px;">
+            <div class="user-left-panel">
                 <!--User Card (Gravatar, username, country, city, birthdate & about)-->
                 <div class="user-card">
                     <!--User Gravatar-->
@@ -275,7 +275,7 @@ if (isset($_SESSION['id'])) {
                                 <!---->
                                 <a class="nav-link user-dashboard-nav-a" id="myopinion" data-toggle="tab"
                                     href="#my-opinions" role="tab" aria-controls="my-opinions" aria-selected="false"><i
-                                        class="fas fa-file-invoice"></i>
+                                        class="fas fa-comment-dots"></i>
                                     <span><?= $lang['opinions'] ?></span></a>
                             </li>
                             <li class="nav-item user-dashboard-nav-li">
@@ -284,7 +284,7 @@ if (isset($_SESSION['id'])) {
                                 <!---->
                                 <a class="nav-link user-dashboard-nav-a" id="mycard" data-toggle="tab" href="#mycards"
                                     role="tab" aria-controls="mycards" aria-selected="false"><i
-                                        class="fas fa-sign-out-alt"></i>
+                                        class="fas fa-credit-card"></i>
                                     <span><?= $lang['cards'] ?></span></a>
                             </li>
                             <li class="nav-item user-dashboard-nav-li">
@@ -326,7 +326,7 @@ if (isset($_SESSION['id'])) {
                                                         <div class="card-body">
                                                             <div class="text-center">
                                                                 <a><img
-                                                                        src="https://res.cloudinary.com/templategalaxy/image/upload/v1631257421/codepen-my-account/images/orders_n2aopq.png"></a>
+                                                                        src="images/icons/orders.png"></a>
                                                             </div>
                                                             <h2><?= $lang['orders'] ?></h2>
                                                             <p><?= $lang['check_out_orders_status'] ?></p>
@@ -339,7 +339,7 @@ if (isset($_SESSION['id'])) {
                                                         <div class="card-body">
                                                             <div class="text-center">
                                                                 <a><img
-                                                                        src="https://res.cloudinary.com/templategalaxy/image/upload/v1631257421/codepen-my-account/images/orders_n2aopq.png"></a>
+                                                                        src="images/icons/opinions.png"></a>
                                                             </div>
                                                             <h2><?= $lang['opinions'] ?></h2>
                                                             <p><?= $lang['check_out_opinions_and_reply'] ?></p>
@@ -352,7 +352,7 @@ if (isset($_SESSION['id'])) {
                                                         <div class="card-body">
                                                             <div class="text-center">
                                                                 <a><img
-                                                                        src="https://res.cloudinary.com/templategalaxy/image/upload/v1631257421/codepen-my-account/images/notebook_psrhv5.png"></a>
+                                                                        src="images/icons/addresses.png"></a>
                                                             </div>
                                                             <h2><?= $lang['addresses'] ?></h2>
                                                             <p><?= $lang['add_edit_or_remove_addresses'] ?></p>
@@ -365,7 +365,7 @@ if (isset($_SESSION['id'])) {
                                                         <div class="card-body">
                                                             <div class="text-center">
                                                                 <a><img
-                                                                        src="https://res.cloudinary.com/templategalaxy/image/upload/v1631257421/codepen-my-account/images/notebook_psrhv5.png"></a>
+                                                                        src="images/icons/cards.png"></a>
                                                             </div>
                                                             <h2><?= $lang['cards'] ?></h2>
                                                             <p><?= $lang['add_edit_or_remove_cards'] ?></p>
@@ -379,7 +379,7 @@ if (isset($_SESSION['id'])) {
                                                         <div class="card-body">
                                                             <div class="text-center">
                                                                 <a><img
-                                                                        src="https://res.cloudinary.com/templategalaxy/image/upload/v1631257421/codepen-my-account/images/login_aq9v9z.png"></a>
+                                                                        src="images/icons/details.png"></a>
                                                             </div>
                                                             <h2><?= $lang['account_details'] ?></h2>
                                                             <p><?= $lang['edit_your_account_adding_more_info'] ?></p>

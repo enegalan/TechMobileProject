@@ -137,7 +137,8 @@
     html.dark .sign_in_form,
     html.dark .sign_up_form input,
     html.dark #darkmode-btn,
-    html.dark .product_info h1 {
+    html.dark .product_info h1,
+    html.dark .user-social {
         color: white !important;
     }
 
@@ -195,7 +196,8 @@
     html.dark .add_faq_main .card,
     html.dark .edit_faq_main .card,
     html.dark .articulo,
-    html.dark .payment_details input[type="number"] {
+    html.dark .payment_details input[type="number"],
+    html.dark .user-social {
         background: none;
         background-color: var(--dark-grey) !important;
     }
@@ -218,7 +220,8 @@
     html.dark .add_smartphone_images,
     html.dark .edit_smartphone_images,
     html.dark .newsletters_input,
-    html.dark .articulo  {
+    html.dark .articulo,
+    html.dark .user-social  {
         border: none !important;
     }
 
@@ -276,7 +279,8 @@
     html.dark .my-wallet-sidebar .account,
     html.dark .user-dashboard,
     html.dark textarea,
-    html.dark input[type="number"] {
+    html.dark input[type="number"],
+    html.dark .social-row {
         border-color: var(--hover) !important;
     }
 

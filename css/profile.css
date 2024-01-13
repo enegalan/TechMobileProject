@@ -94,6 +94,14 @@
     color: grey;
 }
 
+.user-left-panel {
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    width:30%;
+    margin-right:10px;
+}
+
 .user-dashboard-nav-li {
     position: relative;
     left: 0;
@@ -646,13 +654,17 @@ table#my-opinions-table a.view-order {
     #myTab {
         height: 52px;
     }
+    
+    .social-row {
+        justify-content: center;
+    }
 
     .user-dashboard-nav-bg {
         width: 190px;
         left: -10px;
     }
 
-    .user-info {
+    .user-info, .user-left-panel {
         width: 100% !important;
     }
 
