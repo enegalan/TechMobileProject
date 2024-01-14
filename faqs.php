@@ -14,6 +14,7 @@
     <script src="https://kit.fontawesome.com/8e4bd12ccb.js" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="css/toast.css">
 </head>
 <body>
     <div id="preload-view">
@@ -80,6 +81,7 @@
         </div>
     </div>
     <button id="darkmode-btn" onclick="toggleColorScheme()"><i class="fas fa-sun fa-2x" id="btn-icon"></i></button>
+    <script src="js/toast.js"></script>
     <script src="js/faqs.js"></script>
     <script src="js/browser.js"></script>
     <script src="js/userModal.js"></script>

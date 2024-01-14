@@ -51,6 +51,7 @@ if (isset($_SESSION['id'])) {
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.1/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="css/toast.css">
 </head>
 
 <body>
@@ -122,7 +123,7 @@ if (isset($_SESSION['id'])) {
                                     <span class="edit-gravatar-modal-close"><i class="fa-solid fa-x"></i></span>
                                 </div>
                                 <form action="php/uploadGravatar.php" method="POST" enctype="multipart/form-data">
-                                    <input type="file" name="gravatar">
+                                    <input type="file" name="gravatar" required>
                                     <button type="submit" class="btn btn-primary"><?= $lang['upload'] ?></button>
                                 </form>
                             </div>
@@ -790,6 +791,7 @@ if (isset($_SESSION['id'])) {
     </div>
     <a href="#" class="cd-top text-replace js-cd-top"><?= $lang['go_top'] ?></a>
     <button id="darkmode-btn" onclick="toggleColorScheme()"><i class="fas fa-sun fa-2x" id="btn-icon"></i></button>
+    <script src="js/toast.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>

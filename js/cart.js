@@ -37,6 +37,12 @@ async function addToCart(event) {
 
     if (existingProduct) {
         existingProduct.amount += amount;
+        toast.push({
+            title: amount > 1 ? amount + ' smartphones added to cart' : amount + ' smartphone added to cart',
+            content: existingProduct.amount + ' ' + name,
+            style: 'success',
+            dismissAfter: '3s'
+        });
     } else {
         userCart.push({
             'product_id': product_id,
@@ -44,6 +50,12 @@ async function addToCart(event) {
             'amount': amount,
             'price': priceAsNumber,
             'image': image
+        });
+        toast.push({
+            title: amount > 1 ? amount + ' smartphones added to cart' : amount + ' smartphone added to cart',
+            content: amount + ' ' + name,
+            style: 'success',
+            dismissAfter: '3s'
         });
     }
 
@@ -68,10 +80,14 @@ async function updateCartInDatabase(user_id, cart) {
     })
     .then(response => response.text())
     .then(data => {
-        console.log(data); // Print the response from the server
+        
     })
     .catch(error => {
-        console.error('Error updating cart:', error);
+        toast.push({
+            title: 'Error updating cart',
+            style: 'error',
+            dismissAfter: '3s'
+        });
     });
 }
 
@@ -119,6 +135,13 @@ function removeProductFromCart(product_id) {
             // Update the cart data in the database
             updateCartInDatabase(user_id, cart);
         }
+
+        toast.push({
+            title: 'Smartphone removed from cart',
+            content: name + ' removed from cart.',
+            style: 'success',
+            dismissAfter: '3s'
+        });
     }
 }
 
@@ -281,10 +304,20 @@ async function updateCartItem(product_id, amount) {
 
 function removeUnitFromCart(product_id) {
     updateCartItem(product_id, -1); // Reduce the amount by 1
+    toast.push({
+        title: 'Smartphone removed from cart',
+        style: 'success',
+        dismissAfter: '3s'
+    });
 }
 
 function addUnitFromCart(product_id) {
     updateCartItem(product_id, 1); // Increase the amount by 1
+    toast.push({
+        title: 'Smartphone added to cart',
+        style: 'success',
+        dismissAfter: '3s'
+    });
 }
 
 //Select a shopping address

@@ -106,8 +106,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const media = container.querySelectorAll('#op-' + opinionId + ' .media_container img');
         const left_arrow = document.querySelector('#op-' + opinionId + ' #media_slider_controller_previous');
         const right_arrow = document.querySelector('#op-' + opinionId + ' #media_slider_controller_next');
-        left_arrow.addEventListener("click", slidePrevious);
-        right_arrow.addEventListener("click", slideNext);
+        left_arrow && left_arrow.addEventListener("click", slidePrevious);
+        right_arrow && right_arrow.addEventListener("click", slideNext);
 
         var translate_x_base = -174;
         var translate_x_array = [];

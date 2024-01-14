@@ -32,6 +32,7 @@ if (isset($_SESSION['id']) && isset($_GET['id']) && !empty($_GET['id'])) {
     <script src="js/userModal.js"></script>
     <link rel="stylesheet" type="text/css" href="css/ratingStars.css" />
     <link rel="stylesheet" type="text/css" href="css/rateSmartphones.css" />
+    <link rel="stylesheet" href="css/toast.css">
 </head>
 
 <body>
@@ -241,6 +242,7 @@ if (isset($_SESSION['id']) && isset($_GET['id']) && !empty($_GET['id'])) {
         </div>
         <button id="darkmode-btn" onclick="toggleColorScheme()"><i class="fas fa-sun fa-2x" id="btn-icon"></i></button>
     </div>
+    <script src="js/toast.js"></script>
     <script src="js/rate_smartphone.js"></script>
     <script src="js/browser.js"></script>
     <script src="js/mobile_navbar.js"></script>

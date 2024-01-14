@@ -1,6 +1,6 @@
 <?php
 include '../conn.php';
-include 'lang/detect_lang.php';
+include '../../lang/detect_lang.php';
 
 $user_id = $_POST['user_id'];
 $cart = $_POST['cart'];

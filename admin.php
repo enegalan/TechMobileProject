@@ -28,6 +28,7 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
     <link rel="stylesheet" type="text/css" href="css/main.css" />
     <link rel="stylesheet" type="text/css" href="css/scroll.css" />
     <link rel="stylesheet" type="text/css" href="css/sliderRange.css" />
+    <link rel="stylesheet" href="css/toast.css">
 </head>
 
 <body>
@@ -1266,6 +1267,7 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
     </div>
 
     <!-- =========== Scripts =========  -->
+    <script src="js/toast.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/admin.js"></script>
     <script src="js/main.js"></script>

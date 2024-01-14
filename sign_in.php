@@ -16,10 +16,8 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="stylesheet" type="text/css" href="css/main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="https://kit.fontawesome.com/8e4bd12ccb.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/sign_up.css">
+    <link rel="stylesheet" href="css/toast.css">
 </head>
 
 <body>
@@ -83,25 +81,29 @@
 
                     <div class="row">
                         <div>
-                            <label for="sign_up_email"><?= $lang['email'] ?></label>
-                            <input type="text" name="email" placeholder="<?= $lang['email'] ?>" id="sign_up_email">
+                            <label for="sign_in_email"><?= $lang['email'] ?></label>
+                            <input type="text" name="email" placeholder="<?= $lang['email'] ?>" id="sign_in_email">
                         </div>
                     </div>
 
                     <div class="row">
                         <div>
-                            <label for="sign_up_password"><?= $lang['password'] ?></label>
-                            <input type="password" name="password" placeholder="Password" id="sign_up_password">
+                            <label for="sign_in_password"><?= $lang['password'] ?></label>
+                            <input type="password" name="password" placeholder="Password" id="sign_in_password">
                         </div>
                     </div>
 
-                    <span class="btn-sign-up" onclick="signIn()"><?= $lang['sign_in'] ?></span>
+                    <span class="btn-sign-up" onclick="signIn('#sign_in_email', '#sign_in_password')"><?= $lang['sign_in'] ?></span>
                     <span style="margin:auto;"><?= $lang['dont_have_account'] ?> <a style="color:#e5397d;" href="sign_up.php"><?= $lang['here'] ?>.</span>
                 </div>
             </div>
         </div>
         <button id="darkmode-btn" onclick="toggleColorScheme()"><i class="fas fa-sun fa-2x" id="btn-icon"></i></button>
     </div>
+    <script src="js/toast.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://kit.fontawesome.com/8e4bd12ccb.js" crossorigin="anonymous"></script>
     <script src="js/browser.js"></script>
     <script src="js/mobile_navbar.js"></script>
     <script src="js/userModal.js"></script>

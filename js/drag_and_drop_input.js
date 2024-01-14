@@ -55,9 +55,24 @@ var fileUpload = (function ($, window, document, undefined) {
 
         // automatically submit the form on file select
         $input.on("change", function (e) {
-            showFiles(e.target.files);
-
-            $form.trigger("submit");
+            
+            if (e.target.files.length <= 10) {
+                toast.push({
+                    title: e.target.files.length > 1 ? e.target.files.length + ' files successfully uploaded' : e.target.files.length + ' file successfully uploaded',
+                    style: 'success',
+                    dismissAfter: '3s'
+                });
+                showFiles(e.target.files);
+    
+                $form.trigger("submit");
+            } else {
+                toast.push({
+                    title: 'Image limit reached',
+                    content: 'You can upload 10 images max.',
+                    style: 'error',
+                    dismissAfter: '3s'
+                });
+            }
         });
 
         // drag&drop files if the feature is available
@@ -106,8 +121,6 @@ var fileUpload = (function ($, window, document, undefined) {
                 ajaxData.forEach(function (value, key) {
                     formDataObject[key] = value;
                 });
-
-                //Send this data to main FormData
             }
         });
 

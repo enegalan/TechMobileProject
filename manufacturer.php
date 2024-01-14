@@ -40,6 +40,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="js/main.js"></script>
 	<script src="https://unpkg.com/scrollreveal"></script>
+	<link rel="stylesheet" href="css/toast.css">
 </head>
 <body>
 	<div id="preload-view">
@@ -138,6 +139,7 @@
 		?>
 	</div>
 	<button id="darkmode-btn" onclick="toggleColorScheme()"><i class="fas fa-sun fa-2x" id="btn-icon"></i></button>
+	<script src="js/toast.js"></script>
 	<script src="js/browser.js"></script>
 	<script src="js/reveal.js"></script>
 	<script src="js/userModal.js"></script>

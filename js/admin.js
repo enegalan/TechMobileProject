@@ -169,7 +169,11 @@ async function createUser(){
     body: formData
   }).then(res => res.text())
   .then(data => {
-    console.log(data);
+      toast.push({
+        title: 'User successfully created',
+        style: 'success',
+        dismissAfter: '3s'
+    });
   })
 }
 
@@ -287,7 +291,11 @@ async function updateUser(){
     body: formData
   }).then(res => res.text())
   .then(data => {
-    console.log(data);
+      toast.push({
+        title: 'User successfully edited',
+        style: 'success',
+        dismissAfter: '3s'
+    });
   })
 }
 document.querySelectorAll('.btnUserStatus').forEach(button => {
@@ -364,7 +372,6 @@ async function createFAQ() {
     body: formData
   }).then(res => res.text())
     .then(data => {
-      console.log(data)
     }).finally(window.location.reload());
 }
 
@@ -420,7 +427,6 @@ async function updateFAQ() {
     body: formData
   }).then(res => res.text())
     .then(data => {
-      console.log(data)
     }).finally(window.location.reload());
 }
 
@@ -435,7 +441,6 @@ async function deleteFAQ(faq_id) {
     body: formData
   }).then(res => res.text())
     .then(data => {
-      console.log(data)
     }).finally(window.location.reload());
 }
 const faqFilters = [
@@ -902,7 +907,6 @@ async function updateSmartphone() {
     body: formData
   }).then(res => res.text())
     .then(data => {
-      console.log(data)
     }).finally(window.location.reload());
 }
 

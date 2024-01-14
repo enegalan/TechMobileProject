@@ -14,6 +14,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <script src="https://kit.fontawesome.com/8e4bd12ccb.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/toast.css">
 </head>
 
 <body>
@@ -187,6 +188,7 @@
         </div>
         <button id="darkmode-btn" onclick="toggleColorScheme()"><i class="fas fa-sun fa-2x" id="btn-icon"></i></button>
     </div>
+    <script src="js/toast.js"></script>
     <script src="js/browser.js"></script>
     <script src="js/mobile_navbar.js"></script>
     <script src="js/userModal.js"></script>

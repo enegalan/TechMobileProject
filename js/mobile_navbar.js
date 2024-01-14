@@ -12,8 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     class MenuBurger extends Menu {
-        
-
         constructor(settings) {
             super(settings);
             this.openText = settings.openText;

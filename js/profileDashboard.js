@@ -27,9 +27,17 @@ $(document).ready(function () {
 });
 function validate() {
 
-    if (!document.getElementById("inputpassword").value == document.getElementById("inputpassword2").value) alert("Passwords do no match");
+    if (!document.getElementById("inputpassword").value == document.getElementById("inputpassword2").value) toast.push({
+        title: 'Passwords does not match',
+        style: 'error',
+        dismissAfter: '3s'
+    });;
     return document.getElementById("inputpassword").value == document.getElementById("inputpassword2").value;
-    return false;
+    return toast.push({
+        title: 'Password field is required',
+        style: 'error',
+        dismissAfter: '3s'
+    });
 }
 var add_addressElement = document.querySelector('.add_address');
 var edit_addressElement = document.querySelector('.edit_address');
@@ -134,7 +142,6 @@ addressElements.forEach(function (element) {
                                                             </div>
                                                         </div>
                                                         `;
-                    console.log(data[0]['default'])
                     if (data[0]['default'] == 1) {
                         editing_address_infoDiv.innerHTML += `
                             <div class="row">
@@ -429,8 +436,6 @@ document.querySelectorAll('.viewReplies').forEach(element => {
     element.addEventListener('click', async (event) => {
         event.preventDefault();
         const opinion_id = event.target.getAttribute("data-id");
-        console.log(opinion_id);
-
         const formData = new FormData();
         formData.append('id', opinion_id);
 
@@ -439,14 +444,9 @@ document.querySelectorAll('.viewReplies').forEach(element => {
             body: formData,
         }).then(res => res.text())
             .then(data => {
-                console.log(data);
                 show_answer_replies_dom.innerHTML = data;
 
                 show_answer_replies_dom.classList.remove('disabled');
-
-
-
-
 
                 // Set each opinion rating stars width
                 const opinion_stars = document.querySelectorAll('.opinion_stars');
@@ -456,7 +456,6 @@ document.querySelectorAll('.viewReplies').forEach(element => {
                 });
 
                 function setRatingStars(element, avg_value, max_value) {
-                    console.log('setting rating stars')
                     const max_width = 100; // with max value
 
                     var actual_width = (avg_value / max_value) * max_width;
@@ -504,7 +503,6 @@ document.querySelectorAll('.viewReplies').forEach(element => {
                 // Request the opinion answer reply
                 document.querySelectorAll('.reply_answer_button').forEach(button => {
                     button.addEventListener('click', async (event) => {
-                        console.log(event.target);
                         var opinion_id = event.target.getAttribute('data-id');
                         var answer_id = event.target.getAttribute('answer-id');
                         var comment = document.querySelector('.reply_answer_opinion[data-id="' + answer_id + '"] .reply_textarea').value;

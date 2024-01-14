@@ -94,14 +94,9 @@
     <link rel="stylesheet" type="text/css" href="productos/style-productos.css" />
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="stylesheet" type="text/css" href="css/main.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://kit.fontawesome.com/8e4bd12ccb.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <script src="productos/scripts-productos.js"></script>
-    <script src="productos/redirect.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/userModal.js"></script>
     <link rel="stylesheet" type="text/css" href="css/ratingStars.css" />
+    <link rel="stylesheet" href="css/toast.css">
 </head>
 
 <body>
@@ -542,6 +537,14 @@
         </div>
         <button id="darkmode-btn" onclick="toggleColorScheme()"><i class="fas fa-sun fa-2x" id="btn-icon"></i></button>
     </div>
+
+    <script src="js/toast.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/8e4bd12ccb.js" crossorigin="anonymous"></script>
+    <script src="productos/scripts-productos.js"></script>
+    <script src="productos/redirect.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/userModal.js"></script>
     <script src="js/browser.js"></script>
     <script src="js/mobile_navbar.js"></script>
     <?php 

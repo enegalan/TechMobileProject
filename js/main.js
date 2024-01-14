@@ -50,9 +50,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
         }
-        if(smartphone){
-            
-        }
     } else if (contacto) {
         var link1 = document.querySelector('.nav.right .menu-default[href="contacto.php"]');
         link1.classList.add('active');
@@ -133,8 +130,18 @@ function toggleColorScheme() {
 
     if (htmlElement.classList.contains('dark')) {
         localStorage.setItem('theme', 'dark');
+        toast.push({
+            title: 'Dark mode',
+            style: 'dark',
+            dismissAfter: '3s'
+        });
     } else {
         localStorage.setItem('theme', 'light');
+        toast.push({
+            title: 'Light mode',
+            style: 'light',
+            dismissAfter: '3s'
+        });
     }
 }
 function detectColorScheme () {

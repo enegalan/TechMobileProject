@@ -15,6 +15,7 @@
     <script src="https://kit.fontawesome.com/8e4bd12ccb.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script src="productos/redirect.js"></script>
+    <link rel="stylesheet" href="css/toast.css">
 </head>
 
 <body>
@@ -134,6 +135,7 @@
         </div>
         <button id="darkmode-btn" onclick="toggleColorScheme()"><i class="fas fa-sun fa-2x" id="btn-icon"></i></button>
     </div>
+    <script src="js/toast.js"></script>
     <script src="js/browser.js"></script>
     <script src="js/userModal.js"></script>
     <script src="js/main.js"></script>

@@ -5,7 +5,7 @@ if (session_status() !== PHP_SESSION_ACTIVE && !headers_sent()) {
     session_start();
 }
 
-if ($_SESSION['id'] && isset($_POST['ratings']) && isset($_FILES['files'])) {
+if ($_SESSION['id'] && isset($_POST['ratings'])) {
     $ratings = json_decode($_POST['ratings'], true);
 
     $user_id = $_SESSION['id'];
@@ -15,7 +15,6 @@ if ($_SESSION['id'] && isset($_POST['ratings']) && isset($_FILES['files'])) {
     $opinion = $ratings['opinion'];
     $advantages = $ratings['advantages'];
     $disadvantages = $ratings['disadvantages'];
-    $files = $_FILES['files'];
 
     include 'conn.php';
     // Create new opinion
@@ -26,30 +25,32 @@ if ($_SESSION['id'] && isset($_POST['ratings']) && isset($_FILES['files'])) {
     // Get opinion_id
     $opinion_id = $conn->insert_id;
 
-    // Foreach file create a new opinion_media row
-    foreach ($files['name'] as $key => $file_name) {
-        $file_tmp = $files['tmp_name'][$key];
+    if (isset($_FILES['files'])) {
+        $files = $_FILES['files'];
+        // Foreach file create a new opinion_media row
+        foreach ($files['name'] as $key => $file_name) {
+            $file_tmp = $files['tmp_name'][$key];
 
-        if (!empty($file_name) && !empty($file_tmp)) {
-            $file_extension = pathinfo($file_name, PATHINFO_EXTENSION);
-            $hashed_name = sha1(uniqid()) . '.' . $file_extension;
+            if (!empty($file_name) && !empty($file_tmp)) {
+                $file_extension = pathinfo($file_name, PATHINFO_EXTENSION);
+                $hashed_name = sha1(uniqid()) . '.' . $file_extension;
 
-            $path = 'images/opinions/' . $opinion_id . '/' . $hashed_name;
+                $path = 'images/opinions/' . $opinion_id . '/' . $hashed_name;
 
-            $query_create_opinion_media = $conn->prepare("INSERT INTO opinion_media (opinion_id, path) VALUES (?, ?)");
-            $query_create_opinion_media->bind_param("ss", $opinion_id, $path);
-            $query_create_opinion_media->execute();
+                $query_create_opinion_media = $conn->prepare("INSERT INTO opinion_media (opinion_id, path) VALUES (?, ?)");
+                $query_create_opinion_media->bind_param("ss", $opinion_id, $path);
+                $query_create_opinion_media->execute();
 
-            // Upload file to /images/opinions folder
-            if (!file_exists('../images/opinions/' . $opinion_id)) {
-                mkdir('../images/opinions/' . $opinion_id, 0777, true);
+                // Upload file to /images/opinions folder
+                if (!file_exists('../images/opinions/' . $opinion_id)) {
+                    mkdir('../images/opinions/' . $opinion_id, 0777, true);
+                }
+
+                move_uploaded_file($file_tmp, '../' . $path);
             }
 
-            move_uploaded_file($file_tmp, '../'.$path);
         }
     }
     $query_create_opinion->close();
     $query_create_opinion_media->close();
 }
-
-?>

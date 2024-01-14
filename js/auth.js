@@ -1,8 +1,6 @@
-
-
-async function signIn() {
-    var auth_email = document.querySelector('#auth_email').value;
-    var auth_password = document.querySelector('#auth_password').value;
+async function signIn(emailInput = "#auth_email", passwordInput = "#auth_password") {
+    var auth_email = document.querySelector(emailInput).value;
+    var auth_password = document.querySelector(passwordInput).value;
 
     var formData = new FormData();
     formData.append('email', auth_email);
@@ -28,7 +26,12 @@ async function signIn() {
 
             });
         } else {
-            console.log("Sign in failed");
+            toast.push({
+                title: 'Sign in failed',
+                content: 'Incorrect credentials.',
+                style: 'error',
+                dismissAfter: '3s'
+            });
         }
     });
 
@@ -53,10 +56,15 @@ async function signInAuto(auth_email, auth_password) {
             .then(cartData => {
                 const cart = cartData || {};
                 localStorage.setItem('cart', JSON.stringify(cart));
-                //window.location.reload(); // It may be useful for the future
+                window.location.reload(); // It may be useful for the future
             });
         } else {
-            console.log("Sign in failed");
+            toast.push({
+                title: 'Sign in failed',
+                content: 'Incorrect credentials.',
+                style: 'error',
+                dismissAfter: '3s'
+            });
         }
     });
 }
@@ -91,14 +99,24 @@ async function signUp() {
             body: formData,
         }).then(res => res.text())
         .then(data => {
-            console.log(data);
+            //Sign In automatically
+            signInAuto(sign_up_email, sign_up_password);
+            //window.location.reload();
+        }).catch(error => {
+            toast.push({
+                title: 'Sign up error',
+                content: 'Cannot create your account. Try again or ontact an administrator.',
+                style: 'error',
+                dismissAfter: '3s'
+            });
         })
-
-        //Sign In automatically
-        signInAuto(sign_up_email, sign_up_password);
-        window.location.reload();
     }else{
-        console.log("Incorrect repeated password!")
+        toast.push({
+            title: 'Sign up error',
+            content: 'Does not match with the typed password.',
+            style: 'error',
+            dismissAfter: '3s'
+        });
     }
     
 }

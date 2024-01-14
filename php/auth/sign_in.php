@@ -43,6 +43,9 @@
                 
             }
             echo json_encode($user);
+        } else {
+            // TODO: translate the error message
+            echo json_encode(array('error' => 'This account does not match our records.'));
         }
         $query->close();
     }

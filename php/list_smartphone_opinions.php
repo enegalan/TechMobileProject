@@ -103,6 +103,27 @@ if($_GET['id']){
                     </div>';
             }
             $opinion_answers_query->close();
+
+            $opinion_media = count($media_dom) > 0 ? '
+                <div>
+                    <div class="opinion_media">
+                        <div class="media_container">
+                        ' . implode('', $media_dom) . '
+                        </div>
+                        <div class="media_slider_controller">
+                            <span id="media_slider_controller_previous">
+                                <i class="fas fa-arrow-left"></i>
+                            </span>
+                            <span id="media_slider_controller_next">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="opinion_media_slider">
+                        ' . implode('', $opinion_media_slider_dom) . '
+                    </div>
+                </div>
+            ' : '';
     
     
             echo '
@@ -112,24 +133,7 @@ if($_GET['id']){
                             <img src="' . $opinion['gravatar'] . '" alt="user-gravatar">
                             <p><b>' . $opinion['username'] . '</b></p>
                         </div>
-                        <div>
-                            <div class="opinion_media">
-                                <div class="media_container">
-                                ' . implode('', $media_dom) . '
-                                </div>
-                                <div class="media_slider_controller">
-                                    <span id="media_slider_controller_previous">
-                                        <i class="fas fa-arrow-left"></i>
-                                    </span>
-                                    <span id="media_slider_controller_next">
-                                        <i class="fas fa-arrow-right"></i>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="opinion_media_slider">
-                                ' . implode('', $opinion_media_slider_dom) . '
-                            </div>
-                        </div>
+                        ' . $opinion_media . '
                     </div>
                     <div class="contenido">
                         <div class="rating_stars_section">

@@ -9,6 +9,48 @@ const steps = [
     document.querySelector('#images'),
 ];
 
+const stepsValidations = [
+    {
+        selector: steps[0],
+        validation: () => {
+            return document.querySelector('.block_rating__stars input[name="rating"]:checked') ? true : false;
+        },
+        error: () => {
+            toast.push({
+                title: 'General rating is required',
+                style: 'error',
+                dismissAfter: '3s'
+            });
+        }
+    },
+    {
+        selector: steps[0],
+        validation: () => {
+            return document.querySelector('input[name="recommended"]:checked') ? true : false;
+        },
+        error: () => {
+            toast.push({
+                title: 'Recommended field is required',
+                style: 'error',
+                dismissAfter: '3s'
+            });
+        }
+    },
+    {
+        selector: steps[1],
+        validation: () => {
+            return document.querySelector('textarea[name="opinion"]').value != '' ? true : false;
+        },
+        error: () => {
+            toast.push({
+                title: 'Opinion is required',
+                style: 'error',
+                dismissAfter: '3s'
+            });
+        }
+    },
+];
+
 document.querySelectorAll('.rate_step').forEach(step => {
     step.addEventListener('click', (event) => {
         if (step.querySelector('.done') && event.target.tagName.toLowerCase() == "svg") {
@@ -59,33 +101,50 @@ function setAllStepsNone() {
 }
 
 rate_next_button.addEventListener('click', (event) => {
-    // Set all steps not displayed
-    setAllStepsNone()
     var previousStep = parseInt(event.target.value) > 0 ? steps[parseInt(event.target.value - 1)] : 0;
     var step = steps[parseInt(event.target.value)];
 
-    previousStep.style.display = 'none';
-    step.style.display = 'block';
-    if (document.querySelector('#step' + parseInt(event.target.value) + " .active")) {
-        const prevDoneStep = document.querySelector('#step' + parseInt(event.target.value) + " .active");
-        svgToSpan(prevDoneStep, event.target.value);
-        prevDoneStep.classList.remove('active');
-        prevDoneStep.classList.add('done');
+    // Validations
+    var validated = true;
+    for (var stepValidation of stepsValidations) {
+        const { selector, validation, error } = stepValidation;
+
+        if (selector == previousStep) {
+            validated = validation();
+            if (!validated) {
+                error();
+            }
+        }
     }
 
-    rate_previous_button.value++;
-    rate_next_button.value++;
-    if (parseInt(rate_next_button.value) < steps.length) {
-        if (rate_previous_button.value > 0) {
-            rate_previous_button.style.display = 'block';
+    if (validated) {
+        // Set all steps not displayed
+        setAllStepsNone()
+
+        previousStep.style.display = 'none';
+        step.style.display = 'block';
+        if (document.querySelector('#step' + parseInt(event.target.value) + " .active")) {
+            const prevDoneStep = document.querySelector('#step' + parseInt(event.target.value) + " .active");
+            svgToSpan(prevDoneStep, event.target.value);
+            prevDoneStep.classList.remove('active');
+            prevDoneStep.classList.add('done');
         }
-    } else {
-        rate_next_button.style.display = 'none';
-        rate_previous_button.style.display = 'block';
-        // Display finish button
-        rate_finish_button.style.display = 'block';
+
+        rate_previous_button.value++;
+        rate_next_button.value++;
+        if (parseInt(rate_next_button.value) < steps.length) {
+            if (rate_previous_button.value > 0) {
+                rate_previous_button.style.display = 'block';
+            }
+        } else {
+            rate_next_button.style.display = 'none';
+            rate_previous_button.style.display = 'block';
+            // Display finish button
+            rate_finish_button.style.display = 'block';
+        }
+        setActiveStepDone()
     }
-    setActiveStepDone()
+    
 });
 
 rate_previous_button.addEventListener('click', (event) => {
@@ -142,8 +201,6 @@ rate_finish_button.addEventListener('click', async (event) => {
     ratings['advantages'] = advantages;
     ratings['disadvantages'] = disadvantages;
 
-    console.log(ratings);
-
     const formData = new FormData();
     formData.append('ratings', JSON.stringify(ratings));
 
@@ -156,7 +213,6 @@ rate_finish_button.addEventListener('click', async (event) => {
         body: formData
     }).then(res => res.text())
     .then(data => {
-        console.log('redirecting...')
         window.location.href = document.querySelector('#smartphone-href').href;
     });
 

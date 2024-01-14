@@ -138,7 +138,14 @@
     html.dark .sign_up_form input,
     html.dark #darkmode-btn,
     html.dark .product_info h1,
-    html.dark .user-social {
+    html.dark .user-social,
+    html.dark .recentCustomers table tr td h4,
+    html.dark .add_smartphone_main,
+    html.dark .edit_smartphone_main,
+    html.dark .add_user_main, 
+    html.dark .edit_user_main, 
+    html.dark .add_faq_main, 
+    html.dark .edit_faq_main {
         color: white !important;
     }
 
