@@ -68,57 +68,7 @@
     <?php include 'components/waves_footer.php' ?>
 
     <div id="contenidoprincipal index" class="wpb_row vc_row-fluid vc_row standard_section">
-        <div class="sliderContainer container">
-            <!--Slider-->
-            <!-- Slider main container -->
-            <div id="header" class="swiper">
-                <!-- Additional required wrapper -->
-                <div class="swiper-wrapper">
-                    <!-- Slides -->
-                    <div class="swiper-slide">
-                        <a href="">
-                            <picture>
-                                <source media="(max-width: 768px)" srcset="images/banners/es/min/banner1.avif">
-                                <img src="images/banners/es/full/banner1.avif"/>
-                            </picture>
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="">
-                            <picture>
-                                <source media="(max-width: 768px)" srcset="images/banners/es/min/banner2.avif">
-                                <img src="images/banners/es/full/banner2.avif"/>
-                            </picture>
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="">
-                            <picture>
-                                <source media="(max-width: 768px)" srcset="images/banners/es/min/banner3.avif">
-                                <img src="images/banners/es/full/banner3.avif"/>
-                            </picture>
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="">
-                            <picture>
-                                <source media="(max-width: 768px)" srcset="images/banners/es/min/banner4.avif">
-                                <img src="images/banners/es/full/banner4.avif"/>
-                            </picture>
-                        </a>
-                    </div>
-                </div>
-                <!-- If we need pagination -->
-                <div class="swiper-pagination"></div>
-
-                <!-- If we need navigation buttons -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-
-                <!-- If we need scrollbar -->
-                <div class="swiper-scrollbar"></div>
-            </div>
-        </div>
+        <?php include 'components/header_slider.php' ?>
         <div class="main-index">
             <!--Most recent smartphones-->
             <section id="most-recent">

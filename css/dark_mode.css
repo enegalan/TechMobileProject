@@ -9,13 +9,16 @@
 
 @media (prefers-color-scheme: dark) {
 
+    html.dark body {
+        background-color: var(--dark-bg);
+    }
+
     html.dark,
     html.dark .productCard_block,
     html.dark .block_descriptionCharacteristic,
     html.dark .block_specificationInformation_table,
     html.dark .main,
     html.dark .reply_label,
-
     html.dark .sliderBlock_positionControls__paginatorItem,
     html.dark .block_specificationInformation_table tr,
     html.dark .block_specificationInformation_table th,
