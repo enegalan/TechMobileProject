@@ -146,17 +146,19 @@ function toggleColorScheme() {
 }
 function detectColorScheme () {
     var theme = "light";
-    if (!window.matchMedia) {
-        return false;
-    } else {
-        if (window.matchMedia("(prefers-color-scheme: dark)").matches || localStorage.getItem('theme') == "dark") {
-            theme = "dark";
-        } 
-        if (window.matchMedia("(prefers-color-scheme: light)").matches || localStorage.getItem('theme') == 'light') {
-            theme = "light";
+        if (!localStorage.getItem('theme')) {
+            if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                theme = "dark";
+            } else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+                theme = "light";
+            }
+        } else {
+            if (localStorage.getItem('theme') == "dark") {
+                theme = "dark";
+            } else if (localStorage.getItem('theme') == 'light') {
+                theme = "light";
+            }
         }
-    } 
-        
 
     if (theme == "dark") {
         !document.querySelector('html').classList.contains('dark') ? document.querySelector('html').classList.add('dark') : '';

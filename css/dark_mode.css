@@ -7,361 +7,357 @@
     --hover: #1c1c1c
 }
 
-@media (prefers-color-scheme: dark) {
+html.dark body {
+    background: var(--dark-bg) !important;
+}
 
-    html.dark body {
-        background-color: var(--dark-bg);
-    }
+html.dark,
+html.dark .productCard_block,
+html.dark .block_descriptionCharacteristic,
+html.dark .block_specificationInformation_table,
+html.dark .main,
+html.dark .reply_label,
+html.dark .sliderBlock_positionControls__paginatorItem,
+html.dark .block_specificationInformation_table tr,
+html.dark .block_specificationInformation_table th,
+html.dark .block_specificationInformation_table td {
+    border: 1px solid white;
+}
 
-    html.dark,
-    html.dark .productCard_block,
-    html.dark .block_descriptionCharacteristic,
-    html.dark .block_specificationInformation_table,
-    html.dark .main,
-    html.dark .reply_label,
-    html.dark .sliderBlock_positionControls__paginatorItem,
-    html.dark .block_specificationInformation_table tr,
-    html.dark .block_specificationInformation_table th,
-    html.dark .block_specificationInformation_table td {
-        border: 1px solid white;
-    }
+html.dark .block_name,
+html.dark .block_descriptionInformation,
+html.dark .text_specification,
+html.dark .rating_placeholder,
+html.dark .rating_value,
+html.dark .leave_opinion_title,
+html.dark .recommended_title,
+html.dark .recommended_value,
+html.dark .opinions_value,
+html.dark .opinions_list h2,
+html.dark .opinion_user,
+html.dark .opinion_date,
+html.dark .opinion,
+html.dark .opinion q,
+html.dark .opinion_answer,
+html.dark .breadcrumbs__item,
+html.dark .head-title>*,
+html.dark .head-title i,
+html.dark .contact1-form-title,
+html.dark .answer_opinion:hover,
+html.dark .product-box strong,
+html.dark .rateSmartphoneParent {
+    color: var(--light) !important;
+}
 
-    html.dark .block_name,
-    html.dark .block_descriptionInformation,
-    html.dark .text_specification,
-    html.dark .rating_placeholder,
-    html.dark .rating_value,
-    html.dark .leave_opinion_title,
-    html.dark .recommended_title,
-    html.dark .recommended_value,
-    html.dark .opinions_value,
-    html.dark .opinions_list h2,
-    html.dark .opinion_user,
-    html.dark .opinion_date,
-    html.dark .opinion,
-    html.dark .opinion q,
-    html.dark .opinion_answer,
-    html.dark .breadcrumbs__item,
-    html.dark .head-title>*,
-    html.dark .head-title i,
-    html.dark .contact1-form-title,
-    html.dark .answer_opinion:hover,
-    html.dark .product-box strong,
-    html.dark .rateSmartphoneParent {
-        color: var(--light) !important;
-    }
+html.dark .opinion b,
+html.dark .answer_opinion,
+html.dark .block_quantity__number,
+html.dark .block_specificationInformation_table,
+html.dark .menu__toggle,
+html.dark .menu__group,
+html.dark .r-link,
+html.dark .menu__link:hover,
+html.dark .menu__link.submenu_parent:focus,
+html.dark .accordion-content,
+html.dark .submenu a,
+html.dark .payment_details,
+html.dark .order_summary,
+html.dark .opinions_list,
+html.dark .details .recentOrders table tr,
+html.dark .cardHeader h2,
+html.dark .toggle,
+html.dark .user,
+html.dark .headerUsers,
+html.dark .cardHeaderUsersList h2,
+html.dark .usersList table tr,
+html.dark .commentsList table tr,
+html.dark .faqsList table tr,
+html.dark .smartphonesList table tr,
+html.dark .usersFilters,
+html.dark .default_input,
+html.dark .headerFAQ,
+html.dark .usersFilters select,
+html.dark .field input,
+html.dark .orders,
+html.dark .user-card,
+html.dark .user-info,
+html.dark .user-dashboard,
+html.dark .nav-area ul li a,
+html.dark div#my-orders-table_length select,
+html.dark div#my-opinions-table_length select,
+html.dark .form-group>input,
+html.dark div#my-orders-table_filter input,
+html.dark div#my-orders-table_paginate a,
+html.dark div#my-opinions-table_filter input,
+html.dark div#my-opinions-table_paginate a,
+html.dark #add_card:hover,
+html.dark .add_card_modal_close:hover,
+html.dark .card_due_date>.row>select,
+html.dark input#card-cvv,
+html.dark .add_address.show,
+html.dark .edit_address.show,
+html.dark .add_address.show>.row>div>input,
+html.dark .edit_address.show>.editing_address_info>.row>div>input,
+html.dark input#card-name,
+html.dark input#card-number,
+html.dark .account,
+html.dark .add-account-modal .account,
+html.dark .my-wallet-sidebar .account,
+html.dark .card_info_edit input,
+html.dark .card_info_edit select,
+html.dark .edit-gravatar-modal.show,
+html.dark .navigation ul li.active:hover a,
+html.dark .rateSmartphoneBody,
+html.dark #opinion textarea,
+html.dark .reply_label,
+html.dark .reply_textarea,
+html.dark .reply_min_label,
+html.dark .add_smartphone_main,
+html.dark .edit_smartphone_main,
+html.dark .add_user_main,
+html.dark .edit_user_main,
+html.darkç .add_faq_main,
+html.dark .edit_faq_main,
+html.dark textarea,
+html.dark .default_textarea,
+html.dark input[type="number"],
+html.dark nav.page-header-top-nav,
+html.dark .no_results,
+html.dark .page-header-top-nav a,
+html.dark .main-index,
+html.dark .articulo,
+html.dark .precioBx,
+html.dark .manufacturer_article a,
+html.dark .newsletters_inpu,
+html.dark .product-box,
+html.dark .newsletters_input,
+html.dark .sign_up_form,
+html.dark .sign_in_form,
+html.dark .sign_up_form input,
+html.dark #darkmode-btn,
+html.dark .product_info h1,
+html.dark .user-social,
+html.dark .recentCustomers table tr td h4,
+html.dark .add_smartphone_main,
+html.dark .edit_smartphone_main,
+html.dark .add_user_main, 
+html.dark .edit_user_main, 
+html.dark .add_faq_main, 
+html.dark .edit_faq_main {
+    color: white !important;
+}
 
-    html.dark .opinion b,
-    html.dark .answer_opinion,
-    html.dark .block_quantity__number,
-    html.dark .block_specificationInformation_table,
-    html.dark .menu__toggle,
-    html.dark .menu__group,
-    html.dark .r-link,
-    html.dark .menu__link:hover,
-    html.dark .menu__link.submenu_parent:focus,
-    html.dark .accordion-content,
-    html.dark .submenu a,
-    html.dark .payment_details,
-    html.dark .order_summary,
-    html.dark .opinions_list,
-    html.dark .details .recentOrders table tr,
-    html.dark .cardHeader h2,
-    html.dark .toggle,
-    html.dark .user,
-    html.dark .headerUsers,
-    html.dark .cardHeaderUsersList h2,
-    html.dark .usersList table tr,
-    html.dark .commentsList table tr,
-    html.dark .faqsList table tr,
-    html.dark .smartphonesList table tr,
-    html.dark .usersFilters,
-    html.dark .default_input,
-    html.dark .headerFAQ,
-    html.dark .usersFilters select,
-    html.dark .field input,
-    html.dark .orders,
-    html.dark .user-card,
-    html.dark .user-info,
-    html.dark .user-dashboard,
-    html.dark .nav-area ul li a,
-    html.dark div#my-orders-table_length select,
-    html.dark div#my-opinions-table_length select,
-    html.dark .form-group>input,
-    html.dark div#my-orders-table_filter input,
-    html.dark div#my-orders-table_paginate a,
-    html.dark div#my-opinions-table_filter input,
-    html.dark div#my-opinions-table_paginate a,
-    html.dark #add_card:hover,
-    html.dark .add_card_modal_close:hover,
-    html.dark .card_due_date>.row>select,
-    html.dark input#card-cvv,
-    html.dark .add_address.show,
-    html.dark .edit_address.show,
-    html.dark .add_address.show>.row>div>input,
-    html.dark .edit_address.show>.editing_address_info>.row>div>input,
-    html.dark input#card-name,
-    html.dark input#card-number,
-    html.dark .account,
-    html.dark .add-account-modal .account,
-    html.dark .my-wallet-sidebar .account,
-    html.dark .card_info_edit input,
-    html.dark .card_info_edit select,
-    html.dark .edit-gravatar-modal.show,
-    html.dark .navigation ul li.active:hover a,
-    html.dark .rateSmartphoneBody,
-    html.dark #opinion textarea,
-    html.dark .reply_label,
-    html.dark .reply_textarea,
-    html.dark .reply_min_label,
-    html.dark .add_smartphone_main,
-    html.dark .edit_smartphone_main,
-    html.dark .add_user_main,
-    html.dark .edit_user_main,
-    html.darkç .add_faq_main,
-    html.dark .edit_faq_main,
-    html.dark textarea,
-    html.dark .default_textarea,
-    html.dark input[type="number"],
-    html.dark nav.page-header-top-nav,
-    html.dark .no_results,
-    html.dark .page-header-top-nav a,
-    html.dark .main-index,
-    html.dark .articulo,
-    html.dark .precioBx,
-    html.dark .manufacturer_article a,
-    html.dark .newsletters_inpu,
-    html.dark .product-box,
-    html.dark .newsletters_input,
-    html.dark .sign_up_form,
-    html.dark .sign_in_form,
-    html.dark .sign_up_form input,
-    html.dark #darkmode-btn,
-    html.dark .product_info h1,
-    html.dark .user-social,
-    html.dark .recentCustomers table tr td h4,
-    html.dark .add_smartphone_main,
-    html.dark .edit_smartphone_main,
-    html.dark .add_user_main, 
-    html.dark .edit_user_main, 
-    html.dark .add_faq_main, 
-    html.dark .edit_faq_main {
-        color: white !important;
-    }
+html.dark .button_addToCard,
+html.dark .opinion_media_slider,
+html.dark .search-box,
+html.dark .add_smartphone_upload_image::before,
+html.dark .edit_smartphone_upload_image::before {
+    filter: invert();
+}
 
-    html.dark .button_addToCard,
-    html.dark .opinion_media_slider,
-    html.dark .search-box,
-    html.dark .add_smartphone_upload_image::before,
-    html.dark .edit_smartphone_upload_image::before {
-        filter: invert();
-    }
+html.dark .manufacturer,
+html.dark .logoBx,
+html.dark .manufacturer_logo {
+    filter: none !important;
+}
 
-    html.dark .manufacturer,
-    html.dark .logoBx,
-    html.dark .manufacturer_logo {
-        filter: none !important;
-    }
+html.dark .opinion_card_content,
+html.dark .answer_opinion,
+html.dark .opinion_answer,
+html.dark .block_quantity__number,
+html.dark .breadcrumbs__item,
+html.dark .breadcrumbs__item:after,
+html.dark .articulo,
+html.dark .menu__toggle::before,
+html.dark .accordion,
+html.dark .payment_details,
+html.dark .order_summary,
+html.dark .main_cart input,
+html.dark .cardBox .card,
+html.dark .details .recentOrders,
+html.dark .recentCustomers,
+html.dark .usersList,
+html.dark .usersFilters,
+html.dark .commentsList,
+html.dark .faqsList,
+html.dark .smartphonesList,
+html.dark .field input,
+html.dark .user-card,
+html.dark .user-info,
+html.dark .user-dashboard,
+html.dark .nav-area ul li a,
+html.dark #my-orders,
+html.dark #my-opinions,
+html.dark .cards_list,
+html.dark .tg-tabs-content-wrapp .tg-form,
+html.dark .container-contact1,
+html.dark #opinion textarea,
+html.dark .nav,
+html.dark .user-form,
+html.dark .add_smartphone_main .card,
+html.dark .edit_smartphone_main .card,
+html.dark .add_user_main .card,
+html.dark .edit_user_main .card,
+html.dark .add_faq_main .card,
+html.dark .edit_faq_main .card,
+html.dark .articulo,
+html.dark .payment_details input[type="number"],
+html.dark .user-social {
+    background: none;
+    background-color: var(--dark-grey) !important;
+}
 
-    html.dark .opinion_card_content,
-    html.dark .answer_opinion,
-    html.dark .opinion_answer,
-    html.dark .block_quantity__number,
-    html.dark .breadcrumbs__item,
-    html.dark .breadcrumbs__item:after,
-    html.dark .articulo,
-    html.dark .menu__toggle::before,
-    html.dark .accordion,
-    html.dark .payment_details,
-    html.dark .order_summary,
-    html.dark .main_cart input,
-    html.dark .cardBox .card,
-    html.dark .details .recentOrders,
-    html.dark .recentCustomers,
-    html.dark .usersList,
-    html.dark .usersFilters,
-    html.dark .commentsList,
-    html.dark .faqsList,
-    html.dark .smartphonesList,
-    html.dark .field input,
-    html.dark .user-card,
-    html.dark .user-info,
-    html.dark .user-dashboard,
-    html.dark .nav-area ul li a,
-    html.dark #my-orders,
-    html.dark #my-opinions,
-    html.dark .cards_list,
-    html.dark .tg-tabs-content-wrapp .tg-form,
-    html.dark .container-contact1,
-    html.dark #opinion textarea,
-    html.dark .nav,
-    html.dark .user-form,
-    html.dark .add_smartphone_main .card,
-    html.dark .edit_smartphone_main .card,
-    html.dark .add_user_main .card,
-    html.dark .edit_user_main .card,
-    html.dark .add_faq_main .card,
-    html.dark .edit_faq_main .card,
-    html.dark .articulo,
-    html.dark .payment_details input[type="number"],
-    html.dark .user-social {
-        background: none;
-        background-color: var(--dark-grey) !important;
-    }
+html.dark .block_quantity__number,
+html.dark .user-info>.row>input,
+html.dark #my-orders,
+html.dark #my-opinions,
+html.dark div#my-orders-table_length select,
+html.dark div#my-opinions-table_length select,
+html.dark .form-group>input,
+html.dark div#my-orders-table_filter input,
+html.dark div#my-orders-table_filter input:focus,
+html.dark div#my-opinions-table_filter input,
+html.dark div#my-opinions-table_filter input:focus,
+html.dark .card_due_date>.row>select,
+html.dark #opinion textarea,
+html.dark .reply_textarea,
+html.dark textarea,
+html.dark .add_smartphone_images,
+html.dark .edit_smartphone_images,
+html.dark .newsletters_input,
+html.dark .articulo,
+html.dark .user-social  {
+    border: none !important;
+}
 
-    html.dark .block_quantity__number,
-    html.dark .user-info>.row>input,
-    html.dark #my-orders,
-    html.dark #my-opinions,
-    html.dark div#my-orders-table_length select,
-    html.dark div#my-opinions-table_length select,
-    html.dark .form-group>input,
-    html.dark div#my-orders-table_filter input,
-    html.dark div#my-orders-table_filter input:focus,
-    html.dark div#my-opinions-table_filter input,
-    html.dark div#my-opinions-table_filter input:focus,
-    html.dark .card_due_date>.row>select,
-    html.dark #opinion textarea,
-    html.dark .reply_textarea,
-    html.dark textarea,
-    html.dark .add_smartphone_images,
-    html.dark .edit_smartphone_images,
-    html.dark .newsletters_input,
-    html.dark .articulo,
-    html.dark .user-social  {
-        border: none !important;
-    }
+html.dark .breadcrumbs__item:before,
+html.dark .breadcrumbs__item .breadcrumbs__item:hover:after,
+html.dark .breadcrumbs__item:hover,
+html.dark .breadcrumbs__item:hover::before,
+html.dark .breadcrumbs__item:hover::after,
+html.dark .r-link:hover,
+html.dark .menu__link.submenu_parent:focus,
+html.dark .details_card,
+html.dark .summary_card,
+html.dark .default_input,
+html.dark .usersFilters select,
+html.dark .user-info>.row>input,
+html.dark .nav-area ul li a:hover,
+html.dark div#my-orders-table_length select,
+html.dark div#my-opinions-table_length select,
+html.dark input#card-name,
+html.dark input#card-number,
+html.dark .card_due_date>.row>select,
+html.dark .form-group>input,
+html.dark div#my-orders-table_filter input,
+html.dark div#my-orders-table_paginate a,
+html.dark div#my-opinions-table_filter input,
+html.dark div#my-opinions-table_paginate a,
+html.dark input#card-cvv,
+html.dark .add_address.show>.row>div>input,
+html.dark .edit_address.show>.editing_address_info>.row>div>input,
+html.dark .row input[type="checkbox"],
+html.dark .account,
+html.dark .add-account-modal .account,
+html.dark .my-wallet-sidebar .account,
+html.dark .card_info_edit input,
+html.dark .card_info_edit select,
+html.dark .default_textarea,
+html.dark .add_smartphone_images,
+html.dark .edit_smartphone_images,
+html.dark .add_smartphone_upload_image::after,
+html.dark .edit_smartphone_upload_image::after,
+html.dark .newsletters_input,
+html.dark input[type="number"] {
+    background: none;
+    background-color: var(--hover) !important;
+}
 
-    html.dark .breadcrumbs__item:before,
-    html.dark .breadcrumbs__item .breadcrumbs__item:hover:after,
-    html.dark .breadcrumbs__item:hover,
-    html.dark .breadcrumbs__item:hover::before,
-    html.dark .breadcrumbs__item:hover::after,
-    html.dark .r-link:hover,
-    html.dark .menu__link.submenu_parent:focus,
-    html.dark .details_card,
-    html.dark .summary_card,
-    html.dark .default_input,
-    html.dark .usersFilters select,
-    html.dark .user-info>.row>input,
-    html.dark .nav-area ul li a:hover,
-    html.dark div#my-orders-table_length select,
-    html.dark div#my-opinions-table_length select,
-    html.dark input#card-name,
-    html.dark input#card-number,
-    html.dark .card_due_date>.row>select,
-    html.dark .form-group>input,
-    html.dark div#my-orders-table_filter input,
-    html.dark div#my-orders-table_paginate a,
-    html.dark div#my-opinions-table_filter input,
-    html.dark div#my-opinions-table_paginate a,
-    html.dark input#card-cvv,
-    html.dark .add_address.show>.row>div>input,
-    html.dark .edit_address.show>.editing_address_info>.row>div>input,
-    html.dark .row input[type="checkbox"],
-    html.dark .account,
-    html.dark .add-account-modal .account,
-    html.dark .my-wallet-sidebar .account,
-    html.dark .card_info_edit input,
-    html.dark .card_info_edit select,
-    html.dark .default_textarea,
-    html.dark .add_smartphone_images,
-    html.dark .edit_smartphone_images,
-    html.dark .add_smartphone_upload_image::after,
-    html.dark .edit_smartphone_upload_image::after,
-    html.dark .newsletters_input,
-    html.dark input[type="number"] {
-        background: none;
-        background-color: var(--hover) !important;
-    }
+html.dark .breadcrumbs,
+html.dark .menu__toggle::before,
+html.dark .info-about,
+html.dark .user-card,
+html.dark .user-info,
+html.dark .tg-tabs-content-wrapp .tg-form,
+html.dark .account,
+html.dark .add-account-modal .account,
+html.dark .my-wallet-sidebar .account,
+html.dark .user-dashboard,
+html.dark textarea,
+html.dark input[type="number"],
+html.dark .social-row {
+    border-color: var(--hover) !important;
+}
 
-    html.dark .breadcrumbs,
-    html.dark .menu__toggle::before,
-    html.dark .info-about,
-    html.dark .user-card,
-    html.dark .user-info,
-    html.dark .tg-tabs-content-wrapp .tg-form,
-    html.dark .account,
-    html.dark .add-account-modal .account,
-    html.dark .my-wallet-sidebar .account,
-    html.dark .user-dashboard,
-    html.dark textarea,
-    html.dark input[type="number"],
-    html.dark .social-row {
-        border-color: var(--hover) !important;
-    }
+html.dark .m-hamburger::before,
+html.dark .m-hamburger::after,
+html.dark .m-hamburger__label {
+    background-color: white !important;
+}
 
-    html.dark .m-hamburger::before,
-    html.dark .m-hamburger::after,
-    html.dark .m-hamburger__label {
-        background-color: white !important;
-    }
+html.dark ul#myTab,
+html.dark .add_card_modal_info,
+html.dark .add_address.show,
+html.dark .edit_address.show,
+html.dark .card_edit,
+html.dark .input1,
+html.dark .edit-gravatar-modal.show,
+html.dark .edit-gravatar,
+html.dark .navigation ul li.active,
+html.dark .navigation ul li:hover,
+html.dark .rateSmartphoneBody,
+html.dark .reply_textarea,
+html.dark .add_smartphone_main,
+html.dark .edit_smartphone_main,
+html.dark .add_user_main,
+html.dark .edit_user_main,
+html.dark .add_faq_main,
+html.dark .edit_faq_main,
+html.dark .add_smartphone_images ul,
+html.dark .edit_smartphone_images ul,
+html.dark #contenidoprincipal\ producto.greyBx::before,
+html.dark #newsletters,
+html.dark .product-box,
+html.dark #darkmode-btn,
+html.dark .default_address,
+html.dark .pqt-plus, 
+html.dark .pqt-minus {
+    background: var(--md-grey) !important;
+}
 
-    html.dark ul#myTab,
-    html.dark .add_card_modal_info,
-    html.dark .add_address.show,
-    html.dark .edit_address.show,
-    html.dark .card_edit,
-    html.dark .input1,
-    html.dark .edit-gravatar-modal.show,
-    html.dark .edit-gravatar,
-    html.dark .navigation ul li.active,
-    html.dark .navigation ul li:hover,
-    html.dark .rateSmartphoneBody,
-    html.dark .reply_textarea,
-    html.dark .add_smartphone_main,
-    html.dark .edit_smartphone_main,
-    html.dark .add_user_main,
-    html.dark .edit_user_main,
-    html.dark .add_faq_main,
-    html.dark .edit_faq_main,
-    html.dark .add_smartphone_images ul,
-    html.dark .edit_smartphone_images ul,
-    html.dark #contenidoprincipal\ producto.greyBx::before,
-    html.dark #newsletters,
-    html.dark .product-box,
-    html.dark #darkmode-btn,
-    html.dark .default_address,
-    html.dark .pqt-plus, 
-    html.dark .pqt-minus {
-        background: var(--md-grey) !important;
-    }
+html.dark .user-dashboard-nav-bg>svg {
+    fill: var(--dark-grey) !important;
+}
 
-    html.dark .user-dashboard-nav-bg>svg {
-        fill: var(--dark-grey) !important;
-    }
+html.dark .add_smartphone_upload_image::before,
+html.dark .edit_smartphone_upload_image::before {
+    color: black;
+}
 
-    html.dark .add_smartphone_upload_image::before,
-    html.dark .edit_smartphone_upload_image::before {
-        color: black;
-    }
+/*SPECIAL STYLES*/
+html.dark nav.page-header-top-nav {
+    background: linear-gradient(#303030, #100e17) padding-box, linear-gradient(90deg, #74278e, #e91483) 0/100% no-repeat border-box, linear-gradient(-90deg, #eb7d01, #e9167d 37.5vw, rgb(234 35 79)) 100% 101%/65% 75% no-repeat border-box !important;
+}
 
-    /*SPECIAL STYLES*/
-    html.dark nav.page-header-top-nav {
-        background: linear-gradient(#303030, #100e17) padding-box, linear-gradient(90deg, #74278e, #e91483) 0/100% no-repeat border-box, linear-gradient(-90deg, #eb7d01, #e9167d 37.5vw, rgb(234 35 79)) 100% 101%/65% 75% no-repeat border-box !important;
-    }
+html.dark .loader {
+    border-left-color: var(--dark-grey);
+    border-right-color: var(--dark-grey);
+    border-bottom-color: var(--dark-grey);
 
-    html.dark .loader {
-        border-left-color: var(--dark-grey);
-        border-right-color: var(--dark-grey);
-        border-bottom-color: var(--dark-grey);
+}
 
-    }
+html.dark .user-form:after {
+    border-bottom-color: var(--dark-grey);
+}
 
-    html.dark .user-form:after {
-        border-bottom-color: var(--dark-grey);
-    }
+html.dark .navigation ul li:hover a::before,
+html.dark .navigation ul li.active a::before {
+    box-shadow: 35px 35px 0 10px var(--md-grey) !important;
+}
 
-    html.dark .navigation ul li:hover a::before,
-    html.dark .navigation ul li.active a::before {
-        box-shadow: 35px 35px 0 10px var(--md-grey) !important;
-    }
-
-    html.dark .navigation ul li:hover a::after,
-    html.dark .navigation ul li.active a::after {
-        box-shadow: 35px -35px 0 10px var(--md-grey) !important;
-    }
-
+html.dark .navigation ul li:hover a::after,
+html.dark .navigation ul li.active a::after {
+    box-shadow: 35px -35px 0 10px var(--md-grey) !important;
 }
 
 .switch {
