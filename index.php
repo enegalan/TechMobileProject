@@ -16,9 +16,7 @@
     <script src="https://kit.fontawesome.com/8e4bd12ccb.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/toast.css">
 </head>
-
 <body>
-
     <!--HEADER-->
 	<header id="nav-wrapper">
 		<div class="main_menu" id="show-menu">
@@ -66,7 +64,6 @@
     <!--------->
     <!--Waves Footer-->
     <?php include 'components/waves_footer.php' ?>
-
     <div id="contenidoprincipal index" class="wpb_row vc_row-fluid vc_row standard_section">
         <?php include 'components/header_slider.php' ?>
         <div class="main-index">
@@ -97,27 +94,13 @@
                                     }
                                     $limit--;
                                 }
-
                             ?>
                         </ul>
                     </div>
-
                 </section>
             </section>
             <!--Manufacturers-->
-            <section id="manufacturer">
-                <h3><?= $lang['find_by_manufacturer'] ?></h3>
-                <div class="manufacturers_list">
-                <?php include 'php/list_manufacturers.php'; 
-                    foreach($manufacturers as $manufacturer) {
-                        echo '<div class="manufacturer_article articulo"><a href="manufacturer.php?id=' . $manufacturer['id'] . '">' . 
-                            '<div style="display:flex;justify-content:center;width:100%;height:50%"><img class="manufacturer_logo" src="productos/' . $manufacturer['name'] . '/logo.png"></div>'
-                            . '<div style="display:flex;justify-content:center;align-items:center;width:100%;height:50%;border-top: 1px solid grey;"><span>' . ucfirst($manufacturer['name']) . '</span></div>'
-                            . '</a></div>';
-                    }
-                ?>
-                </div>
-            </section>
+            <?php include 'components/index_manufacturers.php'; ?>
             <!--Newsletters-->
             <section id="newsletters">
                 <h3><?= $lang['looking_for_best_smartphones'] ?></h3>
