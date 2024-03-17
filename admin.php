@@ -32,9 +32,7 @@ if(!isset($_SESSION['id']) && isset($_SESSION['is_admin']) && $_SESSION['is_admi
 </head>
 
 <body>
-    <div id="preload-view">
-            <div class="loader"></div>
-    </div>
+
     <!--HEADER-->
     <header id="nav-wrapper">
         <div class="main_menu" id="show-menu">

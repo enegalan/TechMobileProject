@@ -17,9 +17,7 @@
     <link rel="stylesheet" href="css/toast.css">
 </head>
 <body>
-    <div id="preload-view">
-            <div class="loader"></div>
-    </div>
+
     <!--HEADER-->
 	<header id="nav-wrapper">
 		<div class="main_menu" id="show-menu">

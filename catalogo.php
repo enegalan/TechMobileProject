@@ -22,9 +22,6 @@ if (isset($_GET['search']) && !empty($_GET['search'])) $search = "%" . $_GET['se
 </head>
 
 <body style="background-color: #26282a">
-	<div id="preload-view">
-            <div class="loader"></div>
-    </div>
 	<!--HEADER-->
 	<header id="nav-wrapper">
 		<div class="main_menu" id="show-menu">

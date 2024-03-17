@@ -165,10 +165,3 @@ function detectColorScheme () {
     }
 }
 detectColorScheme();
-
-// Preloading
-document.addEventListener("DOMContentLoaded", function() {
-    setTimeout(function() {
-        document.getElementById("preload-view").style.display = "none";
-    }, 1000);
-});

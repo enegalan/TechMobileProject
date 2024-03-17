@@ -15,9 +15,6 @@
     html.dark .block_specificationInformation_table,
     html.dark .main,
     html.dark .reply_label,
-    html.dark #preload-view {
-        background-color: var(--dark-bg) !important;
-    }
 
     html.dark .sliderBlock_positionControls__paginatorItem,
     html.dark .block_specificationInformation_table tr,
